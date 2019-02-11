@@ -176,6 +176,10 @@ header{
         position: relative;
         top: -25px;
         left: 250px;
+
+        i{
+          font-size: 1.5em;
+        }
       }
 
       p{
@@ -203,7 +207,46 @@ header{
 }
 
 .article{
-  
+  background-color: #1a89b8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  .article-first{
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-column-gap: 20px;
+    
+    div{
+      background-color: #fff;
+      height: 250px;
+    }
+    .background{
+      height: 100%;
+      width: 300px;
+      background: linear-gradient(to right,rgba(33, 140, 189, 0.297),rgb(255, 255, 255)),url(../img/toppen.JPG);
+      background-size: cover;
+      background-position: center;
+      
+      h1{
+        width: 250px;
+        font-size: 3.5em;
+        position: relative;
+        bottom: -170px;
+      }
+    }
+  }
+  .article-second{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    
+    div{
+      background-color: #fff;
+      height: 250px;
+    }
+  }
 }
 
 //Om os

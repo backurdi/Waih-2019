@@ -12,10 +12,9 @@ reusable.head('.head', './reusable/head.html');
 
 const button = $('.play-button');
 
-let i = 0;
 button.click( (event) => {
     let targetElement = event.target.closest('button');
-    // let parent = targetElement.parentNode;
+    const Icon = targetElement.querySelector('.fas');
     let text = targetElement.nextElementSibling;
     let placeholder = text.nextElementSibling;
     
@@ -23,10 +22,14 @@ button.click( (event) => {
         console.log('block');
         text.style.display = "block";
         placeholder.innerHTML = "";
+        Icon.classList.add('fa-headphones');
+        Icon.classList.remove('fa-times');
     } else {
         console.log('none');
         text.style.display = 'none';
         createPlayer(placeholder);
+        Icon.classList.add('fa-times');
+        Icon.classList.remove('fa-headphones');
     }
 });
 
