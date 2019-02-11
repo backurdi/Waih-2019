@@ -1,4 +1,4 @@
-import plyr from 'plyr';
+import Plyr from 'plyr';
 import * as reusable from './reusable-code';
 import '../css/style.scss';
 import '../css/animate.css';
@@ -10,32 +10,32 @@ console.log('Js is connected');
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
 
-const text = $('.player-text');
-const bar = $('.player-bar');
 const button = $('.play-button');
 
+let i = 0;
 button.click( (event) => {
-    let id = event.target.closest('button').id;
-    console.log(id);
-    if (text.textDisplay == 'none') {
+    let targetElement = event.target.closest('button');
+    // let parent = targetElement.parentNode;
+    let text = targetElement.nextElementSibling;
+    let placeholder = text.nextElementSibling;
+    
+    if (text.style.display == 'none') {
         console.log('block');
-        text.css('display','block');
-        bar.innerHTML = "";
+        text.style.display = "block";
+        placeholder.innerHTML = "";
     } else {
         console.log('none');
-        text.css('display','none');
-        createPlayer(bar);
+        text.style.display = 'none';
+        createPlayer(placeholder);
     }
 });
 
 const createPlayer = parent => {
     const playerBar = `
-    <audio class="player" controls>
-        <source src="http://www.noiseaddicts.com/samples_1w72b820/2543.mp3" type="audio/mpeg" />
-    </audio>
+        <audio class="player" controls>
+            <source src="http://www.noiseaddicts.com/samples_1w72b820/2543.mp3" type="audio/mpeg" />
+        </audio>
     `;
-
-    
-    parent.append(playerBar);
-    const player = new plyr('.player');
+    parent.insertAdjacentHTML('beforeEnd', playerBar);
+    Plyr.setup('.player');
 };
