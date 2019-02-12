@@ -22,7 +22,8 @@ body {
   background-image: linear-gradient(to right bottom, #293443, #161b24);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 2 * 4vw); }
+  min-height: calc(100vh - 2 * 4vw);
+  height: 100vh; }
 
 section {
   padding: 0 140px; }
@@ -160,18 +161,23 @@ header {
     grid-column-gap: 20px; }
     .article .article-first div {
       background-color: #fff;
-      height: 250px; }
+      height: 250px;
+      display: flex; }
     .article .article-first .background {
-      height: 100%;
+      display: flex;
       width: 300px;
       background: linear-gradient(to right, rgba(33, 140, 189, 0.297), white), url(627891bf6823a8f78b4af69322478799.JPG);
       background-size: cover;
       background-position: center; }
       .article .article-first .background h1 {
-        width: 250px;
+        width: 350px;
         font-size: 3.5em;
-        position: relative;
-        bottom: -170px; }
+        align-self: flex-end; }
+    .article .article-first p {
+      text-align: right;
+      color: #000;
+      font-family: 'quicksand';
+      font-size: 3em; }
   .article .article-second {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
