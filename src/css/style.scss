@@ -41,6 +41,7 @@ section{
 
 //top navigationen
 header{
+
   width: 100%;
   nav{
     display: grid;
@@ -105,7 +106,7 @@ header{
     }
   }
 }
-
+/*
 //Hero sektion
 #hero{
   background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('../img/hero-bg.jpg') no-repeat center center;
@@ -127,7 +128,7 @@ header{
     color: #4AD8F5;
   }
 }
-
+*/
 //Seneste podcast
 .podcast{
   padding-top: 20px;
