@@ -19,13 +19,11 @@ button.click( (event) => {
     let placeholder = text.nextElementSibling;
     
     if (text.style.display == 'none') {
-        console.log('block');
         text.style.display = "block";
         placeholder.innerHTML = "";
         Icon.classList.add('fa-headphones');
         Icon.classList.remove('fa-times');
     } else {
-        console.log('none');
         text.style.display = 'none';
         createPlayer(placeholder);
         Icon.classList.add('fa-times');

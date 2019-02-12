@@ -48,6 +48,10 @@ module.exports = {
             filename: 'programs.html',
             template: './src/programs.html'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'uploadPodcast.html',
+            template: './src/uploadPodcast.html'
+        }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"

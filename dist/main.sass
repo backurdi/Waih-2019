@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  outline: 0;
   box-sizing: inherit; }
   *::before, *::after {
     box-sizing: inherit; }
@@ -123,17 +124,61 @@ header {
         -o-background-size: cover;
         background-size: cover;
         padding: 25px 0 85px 10px; }
-      .podcast .latest .podcast-episode button {
+      .podcast .latest .podcast-episode .play-button {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         position: relative;
         top: -25px;
         left: 250px; }
+        .podcast .latest .podcast-episode .play-button i {
+          font-size: 1.5em; }
       .podcast .latest .podcast-episode p {
+        display: block;
         position: relative;
         top: -25px;
         margin: 0 10px; }
+      .podcast .latest .podcast-episode .plyr--full-ui {
+        margin-top: -19px; }
+        .podcast .latest .podcast-episode .plyr--full-ui .plyr__controls {
+          border-top: 2px solid #fff;
+          background: rgba(40, 57, 80, 0);
+          color: #fff; }
+        .podcast .latest .podcast-episode .plyr--full-ui .plyr__menu {
+          display: none; }
+
+.article {
+  background-color: #1a89b8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px; }
+  .article .article-first {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-column-gap: 20px; }
+    .article .article-first div {
+      background-color: #fff;
+      height: 250px; }
+    .article .article-first .background {
+      height: 100%;
+      width: 300px;
+      background: linear-gradient(to right, rgba(33, 140, 189, 0.297), white), url(627891bf6823a8f78b4af69322478799.JPG);
+      background-size: cover;
+      background-position: center; }
+      .article .article-first .background h1 {
+        width: 250px;
+        font-size: 3.5em;
+        position: relative;
+        bottom: -170px; }
+  .article .article-second {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px; }
+    .article .article-second div {
+      background-color: #fff;
+      height: 250px; }
 
 .om-os {
   background-image: linear-gradient(rgba(80, 80, 80, 0.84), rgba(80, 80, 80, 0.84)), url(3d0ed7fdfccf4bfc1e9d288cbcd600d6.jpg);
