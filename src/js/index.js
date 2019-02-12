@@ -1,7 +1,8 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
-import podcast from './model/podcasts';
+import Podcast from './model/podcasts';
 import '../css/style.scss';
+import '../css/upload.scss';
 import '../css/animate.css';
 import '../css/queries.css';
 
@@ -13,7 +14,7 @@ console.log('Js is connected');
 const state = {};
 
 const podcasts = async () => {
-        state.podcast = new podcast();
+        state.podcast = new Podcast();
 
         try{
             // 4) Search for recepies

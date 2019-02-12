@@ -7,7 +7,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="main.css" rel="stylesheet"></head>
     <body>
+    <form class="upload_form" action="WaihAPI/upload.php" method="post" enctype="multipart/form-data">
+
+        <input class="" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
+
+        <input class="" placeholder="Værtens navn" type="text" name="hostname" id="hostname" required="required"/>
+
+        <input class="" placeholder="Gæstens navn" type="text" name="guestname" id="guestname" required="required"/>
+
+        <textarea class='autoExpand' name="description" rows='3' data-min-rows='3'
+                  placeholder='En beskrivelse af dagens show'></textarea>
+
+        <input type="file"  id="picture" name="picture" accept="image/jpeg, image/png">
+
+        <input type="file"  id="audioPath" name="audioPath" accept="audio/ogg, audio/mpeg">
+
+        <input type="submit">
+
         
+    </form>
         <script src="" async defer></script>
     <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>

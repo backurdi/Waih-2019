@@ -6,7 +6,7 @@ export default class podcast {
             console.log(podcastResults.data.podcasts);
         } catch (error) {
             alert(error);
-        };
+        }
     }
 
 }

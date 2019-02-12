@@ -28,34 +28,13 @@
         color: #fff;
     }
 
-    :focus{
+    :focus, :hover{
         background: #fff;
         color: black;
-    }
 
-    input[type=submit]:hover{
-        cursor: nesw-resize;
-        background: #fff;
-        color: black;
-    }
-
-    #audioPath::after{
-        position: relative;
-        content: 'Her skal lydefilen uploads';
-        left: 200px;
-        
-    }
-
-    input[type=file]:hover{
-
-    }
-
-    input[type=file]:hover::after{
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -ms-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
+        ::placeholder{
+            color: black;
+        }
     }
 
 
