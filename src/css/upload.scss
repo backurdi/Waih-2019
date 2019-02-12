@@ -34,16 +34,17 @@
     }
 
     :focus, :hover{
+        display: inline-block;
         background: #fff;
         color: black;
     }
     :focus::placeholder, :hover::placeholder{
-        opacity: 0.0;
-        -webkit-transform: translateX(200px);
-        -moz-transform: translateX(200px);
-        -ms-transform: translateX(200px);
-        -o-transform: translateX(200px);
-        transform: translateX(200px);
+        opacity: 0;
+        -webkit-transform: translateX(250px);
+        -moz-transform: translateX(250px);
+        -ms-transform: translateX(250px);
+        -o-transform: translateX(250px);
+        transform: translateX(250px);
     }
 
     label{
@@ -75,6 +76,7 @@
         color: #fff;
         background-color: transparent;
         opacity: 1;
+        opacity: 1;
     }
 
     textarea{
@@ -94,6 +96,10 @@
         border-radius: 5px;
     }
 
+    input[type='submit']{
+       cursor: pointer;
+
+    }
 
 
 }

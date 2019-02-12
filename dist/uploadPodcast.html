@@ -3,19 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
-        <link rel="manifest" href="/favicons/manifest.json">
-        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/favicons/favicon.ico">
-        <meta name="msapplication-config" content="/favicons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet"></head>
     <body>
-    <form class="upload_form" action="WaihAPI/upload.php" method="post" enctype="multipart/form-data">
+    <form class="upload_form" action="/WaihAPI/upload.php" method="post" enctype="multipart/form-data">
 
         <input class="" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
 
@@ -27,15 +21,15 @@
                   placeholder='En beskrivelse af dagens show'></textarea>
 
         <input type="file"  id="picture" name="picture" accept="image/jpeg, image/png">
-        <label for="picture" class="label">Upload et billedet der repræsenterer dagens podcast<i class="fas fa-arrow-circle-right"></i></label>
+        <label for="picture" class="label">Upload et billede der repræsenterer dagens podcast <i class="fas fa-arrow-circle-right"></i></label>
 
         <input type="file"  id="audioPath" name="audioPath" accept="audio/ogg, audio/mpeg">
-        <label for="audioPath" class="label">Lydfilen fra dagens podcast<i class="fas fa-arrow-circle-right"></i></label>
+        <label for="audioPath" class="label">Lydfilen fra dagens podcast <i class="fas fa-arrow-circle-right"></i></label>
 
         <input type="submit">
 
         
     </form>
-        <script src="" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bundle.js"></script></body>
 </html>
