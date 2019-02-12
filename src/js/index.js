@@ -1,14 +1,30 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
+import podcast from './model/podcasts';
 import '../css/style.scss';
 import '../css/animate.css';
 import '../css/queries.css';
 
-console.log('Js is connected');
-
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
+
+console.log('Js is connected');
+const state = {};
+
+const podcasts = async () => {
+        state.podcast = new podcast();
+
+        try{
+            // 4) Search for recepies
+            await state.podcast.getResults();
+        }catch(err){
+            alert('Something went wrong with the search, try again later')
+        }
+        
+    }
+
+    podcasts();
 
 const button = $('.play-button');
 

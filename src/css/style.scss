@@ -221,21 +221,28 @@ header{
     div{
       background-color: #fff;
       height: 250px;
+      display: flex;
     }
     .background{
-      height: 100%;
+      display: flex;
       width: 300px;
       background: linear-gradient(to right,rgba(33, 140, 189, 0.297),rgb(255, 255, 255)),url(../img/toppen.JPG);
       background-size: cover;
       background-position: center;
       
       h1{
-        width: 250px;
+        width: 350px;
         font-size: 3.5em;
-        position: relative;
-        bottom: -170px;
+        align-self: flex-end;
       }
+
     }
+        p{
+          text-align: right;
+          color: #000;
+          font-family: 'quicksand';
+          font-size: 3em;
+        }
   }
   .article-second{
     display: grid;

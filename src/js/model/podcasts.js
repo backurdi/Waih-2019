@@ -1,14 +1,9 @@
 import axios from 'axios';
-import {key, proxy} from '../config'
-export default class Search {
-    constructor(query){
-        this.query = query;
-    }
-
+export default class podcast {
     async getResults(){
         try{
-            const res = await axios(`waih.dk/WaihAPI/read.php`);
-            console.log(this.results);
+            const podcastResults = await axios(`http://waih.dk/WaihAPI/read.php`);
+            console.log(podcastResults.data.podcasts);
         } catch (error) {
             alert(error);
         };
