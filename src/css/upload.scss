@@ -54,24 +54,24 @@
         -ms-transition: all 0.4s;
         -o-transition: all 0.4s;
         transition: all 0.4s;
-        -webkit-transform: translateY(-2.5em) translateX(-420px);
-        -moz-transform: translateY(-2.5em) translateX(-420px);
-        -ms-transform: translateY(-2.5em) translateX(-420px);
-        -o-transform: translateY(-2.5em) translateX(-420px);
-        transform: translateY(-2.5em) translateX(-420px);
+        -webkit-transform: translateY(-2.5em) translateX(-410px);
+        -moz-transform: translateY(-2.5em) translateX(-410px);
+        -ms-transform: translateY(-2.5em) translateX(-410px);
+        -o-transform: translateY(-2.5em) translateX(-410px);
+        transform: translateY(-2.5em) translateX(-410px);
         font-size: 150%;
         margin-top: -1em;
     }
 
     #audioPath+ label{
-        -webkit-transform: translateY(-2.5em) translateX(-345px);
-        -moz-transform: translateY(-2.5em) translateX(-345px);
-        -ms-transform: translateY(-2.5em) translateX(-345px);
-        -o-transform: translateY(-2.5em) translateX(-345px);
-        transform: translateY(-2.5em) translateX(-345px);
+        -webkit-transform: translateY(-2.5em) translateX(-323px);
+        -moz-transform: translateY(-2.5em) translateX(-323px);
+        -ms-transform: translateY(-2.5em) translateX(-323px);
+        -o-transform: translateY(-2.5em) translateX(-323px);
+        transform: translateY(-2.5em) translateX(-323px);
     }
 
-    input[type='file']:hover+ label{
+    input[type='file']:hover+ label, input[type='file']:focus+ label{
         color: #fff;
         background-color: transparent;
         opacity: 1;
