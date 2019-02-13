@@ -154,12 +154,15 @@ header{
       background-color: #4AD8F5;
       .top-part{
         border-radius: 20px 20px 0 0;
-        background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('../img/toppen.JPG') no-repeat center center;
         -webkit-background-size: cover; 
         -moz-background-size: cover; 
         -o-background-size: cover; 
         background-size: cover;
         padding: 25px 0 85px 10px;
+
+        img{
+          height: 20px;
+        }
       }
 
       .play-button{

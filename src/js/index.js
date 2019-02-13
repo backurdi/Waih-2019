@@ -30,7 +30,7 @@ const podcasts = async () => {
             createPlayer(latestPodcast, i);
         }
     }catch(err){
-        alert('Something went wrong with the search, try again later')
+        console.log('Something went wrong with the search, try again later')
     }
         
 }
@@ -60,7 +60,8 @@ button.click((event) => {
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
-        <div class="top-part">
+        <div class="top-part>
+            <img src="${state.podcast.results[i].picture}">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
