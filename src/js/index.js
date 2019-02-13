@@ -57,3 +57,4 @@ const createPlayer = parent => {
     parent.insertAdjacentHTML('beforeEnd', playerBar);
     Plyr.setup('.player');
 };
+

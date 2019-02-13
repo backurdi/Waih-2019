@@ -27,8 +27,7 @@ if (move_uploaded_file($audiofile['tmp_name'], $path)) {
         isset($_POST['hostname']) &&
         isset($_POST['guestname']) &&
         isset($_POST['description']) &&
-        isset($_POST['guestname']) &&
-        isset($_POST['picture'])
+        isset($_POST['guestname'])
     ){
             
       $podcast->title = $_POST['title'];
