@@ -1,9 +1,9 @@
 import axios from 'axios';
-export default class podcast {
+export default class Podcast {
     async getResults(){
         try{
             const podcastResults = await axios(`http://waih.dk/WaihAPI/read.php`);
-            console.log(podcastResults.data.podcasts);
+            this.results = podcastResults.data.podcasts;
         } catch (error) {
             alert(error);
         }
