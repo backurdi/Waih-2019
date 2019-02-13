@@ -61,7 +61,7 @@ const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
         <div class="top-part">
-            <img src=${state.podcast.results[i].picture} />
+            <img class="img" src='${state.podcast.results[i].picture}' />
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
