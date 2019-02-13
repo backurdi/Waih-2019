@@ -28,6 +28,26 @@ const podcasts = async () => {
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
         }
+
+        const button = $('.play-button').on('click', (event) => {
+            console.log('clicked');
+            // let targetElement = event.target.closest('button');
+            // const Icon = targetElement.querySelector('.fas');
+            // let text = targetElement.nextElementSibling;
+            // let placeholder = text.nextElementSibling;
+            
+            // if (text.style.display == 'none') {
+            //     text.style.display = "block";
+            //     placeholder.innerHTML = "";
+            //     Icon.classList.add('fa-headphones');
+            //     Icon.classList.remove('fa-times');
+            // } else {
+            //     text.style.display = 'none';
+            //     createPlayer(placeholder);
+            //     Icon.classList.add('fa-times');
+            //     Icon.classList.remove('fa-headphones');
+            // }
+        });
     }catch(err){
         console.log('Something went wrong with the search, try again later')
     }
@@ -35,29 +55,6 @@ const podcasts = async () => {
 }
 
 podcasts();
-
-const button = $('.play-button');
-
-
-button.on('click',(event) => {
-    console.log('clicked');
-    // let targetElement = event.target.closest('button');
-    // const Icon = targetElement.querySelector('.fas');
-    // let text = targetElement.nextElementSibling;
-    // let placeholder = text.nextElementSibling;
-    
-    // if (text.style.display == 'none') {
-    //     text.style.display = "block";
-    //     placeholder.innerHTML = "";
-    //     Icon.classList.add('fa-headphones');
-    //     Icon.classList.remove('fa-times');
-    // } else {
-    //     text.style.display = 'none';
-    //     createPlayer(placeholder);
-    //     Icon.classList.add('fa-times');
-    //     Icon.classList.remove('fa-headphones');
-    // }
-});
 
 const createPlayer = (parent, i) => {
     const player = `
