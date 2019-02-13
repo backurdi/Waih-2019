@@ -60,13 +60,13 @@ button.click((event) => {
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
-        <div class="top-part>
-            <img src="${state.podcast.results[i].picture}">
+        <div class="top-part">
+            <img src=${state.podcast.results[i].picture} />
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
             <button class="play-button"><i class="fas fa-headphones"></i></button>
-            <p class="player-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros ipsum, dapibus nec lorem vitae, gravida ullamcorper nisi...</p>
+            <p class="player-text">${state.podcast.results[i].description}</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
                     <source src="${state.podcast.results[i].audioPath}" type="audio/mpeg" />

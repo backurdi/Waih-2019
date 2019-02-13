@@ -7,6 +7,8 @@ h1{
 }
 
 .body {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 .upload_form {
@@ -17,6 +19,7 @@ h1{
     align-items: center;
 
     input{
+        caret-color: transparent;
         background-color: inherit;
         cursor: text;
         padding: 15px;
@@ -89,6 +92,7 @@ h1{
     }
 
     textarea{
+        caret-color: transparent;
         overflow: hidden;
         margin: 1em;
         -webkit-transition: all 0.65s;
