@@ -60,8 +60,7 @@ button.click((event) => {
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
-        <div class="top-part">
-            <img class="img" src='${state.podcast.results[i].picture}' />
+        <div class="top-part" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.podcast.results[i].picture}') no-repeat center center;">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
