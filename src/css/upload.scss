@@ -5,6 +5,10 @@ h1{
     text-align: center;
     margin-top: 1em;
 }
+
+body{
+    overflow: hidden;
+}
 .upload_form {
     padding: 5em;
     display: flex;
@@ -101,43 +105,56 @@ h1{
         border-radius: 5px;
     }
 
-    #title{
-        animation-delay: 100ms;
-    }
 
     #hostname{
+        -webkit-animation-delay: 200ms;
+        -moz-animation-delay: 200ms;
+        -o-animation-delay: 200ms;
         animation-delay: 200ms;
     }
 
     #guestname{
-        animation-delay: 300ms;
+        -webkit-animation-delay: 400ms;
+        -moz-animation-delay: 400ms;
+        -o-animation-delay: 400ms;
+        animation-delay: 400ms;
     }
 
     #description{
         height: 50px;
         opacity: 0;
         animation: flipInX 1s, height 1.4s forwards;
-        -webkit-animation-delay: 400ms;
-        -moz-animation-delay: 400ms;
-        -o-animation-delay: 400ms;
-        animation-delay: 400ms;
+        -webkit-animation-delay: 600ms;
+        -moz-animation-delay: 600ms;
+        -o-animation-delay: 600ms;
+        animation-delay: 600ms;
     }
     @-webkit-keyframes height {
         80%{height: 50px; opacity: 1}
-        100% {height: 70px; opacity: 1}
+        100% {height: 75px; opacity: 1}
+    }
+
+
+    #picture{
+        -webkit-animation-delay: 800ms;
+        -moz-animation-delay: 800ms;
+        -o-animation-delay: 800ms;
+        animation-delay: 800ms;
     }
 
     #audioPath{
-        animation-delay: 500ms;
+        -webkit-animation-delay: 1000ms;
+        -moz-animation-delay: 1000ms;
+        -o-animation-delay: 1000ms;
+        animation-delay: 1000ms;
     }
 
-    #picture{
-        animation-delay: 600ms;
-    }
     #submit{
-        animation-iteration-count: 1;
         cursor: pointer;
-        animation-delay: 700ms;
+        -webkit-animation-delay: 1200ms;
+        -moz-animation-delay: 1200ms;
+        -o-animation-delay: 1200ms;
+        animation-delay: 1200ms;
     }
 }
 
