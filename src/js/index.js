@@ -68,7 +68,7 @@ const createPlayer = parent => {
             <p class="player-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros ipsum, dapibus nec lorem vitae, gravida ullamcorper nisi...</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
-                    <source src="" type="audio/mpeg" />
+                    <source src="${state.podcast.results[0].audioPath}" type="audio/mpeg" />
                 </audio>
             </div>
         </div>
