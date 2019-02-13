@@ -12,7 +12,6 @@ reusable.head('.head', './reusable/head.html');
 
 // Base selecting
 const latestPodcast = document.querySelector('.latest');
-const button = $('.play-button');
 
 
 console.log('Js is connected');
@@ -37,24 +36,27 @@ const podcasts = async () => {
 
 podcasts();
 
+const button = $('.play-button');
 
-button.click((event) => {
-    let targetElement = event.target.closest('button');
-    const Icon = targetElement.querySelector('.fas');
-    let text = targetElement.nextElementSibling;
-    let placeholder = text.nextElementSibling;
+
+button.on('click',(event) => {
+    console.log('clicked');
+    // let targetElement = event.target.closest('button');
+    // const Icon = targetElement.querySelector('.fas');
+    // let text = targetElement.nextElementSibling;
+    // let placeholder = text.nextElementSibling;
     
-    if (text.style.display == 'none') {
-        text.style.display = "block";
-        placeholder.innerHTML = "";
-        Icon.classList.add('fa-headphones');
-        Icon.classList.remove('fa-times');
-    } else {
-        text.style.display = 'none';
-        createPlayer(placeholder);
-        Icon.classList.add('fa-times');
-        Icon.classList.remove('fa-headphones');
-    }
+    // if (text.style.display == 'none') {
+    //     text.style.display = "block";
+    //     placeholder.innerHTML = "";
+    //     Icon.classList.add('fa-headphones');
+    //     Icon.classList.remove('fa-times');
+    // } else {
+    //     text.style.display = 'none';
+    //     createPlayer(placeholder);
+    //     Icon.classList.add('fa-times');
+    //     Icon.classList.remove('fa-headphones');
+    // }
 });
 
 const createPlayer = (parent, i) => {
@@ -65,7 +67,7 @@ const createPlayer = (parent, i) => {
         </div>
         <div>
             <button class="play-button"><i class="fas fa-headphones"></i></button>
-            <p class="player-text">${state.podcast.results[i].description}</p>
+            <p class="player-text active">${state.podcast.results[i].description}</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
                     <source src="${state.podcast.results[i].audioPath}" type="audio/mpeg" />

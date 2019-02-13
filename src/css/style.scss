@@ -179,14 +179,18 @@ header{
       }
 
       p{
-        display: block;
+        display: none;
         position: relative;
         top: -25px;
         margin: 0 10px;
       }
+      .active{
+        display: block;
+      }
       .plyr--full-ui{
         margin-top: -19px;
         .plyr__controls{
+          display: none;
           border-top: 2px solid #fff;
           background: rgba(40, 57, 80, 0);
           color: #fff;
