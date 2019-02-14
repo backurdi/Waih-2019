@@ -27,34 +27,40 @@ const podcasts = async () => {
 
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
-        }
-
-        const button = $('.play-button').on('click', (event) => {
-            console.log('clicked');
-            // let targetElement = event.target.closest('button');
-            // const Icon = targetElement.querySelector('.fas');
-            // let text = targetElement.nextElementSibling;
-            // let placeholder = text.nextElementSibling;
-            
-            // if (text.style.display == 'none') {
-            //     text.style.display = "block";
-            //     placeholder.innerHTML = "";
-            //     Icon.classList.add('fa-headphones');
-            //     Icon.classList.remove('fa-times');
-            // } else {
-            //     text.style.display = 'none';
-            //     createPlayer(placeholder);
-            //     Icon.classList.add('fa-times');
-            //     Icon.classList.remove('fa-headphones');
-            // }
-        });
+        };
     }catch(err){
         console.log('Something went wrong with the search, try again later')
-    }
-        
+    }        
 }
 
 podcasts();
+
+const latest = document.querySelector('.latest')
+latest.addEventListener('click', (e) => {
+    if(e.target && e.target.classList == 'play-button') {
+        console.log('clicked');
+        let targetElement = e.target.closest('button');
+        const Icon = targetElement.querySelector('.fas');
+        let text = targetElement.nextElementSibling;
+        let player = text.nextElementSibling;
+        
+        
+        if (text.classList == 'active') {
+            text.classList.remove('active');
+            player.classList.add('active');
+            Icon.classList.add('fa-times');
+            Icon.classList.remove('fa-headphones');
+        } else {
+            text.classList.add('active');
+            player.classList.remove('active');
+            Icon.classList.add('fa-headphones');
+            Icon.classList.remove('fa-times');
+            
+        }
+
+    }
+});
+
 
 const createPlayer = (parent, i) => {
     const player = `
@@ -64,8 +70,8 @@ const createPlayer = (parent, i) => {
         </div>
         <div>
             <button class="play-button"><i class="fas fa-headphones"></i></button>
-            <p class="player-text active">${state.podcast.results[i].description}</p>
-            <div class="player-placeholder">
+            <p class="player-text">${state.podcast.results[i].description}</p>
+            <div class="player-placeholder active">
                 <audio class="player" controls>
                     <source src="${state.podcast.results[i].audioPath}" type="audio/mpeg" />
                 </audio>
