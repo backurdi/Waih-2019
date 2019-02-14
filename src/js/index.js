@@ -22,48 +22,12 @@ const podcasts = async () => {
 
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
-<<<<<<< HEAD
-        };
+        }
     }catch(err){
         console.log('Something went wrong with the search, try again later')
     }        
-}
-
-=======
-        }
-    }catch(err){
-        console.log('Something went wrong with the search, try again later')
-    }
 };
->>>>>>> 458b01233ddeca8c82653e95072418f13f323b9b
 podcasts();
-
-const latest = document.querySelector('.latest')
-latest.addEventListener('click', (e) => {
-    if(e.target && e.target.classList == 'play-button') {
-        console.log('clicked');
-        let targetElement = e.target.closest('button');
-        const Icon = targetElement.querySelector('.fas');
-        let text = targetElement.nextElementSibling;
-        let player = text.nextElementSibling;
-        
-        
-        if (text.classList == 'active') {
-            text.classList.remove('active');
-            player.classList.add('active');
-            Icon.classList.add('fa-times');
-            Icon.classList.remove('fa-headphones');
-        } else {
-            text.classList.add('active');
-            player.classList.remove('active');
-            Icon.classList.add('fa-headphones');
-            Icon.classList.remove('fa-times');
-            
-        }
-
-    }
-});
-
 
 const createPlayer = (parent, i) => {
     const player = `
@@ -86,32 +50,31 @@ const createPlayer = (parent, i) => {
     Plyr.setup('.player');
 
 
-    const button = $('.play-button').on('click', (event) => {
+    $('.play-button').on('click', (e) => {
         //klik på nogle klasser gør at funktionen køres flere gange
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        let tar = event.currentTarget;
-        console.log(tar)
-        if (tar)
-        {console.log('yesss')}
-        else
-        {console.log('no')}
-        // let targetElement = event.target.closest('button');
-        // const Icon = targetElement.querySelector('.fas');
-        // let text = targetElement.nextElementSibling;
-        // let placeholder = text.nextElementSibling;
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        let targetElement = e.target.closest('button');
+        const Icon = targetElement.querySelector('.fas');
+        let text = targetElement.nextElementSibling;
+        let player = text.nextElementSibling;
 
-        // if (text.style.display == 'none') {
-        //     text.style.display = "block";
-        //     placeholder.innerHTML = "";
-        //     Icon.classList.add('fa-headphones');
-        //     Icon.classList.remove('fa-times');
-        // } else {
-        //     text.style.display = 'none';
-        //     createPlayer(placeholder);
-        //     Icon.classList.add('fa-times');
-        //     Icon.classList.remove('fa-headphones');
-        // }
+        if (text.classList.contains('active')) {
+            text.classList.remove('active');
+            player.classList.add('active');
+            Icon.classList.add('fa-times');
+            Icon.classList.remove('fa-headphones');
+        } else {
+            text.classList.add('active');
+            player.classList.remove('active');
+            Icon.classList.add('fa-headphones');
+            Icon.classList.remove('fa-times');
+
+        }
     });
 };
 
+$("#submit").on('click',() => {
+    $(".body").addClass('pyro')
+    console.log("pryo")
+})
