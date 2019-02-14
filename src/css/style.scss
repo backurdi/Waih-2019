@@ -166,22 +166,37 @@ header{
       }
 
       .play-button{
+        background-color: #293443;
+        color: #fff;
         width: 50px;
         height: 50px;
         border-radius: 50%;
         position: relative;
         top: -25px;
         left: 250px;
+        -webkit-transition: all 500ms;
+        -moz-transition: all 500ms;
+        -ms-transition: all 500ms;
+        -o-transition: all 500ms;
+        transition: all 500ms;
+        border: 2px solid transparent;
 
-        i{
+        i {
           font-size: 1.5em;
+          -webkit-transition: all 500ms;
+          -moz-transition: all 500ms;
+          -ms-transition: all 500ms;
+          -o-transition: all 500ms;
+          transition: all 500ms;
           -webkit-animation: zoomIn 500ms forwards;
           -o-animation: zoomIn 500ms forwards;
           animation: zoomIn 500ms forwards;
         }
-
       }
       
+      .play-button:hover ~ i, .play-button:hover{
+        border: 2px solid white;
+      }
       .play-button:active i, i:active{
         -webkit-animation: zoomOut 500ms forwards;
         -o-animation: zoomOut 500ms forwards;
