@@ -77,9 +77,17 @@ const createPlayer = (parent, i) => {
 //fireworks on submit podcast
 $("#submit").on('click',() => {
     const b = $('.body');
-    b.prepend('<div class="before"></div>')
-    b.append('<div class="after"></div>')
+    b.prepend('<div class="before"></div>');
+    b.append('<div class="after"></div>');
 
     setTimeout(()=>($('.before, .after').remove()), 5000)
 
-})
+});
+
+$('audio').bind('play', () => {
+    activated = this;
+    $('audio').each(() => {
+        if(this != activated) this.pause();
+    });
+});
+

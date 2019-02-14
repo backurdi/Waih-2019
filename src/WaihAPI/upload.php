@@ -18,7 +18,7 @@ $podcast = new Podcast($db);
 $audiofile = $_FILES['audioPath'];
 $picture = $_FILES['picture'];
 $name = $audiofile['name'];
-$path = "../audio/" . basename($name);
+$path = "/audio/" . basename($name);
 $uploadComplete = false;
 
 
