@@ -12,48 +12,21 @@ reusable.head('.head', './reusable/head.html');
 
 // Base selecting
 const latestPodcast = document.querySelector('.latest');
-
-
-console.log('Js is connected');
 const state = {};
-
 const podcasts = async () => {
     state.podcast = new Podcast();
 
     try{
         // 1) Get responce
         await state.podcast.getResults();
-        console.log(state.podcast.results);
 
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
         }
-
-        const button = $('.play-button').on('click', (event) => {
-            console.log('clicked');
-            // let targetElement = event.target.closest('button');
-            // const Icon = targetElement.querySelector('.fas');
-            // let text = targetElement.nextElementSibling;
-            // let placeholder = text.nextElementSibling;
-            
-            // if (text.style.display == 'none') {
-            //     text.style.display = "block";
-            //     placeholder.innerHTML = "";
-            //     Icon.classList.add('fa-headphones');
-            //     Icon.classList.remove('fa-times');
-            // } else {
-            //     text.style.display = 'none';
-            //     createPlayer(placeholder);
-            //     Icon.classList.add('fa-times');
-            //     Icon.classList.remove('fa-headphones');
-            // }
-        });
     }catch(err){
         console.log('Something went wrong with the search, try again later')
     }
-        
-}
-
+};
 podcasts();
 
 const createPlayer = (parent, i) => {
@@ -75,5 +48,34 @@ const createPlayer = (parent, i) => {
     `;
     parent.insertAdjacentHTML('beforeEnd', player);
     Plyr.setup('.player');
+
+
+    const button = $('.play-button').on('click', (event) => {
+        //klik på nogle klasser gør at funktionen køres flere gange
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        let tar = event.currentTarget;
+        console.log(tar)
+        if (tar)
+        {console.log('yesss')}
+        else
+        {console.log('no')}
+        // let targetElement = event.target.closest('button');
+        // const Icon = targetElement.querySelector('.fas');
+        // let text = targetElement.nextElementSibling;
+        // let placeholder = text.nextElementSibling;
+
+        // if (text.style.display == 'none') {
+        //     text.style.display = "block";
+        //     placeholder.innerHTML = "";
+        //     Icon.classList.add('fa-headphones');
+        //     Icon.classList.remove('fa-times');
+        // } else {
+        //     text.style.display = 'none';
+        //     createPlayer(placeholder);
+        //     Icon.classList.add('fa-times');
+        //     Icon.classList.remove('fa-headphones');
+        // }
+    });
 };
 

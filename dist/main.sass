@@ -109,14 +109,9 @@ header {
       width: 30px; }
   .podcast .latest {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
     grid-column-gap: 16px; }
-    .podcast .latest .first {
-      grid-column: 1/5; }
-    .podcast .latest .second {
-      grid-column: 5/9; }
-    .podcast .latest .third {
-      grid-column: 9/13; }
     .podcast .latest .podcast-episode {
       margin: 20px 0;
       border-bottom: 1px solid #fff;
@@ -124,12 +119,13 @@ header {
       background-color: #4AD8F5; }
       .podcast .latest .podcast-episode .top-part {
         border-radius: 20px 20px 0 0;
-        background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url(627891bf6823a8f78b4af69322478799.JPG) no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         padding: 25px 0 85px 10px; }
+        .podcast .latest .podcast-episode .top-part img {
+          height: 20px; }
       .podcast .latest .podcast-episode .play-button {
         width: 50px;
         height: 50px;
@@ -140,13 +136,16 @@ header {
         .podcast .latest .podcast-episode .play-button i {
           font-size: 1.5em; }
       .podcast .latest .podcast-episode p {
-        display: block;
+        display: none;
         position: relative;
         top: -25px;
         margin: 0 10px; }
+      .podcast .latest .podcast-episode .active {
+        display: block; }
       .podcast .latest .podcast-episode .plyr--full-ui {
         margin-top: -19px; }
         .podcast .latest .podcast-episode .plyr--full-ui .plyr__controls {
+          display: none;
           border-top: 2px solid #fff;
           background: rgba(40, 57, 80, 0);
           color: #fff; }
@@ -236,6 +235,11 @@ h1 {
   text-align: center;
   margin-top: 1em; }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+
 .upload_form {
   padding: 5em;
   display: flex;
@@ -243,6 +247,7 @@ h1 {
   width: 100%;
   align-items: center; }
   .upload_form input {
+    caret-color: transparent;
     background-color: inherit;
     cursor: text;
     padding: 15px;
@@ -302,6 +307,7 @@ h1 {
     background-color: transparent;
     opacity: 1; }
   .upload_form textarea {
+    caret-color: transparent;
     overflow: hidden;
     margin: 1em;
     -webkit-transition: all 0.65s;
@@ -316,36 +322,48 @@ h1 {
     background: rgba(0, 0, 0, 0);
     border: 1px solid #fff;
     border-radius: 5px; }
-  .upload_form #title {
-    animation-delay: 100ms; }
   .upload_form #hostname {
+    -webkit-animation-delay: 200ms;
+    -moz-animation-delay: 200ms;
+    -o-animation-delay: 200ms;
     animation-delay: 200ms; }
   .upload_form #guestname {
-    animation-delay: 300ms; }
-  .upload_form #description {
-    height: 50px;
-    opacity: 0;
-    animation: flipInX 1s, height 1.4s forwards;
     -webkit-animation-delay: 400ms;
     -moz-animation-delay: 400ms;
     -o-animation-delay: 400ms;
     animation-delay: 400ms; }
+  .upload_form #description {
+    height: 50px;
+    opacity: 0;
+    animation: flipInX 1s, height 1.4s forwards;
+    -webkit-animation-delay: 600ms;
+    -moz-animation-delay: 600ms;
+    -o-animation-delay: 600ms;
+    animation-delay: 600ms; }
 
 @-webkit-keyframes height {
   80% {
     height: 50px;
     opacity: 1; }
   100% {
-    height: 70px;
+    height: 75px;
     opacity: 1; } }
-  .upload_form #audioPath {
-    animation-delay: 500ms; }
   .upload_form #picture {
-    animation-delay: 600ms; }
+    -webkit-animation-delay: 800ms;
+    -moz-animation-delay: 800ms;
+    -o-animation-delay: 800ms;
+    animation-delay: 800ms; }
+  .upload_form #audioPath {
+    -webkit-animation-delay: 1000ms;
+    -moz-animation-delay: 1000ms;
+    -o-animation-delay: 1000ms;
+    animation-delay: 1000ms; }
   .upload_form #submit {
-    animation-iteration-count: 1;
     cursor: pointer;
-    animation-delay: 700ms; }
+    -webkit-animation-delay: 1200ms;
+    -moz-animation-delay: 1200ms;
+    -o-animation-delay: 1200ms;
+    animation-delay: 1200ms; }
 
 /*!
  * animate.css -http://daneden.me/animate
