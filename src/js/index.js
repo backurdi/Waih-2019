@@ -36,7 +36,7 @@ const createPlayer = (parent, i) => {
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
-            <button class="play-button"><i class="fas fa-headphones"></i></button>
+            <button class="play-button hvr-radial-out"><i class="fas fa-headphones"></i></button>
             <p class="player-text active">${state.podcast.results[i].description}</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
