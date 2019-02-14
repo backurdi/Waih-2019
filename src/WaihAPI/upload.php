@@ -19,6 +19,7 @@ $audiofile = $_FILES['audioPath'];
 $picture = $_FILES['picture'];
 $name = $audiofile['name'];
 $path = "../audio/" . basename($name);
+$uploadComplete = false;
 
 
 if (move_uploaded_file($audiofile['tmp_name'], $path)) {
@@ -27,7 +28,8 @@ if (move_uploaded_file($audiofile['tmp_name'], $path)) {
         isset($_POST['hostname']) &&
         isset($_POST['guestname']) &&
         isset($_POST['description']) &&
-        isset($_POST['guestname'])
+        isset($_POST['guestname']) &&
+        $picture['size']>0
     ){
             
       $podcast->title = $_POST['title'];
@@ -38,19 +40,20 @@ if (move_uploaded_file($audiofile['tmp_name'], $path)) {
 
       if ($podcast->upload($path)) {
           http_response_code(201);
-          echo json_encode(array('message' => 'Upload er gennemført Alhamdulillah!'));
+          $uploadComplete = true;
+          echo json_encode( array('uploadSucess'=> $uploadComplete));
 
       } else {
           http_response_code(503);
-          echo json_encode(array('message' => 'Der skete en fejl under upload, prøv igen inshallah'));
+          echo json_encode(array('message' => 'Der skete en fejl under upload, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
       }
 
     } else {
         http_response_code(400);
-        echo json_encode(array('message' => 'Alle felter er ikke udfyldt, prøv igen inshallah'));
+        echo json_encode(array('message' => 'Udfyld venligtst alle felter, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
     }
 
 } else {
     http_response_code(401);
-    echo json_encode(array('message' => 'Filen blev ikke uploaded til serveren, prøv igen inshallah!'));
+    echo json_encode(array('message' => 'Filen blev ikke uploaded til serveren, prøv igen inshallah!', 'uploadSucess' =>$uploadComplete));
 }

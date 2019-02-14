@@ -175,20 +175,39 @@ header{
 
         i{
           font-size: 1.5em;
+          -webkit-animation: zoomIn 500ms forwards;
+          -o-animation: zoomIn 500ms forwards;
+          animation: zoomIn 500ms forwards;
         }
+
+      }
+      
+      .play-button:active i, i:active{
+        -webkit-animation: zoomOut 500ms forwards;
+        -o-animation: zoomOut 500ms forwards;
+        animation: zoomOut 500ms forwards;
       }
 
       p{
-        display: none;
+        opacity: 0;
         position: relative;
         top: -25px;
         margin: 0 10px;
+        -webkit-animation: fadeOut 500ms forwards;
+        -o-animation: fadeOut 500ms forwards;
+        animation: fadeOut 500ms forwards;
       }
       .player-placeholder{
-        display: none;
+        opacity: 0;
+        -webkit-animation: fadeOut 500ms forwards;
+        -o-animation: fadeOut 500ms forwards;
+        animation: fadeOut 500ms forwards;
       }
       .active{
-        display: block;
+        opacity: 1;
+        -webkit-animation: fadeIn 500ms forwards;
+        -o-animation: fadeIn 500ms forwards;
+        animation: fadeIn 500ms forwards;
       }
       .plyr--full-ui{
         margin-top: -19px;

@@ -37,8 +37,8 @@ const createPlayer = (parent, i) => {
         </div>
         <div>
             <button class="play-button"><i class="fas fa-headphones"></i></button>
-            <p class="player-text">${state.podcast.results[i].description}</p>
-            <div class="player-placeholder active">
+            <p class="player-text active">${state.podcast.results[i].description}</p>
+            <div class="player-placeholder">
                 <audio class="player" controls>
                     <source src="${state.podcast.results[i].audioPath}" type="audio/mpeg" />
                 </audio>
@@ -74,7 +74,12 @@ const createPlayer = (parent, i) => {
     });
 };
 
+//fireworks on submit podcast
 $("#submit").on('click',() => {
-    $(".body").addClass('pyro')
-    console.log("pryo")
+    const b = $('.body');
+    b.prepend('<div class="before"></div>')
+    b.append('<div class="after"></div>')
+
+    setTimeout(()=>($('.before, .after').remove()), 5000)
+
 })
