@@ -154,6 +154,7 @@ header{
       border-radius: 20px;
       background-color: #4AD8F5;
       .top-part{
+        border-bottom: 2px solid #fff;
         border-radius: 20px 20px 0 0;
         -webkit-background-size: cover; 
         -moz-background-size: cover; 
@@ -164,6 +165,11 @@ header{
         img{
           height: 20px;
         }
+      }
+      .bottom-part {
+        display: grid;
+        grid-template-rows: 40px 1fr 30px;
+        grid-template-columns: 1fr 1fr 1fr;
       }
 
       .play-button{
@@ -209,44 +215,44 @@ header{
       }
 
       p{
-        -webkit-transition: all 500ms;
-        -moz-transition: all 500ms;
-        -ms-transition: all 500ms;
-        -o-transition: all 500ms;
-        transition: all 500ms;
+        grid-area: 2 / 1 / 2 / -1;
+        -webkit-transition: color 300ms;
+        -moz-transition: color 300ms;
+        -ms-transition: color 300ms;
+        -o-transition: color 300ms;
+        transition: color 300ms;
         position: relative;
         margin: 0 10px;
-        -webkit-animation: fadeOut 500ms forwards;
-        -o-animation: fadeOut 500ms forwards;
-        animation: fadeOut 500ms forwards;
+        visibility: visible;
       }
       .player-placeholder{
+        grid-area: 2 / 1 / 2 / -1;
+        background-color: #4AD8F5;
         -webkit-transition: all 500ms;
         -moz-transition: all 500ms;
         -ms-transition: all 500ms;
         -o-transition: all 500ms;
         transition: all 500ms;
-        -webkit-animation: fadeOut 500ms forwards;
-        -o-animation: fadeOut 500ms forwards;
-        animation: fadeOut 500ms forwards;
+        -webkit-animation: slideOutDown 500ms forwards;
+        -o-animation: slideOutDown 500ms forwards;
+        animation: slideOutDown 500ms forwards;
       }
       .active{
-        -webkit-animation: fadeIn 500ms forwards;
-        -o-animation: fadeIn 500ms forwards;
-        animation: fadeIn 500ms forwards;
+        -webkit-animation: slideInUp 500ms forwards;
+        -o-animation: slideInUp 500ms forwards;
+        animation: slideInUp 500ms forwards;
       }
+
       .plyr--full-ui{
-        margin-top: -19px;
         .plyr__controls{
-          border-top: 2px solid #fff;
           background: rgba(40, 57, 80, 0);
           color: #fff;
         }
 
-        .plyr__menu{
-        }
       }
-
+      .hide{
+        color: #4AD8F5;
+      }
     }
    
   }
