@@ -18,11 +18,11 @@ $podcast = new Podcast($db);
 $audiofile = $_FILES['audioPath'];
 $picture = $_FILES['picture'];
 $name = $audiofile['name'];
-$path = "../audio/" . basename($name);
+$path = "/audio/" . basename($name);
 $uploadComplete = false;
 
 
-if (move_uploaded_file($audiofile['tmp_name'], $path)) {
+if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
 
     if (isset($_POST['title']) &&
         isset($_POST['hostname']) &&

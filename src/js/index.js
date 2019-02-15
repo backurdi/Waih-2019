@@ -36,7 +36,7 @@ const createPlayer = (parent, i) => {
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div>
-            <button class="play-button"><i class="fas fa-headphones"></i></button>
+            <button class="play-button hvr-radial-out"><i class="fas fa-headphones"></i></button>
             <p class="player-text active">${state.podcast.results[i].description}</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
@@ -77,9 +77,17 @@ const createPlayer = (parent, i) => {
 //fireworks on submit podcast
 $("#submit").on('click',() => {
     const b = $('.body');
-    b.prepend('<div class="before"></div>')
-    b.append('<div class="after"></div>')
+    b.prepend('<div class="before"></div>');
+    b.append('<div class="after"></div>');
 
     setTimeout(()=>($('.before, .after').remove()), 5000)
 
-})
+});
+
+$('audio').bind('play', () => {
+    activated = this;
+    $('audio').each(() => {
+        if(this != activated) this.pause();
+    });
+});
+
