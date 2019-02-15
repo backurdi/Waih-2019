@@ -9,7 +9,6 @@ h1{
 .body {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 .upload_form {
     padding: 5em;
@@ -48,8 +47,7 @@ h1{
 
     :focus, :hover{
         display: inline-block;
-        background: #fff;
-        color: black;
+        color: white;
     }
     :focus::placeholder, :hover::placeholder{
         opacity: 0;

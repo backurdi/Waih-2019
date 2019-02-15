@@ -19,7 +19,7 @@ const podcasts = async () => {
     try{
         // 1) Get responce
         await state.podcast.getResults();
-
+        console.log(state.podcast.results);
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
         }
