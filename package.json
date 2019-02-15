@@ -33,6 +33,7 @@
     "babel-polyfill": "^6.26.0",
     "jsdom": "^13.2.0",
     "normalize.scss": "^0.1.0",
-    "plyr": "^3.4.8"
+    "plyr": "^3.4.8",
+    "waypoints": "^4.0.1"
   }
 }
