@@ -13,6 +13,7 @@ reusable.head('.head', './reusable/head.html');
 // Base selecting
 const latestPodcast = document.querySelector('.latest');
 const state = {};
+
 const podcasts = async () => {
     state.podcast = new Podcast();
 
@@ -29,7 +30,7 @@ const podcasts = async () => {
 };
 podcasts();
 
-const createPlayer = (parent, i) => {
+export const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
         <div class="top-part" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.podcast.results[i].picture}') no-repeat center center;">
