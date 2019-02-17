@@ -36,9 +36,9 @@ export const createPlayer = (parent, i) => {
         <div class="top-part" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.podcast.results[i].picture}') no-repeat center center;">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
-        <div>
+        <div class="bottom-part">
             <button class="play-button hvr-radial-out"><i class="fas fa-headphones"></i></button>
-            <p class="player-text active">${state.podcast.results[i].description}</p>
+            <p class="player-text">${state.podcast.results[i].description}</p>
             <div class="player-placeholder">
                 <audio class="player" controls>
                     <source src="${state.podcast.results[i].audioPath}" type="audio/mpeg" />
@@ -60,17 +60,16 @@ export const createPlayer = (parent, i) => {
         let text = targetElement.nextElementSibling;
         let player = text.nextElementSibling;
 
-        if (text.classList.contains('active')) {
-            text.classList.remove('active');
+        if (!player.classList.contains('active')) {
             player.classList.add('active');
             Icon.classList.add('fa-times');
             Icon.classList.remove('fa-headphones');
+            text.classList.add('hide')
         } else {
-            text.classList.add('active');
             player.classList.remove('active');
             Icon.classList.add('fa-headphones');
             Icon.classList.remove('fa-times');
-
+            text.classList.remove('hide');
         }
     });
 };
@@ -85,10 +84,4 @@ $("#submit").on('click',() => {
 
 });
 
-$('audio').bind('play', () => {
-    activated = this;
-    $('audio').each(() => {
-        if(this != activated) this.pause();
-    });
-});
 
