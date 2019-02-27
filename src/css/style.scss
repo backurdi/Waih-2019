@@ -106,29 +106,39 @@ header{
     }
   }
 }
-/*
+
 //Hero sektion
 #hero{
-  background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('../img/hero-bg.jpg') no-repeat center center;
-  -webkit-background-size: cover; 
-  -moz-background-size: cover; 
-  -o-background-size: cover; 
-  background-size: cover;
-  height: 85vh;
-  background-position: 20% 0%;
-  .title{
-    text-transform: uppercase;
-    font-size: 7em;
-    margin-left: 8%;
-    padding-top: 15%;
-  }
+  padding: 20px 0;
 
-  .hørt{
-    font-size: 1.2em;
-    color: #4AD8F5;
+  h1{
+    margin: 0;
+  }
+  .article-content{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+    .visual{
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      padding: 20px;
+      width: 50%;
+      margin-right: 20px;
+      height: 300px;
+
+      h1{
+        text-align: left;
+      }
+    }
+    .info{
+      width: 200px;
+    }
   }
 }
-*/
+
 //Seneste podcast
 .podcast{
   padding-top: 20px;
@@ -141,7 +151,7 @@ header{
       width: 30px;
     }
   }
-  .latest{
+  .latest-podcasts{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
@@ -266,47 +276,26 @@ header{
   padding-top: 20px;
   padding-bottom: 20px;
   display: grid;
-  grid-template-rows: 100px 1fr 1fr;
   grid-gap: 20px;
-  .article-first{
+  .latest-articles{
     display: grid;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
     
     div{
       background-color: #fff;
       height: 250px;
       display: flex;
-    }
-    .background{
-      display: flex;
-      width: 300px;
-      background: linear-gradient(to right,rgba(33, 140, 189, 0.297),rgb(255, 255, 255)),url(../img/toppen.JPG);
-      background-size: cover;
-      background-position: center;
-      
+
       h1{
+        text-align: left;
+        color: #000;
         width: 350px;
         font-size: 3.5em;
         align-self: flex-end;
       }
-
-    }
-        p{
-          text-align: right;
-          color: #000;
-          font-family: 'quicksand';
-          font-size: 3em;
-        }
-  }
-  .article-second{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
-    
-    div{
-      background-color: #fff;
-      height: 250px;
     }
   }
 }

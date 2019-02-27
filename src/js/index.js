@@ -11,7 +11,8 @@ reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
 
 // Base selecting
-const latestPodcast = document.querySelector('.latest');
+const latestPodcast = document.querySelector('.latest-podcasts');
+const latestArticles = document.querySelector('.latest-articles');
 const state = {};
 
 const podcasts = async () => {
@@ -28,9 +29,22 @@ const podcasts = async () => {
         console.log('Something went wrong with the search, try again later')
     }        
 };
-podcasts();
+const articles = () =>{
+    for(let i=0; i<6; i++){
+        createArticle(latestArticles, i);
+    }
+}
 
-export const createPlayer = (parent, i) => {
+const createArticle = (parent, i) =>{
+    const article = `
+    <div>
+        <h1>Headline</h1>
+    </div>`
+    parent.insertAdjacentHTML('beforeEnd', article);
+
+}
+
+const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
         <div class="top-part" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.podcast.results[i].picture}') no-repeat center center;">
@@ -73,6 +87,9 @@ export const createPlayer = (parent, i) => {
         }
     });
 };
+
+podcasts();
+articles();
 
 //fireworks on submit podcast
 $("#submit").on('click',() => {
