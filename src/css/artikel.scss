@@ -1,0 +1,22 @@
+.artiklen{
+
+    div{
+        margin: 0 auto;
+        width: 60%;
+    }
+    #top{
+        background-color: #000;
+        display: flex;
+        justify-content: flex-end;
+        align-content: flex-end;
+        flex-direction: column-reverse;
+        padding: 15% 0 1% 1%;
+        margin-bottom: 20px;
+        h1{
+            text-align: left;
+        }
+    }
+    #content{
+        font-size: 1.4em;
+    }
+}

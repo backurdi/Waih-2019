@@ -42,21 +42,25 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html'
+            template: './src/html/index.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'programs.html',
-            template: './src/programs.html'
+            template: './src/html/programs.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
-            template: './src/uploadPodcast.html'
+            template: './src/html/uploadPodcast.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'artikler.html',
+            template: './src/html/artikler.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'artikel.html',
+            template: './src/html/artikel.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-          }),
-          new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
           }),

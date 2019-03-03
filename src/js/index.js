@@ -3,6 +3,8 @@ import * as reusable from './reusable-code';
 import Podcast from './model/podcasts';
 import '../css/style.scss';
 import '../css/upload.scss';
+import '../css/artikler.scss';
+import '../css/artikel.scss';
 import '../css/animate.css';
 import '../css/queries.css';
 
@@ -13,6 +15,7 @@ reusable.head('.head', './reusable/head.html');
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
+const articleElement = $('.article')
 const state = {};
 
 const podcasts = async () => {
@@ -37,10 +40,19 @@ const articles = () =>{
 
 const createArticle = (parent, i) =>{
     const article = `
-    <div>
+    <div class="article">
         <h1>Headline</h1>
     </div>`
     parent.insertAdjacentHTML('beforeEnd', article);
+    
+    articleElement.on('click', (e) =>{
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        const articleClass = e.target.closest('div').className;
+        document.location.hash = `#${articleClass}`
+
+    });
+
 
 }
 
