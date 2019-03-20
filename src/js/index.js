@@ -110,7 +110,6 @@ $("#submit").on('click',() => {
     b.append('<div class="after"></div>');
 
     setTimeout(()=>($('.before, .after').remove()), 5000)
-
 });
 
 
