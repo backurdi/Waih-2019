@@ -2,6 +2,7 @@ import Plyr from 'plyr';
 import * as reusable from './reusable-code';
 import Podcast from './model/podcasts';
 import Artikler from './model/artikler';
+import Artikel from './model/artikel';
 import '../css/style.scss';
 import '../css/upload.scss';
 import '../css/artikler.scss';
@@ -25,7 +26,6 @@ const podcasts = async () => {
     try{
         // 1) Get responce
         await state.podcast.getResults();
-        console.log(state.podcast.results);
         for(let i=0; i<6; i++){
             createPlayer(latestPodcast, i);
         }
@@ -124,7 +124,6 @@ $("#submit").on('click',() => {
 
 //artikler
 const loadArtikler = () => {
-    console.log(state.artikler.results);
     if(latestArticles){
         for(let i=0; i < 6; i++){
             createArticle(latestArticles, i);
@@ -136,9 +135,32 @@ const loadArtikler = () => {
     }
     $('.artikel').click((e) => {
         let targetArtikel = e.currentTarget.dataset.id;
-        document.location.hash = targetArtikel;
+        window.location.replace('artikel.html#' + targetArtikel);
     });
 };
+
+$(document).ready(() => {
+    if (window.location.hash) {
+        const artikel = async () => {
+            let id = window.location.hash.substr(1);
+            state.artikel = new Artikel();
+
+            try{
+                // 1) Get responce
+                await state.artikel.getResults(id);
+                $('#title').append(state.artikel.results[0].title)
+                $('#subtitle').append(state.artikel.results[0].subtitle)
+                $('#author').append(state.artikel.results[0].author)
+                $('#date').append(state.artikel.results[0].date)
+                $('#body').append(state.artikel.results[0].body)
+            }catch(err){
+                console.log('Something went wrong, try again later')
+            }
+        };
+        artikel();
+    }
+
+});
 
 const articles = (i)=>{
         $("#artikler").append(`

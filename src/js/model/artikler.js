@@ -1,9 +1,9 @@
 import axios from 'axios';
 export default class Artikler {
-    async getResults(){
+    async getResults() {
         try{
-            const artikelResults = await axios(`http://waih.dk/WaihAPI/readArtikler.php`);
-            this.results = artikelResults.data.articles;
+            const artiklerResults = await axios(`http://waih.dk/WaihAPI/readArtikler.php`);
+            this.results = artiklerResults.data.articles;
         } catch (error) {
             alert(error);
         }

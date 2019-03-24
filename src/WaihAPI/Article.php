@@ -38,7 +38,9 @@ class Article
         return $stmt;
     }
 
-    function read(){
+    function read($id){
+        $this->id = $id;
+
         $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
 
         $stmt = $this->conn->prepare($query);
