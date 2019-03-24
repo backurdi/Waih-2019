@@ -1,6 +1,7 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
 import Podcast from './model/podcasts';
+import Artikler from './model/artikler';
 import '../css/style.scss';
 import '../css/upload.scss';
 import '../css/artikler.scss';
@@ -32,19 +33,29 @@ const podcasts = async () => {
         console.log('Something went wrong with the search, try again later')
     }        
 };
-const articles = () =>{
-    for(let i=0; i<6; i++){
-        createArticle(latestArticles, i);
+const artikler = async () => {
+    state.artikler = new Artikler();
+
+    try{
+        // 1) Get responce
+        await state.artikler.getResults();
+        loadArtikler()
+    }catch(err){
+        console.log('Something went wrong with the search, try again later')
     }
-}
+};
 
 const createArticle = (parent, i) =>{
     const article = `
-    <div class="article">
-        <h1>Headline</h1>
-    </div>`
+    <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
+       <div>
+           <h1>${state.artikler.results[i].title}</h1>
+       </div>
+       <h3>${state.artikler.results[i].subtitle}</h3>
+   </div>
+    `
+
     parent.insertAdjacentHTML('beforeEnd', article);
-    
     articleElement.on('click', (e) =>{
         e.stopPropagation();
         e.stopImmediatePropagation();
@@ -52,10 +63,7 @@ const createArticle = (parent, i) =>{
         document.location.hash = `#${articleClass}`
 
     });
-
-
 }
-
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
@@ -101,7 +109,7 @@ const createPlayer = (parent, i) => {
 };
 
 podcasts();
-articles();
+artikler();
 
 //fireworks on submit podcast
 $("#submit").on('click',() => {
@@ -111,5 +119,39 @@ $("#submit").on('click',() => {
 
     setTimeout(()=>($('.before, .after').remove()), 5000)
 });
+
+
+
+//artikler
+const loadArtikler = () => {
+    console.log(state.artikler.results);
+    if(latestArticles){
+        for(let i=0; i < 6; i++){
+            createArticle(latestArticles, i);
+        }
+    } else {
+        for(let i=0; i < state.artikler.results.length; i++){
+            articles(i);
+        }
+    }
+    $('.artikel').click((e) => {
+        let targetArtikel = e.currentTarget.dataset.id;
+        document.location.hash = targetArtikel;
+    });
+};
+
+const articles = (i)=>{
+        $("#artikler").append(`
+        <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
+           <div>
+               <h1>${state.artikler.results[i].title}</h1>
+           </div>
+           <h3>${state.artikler.results[i].subtitle}</h3>
+       </div>
+        `)
+}
+
+
+
 
 

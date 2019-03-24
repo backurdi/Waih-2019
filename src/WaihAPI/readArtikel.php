@@ -12,15 +12,15 @@ header('Content-Type: application/json; charset=UTF-8');
 
 //includes
 include_once 'WaihDB.php';
-include_once 'Podcast.php';
+include_once 'Article.php';
 
 //instantiere db og podcast
 $database = new WaihDB();
 $db = $database->getConnection();
-$podcast = new Podcast($db);
+$article = new Article($db);
 
 //hent data igennem sql kald
-$stmt = $podcast->read();
+$stmt = $article->read();
 
 //se om respons er tom
 $num = $stmt->rowCount();
@@ -29,29 +29,29 @@ if ($num>0) {
 
     //opret arrays
 
-    $podcast_arr=array();
-    $podcast_arr['podcasts']=array();
+    $article_arr=array();
+    $article_arr['articles']=array();
 
     //hent inhold fra tabel
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         //hente rækker fra tabellen således at $row[title] bare bliver $title
         extract($row);
 
-        $podcast_item = array(
+        $article_item = array(
             'id' => $id,
+            'author' => $author,
             'title' => $title,
-            'hostname' => $hostname,
-            'guestname' => $guestname,
-            'description' => html_entity_decode($description),
+            'subtitle' => $subtitle,
+            'body' => html_entity_decode($body),
             'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
-            'audioPath' => $audioPath
+            'date' => $date
         );
 
-        array_push($podcast_arr['podcasts'], $podcast_item);
+        array_push($article_arr['articles'], $article_item);
 
     }
         http_response_code(200);
-        echo json_encode($podcast_arr);
+        echo json_encode($article_arr);
 
 
 } else {

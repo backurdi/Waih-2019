@@ -28,8 +28,18 @@ class Article
 
     }
 
-    function read(){
+    function readAll(){
         $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function read(){
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
 
         $stmt = $this->conn->prepare($query);
 

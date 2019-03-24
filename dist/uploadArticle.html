@@ -15,19 +15,16 @@
     <form autocomplete="off" class="upload_form" action="/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
 
         <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
+        
+        <input class="input hide animated flipInX" placeholder="Under titel" type="text" name="subtitle" id="subtitle" required="required"/>
 
-        <input class="input hide animated flipInX" placeholder="Værtens navn" type="text" name="hostname" id="hostname" required="required"/>
+        <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author" required="required"/>
 
-        <input class="input hide animated flipInX" placeholder="Gæstens navn" type="text" name="guestname" id="guestname" required="required"/>
-
-        <textarea id="description" class="animated flipInX" name="description" rows='1' data-min-rows='1'
-                  placeholder='En beskrivelse af dagens show'></textarea>
+        <textarea id="description" class="animated flipInX" name="body" rows='1' data-min-rows='1'
+                  placeholder='Artiklen skrives ind her'></textarea>
 
         <input class="input hide animated flipInX" type="file"  id="picture" name="picture" accept="image/jpeg, image/png" required>
-        <label for="picture" class="label">Et billede der repræsenterer dagens podcast <i class="fas fa-arrow-circle-right"></i></label>
-
-        <input class="input hide animated flipInX" type="file"  id="audioPath" name="audioPath" accept="audio/ogg, audio/mpeg" required>
-        <label for="audioPath" class="label">Lydfilen fra dagens podcast <i class="fas fa-arrow-circle-right"></i></label>
+        <label for="picture" class="label">Et billede der er passende med artiklen <i class="fas fa-arrow-circle-right"></i></label>
 
         <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
 

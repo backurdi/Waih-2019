@@ -27,7 +27,7 @@ class Podcast
         $this->conn = $db;
     }
 
-    function read(){
+    function readAll(){
     $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
     $stmt = $this->conn->prepare($query);
