@@ -142,17 +142,19 @@ const loadArtikler = () => {
 $(document).ready(() => {
     if (window.location.hash) {
         const artikel = async () => {
-            let id = window.location.hash.substr(1);
+            let id = window.location.hash.replace(/\D/g,'');
             state.artikel = new Artikel();
 
             try{
                 // 1) Get responce
                 await state.artikel.getResults(id);
-                $('#title').append(state.artikel.results[0].title)
-                $('#subtitle').append(state.artikel.results[0].subtitle)
-                $('#author').append(state.artikel.results[0].author)
-                $('#date').append(state.artikel.results[0].date)
-                $('#body').append(state.artikel.results[0].body)
+                    console.log(state.artikel.results[0])
+                    $('#title').html(state.artikel.results[0].title);
+                    $('#subtitle').html(state.artikel.results[0].subtitle);
+                    $('#author').html(state.artikel.results[0].author);
+                    $('#date').html(state.artikel.results[0].date);
+                    $('#body').html(state.artikel.results[0].body);
+
             }catch(err){
                 console.log('Something went wrong, try again later')
             }
