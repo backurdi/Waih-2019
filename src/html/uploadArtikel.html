@@ -13,19 +13,21 @@
     <body class="body pyro">
     <h1 class="animated bounceInDown">Upload Artikel</h1>
     <form autocomplete="off" class="upload_form-a" action="/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
-        <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
+        <input autofocus class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title" required="required"/>
         
-        <input class="input hide animated flipInX" placeholder="Under titel" type="text" name="subtitle" id="subtitle" required="required"/>
+        <input class="input hide animated flipInX" placeholder="Underrubrik" type="text" name="subtitle" id="subtitle" required="required"/>
 
         <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author" required="required"/>
 
-        <input class="input hide animated flipInX" type="file"  id="picture" name="picture" accept="image/jpeg, image/png" required>
-        <label for="picture" class="label">Et billede der er passende med artiklen <i class="fas fa-image"></i></label>
+        <label for="picture" class="label input hide animated flipInX" >
+            <i class="fas fa-image"> </i> <p>Upload billede</p>
+            <input id="picture" type="file" name="picture" accept="image/*"/>
+        </label>
 
         <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
 
         <textarea id="description" class="animated" name="body" rows='10' data-min-rows='10'
-                  placeholder='Artiklen skrives ind her'></textarea>
+                  placeholder='Brødtekst til artiklen'></textarea>
 
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

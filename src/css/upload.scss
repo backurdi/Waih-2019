@@ -280,10 +280,9 @@ $box-shadow2: ();
     grid-template-rows: repeat(7, 1fr);
 
 
-    input{
+    input, label{
         caret-color: transparent;
-        background-color: inherit;
-        cursor: text;
+        background-color: transparent;
         padding: 15px;
         box-shadow: 2px 2px 8px rgba(black, .3);
         margin: 1em;
@@ -296,7 +295,48 @@ $box-shadow2: ();
         -ms-transition: all 0.65s;
         -o-transition: all 0.65s;
         transition: all 0.65s;
+        overflow: hidden;
+
+        p, i{
+            -webkit-transition: all 0.65s;
+            -moz-transition: all 0.65s;
+            -ms-transition: all 0.65s;
+            -o-transition: all 0.65s;
+            transition: all 0.65s;
+            display: inline-block;
+        }
+
+        i{
+            -webkit-transform: translateX(-200%);
+            -moz-transform: translateX(-200%);
+            -ms-transform: translateX(-200%);
+            -o-transform: translateX(-200%);
+            transform: translateX(-200%);
+        }
+        p{
+            -webkit-transform: translateX(-20%);
+            -moz-transform: translateX(-20%);
+            -ms-transform: translateX(-20%);
+            -o-transform: translateX(-20%);
+            transform: translateX(-20%);
+        }
+
+
     }
+
+    input:focus{
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    label:hover p, label:hover i, label:focus p, label:focus i{
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+
+    }
+
 
     ::placeholder{
         color: #fff;
@@ -318,26 +358,6 @@ $box-shadow2: ();
         -ms-transform: translateX(250px);
         -o-transform: translateX(250px);
         transform: translateX(250px);
-    }
-
-    label{
-        font-weight: bold;
-        opacity: 0;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        transition: all 0.4s;
-        font-size: 150%;
-        justify-self: center;
-        transform: translateY(50%);
-    }
-
-    input[type='file']:hover+ label, input[type='file']:focus+ label{
-        color: #fff;
-        background-color: transparent;
-        opacity: 1;
-        transform: translateY(0%);
     }
 
     textarea{
@@ -376,10 +396,10 @@ $box-shadow2: ();
     #description{
         opacity: 0;
         animation: slideInRight 1s, height 1.4s forwards;
-        -webkit-animation-delay: 600ms;
-        -moz-animation-delay: 600ms;
-        -o-animation-delay: 600ms;
-        animation-delay: 600ms;
+        -webkit-animation-delay: 800ms;
+        -moz-animation-delay: 800ms;
+        -o-animation-delay: 800ms;
+        animation-delay: 800ms;
     }
     @-webkit-keyframes height {
         80%{opacity: 1}
@@ -388,10 +408,7 @@ $box-shadow2: ();
 
 
     #picture{
-        -webkit-animation-delay: 800ms;
-        -moz-animation-delay: 800ms;
-        -o-animation-delay: 800ms;
-        animation-delay: 800ms;
+        display: none;
     }
 
     #submit{
