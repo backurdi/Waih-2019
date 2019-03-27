@@ -13,7 +13,7 @@
         display: flex;
         justify-content: flex-end;
         align-content: flex-end;
-        flex-direction: column-reverse;
+        flex-direction: column;
         padding: 15% 0 1% 1%;
         margin-bottom: 20px;
         h1{
@@ -22,5 +22,9 @@
     }
     #content{
         font-size: 1.4em;
+
+        #date {
+
+        }
     }
 }

@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Upload article</title>
+        <title>Upload Artikel</title>
         <div class="head"></div>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="theme-color" content="#ffffff">
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">                  
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
     <body class="body pyro">
-    <h1 class="animated bounceInDown">Upload article</h1>
-    <form autocomplete="off" class="upload_form" action="/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
-
+    <h1 class="animated bounceInDown">Upload Artikel</h1>
+    <form autocomplete="off" class="upload_form-a" action="/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
         <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
         
         <input class="input hide animated flipInX" placeholder="Under titel" type="text" name="subtitle" id="subtitle" required="required"/>
 
         <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author" required="required"/>
 
-        <textarea id="description" class="animated flipInX" name="body" rows='1' data-min-rows='1'
-                  placeholder='Artiklen skrives ind her'></textarea>
-
         <input class="input hide animated flipInX" type="file"  id="picture" name="picture" accept="image/jpeg, image/png" required>
-        <label for="picture" class="label">Et billede der er passende med artiklen <i class="fas fa-arrow-circle-right"></i></label>
+        <label for="picture" class="label">Et billede der er passende med artiklen <i class="fas fa-image"></i></label>
 
         <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
 
-        
+        <textarea id="description" class="animated" name="body" rows='10' data-min-rows='10'
+                  placeholder='Artiklen skrives ind her'></textarea>
+
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </body>

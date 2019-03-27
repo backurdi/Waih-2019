@@ -51,7 +51,6 @@ const createArticle = (parent, i) =>{
        <div>
            <h1>${state.artikler.results[i].title}</h1>
        </div>
-       <h3>${state.artikler.results[i].subtitle}</h3>
    </div>
     `
 
@@ -152,7 +151,7 @@ $(document).ready(() => {
                     $('#title').html(state.artikel.results[0].title);
                     $('#subtitle').html(state.artikel.results[0].subtitle);
                     $('#author').html(state.artikel.results[0].author);
-                    $('#date').html(state.artikel.results[0].date);
+                    $('#date').html('Udgivet den ' +state.artikel.results[0].date);
                     $('#body').html(state.artikel.results[0].body);
 
             }catch(err){
@@ -166,8 +165,8 @@ $(document).ready(() => {
 
 const articles = (i)=>{
         $("#artikler").append(`
-        <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
-           <div>
+        <div class="artikel" data-id="${state.artikler.results[i].id}">
+           <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                <h1>${state.artikler.results[i].title}</h1>
            </div>
            <h3>${state.artikler.results[i].subtitle}</h3>
