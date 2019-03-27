@@ -6,7 +6,7 @@
  * Time: 12.26
  */
 
-class Database
+class WaihDB
 {
 private $host = 'mysql21.unoeuro.com';
 private $db_name = 'waih_dk_db';
