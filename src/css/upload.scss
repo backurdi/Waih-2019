@@ -14,17 +14,17 @@ html {
     flex-direction: column;
 }
 .upload_form {
-    padding: 0 5em 0 5em ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(8, 1fr);
 
-    input{
+    input, label{
+        grid-column: 2 / 2;
         caret-color: transparent;
         background-color: inherit;
         cursor: text;
         padding: 15px;
-        width: 30%;
         box-shadow: 2px 2px 8px rgba(black, .3);
         margin: 1em;
         border: 1px solid #fff;
@@ -36,6 +36,48 @@ html {
         -ms-transition: all 0.65s;
         -o-transition: all 0.65s;
         transition: all 0.65s;
+        overflow: hidden;
+
+        p, i{
+            cursor: pointer;
+            -webkit-transition: all 0.65s;
+            -moz-transition: all 0.65s;
+            -ms-transition: all 0.65s;
+            -o-transition: all 0.65s;
+            transition: all 0.65s;
+            display: inline-block;
+        }
+
+        i{
+            -webkit-transform: translateX(-250%);
+            -moz-transform: translateX(-250%);
+            -ms-transform: translateX(-250%);
+            -o-transform: translateX(-250%);
+            transform: translateX(-250%);
+        }
+        p{
+            margin-left: 10px;
+            display: inline-block;
+            transform: translateX(-35px);
+        }
+
+
+    }
+    label{
+        cursor: pointer;
+    }
+
+    input:focus{
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    label:hover p, label:hover i, label:focus p, label:focus i{
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+
     }
 
     ::placeholder{
@@ -53,26 +95,11 @@ html {
     }
     :focus::placeholder, :hover::placeholder{
         opacity: 0;
-        -webkit-transform: translateX(250px);
-        -moz-transform: translateX(250px);
-        -ms-transform: translateX(250px);
-        -o-transform: translateX(250px);
-        transform: translateX(250px);
-    }
-
-    label{
-        font-weight: bold;
-        opacity: 0;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        transition: all 0.4s;
-        font-size: 150%;
-    }
-
-    #audioPath+ label{
-        grid-area: 5 / 1 / span 1 / span 1;
+        -webkit-transform: translateX(50px);
+        -moz-transform: translateX(50px);
+        -ms-transform: translateX(50px);
+        -o-transform: translateX(50px);
+        transform: translateX(50px);
     }
 
     input[type='file']:hover+ label, input[type='file']:focus+ label{
@@ -82,6 +109,7 @@ html {
     }
 
     textarea{
+        grid-column: 2 / 2;
         caret-color: white;
         overflow: hidden;
         margin: 1em;
@@ -92,7 +120,6 @@ html {
         transition: all 0.65s;
         font-size: 15px;
         padding: 10px;
-        width: 30%;
         color: #fff;
         background: rgba(0,0,0,0);
         border: 1px solid #fff;
@@ -129,21 +156,29 @@ html {
     }
 
 
-    #picture{
+    .picture{
         -webkit-animation-delay: 800ms;
         -moz-animation-delay: 800ms;
         -o-animation-delay: 800ms;
         animation-delay: 800ms;
+        #picture{
+            display: none;
+        }
     }
 
-    #audioPath{
+    .audioPath{
         -webkit-animation-delay: 1000ms;
         -moz-animation-delay: 1000ms;
         -o-animation-delay: 1000ms;
         animation-delay: 1000ms;
+
+        #audioPath{
+            display: none;
+        }
     }
 
     #submit{
+        grid-area: 8 / 2 / span 1 / span 1;
         cursor: pointer;
         -webkit-animation-delay: 1200ms;
         -moz-animation-delay: 1200ms;
