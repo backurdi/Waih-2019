@@ -4,10 +4,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
 module.exports = {
-    entry: ['babel-polyfill', './src/js/index.js'],
+    entry: [
+        'babel-polyfill', 
+        './src/js/index.js',
+        './src/js/upload.js'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     devServer: {
         contentBase: './dist'
@@ -67,10 +76,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-          }),
-          new MiniCssExtractPlugin({
-            filename: "[name].sass",
-            chunkFilename: "[id].sass"
-          })
+        }),
+        new MiniCssExtractPlugin({
+        filename: "[name].sass",
+        chunkFilename: "[id].sass"
+        })
     ],
 };
