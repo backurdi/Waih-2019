@@ -27,8 +27,8 @@ class Podcast
         $this->conn = $db;
     }
 
-    function read(){
-    $query = 'SELECT * FROM ' . $this->table_name;
+    function readAll(){
+    $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
     $stmt = $this->conn->prepare($query);
 
@@ -52,7 +52,6 @@ class Podcast
         $this->hostname=htmlspecialchars(strip_tags($this->hostname));
         $this->guestname=htmlspecialchars(strip_tags($this->guestname));
         $this->description=htmlspecialchars(strip_tags($this->description));
-        $this->picture=htmlspecialchars(strip_tags($this->picture));
         $this->audioPath=htmlspecialchars(strip_tags($this->audioPath));
 
         //erstat placeholders i query

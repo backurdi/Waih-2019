@@ -62,8 +62,8 @@ module.exports = {
             template: './src/html/uploadPodcast.html'
         }),
         new HtmlWebpackPlugin({
-            filename: 'uploadArticle.html',
-            template: './src/html/uploadArticle.html'
+            filename: 'uploadArtikel.html',
+            template: './src/html/uploadArtikel.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',

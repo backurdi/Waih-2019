@@ -277,6 +277,11 @@ header{
   padding-bottom: 20px;
   display: grid;
   grid-gap: 20px;
+
+  h1 {
+    margin:0;
+  }
+
   .latest-articles{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -285,7 +290,6 @@ header{
     grid-row-gap: 20px;
     
     div{
-      background-color: #fff;
       height: 250px;
       display: flex;
 

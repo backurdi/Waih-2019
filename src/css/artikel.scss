@@ -3,13 +3,17 @@
     div{
         margin: 0 auto;
         width: 60%;
+        a {
+            color: white;
+            font-size: 200%;
+        }
     }
     #top{
         background-color: #000;
         display: flex;
         justify-content: flex-end;
         align-content: flex-end;
-        flex-direction: column-reverse;
+        flex-direction: column;
         padding: 15% 0 1% 1%;
         margin-bottom: 20px;
         h1{
@@ -18,5 +22,9 @@
     }
     #content{
         font-size: 1.4em;
+
+        #date {
+
+        }
     }
 }
