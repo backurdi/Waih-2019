@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~polyfill"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~babel"],{
 
 /***/ "./node_modules/babel-polyfill/lib/index.js":
 /*!**************************************************!*\

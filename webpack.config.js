@@ -5,14 +5,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
-        polyfill: path.resolve(__dirname, 'babel-polyfill'), 
-        index: path.resolve(__dirname, './src/js/index.js'),
-        upload:'./src/js/upload.js'
+        babel: 'babel-polyfill', 
+        index: './src/js/index.js',
+        upload: './src//js/upload.js'
     },
-    // output: {
-    //     path: path.resolve(__dirname, '[name].js'),
-    //     filename: path
-    // },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/[name].[chunkhash].bundle.js'
+    },
     optimization: {
         splitChunks: {
             chunks: 'all'
@@ -52,7 +52,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/html/index.html',
-            chunks: ['polyfill', 'index']
+            chunks: ['index']
         }),
         new HtmlWebpackPlugin({
             filename: 'programs.html',
