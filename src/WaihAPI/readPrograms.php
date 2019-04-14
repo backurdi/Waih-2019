@@ -11,17 +11,23 @@ header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-con
 header('Content-Type: application/json; charset=UTF-8');
 
 //includes
-include_once 'WaihDB.php';
-include_once 'Article.php';
+include_once './Model/WaihDB.php';
+include_once './Model/Program.php';
 
 //instantiere db og podcast
 $database = new WaihDB();
 $db = $database->getConnection();
-$article = new Article($db);
+$program = new Program($db);
 $idFromRequest = $_GET['id'];
 
 //hent data igennem sql kald
-$stmt = $article->read($idFromRequest);
+
+if( isset($idFromRequest) )
+{
+    $stmt = $program->read($idFromRequest);
+} else {
+    $stmt = $program->readAll();
+}
 
 //se om respons er tom
 $num = $stmt->rowCount();
@@ -30,29 +36,26 @@ if ($num>0) {
 
     //opret arrays
 
-    $article_arr=array();
-    $article_arr['article']=array();
+    $program_arr=array();
+    $program_arr['program']=array();
 
     //hent inhold fra tabel
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         //hente rækker fra tabellen således at $row[title] bare bliver $title
         extract($row);
 
-        $article_item = array(
+        $program_item = array(
             'id' => $id,
-            'author' => $author,
             'title' => $title,
-            'subtitle' => $subtitle,
-            'body' => html_entity_decode($body),
             'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
-            'date' => $date
+            'colorCode' => $colorCode
         );
 
-        array_push($article_arr['article'], $article_item);
+        array_push($program_arr['articles'], $program_item);
 
     }
         http_response_code(200);
-        echo json_encode($article_arr);
+        echo json_encode($program_arr);
 
 
 } else {

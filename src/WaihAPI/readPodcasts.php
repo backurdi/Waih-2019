@@ -11,8 +11,8 @@ header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-con
 header('Content-Type: application/json; charset=UTF-8');
 
 //includes
-include_once 'WaihDB.php';
-include_once 'Podcast.php';
+include_once './Model/WaihDB.php';
+include_once './Model/Podcast.php';
 
 //instantiere db og podcast
 $database = new WaihDB();

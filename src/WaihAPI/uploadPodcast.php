@@ -6,8 +6,8 @@
  * Time: 15.09
  */
 
-include_once 'WaihDB.php';
-include_once 'Podcast.php';
+include_once './Model/WaihDB.php';
+include_once './Model/Podcast.php';
 
 $database = new WaihDB();
 $db = $database->getConnection();

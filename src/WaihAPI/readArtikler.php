@@ -11,16 +11,23 @@ header('Access-Control-Allow-Headers: X-Requested-With, content-type, access-con
 header('Content-Type: application/json; charset=UTF-8');
 
 //includes
-include_once 'WaihDB.php';
-include_once 'Article.php';
+include_once './Model/WaihDB.php';
+include_once './Model/Article.php';
 
 //instantiere db og podcast
 $database = new WaihDB();
 $db = $database->getConnection();
 $article = new Article($db);
+$idFromRequest = $_GET['id'];
 
 //hent data igennem sql kald
-$stmt = $article->readAll();
+
+if( isset($idFromRequest) )
+{
+    $stmt = $article->read($idFromRequest);
+} else {
+    $stmt = $article->readAll();
+}
 
 //se om respons er tom
 $num = $stmt->rowCount();

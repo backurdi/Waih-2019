@@ -2,24 +2,21 @@
 /**
  * Created by IntelliJ IDEA.
  * User: muneebashraf
- * Date: 2019-03-20
- * Time: 08:49
+ * colorCode: 2019-04-14
+ * Time: 16:09
  */
 
-class Article
+class Program
 {
     //database forbindelse samt database navn
     private $conn;
-    private $table_name = 'articles';
+    private $table_name = 'programs';
 
     //article egenskaber
     public $id;
-    public $author;
     public $title;
-    public $subtitle;
-    public $body;
-    public $date;
     public $picture;
+    public $colorCode;
 
 
     public function __construct($db)
@@ -51,26 +48,21 @@ class Article
     }
 
     function upload(){
-        
+
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET author=:author, title=:title, subtitle=:subtitle, body=:body, picture=:picture, date=:date';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, picture=:picture, colorCode=:colorCode';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
 
         //rens for sql angreb
-        $this->author=htmlspecialchars(strip_tags($this->author));
         $this->title=htmlspecialchars(strip_tags($this->title));
-        $this->subtitle=htmlspecialchars(strip_tags($this->subtitle));
-        $this->body=htmlspecialchars(strip_tags($this->body));
+        $this->colorCode=htmlspecialchars(strip_tags($this->colorCode));
 
         //erstat placeholders i query
-        $stmt->bindParam(':author',$this->author);
         $stmt->bindParam(':title',$this->title);
-        $stmt->bindParam(':subtitle',$this->subtitle);
-        $stmt->bindParam(':body',$this->body);
         $stmt->bindParam(':picture',$this->picture);
-        $stmt->bindParam(':date',$this->date);
+        $stmt->bindParam(':colorCode',$this->colorCode);
 
         //kør query
         if ($stmt->execute()){
@@ -79,7 +71,6 @@ class Article
             return false;
         }
     }
-    
-    
-}
 
+
+}
