@@ -7,6 +7,7 @@ module.exports = {
     entry: {
         babel: 'babel-polyfill',
         index: './src/js/index.js',
+        programs: './src/js/programs.js',
         upload: './src/js/upload.js'
     },
     output: {
@@ -58,7 +59,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'programs.html',
             template: './src/html/programs.html',
-            chunks: ['waih','babel', 'index']
+            chunks: ['waih','babel', 'programs']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'program.html',
+            template: './src/html/program.html',
+            chunks: ['waih','babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
