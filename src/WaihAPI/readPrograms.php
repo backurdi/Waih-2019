@@ -37,7 +37,7 @@ if ($num>0) {
     //opret arrays
 
     $program_arr=array();
-    $program_arr['program']=array();
+    $program_arr['programs']=array();
 
     //hent inhold fra tabel
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -51,7 +51,7 @@ if ($num>0) {
             'colorCode' => $colorCode
         );
 
-        array_push($program_arr['articles'], $program_item);
+        array_push($program_arr['programs'], $program_item);
 
     }
         http_response_code(200);
