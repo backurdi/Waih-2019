@@ -34,7 +34,7 @@ const createPrograms = (parent, i) =>{
         <div class="programs-title-container" style="background-color: ${state.program.results[i].colorCode} ">
           <h3>${state.program.results[i].title}</h3>
         </div>
-      </div>
+    </div>
     `
 
     parent.insertAdjacentHTML('beforeEnd', program);

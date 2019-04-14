@@ -10,6 +10,7 @@
   }
   
   html {
+    overflow: hidden;
     box-sizing: border-box;
     font-size: 62.5%;
     background: linear-gradient(to right bottom, #293443, #161b24);
@@ -132,21 +133,52 @@
       }
     }
   }
+
+
+.title {
+  text-align: center;
+  font-size: 4em;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
 .program-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
     padding: 0 10%;
 
+
     .img-wrapper{
         background-image: url('../img/hero-bg.jpg');
         margin-top: 20px;
         background-size: cover;
         height: 200px;
-        border-radius: 0 20px 0 0;
+        border-radius: 20px 0 20px 0;
     }
 
     .podcasts{
-        margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      overflow: scroll;
+      height: calc(100vh - 15%);
+
+      h1{
+        margin-top: 5px;
+        font-size: 2em;
+        font-weight: 100;
+        line-height: 0.83;
+      }
+
+      .plyr--audio .plyr__controls {
+        margin: 10px 0;
+        background: #1c232c;
+        border: 1px solid #4ad8f5;
+        color: #fff;
+      }
+      .plyr--audio .plyr__progress--buffer, .plyr--audio .plyr__volume--display {
+        background: rgb(68, 73, 87);
+      }
+
     }
 }
