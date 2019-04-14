@@ -80,7 +80,7 @@ header {
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   padding: 0 10%; }
-  .programs-container .programs-img-wrapper {
+  .programs-container .img-wrapper {
     margin-top: 20px;
     background: linear-gradient(rgba(80, 80, 80, 0.84), rgba(80, 80, 80, 0.84)), url(3d0ed7fdfccf4bfc1e9d288cbcd600d6.jpg);
     background-size: cover;
@@ -92,4 +92,16 @@ header {
     border-radius: 0 0 0 20px; }
     .programs-container .programs-title-container h3 {
       font-size: 1.4em; }
+
+.program-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 10%; }
+  .program-container .img-wrapper {
+    margin-top: 20px;
+    background: linear-gradient(rgba(80, 80, 80, 0.84), rgba(80, 80, 80, 0.84)), url(3d0ed7fdfccf4bfc1e9d288cbcd600d6.jpg);
+    background-size: cover;
+    height: 200px;
+    border-radius: 0 20px 0 0; }
 

@@ -115,9 +115,8 @@
     grid-column-gap: 20px;
     padding: 0 10%;
   
-    .programs-img-wrapper{
+    .img-wrapper{
       margin-top: 20px;
-      background: linear-gradient(rgba(80, 80, 80, 0.84), rgba(80, 80, 80, 0.84)), url("../img/omBackground.jpg");
       background-size: cover;
       height: 200px;
       border-radius: 0 20px 0 0;
@@ -135,7 +134,14 @@
   }
 .program-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
     padding: 0 10%;
+
+    .img-wrapper{
+        margin-top: 20px;
+        background-size: cover;
+        height: 200px;
+        border-radius: 0 20px 0 0;
+    }
 }

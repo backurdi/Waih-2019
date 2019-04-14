@@ -1,6 +1,6 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
-import Podcast from './model/programs';
+import Program from './model/programs';
 import '../css/programs.scss';
 import '../css/animate.css';
 import '../css/queries.css';
@@ -9,16 +9,30 @@ import '../css/queries.css';
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
 console.log('programs work');
+let state = {};
 
-const programs = document.querySelector('.programs-container');
+const programsContainer = document.querySelector('.programs-container');
 
+const programs = async () => {
+    state.program = new Program();
+
+    try{
+        await state.program.getResults();
+        console.log(state.program.results);
+        for (var i = 0; i<state.program.results.length; i++){
+            createPrograms(programsContainer, i);
+        }
+    }catch(err){
+        console.log('Something went wrong with the search, try again later')
+    }        
+};
 
 const createPrograms = (parent, i) =>{
     const program = `
     <div class="program">
-        <div class="programs-img-wrapper"></div>
-        <div class="programs-title-container">
-          <h3>Test program</h3>
+        <div class="img-wrapper" style="background-image: url('${state.program.results[i].picture}');"></div>
+        <div class="programs-title-container" style="background-color: ${state.program.results[i].colorCode} ">
+          <h3>${state.program.results[i].title}</h3>
         </div>
       </div>
     `
@@ -33,12 +47,8 @@ const createPrograms = (parent, i) =>{
 
     });
 }
-const testVar = 6;
-for (var i = 0; i<testVar; i++){
-    createPrograms(programs, i);
-}
 
-
+programs();
 
 //artikler
 // const loadArtikler = () => {
