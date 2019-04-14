@@ -139,9 +139,14 @@
     padding: 0 10%;
 
     .img-wrapper{
+        background-image: url('../img/hero-bg.jpg');
         margin-top: 20px;
         background-size: cover;
         height: 200px;
         border-radius: 0 20px 0 0;
+    }
+
+    .podcasts{
+        margin-top: 20px;
     }
 }

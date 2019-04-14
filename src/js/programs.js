@@ -29,7 +29,7 @@ const programs = async () => {
 
 const createPrograms = (parent, i) =>{
     const program = `
-    <div class="program">
+    <div class="program" data-id="${state.program.results[i].id}">
         <div class="img-wrapper" style="background-image: url('${state.program.results[i].picture}');"></div>
         <div class="programs-title-container" style="background-color: ${state.program.results[i].colorCode} ">
           <h3>${state.program.results[i].title}</h3>
@@ -38,17 +38,18 @@ const createPrograms = (parent, i) =>{
     `
 
     parent.insertAdjacentHTML('beforeEnd', program);
-    const programElement = document.querySelector('.program');
-    programElement.addEventListener('click', (e) =>{
+    const programElement = $('.program');
+    programElement.on('click', (e) =>{
         e.stopPropagation();
         e.stopImmediatePropagation();
-        const articleClass = e.target.closest('div').className;
+        const articleClass = e.target.closest('.program').dataset.id;
         document.location.hash = `#${articleClass}`
-
     });
 }
 
+
 programs();
+Plyr.setup('.player');
 
 //artikler
 // const loadArtikler = () => {
