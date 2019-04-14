@@ -1,8 +1,7 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
-import Podcast from './model/podcasts';
-import Artikler from './model/artikler';
-import Artikel from './model/artikel';
+import Podcast from './model/podcast';
+import Artikel from './model/artikler';
 import '../css/style.scss';
 import '../css/upload.scss';
 import '../css/artikler.scss';
@@ -17,7 +16,7 @@ reusable.head('.head', './reusable/head.html');
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
-const articleElement = $('.article')
+const articleElement = $('.article');
 const state = {};
 
 const podcasts = async () => {
@@ -34,7 +33,7 @@ const podcasts = async () => {
     }        
 };
 const artikler = async () => {
-    state.artikler = new Artikler();
+    state.artikler = new Artikel();
 
     try{
         // 1) Get responce
@@ -153,17 +152,16 @@ $(document).ready(() => {
     if (window.location.hash) {
         const artikel = async () => {
             let id = window.location.hash.replace(/\D/g,'');
-            state.artikel = new Artikel();
-
+            state.artikler = new Artikel();
             try{
                 // 1) Get responce
-                await state.artikel.getResults(id);
-                    console.log(state.artikel.results[0])
-                    $('#title').html(state.artikel.results[0].title);
-                    $('#subtitle').html(state.artikel.results[0].subtitle);
-                    $('#author').html(state.artikel.results[0].author);
-                    $('#date').html('Udgivet den ' +state.artikel.results[0].date);
-                    $('#body').html(state.artikel.results[0].body);
+                await state.artikler.getResults(id);
+                    console.log(state.artikler.results[0])
+                    $('#title').html(state.artikler.results[0].title);
+                    $('#subtitle').html(state.artikler.results[0].subtitle);
+                    $('#author').html(state.artikler.results[0].author);
+                    $('#date').html('Udgivet den ' +state.artikler.results[0].date);
+                    $('#body').html(state.artikler.results[0].body);
 
             }catch(err){
                 console.log('Something went wrong, try again later')
