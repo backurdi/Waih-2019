@@ -50,8 +50,15 @@ header {
         margin-right: 60px;
         margin-top: 4%; }
         header nav .main-nav li a {
+          -webkit-transition: border 150ms;
+          -moz-transition: border 150ms;
+          -ms-transition: border 150ms;
+          -o-transition: border 150ms;
+          transition: border 150ms;
           text-decoration: none;
-          color: #fff; }
+          color: #fff;
+          border-bottom: solid transparent 2px;
+          padding-bottom: 2px; }
         header nav .main-nav li a:hover {
           padding-bottom: 2px;
           border-bottom: solid #4AD8F5 2px; }
@@ -257,6 +264,42 @@ footer {
       border: #4AD8F5 solid 1px;
       border-radius: 50%;
       padding: 10px 15px; }
+
+#artikler {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+  #artikler .artikel {
+    margin: 10px 10px 0 0; }
+    #artikler .artikel :first-child {
+      min-height: 250px;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column; }
+      #artikler .artikel :first-child h1 {
+        margin-top: 0;
+        text-align: left; }
+
+.artiklen div {
+  margin: 0 auto;
+  width: 60%; }
+  .artiklen div a {
+    color: white;
+    font-size: 200%; }
+
+.artiklen #top {
+  background-image: url("/img/404.png");
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  flex-direction: column;
+  padding: 15% 0 1% 1%;
+  margin-bottom: 20px; }
+  .artiklen #top h1 {
+    text-align: left; }
+
+.artiklen #content {
+  font-size: 1.4em;
+  text-align: justify; }
 
 /*!
  * animate.css -http://daneden.me/animate

@@ -7,6 +7,7 @@
     box-sizing: inherit; }
 
 html {
+  overflow: hidden;
   box-sizing: border-box;
   font-size: 62.5%;
   background: linear-gradient(to right bottom, #293443, #161b24);
@@ -92,6 +93,12 @@ header {
     .programs-container .programs-title-container h3 {
       font-size: 1.4em; }
 
+#title {
+  text-align: center;
+  font-size: 4em;
+  text-transform: uppercase;
+  margin-top: 15px; }
+
 .program-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -101,8 +108,28 @@ header {
     background-image: url(a6f4f8667f67b3916dcfe1eb65bbbcb7.jpg);
     margin-top: 20px;
     background-size: cover;
-    height: 200px;
-    border-radius: 0 20px 0 0; }
+    height: 270px;
+    border-radius: 20px 0 20px 0; }
+  .program-container .description {
+    margin-top: 1em;
+    font-size: 1.35em;
+    text-align: justify; }
   .program-container .podcasts {
-    margin-top: 20px; }
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    overflow: scroll;
+    height: calc(100vh - 15%); }
+    .program-container .podcasts h1 {
+      margin-top: 5px;
+      font-size: 2em;
+      font-weight: 100;
+      line-height: 0.83; }
+    .program-container .podcasts .plyr--audio .plyr__controls {
+      margin: 10px 0;
+      background: #1c232c;
+      border: 1px solid #4ad8f5;
+      color: #fff; }
+    .program-container .podcasts .plyr--audio .plyr__progress--buffer, .program-container .podcasts .plyr--audio .plyr__volume--display {
+      background: #444957; }
 

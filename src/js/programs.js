@@ -8,26 +8,39 @@ import '../css/queries.css';
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
-console.log('programs work');
-let state = {};
 
+let state = {};
 const programsContainer = document.querySelector('.programs-container');
 
 const programs = async () => {
     state.program = new Program();
+    let id = window.location.hash.replace(/\D/g,'');
 
     try{
-        await state.program.getResults();
-        console.log(state.program.results);
-        for (var i = 0; i<state.program.results.length; i++){
-            createPrograms(programsContainer, i);
+        await state.program.getResults(id);
+        console.log(state.program.results)
+
+        if(window.location.hash) {
+            loadProgram()
+        } else {
+            print("false")
+            for (let i = 0; i<state.program.results.length; i++){
+                createPrograms(i);
+            }
         }
+
     }catch(err){
+        $('#title').html('Siden du leder efter findes ikke');
+        $('.img-wrapper').css("background-image", ` url(../img/404.png)`);
         console.log('Something went wrong with the search, try again later')
-    }        
+    }
 };
 
-const createPrograms = (parent, i) =>{
+history.pushState(state, 'programs', window.location.href);
+programs();
+Plyr.setup('.player');
+
+const createPrograms = (i) => {
     const program = `
     <div class="program" data-id="${state.program.results[i].id}">
         <div class="img-wrapper" style="background-image: url('${state.program.results[i].picture}');"></div>
@@ -37,69 +50,20 @@ const createPrograms = (parent, i) =>{
     </div>
     `
 
-    parent.insertAdjacentHTML('beforeEnd', program);
+    programsContainer.insertAdjacentHTML('beforeEnd', program);
     const programElement = $('.program');
-    programElement.on('click', (e) =>{
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+    programElement.click((e) =>{
         const articleClass = e.target.closest('.program').dataset.id;
-        document.location.hash = `#${articleClass}`
+        document.location.replace(`program.html#${articleClass}`)
     });
 }
 
+const loadProgram = () => {
 
-programs();
-Plyr.setup('.player');
+    $('#title').html(state.program.results[0].title);
+    $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
+    print(state.program.results[0])
+}
 
-//artikler
-// const loadArtikler = () => {
-//     if(latestArticles){
-//         for(let i=0; i < 6; i++){
-//             createArticle(latestArticles, i);
-//         }
-//     } else {
-//         for(let i=0; i < state.artikler.results.length; i++){
-//             articles(i);
-//         }
-//     }
-//     $('.artikel').click((e) => {
-//         let targetArtikel = e.currentTarget.dataset.id;
-//         window.location.replace('artikel.html#' + targetArtikel);
-//     });
-// };
 
-// $(document).ready(() => {
-//     if (window.location.hash) {
-//         const artikel = async () => {
-//             let id = window.location.hash.replace(/\D/g,'');
-//             state.artikel = new Artikel();
-
-//             try{
-//                 // 1) Get responce
-//                 await state.artikel.getResults(id);
-//                     console.log(state.artikel.results[0])
-//                     $('#title').html(state.artikel.results[0].title);
-//                     $('#subtitle').html(state.artikel.results[0].subtitle);
-//                     $('#author').html(state.artikel.results[0].author);
-//                     $('#date').html('Udgivet den ' +state.artikel.results[0].date);
-//                     $('#body').html(state.artikel.results[0].body);
-
-//             }catch(err){
-//                 console.log('Something went wrong, try again later')
-//             }
-//         };
-//         artikel();
-//     }
-
-// });
-
-// const articles = (i)=>{
-//         $("#artikler").append(`
-//         <div class="artikel" data-id="${state.artikler.results[i].id}">
-//            <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
-//                <h1>${state.artikler.results[i].title}</h1>
-//            </div>
-//            <h3>${state.artikler.results[i].subtitle}</h3>
-//        </div>
-//         `)
-// }
+const print = (t) => {console.log(t)}

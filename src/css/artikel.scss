@@ -9,7 +9,8 @@
         }
     }
     #top{
-        background-color: #000;
+        background-size: cover;
+        background-color: black;
         display: flex;
         justify-content: flex-end;
         align-content: flex-end;
@@ -22,6 +23,7 @@
     }
     #content{
         font-size: 1.4em;
+        text-align: justify;
 
         #date {
 

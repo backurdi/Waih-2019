@@ -8,7 +8,8 @@ module.exports = {
         babel: 'babel-polyfill',
         index: './src/js/index.js',
         programs: './src/js/programs.js',
-        upload: './src/js/upload.js'
+        upload: './src/js/upload.js',
+        artikler: './src/js/artikler.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -68,19 +69,23 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
-            template: './src/html/uploadPodcast.html'
+            template: './src/html/uploadPodcast.html',
+            chunks: ['waih','babel', 'upload']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadArtikel.html',
-            template: './src/html/uploadArtikel.html'
+            template: './src/html/uploadArtikel.html',
+            chunks: ['waih','babel', 'upload']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',
-            template: './src/html/artikler.html'
+            template: './src/html/artikler.html',
+            chunks: ['waih','babel', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikel.html',
-            template: './src/html/artikel.html'
+            template: './src/html/artikel.html',
+            chunks: ['waih','babel', 'artikler']
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

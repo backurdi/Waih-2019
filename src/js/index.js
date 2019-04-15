@@ -22,46 +22,42 @@ const state = {};
 const podcasts = async () => {
     state.podcast = new Podcast();
 
-    try{
+    try {
         // 1) Get responce
         await state.podcast.getResults();
-        for(let i=0; i<6; i++){
+        for (let i = 0; i < 6; i++) {
             createPlayer(latestPodcast, i);
         }
-    }catch(err){
-        console.log('Something went wrong with the search, try again later')
-    }        
-};
-const artikler = async () => {
-    state.artikler = new Artikel();
-
-    try{
-        // 1) Get responce
-        await state.artikler.getResults();
-        loadArtikler()
-    }catch(err){
-        console.log('Something went wrong with the search, try again later')
+    } catch (err) {
+        console.log('Something went wrong with the search, try again later1')
     }
 };
 
-const createArticle = (parent, i) =>{
-    const article = `
-    <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
-       <div>
-           <h1>${state.artikler.results[i].title}</h1>
-       </div>
-   </div>
-    `
+const artikler = async () => {
+    state.artikler = new Artikel();
+    try {
+        // 1) Get responce
+        await state.artikler.getResults();
+        for (let i = 0; i < 6; i++) {
+            const article = `
+                <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
+                   <div>
+                       <h1>${state.artikler.results[i].title}</h1>
+                   </div>
+               </div>
+                `;
+            latestArticles.insertAdjacentHTML('beforeEnd', article);
+            $('.artikel').click((e) => {
+                let targetArtikel = e.currentTarget.dataset.id;
+                window.location.replace('artikel.html#' + targetArtikel);
+            });
+        }
 
-    parent.insertAdjacentHTML('beforeEnd', article);
-    articleElement.on('click', (e) =>{
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        const articleClass = e.target.closest('div').className;
-        document.location.hash = `#${articleClass}`
+    } catch (err) {
+        console.log('Something went wrong with the search, try again later2')
+    }
+};
 
-    });
-}
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
@@ -108,82 +104,4 @@ const createPlayer = (parent, i) => {
 
 podcasts();
 artikler();
-
-//fireworks on submit podcast/arcticle
-$("#submit").on('click',() => {
-    let response = false;
-    let fields = $(".input")
-        .find(" textarea, input").serializeArray();
-
-    $.each(fields, (i, field) => {
-        if (field.value)
-            response = true;
-    });
-    if(response) {
-    const b = $('.body');
-    b.prepend('<div class="before"></div>');
-    b.append('<div class="after"></div>');
-
-    setTimeout(()=>($('.before, .after').remove()), 5000)
-    }
-});
-
-
-
-
-//artikler
-const loadArtikler = () => {
-    if(latestArticles){
-        for(let i=0; i < 6; i++){
-            createArticle(latestArticles, i);
-        }
-    } else {
-        for(let i=0; i < state.artikler.results.length; i++){
-            articles(i);
-        }
-    }
-    $('.artikel').click((e) => {
-        let targetArtikel = e.currentTarget.dataset.id;
-        window.location.replace('artikel.html#' + targetArtikel);
-    });
-};
-
-$(document).ready(() => {
-    if (window.location.hash) {
-        const artikel = async () => {
-            let id = window.location.hash.replace(/\D/g,'');
-            state.artikler = new Artikel();
-            try{
-                // 1) Get responce
-                await state.artikler.getResults(id);
-                    console.log(state.artikler.results[0])
-                    $('#title').html(state.artikler.results[0].title);
-                    $('#subtitle').html(state.artikler.results[0].subtitle);
-                    $('#author').html(state.artikler.results[0].author);
-                    $('#date').html('Udgivet den ' +state.artikler.results[0].date);
-                    $('#body').html(state.artikler.results[0].body);
-
-            }catch(err){
-                console.log('Something went wrong, try again later')
-            }
-        };
-        artikel();
-    }
-
-});
-
-const articles = (i)=>{
-        $("#artikler").append(`
-        <div class="artikel" data-id="${state.artikler.results[i].id}">
-           <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
-               <h1>${state.artikler.results[i].title}</h1>
-           </div>
-           <h3>${state.artikler.results[i].subtitle}</h3>
-       </div>
-        `)
-}
-
-
-
-
-
+history.pushState(state, 'index', window.location.href);
