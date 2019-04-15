@@ -58,7 +58,10 @@ header {
           text-decoration: none;
           color: #fff;
           border-bottom: solid transparent 2px;
-          padding-bottom: 2px; }
+          padding-bottom: 2px;
+          -webkit-border-radius: 0 0 2px 2px;
+          -moz-border-radius: 0 0 2px 2px;
+          border-radius: 0 0 2px 2px; }
         header nav .main-nav li a:hover {
           padding-bottom: 2px;
           border-bottom: solid #4AD8F5 2px; }
@@ -287,7 +290,8 @@ footer {
     font-size: 200%; }
 
 .artiklen #top {
-  background-image: url("/img/404.png");
+  background-size: cover;
+  background-color: black;
   display: flex;
   justify-content: flex-end;
   align-content: flex-end;

@@ -105,11 +105,16 @@ header {
   grid-column-gap: 20px;
   padding: 0 10%; }
   .program-container .img-wrapper {
-    background-image: url(a6f4f8667f67b3916dcfe1eb65bbbcb7.jpg);
     margin-top: 20px;
     background-size: cover;
     height: 270px;
     border-radius: 20px 0 20px 0; }
+    .program-container .img-wrapper:hover {
+      -webkit-transform: translateX(10px);
+      -moz-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+      -o-transform: translateX(10px);
+      transform: translateX(10px); }
   .program-container .description {
     margin-top: 1em;
     font-size: 1.35em;
