@@ -20,6 +20,11 @@
 
         <input class="input hide animated flipInX" placeholder="Gæstens navn" type="text" name="guestname" id="guestname" required="required"/>
 
+        <label for="programId" id="programName" class="input hide animated flipInX" >
+        <select id="programId" name="programId" required>
+            <option value="" disabled selected>Vælg et program</option>
+        </select></label>
+
         <textarea id="description" class="animated flipInX" name="description" rows='3' data-min-rows='3'
                   placeholder='En kort beskrivelse'></textarea>
 
@@ -31,10 +36,10 @@
         <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
+        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
 
         
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/waih.8fb2070bb34b27f84fdb.bundle.js"></script><script type="text/javascript" src="js/babel.239ad22462bc71860da4.bundle.js"></script><script type="text/javascript" src="js/upload.c23d3e3a9b44e1cf219b.bundle.js"></script></body>
+    <script type="text/javascript" src="js/waih.f616dd0f0de02c6a29cb.bundle.js"></script><script type="text/javascript" src="js/babel.239ad22462bc71860da4.bundle.js"></script><script type="text/javascript" src="js/upload.72b185bb794ec3c7f687.bundle.js"></script></body>
 </html>

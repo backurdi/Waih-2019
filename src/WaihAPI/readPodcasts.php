@@ -44,7 +44,8 @@ if ($num>0) {
             'guestname' => $guestname,
             'description' => html_entity_decode($description),
             'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
-            'audioPath' => $audioPath
+            'audioPath' => $audioPath,
+            'programId' => $programId
         );
 
         array_push($podcast_arr['podcasts'], $podcast_item);

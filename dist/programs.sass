@@ -85,11 +85,27 @@ header {
     margin-top: 20px;
     background-size: cover;
     height: 200px;
-    border-radius: 0 20px 0 0; }
+    border-radius: 0 20px 0 0;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms; }
+    .programs-container .img-wrapper:hover + div, .programs-container .img-wrapper:hover {
+      -webkit-transform: scale(1.03);
+      -moz-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+      -o-transform: scale(1.03);
+      transform: scale(1.03); }
   .programs-container .programs-title-container {
     background-color: #187dc0;
     padding: 15px 0 15px 20px;
-    border-radius: 0 0 0 20px; }
+    border-radius: 0 0 0 20px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms; }
     .programs-container .programs-title-container h3 {
       font-size: 1.4em; }
 
@@ -109,12 +125,6 @@ header {
     background-size: cover;
     height: 270px;
     border-radius: 20px 0 20px 0; }
-    .program-container .img-wrapper:hover {
-      -webkit-transform: translateX(10px);
-      -moz-transform: translateX(10px);
-      -ms-transform: translateX(10px);
-      -o-transform: translateX(10px);
-      transform: translateX(10px); }
   .program-container .description {
     margin-top: 1em;
     font-size: 1.35em;

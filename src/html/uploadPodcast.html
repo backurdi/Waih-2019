@@ -12,13 +12,18 @@
     </head>
     <body class="body pyro">
     <h1 class="animated bounceInDown">Upload podcast</h1>
-    <form autocomplete="off" class="upload_form" action="/WaihAPI/uploadPodcast.php" method="post" enctype="multipart/form-data">
+    <form autocomplete="off" class="upload_form" action="http://waih.dk/WaihAPI/uploadPodcast.php" method="post" enctype="multipart/form-data">
 
         <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
 
         <input class="input hide animated flipInX" placeholder="Værtens navn" type="text" name="hostname" id="hostname" required="required"/>
 
         <input class="input hide animated flipInX" placeholder="Gæstens navn" type="text" name="guestname" id="guestname" required="required"/>
+
+        <label for="programId" id="programName" class="input hide animated flipInX" >
+        <select id="programId" name="programId" required>
+            <option value="" disabled selected>Vælg et program</option>
+        </select></label>
 
         <textarea id="description" class="animated flipInX" name="description" rows='3' data-min-rows='3'
                   placeholder='En kort beskrivelse'></textarea>
@@ -31,7 +36,7 @@
         <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
+        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
 
         
     </form>

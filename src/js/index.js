@@ -16,7 +16,6 @@ reusable.head('.head', './reusable/head.html');
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
-const articleElement = $('.article');
 const state = {};
 
 const podcasts = async () => {

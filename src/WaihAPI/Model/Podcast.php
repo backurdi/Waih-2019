@@ -20,6 +20,7 @@ class Podcast
     public $description;
     public $picture;
     public $audioPath;
+    public $programId;
 
 
     public function __construct($db)
@@ -42,7 +43,7 @@ class Podcast
         $this->audioPath=$path;
 
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, hostname=:hostname, guestname=:guestname, description=:description, picture=:picture, audioPath=:audioPath';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, hostname=:hostname, guestname=:guestname, description=:description, picture=:picture, audioPath=:audioPath, programId=:programId';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
@@ -53,6 +54,7 @@ class Podcast
         $this->guestname=htmlspecialchars(strip_tags($this->guestname));
         $this->description=htmlspecialchars(strip_tags($this->description));
         $this->audioPath=htmlspecialchars(strip_tags($this->audioPath));
+        $this->programId=htmlspecialchars(strip_tags($this->programId));
 
         //erstat placeholders i query
         $stmt->bindParam(':title',$this->title);
@@ -61,6 +63,7 @@ class Podcast
         $stmt->bindParam(':description',$this->description);
         $stmt->bindParam(':picture',$this->picture);
         $stmt->bindParam(':audioPath',$this->audioPath);
+        $stmt->bindParam(':programId',$this->programId);
 
         //kør query
         if ($stmt->execute()){
