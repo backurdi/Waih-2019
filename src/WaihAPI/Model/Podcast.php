@@ -38,6 +38,18 @@ class Podcast
     return $stmt;
     }
 
+    function read($id){
+        $this->programId = $id;
+
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE programId = ' . $this->programId;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     function upload($path){
         //hent path fra upload filen
         $this->audioPath=$path;

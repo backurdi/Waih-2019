@@ -17,10 +17,17 @@ include_once './Model/Podcast.php';
 //instantiere db og podcast
 $database = new WaihDB();
 $db = $database->getConnection();
+
 $podcast = new Podcast($db);
+$idFromRequest = $_GET['id'];
 
 //hent data igennem sql kald
-$stmt = $podcast->readAll();
+if( isset($idFromRequest) )
+{
+    $stmt = $podcast->read($idFromRequest);
+} else {
+    $stmt = $podcast->readAll();
+}
 
 //se om respons er tom
 $num = $stmt->rowCount();
