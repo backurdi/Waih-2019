@@ -50,7 +50,6 @@ if ($num>0) {
             'hostname' => $hostname,
             'guestname' => $guestname,
             'description' => html_entity_decode($description),
-            'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
             'audioPath' => $audioPath,
             'programId' => $programId
         );

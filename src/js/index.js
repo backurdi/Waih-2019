@@ -44,6 +44,8 @@ const artikler = async () => {
                 <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                    <div>
                        <h1>${state.artikler.results[i].title}</h1>
+                       <h3>${state.artikler.results[i].subtitle}</h3>
+                       <h4>Læs denne artikel <i class="fas fa-arrow-right"> </i></h4>
                    </div>
                </div>
                 `;
@@ -62,7 +64,7 @@ const artikler = async () => {
 const createPlayer = (parent, i) => {
     const player = `
     <div class="podcast-episode first">
-        <div class="top-part" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.podcast.results[i].picture}') no-repeat center center;">
+        <div class="top-part">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
         <div class="bottom-part">

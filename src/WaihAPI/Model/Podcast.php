@@ -18,7 +18,6 @@ class Podcast
     public $hostname;
     public $guestname;
     public $description;
-    public $picture;
     public $audioPath;
     public $programId;
 
@@ -55,7 +54,7 @@ class Podcast
         $this->audioPath=$path;
 
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, hostname=:hostname, guestname=:guestname, description=:description, picture=:picture, audioPath=:audioPath, programId=:programId';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, hostname=:hostname, guestname=:guestname, description=:description, audioPath=:audioPath, programId=:programId';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
@@ -73,7 +72,6 @@ class Podcast
         $stmt->bindParam(':hostname',$this->hostname);
         $stmt->bindParam(':guestname',$this->guestname);
         $stmt->bindParam(':description',$this->description);
-        $stmt->bindParam(':picture',$this->picture);
         $stmt->bindParam(':audioPath',$this->audioPath);
         $stmt->bindParam(':programId',$this->programId);
 
