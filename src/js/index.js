@@ -34,9 +34,11 @@ const podcasts = async () => {
 
 const artikler = async () => {
     state.artikler = new Artikel();
+
     try {
         // 1) Get responce
         await state.artikler.getResults();
+        console.log(state.artikler.results)
         for (let i = 0; i < 6; i++) {
             const article = `
                 <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
