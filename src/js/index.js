@@ -111,7 +111,7 @@ const createPlayer = (i) => {
 
 window.onscroll = () => {
     let scrollY = window.scrollY;
-    let podcastSection = 500;
+    let podcastSection = document.querySelector('.latest-articles').offsetHeight - 50;
     if(scrollY > podcastSection)
         if (!document.querySelector('.latest-podcasts').firstChild){
             podcasts();
