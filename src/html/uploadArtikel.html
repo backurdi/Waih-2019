@@ -24,7 +24,7 @@
             <input id="picture" type="file" name="picture" accept="image/*"/>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
+        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
 
         <textarea id="description" class="animated input" name="body" rows='10' data-min-rows='10'
                   placeholder='Brødtekst til artiklen'></textarea>

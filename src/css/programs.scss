@@ -115,18 +115,38 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
     padding: 0 10%;
-  
+
     .img-wrapper{
       margin-top: 20px;
       background-size: cover;
       height: 200px;
       border-radius: 0 20px 0 0;
+      -webkit-transition: all 500ms;
+      -moz-transition: all 500ms;
+      -ms-transition: all 500ms;
+      -o-transition: all 500ms;
+      transition: all 500ms;
+
+
+      &:hover + div, &:hover{
+        -webkit-transform: scale(1.03);
+        -moz-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        -o-transform: scale(1.03);
+        transform: scale(1.03);
+
+      }
     }
   
     .programs-title-container{
       background-color: #187dc0;
       padding: 15px 0 15px 20px;
       border-radius: 0 0 0 20px;
+      -webkit-transition: all 500ms;
+      -moz-transition: all 500ms;
+      -ms-transition: all 500ms;
+      -o-transition: all 500ms;
+      transition: all 500ms;
   
       h3{
         font-size: 1.4em;
@@ -165,8 +185,8 @@
       display: flex;
       flex-direction: column;
       margin-top: 15px;
-      overflow: scroll;
-      height: calc(100vh - 15%);
+      overflow: auto;
+      height: calc(100vh - 25%);
 
       h1{
         margin-top: 5px;

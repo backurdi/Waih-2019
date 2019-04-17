@@ -17,10 +17,17 @@ include_once './Model/Podcast.php';
 //instantiere db og podcast
 $database = new WaihDB();
 $db = $database->getConnection();
+
 $podcast = new Podcast($db);
+$idFromRequest = $_GET['id'];
 
 //hent data igennem sql kald
-$stmt = $podcast->readAll();
+if( isset($idFromRequest) )
+{
+    $stmt = $podcast->read($idFromRequest);
+} else {
+    $stmt = $podcast->readAll();
+}
 
 //se om respons er tom
 $num = $stmt->rowCount();
@@ -43,8 +50,8 @@ if ($num>0) {
             'hostname' => $hostname,
             'guestname' => $guestname,
             'description' => html_entity_decode($description),
-            'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
-            'audioPath' => $audioPath
+            'audioPath' => $audioPath,
+            'programId' => $programId
         );
 
         array_push($podcast_arr['podcasts'], $podcast_item);

@@ -1,6 +1,7 @@
 import Plyr from 'plyr';
 import * as reusable from './reusable-code';
 import Program from './model/programs';
+import Podcast from './model/podcast';
 import '../css/programs.scss';
 import '../css/animate.css';
 import '../css/queries.css';
@@ -21,9 +22,9 @@ const programs = async () => {
         console.log(state.program.results)
 
         if(window.location.hash) {
-            loadProgram()
+            loadProgram();
+            loadPodcasts();
         } else {
-            print("false")
             for (let i = 0; i<state.program.results.length; i++){
                 createPrograms(i);
             }
@@ -38,11 +39,53 @@ const programs = async () => {
 
 history.pushState(state, 'programs', window.location.href);
 programs();
-Plyr.setup('.player');
+
+
+const loadProgram = () => {
+
+    $('#title').html(state.program.results[0].title);
+    $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
+}
+
+
+const loadPodcasts = async () => {
+    state.podcast = new Podcast();
+
+    try {
+        // 1) Get responce
+        await state.podcast.getResults(state.program.results[0].id);
+        console.log(state.podcast.results)
+
+        let i = 0;
+        for (let podcast of state.podcast.results) {
+            $(".podcasts").append(`
+            <h1 class="podcast-title" data-id="${i++}">${podcast.title}
+                <audio class="player" controls="">
+                    <source src="${podcast.audioPath}" type="audio/mpeg">
+                </audio>
+            </h1>
+            `);
+
+            }
+            $('.podcast-title').on('click', (e) => {
+                let id = e.target.closest('h1').dataset.id;
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                $(".description h4").html('Beskrivelse af ' +state.podcast.results[id].title);
+                $(".description p").html(state.podcast.results[id].description)
+            })
+        Plyr.setup('.player');
+
+
+    } catch (err) {
+        console.log('Something went wrong with the search, try again later1')
+    }
+};
+
 
 const createPrograms = (i) => {
     const program = `
-    <div class="program" data-id="${state.program.results[i].id}">
+    <div class="program animated fadeIn" data-id="${state.program.results[i].id}">
         <div class="img-wrapper" style="background-image: url('${state.program.results[i].picture}');"></div>
         <div class="programs-title-container" style="background-color: ${state.program.results[i].colorCode} ">
           <h3>${state.program.results[i].title}</h3>
@@ -56,14 +99,5 @@ const createPrograms = (i) => {
         const articleClass = e.target.closest('.program').dataset.id;
         document.location.replace(`program.html#${articleClass}`)
     });
-}
+};
 
-const loadProgram = () => {
-
-    $('#title').html(state.program.results[0].title);
-    $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
-    print(state.program.results[0])
-}
-
-
-const print = (t) => {console.log(t)}

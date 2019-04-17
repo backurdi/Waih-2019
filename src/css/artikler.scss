@@ -1,18 +1,68 @@
+
 #artikler{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .artikel{
+        cursor: default;
         margin:10px 10px 0 0;
+        -webkit-transition: all 500ms;
+        -moz-transition: all 500ms;
+        -ms-transition: all 500ms;
+        -o-transition: all 500ms;
+        transition: all 500ms;
         :first-child{
-            min-height: 250px;
+            overflow: hidden;
+            min-height: 200px;
             display: flex;
             justify-content: flex-end;
             flex-direction: column;
             h1{
-                margin-top: 0;
                 text-align: left;
+                -webkit-transition: all 200ms;
+                -moz-transition: all 200ms;
+                -ms-transition: all 200ms;
+                -o-transition: all 200ms;
+                transition: all 200ms;
             }
 
+            h3 {
+                font-size: 2em;
+                -webkit-transition: all 200ms;
+                -moz-transition: all 200ms;
+                -ms-transition: all 200ms;
+                -o-transition: all 200ms;
+                transition: all 200ms;
+                margin-bottom: 15px;
+            }
+            h4 {
+                text-align: center;
+                font-size: 1.5em;
+                opacity: 0;
+                -webkit-transition: all 200ms;
+                -moz-transition: all 200ms;
+                -ms-transition: all 200ms;
+                -o-transition: all 200ms;
+                transition: all 200ms;
+                -webkit-transform: translateY(100px);
+                -moz-transform: translateY(100px);
+                -ms-transform: translateY(100px);
+                -o-transform: translateY(100px);
+                transform: translateY(100px);
+
+                i {
+                    display: inline;
+                }
+            }
+
+            &:hover h3, &:hover h4, &:hover h1{
+                opacity: 1;
+                -webkit-transform: translateY(-30px);
+                -moz-transform: translateY(-30px);
+                -ms-transform: translateY(-30px);
+                -o-transform: translateY(-30px);
+                transform: translateY(-30px);
+            } 
+          
         }
     }
 }

@@ -12,7 +12,7 @@
     <link href="waih.css" rel="stylesheet"></head>
     <body class="body pyro">
     <h1 class="animated bounceInDown">Upload podcast</h1>
-    <form autocomplete="off" class="upload_form" action="/WaihAPI/uploadPodcast.php" method="post" enctype="multipart/form-data">
+    <form autocomplete="off" class="upload_form" action="http://waih.dk/WaihAPI/uploadPodcast.php" method="post" enctype="multipart/form-data">
 
         <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
 
@@ -23,18 +23,21 @@
         <textarea id="description" class="animated flipInX" name="description" rows='3' data-min-rows='3'
                   placeholder='En kort beskrivelse'></textarea>
 
-        <label for="picture" class="label picture input hide animated flipInX"><i class="fas fa-image"></i> <p> Upload et billede</p>
-        <input  type="file"  id="picture" name="picture" accept="image/jpeg, image/png" required>
+
+        <label for="programId" id="programName" class="input hide animated flipInX" >
+            <select id="programId" name="programId" required>
+                <option value="" disabled selected>Vælg et program</option>
+            </select>
         </label>
 
         <label for="audioPath" class="label audioPath input hide animated flipInX"><i class="fas fa-music"></i> <p> Lydfilen fra dagens podcast</p>
         <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="this.form.reset()">
+        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
 
         
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/waih.f0a7916e153ab806a2d1.bundle.js"></script><script type="text/javascript" src="js/babel.239ad22462bc71860da4.bundle.js"></script><script type="text/javascript" src="js/upload.c23d3e3a9b44e1cf219b.bundle.js"></script></body>
+    <script type="text/javascript" src="js/waih.455b2daecf721a58d893.bundle.js"></script><script type="text/javascript" src="js/babel.239ad22462bc71860da4.bundle.js"></script><script type="text/javascript" src="js/upload.72b185bb794ec3c7f687.bundle.js"></script></body>
 </html>

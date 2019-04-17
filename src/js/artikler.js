@@ -44,11 +44,12 @@ let state = {};
 const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
         $("#artikler").append(`
-        <div class="artikel" data-id="${state.artikler.results[i].id}">
+        <div class="artikel animated fadeIn" data-id="${state.artikler.results[i].id}">
            <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                <h1>${state.artikler.results[i].title}</h1>
+               <h3>${state.artikler.results[i].subtitle}</h3>
+               <h4>Læs denne artikel <i class="fas fa-arrow-right"> </i></h4>
            </div>
-           <h3>${state.artikler.results[i].subtitle}</h3>
        </div>
         `)
     }

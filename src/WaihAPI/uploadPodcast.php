@@ -16,7 +16,6 @@ $podcast = new Podcast($db);
 
 
 $audiofile = $_FILES['audioPath'];
-$picture = $_FILES['picture'];
 $name = $audiofile['name'];
 $path = "/audio/" . basename($name);
 $uploadComplete = false;
@@ -29,18 +28,19 @@ if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
         isset($_POST['guestname']) &&
         isset($_POST['description']) &&
         isset($_POST['guestname']) &&
-        $picture['size']>0
+        isset($_POST['programId'])
     ){
             
       $podcast->title = $_POST['title'];
       $podcast->hostname = $_POST['hostname'];
       $podcast->guestname = $_POST['guestname'];
       $podcast->description = $_POST['description'];
-      $podcast->picture = file_get_contents($picture['tmp_name']);
+      $podcast->programId = $_POST['programId'];
 
       if ($podcast->upload($path)) {
-          http_response_code(201);
           $uploadComplete = true;
+          http_response_code(201);
+          header( "Content-type: application/json" );
           echo json_encode( array('uploadSucess'=> $uploadComplete));
 
       } else {

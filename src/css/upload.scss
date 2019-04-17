@@ -3,7 +3,7 @@ h1{
     font-family: 'quicksand';
     font-weight: 700;
     text-align: center;
-    margin: 1em 0 1em 0;
+    margin: 0.5em 0 0.5em 0;
 }
 
 html {
@@ -141,6 +141,23 @@ html {
         animation-delay: 400ms;
     }
 
+    #programId {
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        height: 100%;
+        -webkit-appearance: none;
+        border: none;
+        font-size: 15px;
+
+    }
+    #programName{
+        -webkit-animation-delay: 800ms;
+        -moz-animation-delay: 800ms;
+        -o-animation-delay: 800ms;
+        animation-delay: 800ms;
+    }
+
     #description{
         height: 50px;
         opacity: 0;
@@ -156,22 +173,11 @@ html {
     }
 
 
-    .picture{
-        -webkit-animation-delay: 800ms;
-        -moz-animation-delay: 800ms;
-        -o-animation-delay: 800ms;
-        animation-delay: 800ms;
-        #picture{
-            display: none;
-        }
-    }
-
     .audioPath{
         -webkit-animation-delay: 1000ms;
         -moz-animation-delay: 1000ms;
         -o-animation-delay: 1000ms;
         animation-delay: 1000ms;
-
         #audioPath{
             display: none;
         }

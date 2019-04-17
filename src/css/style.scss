@@ -77,6 +77,9 @@ header{
           color: #fff;
           border-bottom: solid transparent 2px;
           padding-bottom: 2px;
+          -webkit-border-radius: 0 0 2px 2px;
+          -moz-border-radius: 0 0 2px 2px;
+          border-radius: 0 0 2px 2px;
         }
 
         a:hover{
@@ -168,16 +171,16 @@ header{
       overflow: hidden;
       margin: 20px 0;
       border-bottom: 1px solid #293443;
-      border-radius: 20px;
+      border-radius: 5px;
       background-color: #4AD8F5;
       .top-part{
+        background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67));
         border-bottom: 2px solid #fff;
-        border-radius: 20px 20px 0 0;
-        -webkit-background-size: cover; 
+        -webkit-background-size: cover;
         -moz-background-size: cover; 
         -o-background-size: cover; 
         background-size: cover;
-        padding: 25px 0 85px 10px;
+        padding: 25px 0 30px 10px;
 
         img{
           height: 20px;
@@ -279,16 +282,52 @@ header{
 }
 
 //Seneste artikler
-.article{
+
+.articles{
   background-color: #1a89b8;
   padding-top: 20px;
   padding-bottom: 20px;
   display: grid;
   grid-gap: 20px;
 
-  h1 {
-    margin:0;
-  }
+    h1 {
+      margin-left: 10px;
+      -webkit-transition: all 200ms;
+      -moz-transition: all 200ms;
+      -ms-transition: all 200ms;
+      -o-transition: all 200ms;
+      transition: all 200ms;
+    }
+
+    h3 {
+      margin-left: 10px;
+      font-size: 2em;
+      -webkit-transition: all 200ms;
+      -moz-transition: all 200ms;
+      -ms-transition: all 200ms;
+      -o-transition: all 200ms;
+      transition: all 200ms;
+      margin-bottom: 15px;
+    }
+    h4 {
+      text-align: center;
+      font-size: 1.5em;
+      opacity: 0;
+      -webkit-transition: all 200ms;
+      -moz-transition: all 200ms;
+      -ms-transition: all 200ms;
+      -o-transition: all 200ms;
+      transition: all 200ms;
+      -webkit-transform: translateY(100px);
+      -moz-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+      -o-transform: translateY(100px);
+      transform: translateY(100px);
+
+      i {
+        display: inline;
+      }
+}
 
   .latest-articles{
     display: grid;
@@ -296,17 +335,28 @@ header{
     grid-template-rows: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    
+
     div{
       height: 250px;
       display: flex;
+      overflow: hidden;
+      justify-content: flex-end;
+      flex-direction: column;
+
+      &:hover h3, &:hover h4, &:hover h1{
+        opacity: 1;
+        -webkit-transform: translateY(-30px);
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -o-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
 
       h1{
         text-align: left;
         color: #000;
-        width: 350px;
         font-size: 3.5em;
-        align-self: flex-end;
+
       }
     }
   }
