@@ -18,17 +18,21 @@ const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
 const state = {};
 
+
 const podcasts = async () => {
     state.podcast = new Podcast();
 
     try {
         // 1) Get responce
         await state.podcast.getResults();
+
         for (let i = 0; i < 6; i++) {
-            createPlayer(latestPodcast, i);
+            createPlayer(i);
         }
+
+
     } catch (err) {
-        console.log('Something went wrong with the search, try again later1')
+        console.log('Something went wrong with the search, try again later\n'+err)
     }
 };
 
@@ -38,10 +42,10 @@ const artikler = async () => {
     try {
         // 1) Get responce
         await state.artikler.getResults();
-        console.log(state.artikler.results)
+
         for (let i = 0; i < 6; i++) {
             const article = `
-                <div class="artikel" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
+                <div class="artikel animated fadeInRight" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                    <div>
                        <h1>${state.artikler.results[i].title}</h1>
                        <h3>${state.artikler.results[i].subtitle}</h3>
@@ -57,13 +61,13 @@ const artikler = async () => {
         }
 
     } catch (err) {
-        console.log('Something went wrong with the search, try again later2')
+        console.log('Something went wrong with the search, try again later\n' +err)
     }
 };
 
-const createPlayer = (parent, i) => {
+const createPlayer = (i) => {
     const player = `
-    <div class="podcast-episode first">
+    <div class="podcast-episode first animated fadeInLeft">
         <div class="top-part">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
@@ -78,7 +82,7 @@ const createPlayer = (parent, i) => {
         </div>
     </div>
     `;
-    parent.insertAdjacentHTML('beforeEnd', player);
+    latestPodcast.insertAdjacentHTML('beforeEnd', player);
     Plyr.setup('.player');
 
 
@@ -105,6 +109,14 @@ const createPlayer = (parent, i) => {
     });
 };
 
-podcasts();
+window.onscroll = () => {
+    let scrollY = window.scrollY;
+    let podcastSection = 500;
+    if(scrollY > podcastSection)
+        if (!document.querySelector('.latest-podcasts').firstChild){
+            podcasts();
+        }
+}
+
 artikler();
 history.pushState(state, 'index', window.location.href);
