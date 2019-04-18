@@ -188,19 +188,21 @@ header{
       }
       .bottom-part {
         display: grid;
-        grid-template-rows: 40px 1fr 30px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 40px 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .play-button{
         background-color: #293443;
         color: #fff;
+        grid-column: 3/4;
+        grid-row: 1/2;
         width: 50px;
         height: 50px;
+        justify-self: right;
         border-radius: 50%;
-        position: relative;
-        top: -25px;
-        left: 250px;
+        margin-right: 20px;
+        margin-top: -25px;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         -ms-transition: all .3s;
@@ -235,7 +237,6 @@ header{
       }
 
       .player-text {
-        align-self: center;
         grid-area: 2 / 1 / 2 / -1;
         -webkit-transition: color 300ms;
         -moz-transition: color 300ms;
@@ -332,7 +333,6 @@ header{
   .latest-articles{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 

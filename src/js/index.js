@@ -8,6 +8,9 @@ import '../css/artikler.scss';
 import '../css/artikel.scss';
 import '../css/animate.css';
 import '../css/queries.css';
+import Glide from '@glidejs/glide'
+
+new Glide('.glide').mount()
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
@@ -43,7 +46,7 @@ const artikler = async () => {
         // 1) Get responce
         await state.artikler.getResults();
 
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 3; i++) {
             const article = `
                 <div class="artikel animated fadeInRight" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                    <div>
