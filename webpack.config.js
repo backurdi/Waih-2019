@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[chunkhash].bundle.js'
+        filename: 'js/[name].bundle.js'
     },
     optimization: {
         splitChunks: {

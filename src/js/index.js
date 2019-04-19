@@ -8,9 +8,6 @@ import '../css/artikler.scss';
 import '../css/artikel.scss';
 import '../css/animate.css';
 import '../css/queries.css';
-import Glide from '@glidejs/glide'
-
-new Glide('.glide').mount()
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
@@ -51,7 +48,6 @@ const artikler = async () => {
                 <div class="artikel animated fadeInRight" data-id="${state.artikler.results[i].id}" style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                    <div>
                        <h1>${state.artikler.results[i].title}</h1>
-                       <h3>${state.artikler.results[i].subtitle}</h3>
                        <h4>Læs denne artikel <i class="fas fa-arrow-right"> </i></h4>
                    </div>
                </div>
