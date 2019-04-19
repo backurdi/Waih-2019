@@ -27,7 +27,7 @@ class Podcast
         $this->conn = $db;
     }
 
-    function readAll(){
+    function GetAll(){
     $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
     $stmt = $this->conn->prepare($query);
@@ -37,7 +37,17 @@ class Podcast
     return $stmt;
     }
 
-    function read($id){
+    function getLatest(){
+        $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC LIMIT 6';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function getById($id){
         $this->programId = $id;
 
         $query = 'SELECT * FROM ' . $this->table_name . ' WHERE programId = ' . $this->programId;

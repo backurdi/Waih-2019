@@ -25,7 +25,7 @@ class Program
 
     }
 
-    function readAll(){
+    function getAll(){
         $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
         $stmt = $this->conn->prepare($query);
@@ -35,7 +35,7 @@ class Program
         return $stmt;
     }
 
-    function read($id){
+    function getById($id){
         $this->id = $id;
 
         $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
