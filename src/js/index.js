@@ -17,6 +17,7 @@ reusable.head('.head', './reusable/head.html');
 const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
 const state = {};
+let loadPodcasts = true;
 
 
 const podcasts = async () => {
@@ -26,13 +27,22 @@ const podcasts = async () => {
         // 1) Get responce
         await state.podcast.getResults();
 
-        for (let i = 0; i < 6; i++) {
-            createPlayer(i);
+        window.onscroll = () => {
+            let scrollY = window.scrollY;
+            let podcastSection = document.querySelector('.latest-articles').offsetHeight - 80;
+            if (scrollY > podcastSection)
+                if (loadPodcasts) {
+                    loadPodcasts = false;
+                    for (let i = 0; i < 6; i++) {
+                        createPlayer(i);
+                    }
+                }
         }
 
 
+
     } catch (err) {
-        console.log('Something went wrong with the search, try again later\n'+err)
+        console.log('Something went wrong with loading the articles, try again later\n'+err)
     }
 };
 
@@ -55,18 +65,18 @@ const artikler = async () => {
             latestArticles.insertAdjacentHTML('beforeEnd', article);
             $('.artikel').click((e) => {
                 let targetArtikel = e.currentTarget.dataset.id;
-                window.location.replace('artikel.html#' + targetArtikel);
+                window.location.href = 'artikel.html#' + targetArtikel;
             });
         }
 
     } catch (err) {
-        console.log('Something went wrong with the search, try again later\n' +err)
+        console.log('Something went wrong with loading the podcasts, try again later\n' +err)
     }
 };
 
 const createPlayer = (i) => {
     const player = `
-    <div class="podcast-episode first animated fadeInLeft">
+    <div class="podcast-episode animated fadeInLeft">
         <div class="top-part">
             <h1>${state.podcast.results[i].title}</h1>
         </div>
@@ -108,14 +118,5 @@ const createPlayer = (i) => {
     });
 };
 
-window.onscroll = () => {
-    let scrollY = window.scrollY;
-    let podcastSection = document.querySelector('.latest-articles').offsetHeight - 50;
-    if(scrollY > podcastSection)
-        if (!document.querySelector('.latest-podcasts').firstChild){
-            podcasts();
-        }
-}
-
+podcasts();
 artikler();
-history.pushState(state, 'index', window.location.href);

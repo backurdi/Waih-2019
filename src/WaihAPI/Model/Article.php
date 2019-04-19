@@ -14,9 +14,9 @@ class Article
 
     //article egenskaber
     public $id;
-    public $author;
     public $title;
     public $subtitle;
+    public $author;
     public $body;
     public $date;
     public $picture;
@@ -28,7 +28,7 @@ class Article
 
     }
 
-    function readAll(){
+    function getAll(){
         $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
         $stmt = $this->conn->prepare($query);
@@ -38,7 +38,17 @@ class Article
         return $stmt;
     }
 
-    function read($id){
+    function getLatest(){
+        $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC LIMIT 6';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function getById($id){
         $this->id = $id;
 
         $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
@@ -53,7 +63,7 @@ class Article
     function upload(){
         
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET author=:author, title=:title, subtitle=:subtitle, body=:body, picture=:picture, date=:date';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, picture=:picture, date=:date';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
@@ -65,9 +75,9 @@ class Article
         $this->body=htmlspecialchars(strip_tags($this->body));
 
         //erstat placeholders i query
-        $stmt->bindParam(':author',$this->author);
         $stmt->bindParam(':title',$this->title);
         $stmt->bindParam(':subtitle',$this->subtitle);
+        $stmt->bindParam(':author',$this->author);
         $stmt->bindParam(':body',$this->body);
         $stmt->bindParam(':picture',$this->picture);
         $stmt->bindParam(':date',$this->date);

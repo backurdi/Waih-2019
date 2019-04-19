@@ -16,7 +16,6 @@ $article = new Article($db);
 
 
 $picture = $_FILES['picture'];
-$uploadComplete = false;
 
 
     if (isset($_POST['author']) &&
@@ -26,23 +25,28 @@ $uploadComplete = false;
         $picture['size']>0
     ){
             
-      $podcast->author= $_POST['author'];
-      $podcast->title= $_POST['title'];
-      $podcast->subtitle= $_POST['subtitle'];
-      $podcast->body= $_POST['body'];
-      $podcast->picture = file_get_contents($picture['tmp_name']);
+      $article->title= $_POST['title'];
+      $article->subtitle= $_POST['subtitle'];
+      $article->author= $_POST['author'];
+      $article->body= $_POST['body'];
+      $article->picture = file_get_contents($picture['tmp_name']);
 
-      if ($podcast->upload($path)) {
-          http_response_code(201);
-          $uploadComplete = true;
-          echo json_encode(array('uploadSucess'=> $uploadComplete));
+      if ($article->upload()) {
+          echo "<script>
+                 alert('Artiklen er uploaded Alhamdulillah!'); 
+                 window.history.go(-1);
+                 </script>";
 
       } else {
-          http_response_code(503);
-          echo json_encode(array('message' => 'Der skete en fejl under upload, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
+          echo "<script>
+                 alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+                 window.history.go(-1);
+                 </script>";
       }
 
     } else {
-        http_response_code(400);
-        echo json_encode(array('message' => 'Udfyld venligtst alle felter, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
+        echo "<script>
+             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
     }

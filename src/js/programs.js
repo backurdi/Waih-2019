@@ -37,7 +37,6 @@ const programs = async () => {
     }
 };
 
-history.pushState(state, 'programs', window.location.href);
 programs();
 
 
@@ -97,7 +96,7 @@ const createPrograms = (i) => {
     const programElement = $('.program');
     programElement.click((e) =>{
         const articleClass = e.target.closest('.program').dataset.id;
-        document.location.replace(`program.html#${articleClass}`)
+        document.location.href = `program.html#${articleClass}`;
     });
 };
 

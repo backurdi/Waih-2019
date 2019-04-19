@@ -18,7 +18,6 @@ $podcast = new Podcast($db);
 $audiofile = $_FILES['audioPath'];
 $name = $audiofile['name'];
 $path = "/audio/" . basename($name);
-$uploadComplete = false;
 
 
 if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
@@ -39,21 +38,28 @@ if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
 
       if ($podcast->upload($path)) {
           $uploadComplete = true;
-          http_response_code(201);
-          header( "Content-type: application/json" );
-          echo json_encode( array('uploadSucess'=> $uploadComplete));
+          echo "<script>
+             alert('Podcasten er uploaded Alhamdulillah!'); 
+             window.history.go(-1);
+                 </script>";
 
       } else {
-          http_response_code(503);
-          echo json_encode(array('message' => 'Der skete en fejl under upload, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
+          echo "<script>
+             alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+             window.history.go(-1);
+                 </script>";
       }
 
     } else {
-        http_response_code(400);
-        echo json_encode(array('message' => 'Udfyld venligtst alle felter, prøv igen inshallah', 'uploadSucess' =>$uploadComplete));
+        echo "<script>
+             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
     }
 
 } else {
-    http_response_code(401);
-    echo json_encode(array('message' => 'Filen blev ikke uploaded til serveren, prøv igen inshallah!', 'uploadSucess' =>$uploadComplete));
+    echo    "<script>
+             alert('Filen blev ikke uploaded til serveren, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
 }

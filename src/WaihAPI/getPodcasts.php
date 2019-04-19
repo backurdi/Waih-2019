@@ -24,9 +24,9 @@ $idFromRequest = $_GET['id'];
 //hent data igennem sql kald
 if( isset($idFromRequest) )
 {
-    $stmt = $podcast->read($idFromRequest);
+    $stmt = $podcast->getById($idFromRequest);
 } else {
-    $stmt = $podcast->readAll();
+    $stmt = $podcast->GetAll();
 }
 
 //se om respons er tom
