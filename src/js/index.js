@@ -18,7 +18,6 @@ const latestPodcast = document.querySelector('.latest-podcasts');
 const latestArticles = document.querySelector('.latest-articles');
 const state = {};
 let loadPodcasts = true;
-history.pushState(state, 'index', window.location.href);
 
 
 const podcasts = async () => {
@@ -38,7 +37,7 @@ const podcasts = async () => {
                         createPlayer(i);
                     }
                 }
-                    }
+        }
 
 
 
@@ -67,7 +66,7 @@ const artikler = async () => {
             latestArticles.insertAdjacentHTML('beforeEnd', article);
             $('.artikel').click((e) => {
                 let targetArtikel = e.currentTarget.dataset.id;
-                window.location.replace('artikel.html#' + targetArtikel);
+                window.location.href = 'artikel.html#' + targetArtikel;
             });
         }
 

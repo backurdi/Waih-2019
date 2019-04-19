@@ -30,11 +30,14 @@
             </select>
         </label>
 
-        <label for="audioPath" class="label audioPath input hide animated flipInX"><i class="fas fa-music"></i> <p> Lydfilen fra dagens podcast</p>
-        <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
+        <label for="audioPath" class="label audioPath input hide animated flipInX">
+            <i class="fas fa-music"></i>
+            <p> Lydfilen fra dagens podcast</p>
+            <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
+            <i class="fas fa-check"></i>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
+        <input id="submit" class="animated flipInX" type="submit">
 
         
     </form>

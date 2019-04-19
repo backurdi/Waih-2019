@@ -84,8 +84,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadArtikel.html',
-            template: './src/html/uploadArtikel.html',
-            chunks: ['waih','babel', 'upload']
+            template: './src/html/uploadArtikel.html'
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

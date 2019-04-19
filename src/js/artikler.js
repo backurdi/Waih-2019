@@ -39,7 +39,6 @@ let state = {};
         }
     };
     artikel();
-    history.pushState(state, null, window.location.href)
 
 const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
@@ -56,7 +55,7 @@ const loadArtikler = () => {
 
     $('.artikel').click((e) => {
         const targetArtikel = e.currentTarget.dataset.id;
-        window.location.replace(`artikel.html#${targetArtikel}`);
+        window.location.href = `artikel.html#${targetArtikel}`;
     });
 };
 
