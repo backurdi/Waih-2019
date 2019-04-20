@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[chunkhash].bundle.js'
+        filename: 'js/[name].bundle.js'
     },
     optimization: {
         splitChunks: {
@@ -68,16 +68,6 @@ module.exports = {
             chunks: ['waih','babel', 'programs']
         }),
         new HtmlWebpackPlugin({
-            filename: 'uploadPodcast.html',
-            template: './src/html/uploadPodcast.html',
-            chunks: ['waih','babel', 'upload']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'uploadArtikel.html',
-            template: './src/html/uploadArtikel.html',
-            chunks: ['waih','babel', 'upload']
-        }),
-        new HtmlWebpackPlugin({
             filename: 'artikler.html',
             template: './src/html/artikler.html',
             chunks: ['waih','babel', 'artikler']
@@ -86,6 +76,15 @@ module.exports = {
             filename: 'artikel.html',
             template: './src/html/artikel.html',
             chunks: ['waih','babel', 'artikler']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'uploadPodcast.html',
+            template: './src/html/uploadPodcast.html',
+            chunks: ['waih','babel', 'upload']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'uploadArtikel.html',
+            template: './src/html/uploadArtikel.html'
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

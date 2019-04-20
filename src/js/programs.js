@@ -37,7 +37,6 @@ const programs = async () => {
     }
 };
 
-history.pushState(state, 'programs', window.location.href);
 programs();
 
 
@@ -85,7 +84,7 @@ const loadPodcasts = async () => {
 
 const createPrograms = (i) => {
     const program = `
-    <div class="program" data-id="${state.program.results[i].id}">
+    <div class="program animated fadeIn" data-id="${state.program.results[i].id}">
         <div class="img-wrapper" style="background-image: url('${state.program.results[i].picture}');"></div>
         <div class="programs-title-container" style="background-color: ${state.program.results[i].colorCode} ">
           <h3>${state.program.results[i].title}</h3>
@@ -97,7 +96,7 @@ const createPrograms = (i) => {
     const programElement = $('.program');
     programElement.click((e) =>{
         const articleClass = e.target.closest('.program').dataset.id;
-        document.location.replace(`program.html#${articleClass}`)
+        document.location.href = `program.html#${articleClass}`;
     });
 };
 

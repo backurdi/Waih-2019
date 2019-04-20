@@ -39,12 +39,11 @@ let state = {};
         }
     };
     artikel();
-    history.pushState(state, null, window.location.href)
 
 const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
         $("#artikler").append(`
-        <div class="artikel" data-id="${state.artikler.results[i].id}">
+        <div class="artikel animated fadeIn" data-id="${state.artikler.results[i].id}">
            <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
                <h1>${state.artikler.results[i].title}</h1>
                <h3>${state.artikler.results[i].subtitle}</h3>
@@ -56,7 +55,7 @@ const loadArtikler = () => {
 
     $('.artikel').click((e) => {
         const targetArtikel = e.currentTarget.dataset.id;
-        window.location.replace(`artikel.html#${targetArtikel}`);
+        window.location.href = `artikel.html#${targetArtikel}`;
     });
 };
 

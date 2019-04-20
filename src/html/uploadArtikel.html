@@ -10,21 +10,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">                  
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
-    <body class="body pyro">
+    <body>
     <h1 class="animated bounceInDown">Upload Artikel</h1>
-    <form autocomplete="off" class="upload_form-a" action="/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
-        <input autofocus class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title" required="required"/>
+    <form autocomplete="off" class="upload_form-a" action="http://waih.dk/WaihAPI/uploadArticle.php" method="post" enctype="multipart/form-data">
+        <input class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title" required="required"/>
         
         <input class="input hide animated flipInX" placeholder="Underrubrik" type="text" name="subtitle" id="subtitle" required="required"/>
 
         <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author" required="required"/>
 
-        <label for="picture" class="label input hide animated flipInX" >
-            <i class="fas fa-image"> </i> <p>Upload billede</p>
-            <input id="picture" type="file" name="picture" accept="image/*"/>
+        <label for="picture" class="picture label input hide animated flipInX" >
+            <i class="fas fa-image"></i>
+            <p>Upload billede</p>
+            <input id="picture" type="file" name="picture" accept="image/*" required/>
+            <i class="fas fa-check"></i>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit" onclick="() => {setTimeout(this.form.reset(), 1000)}">
+        <input id="submit" class="animated flipInX" type="submit">
 
         <textarea id="description" class="animated input" name="body" rows='10' data-min-rows='10'
                   placeholder='Brødtekst til artiklen'></textarea>

@@ -1,6 +1,6 @@
 h1{
     font-size: 4em;
-    font-family: 'quicksand';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-align: center;
     margin: 0.5em 0 0.5em 0;
@@ -9,10 +9,7 @@ h1{
 html {
     min-height:100vh;
 }
-.body {
-    display: flex;
-    flex-direction: column;
-}
+
 .upload_form {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -58,11 +55,16 @@ html {
         p{
             margin-left: 10px;
             display: inline-block;
+            -webkit-transform: translateX(-35px);
+            -moz-transform: translateX(-35px);
+            -ms-transform: translateX(-35px);
+            -o-transform: translateX(-35px);
             transform: translateX(-35px);
         }
 
 
     }
+
     label{
         cursor: pointer;
     }
@@ -180,6 +182,14 @@ html {
         animation-delay: 1000ms;
         #audioPath{
             display: none;
+
+            &:invalid ~ .fa-check{
+                opacity: 0;
+            }
+            &:valid ~ .fa-check{
+                opacity: 1;
+                float: right;
+            }
         }
     }
 
@@ -193,132 +203,12 @@ html {
     }
 }
 
-$particles: 100;
-$width: 1000;
-$height: 1000;
-
-// Create the explosion...
-$box-shadow: ();
-$box-shadow2: ();
-@for $i from 0 through $particles {
-    $box-shadow: $box-shadow,
-    random($width)-$width / 2 + px
-    random($height)-$height / 1.2 + px
-    hsl(random(360), 100, 50);
-    $box-shadow2: $box-shadow2, 0 0 #fff
-}
-@mixin keyframes ($animationName) {
-    @-webkit-keyframes #{$animationName} {
-        @content;
-    }
-
-    @-moz-keyframes #{$animationName} {
-        @content;
-    }
-
-    @-o-keyframes #{$animationName} {
-        @content;
-    }
-
-    @-ms-keyframes #{$animationName} {
-        @content;
-    }
-
-    @keyframes #{$animationName} {
-        @content;
-    }
-}
-
-@mixin animation-delay ($settings) {
-    -moz-animation-delay: $settings;
-    -webkit-animation-delay: $settings;
-    -o-animation-delay: $settings;
-    -ms-animation-delay: $settings;
-    animation-delay: $settings;
-}
-
-@mixin animation-duration ($settings) {
-    -moz-animation-duration: $settings;
-    -webkit-animation-duration: $settings;
-    -o-animation-duration: $settings;
-    -ms-animation-duration: $settings;
-    animation-duration: $settings;
-}
-
-@mixin animation ($settings) {
-    -moz-animation: $settings;
-    -webkit-animation: $settings;
-    -o-animation: $settings;
-    -ms-animation: $settings;
-    animation: $settings;
-}
-
-@mixin transform ($settings) {
-    transform: $settings;
-    -moz-transform: $settings;
-    -webkit-transform: $settings;
-    -o-transform: $settings;
-    -ms-transform: $settings;
-}
-
-
-
-.pyro > .before, .pyro > .after {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    box-shadow: $box-shadow2;
-    @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
-}
-
-.pyro > .after {
-    @include animation-delay((1.25s, 1.25s, 1.25s));
-    @include animation-duration((1.25s, 1.25s, 6.25s));
-}
-
-@include keyframes(bang) {
-    to {
-        box-shadow:$box-shadow;
-    }
-}
-
-@include keyframes(gravity)  {
-    to {
-        @include transform(translateY(200px));
-        opacity: 0;
-    }
-}
-
-@include keyframes(position) {
-    0%, 19.9% {
-        margin-top: 10%;
-        margin-left: 40%;
-    }
-    20%, 39.9% {
-        margin-top: 40%;
-        margin-left: 30%;
-    }
-    40%, 59.9% {
-        margin-top: 20%;
-        margin-left: 70%
-    }
-    60%, 79.9% {
-        margin-top: 30%;
-        margin-left: 20%;
-    }
-    80%, 99.9% {
-        margin-top: 30%;
-        margin-left: 80%;
-    }
-}
-
 .upload_form-a {
-    padding: 0 5em 0 0 ;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 85vh;
 
 
     input, label{
@@ -355,14 +245,20 @@ $box-shadow2: ();
             transform: translateX(-200%);
         }
         p{
-            -webkit-transform: translateX(-20%);
-            -moz-transform: translateX(-20%);
-            -ms-transform: translateX(-20%);
-            -o-transform: translateX(-20%);
-            transform: translateX(-20%);
+            margin-left: 10px;
+            display: inline-block;
+            -webkit-transform: translateX(-35px);
+            -moz-transform: translateX(-35px);
+            -ms-transform: translateX(-35px);
+            -o-transform: translateX(-35px);
+            transform: translateX(-35px);
         }
 
 
+    }
+
+    label{
+        cursor: pointer;
     }
 
     input:focus{
@@ -394,11 +290,11 @@ $box-shadow2: ();
     }
     :focus::placeholder, :hover::placeholder{
         opacity: 0;
-        -webkit-transform: translateX(250px);
-        -moz-transform: translateX(250px);
-        -ms-transform: translateX(250px);
-        -o-transform: translateX(250px);
-        transform: translateX(250px);
+        -webkit-transform: translateX(50px);
+        -moz-transform: translateX(50px);
+        -ms-transform: translateX(50px);
+        -o-transform: translateX(50px);
+        transform: translateX(50px);
     }
 
     textarea{
@@ -447,13 +343,25 @@ $box-shadow2: ();
         100% {opacity: 1}
     }
 
+    .picture {
+        display: flex;
+        align-items: center;
 
-    #picture{
-        display: none;
+        #picture{
+            display: none;
+
+            &:invalid ~ .fa-check{
+                opacity: 0;
+            }
+            &:valid ~ .fa-check{
+                opacity: 1;
+                float: right;
+            }
+        }
     }
 
     #submit{
-        grid-area: 7 / 1 / span 1 / span 1;
+        grid-area: 8 / 1 / span 1 / span 1;
         cursor: pointer;
         -webkit-animation-delay: 1200ms;
         -moz-animation-delay: 1200ms;
@@ -461,3 +369,6 @@ $box-shadow2: ();
         animation-delay: 1200ms;
     }
 }
+
+
+

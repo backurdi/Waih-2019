@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
 
@@ -119,38 +119,104 @@ header{
 
 //Hero sektion
 #hero{
-  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   h1{
     margin: 0;
   }
   .article-content{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    
+    padding: 80px 0px 0px 0;
+    grid-row: 1/3;
+
     .visual{
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
       flex-direction: row-reverse;
       padding: 20px;
-      width: 50%;
+      width: 100%;
       margin-right: 20px;
-      height: 300px;
-
+      height: 310px;
+      
       h1{
         text-align: left;
+        font-weight: 400;
+        font-size: 40px;
       }
     }
-    .info{
-      width: 200px;
+    .info{  
+      width: 100%;
+      
+      h2{
+        font-weight: 400;
+        font-size: 10px;
+        padding: 15px 0;
+
+        span{
+          font-weight: 300;
+          color: #b4b4b4;
+        }
+      }
+
+      p{
+        font-weight: 200;
+        font-size: 20px;
+      }
+    }
+  }
+  .article-little-content{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 20px;
+    padding: 80px 0px 0px 20px;
+
+    .article-top, .article-bottom{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10px;
+    }
+    .visual{
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      padding: 20px;
+      width: 100%;
+      margin-right: 20px;
+      height: 200px;
+      
+    }
+    .info{  
+      width: 100%;
+      h1{
+        text-align: left;
+        font-weight: 400;
+        font-size: 30px;
+      }
+      
+      h2{
+        font-weight: 400;
+        font-size: 10px;
+        padding: 15px 0;
+
+        span{
+          font-weight: 300;
+          color: #b4b4b4;
+        }
+      }
+
+      p{
+        font-weight: 200;
+        font-size: 12px;
+      }
     }
   }
 }
 
 //Seneste podcast
 .podcast{
+  background-color: #354050;
   padding-top: 20px;
 
   .podcast-header{
@@ -180,7 +246,7 @@ header{
         -moz-background-size: cover; 
         -o-background-size: cover; 
         background-size: cover;
-        padding: 25px 0 85px 10px;
+        padding: 25px 0 30px 10px;
 
         img{
           height: 20px;
@@ -188,8 +254,8 @@ header{
       }
       .bottom-part {
         display: grid;
-        grid-template-rows: 40px 1fr 30px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 40px 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .play-button{
@@ -199,9 +265,14 @@ header{
         margin-top: -26px;
         margin-right: 15px;
         color: #fff;
+        grid-column: 3/4;
+        grid-row: 1/2;
         width: 50px;
         height: 50px;
+        justify-self: right;
         border-radius: 50%;
+        margin-right: 20px;
+        margin-top: -25px;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         -ms-transition: all .3s;
@@ -236,7 +307,6 @@ header{
       }
 
       .player-text {
-        align-self: center;
         grid-area: 2 / 1 / 2 / -1;
         -webkit-transition: color 300ms;
         -moz-transition: color 300ms;
@@ -285,13 +355,14 @@ header{
 //Seneste artikler
 
 .articles{
-  background-color: #1a89b8;
   padding-top: 20px;
   padding-bottom: 20px;
   display: grid;
   grid-gap: 20px;
-
-    h1 {
+  
+  h1 {
+      color: #fff;
+      font-weight: 400;
       margin-left: 10px;
       -webkit-transition: all 200ms;
       -moz-transition: all 200ms;
@@ -300,16 +371,6 @@ header{
       transition: all 200ms;
     }
 
-    h3 {
-      margin-left: 10px;
-      font-size: 2em;
-      -webkit-transition: all 200ms;
-      -moz-transition: all 200ms;
-      -ms-transition: all 200ms;
-      -o-transition: all 200ms;
-      transition: all 200ms;
-      margin-bottom: 15px;
-    }
     h4 {
       text-align: center;
       font-size: 1.5em;
@@ -333,7 +394,6 @@ header{
   .latest-articles{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 
@@ -355,7 +415,7 @@ header{
 
       h1{
         text-align: left;
-        color: #000;
+        color: #fff;
         font-size: 3.5em;
 
       }
