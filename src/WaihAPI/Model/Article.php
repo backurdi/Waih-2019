@@ -39,7 +39,7 @@ class Article
     }
 
     function getLatest(){
-        $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC LIMIT 6';
+        $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC LIMIT 3';
 
         $stmt = $this->conn->prepare($query);
 

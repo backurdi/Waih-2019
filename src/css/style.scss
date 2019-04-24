@@ -253,12 +253,14 @@ header{
         }
       }
       .bottom-part {
+        height: 45%;
         display: grid;
-        grid-template-rows: 40px 1fr;
+        grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr);
       }
 
       .play-button{
+        z-index: 1;
         background-color: #293443;
         grid-column: 4/5;
         grid-row: 1/2;
@@ -307,7 +309,7 @@ header{
       }
 
       .player-text {
-        grid-area: 2 / 1 / 2 / -1;
+        grid-area: 1 / 1 / lastline / lastline;
         -webkit-transition: color 300ms;
         -moz-transition: color 300ms;
         -ms-transition: color 300ms;
@@ -315,11 +317,12 @@ header{
         transition: color 300ms;
         position: relative;
         margin: 0 10px;
+        align-self: center;
       }
       .player-placeholder{
         opacity: 0;
         align-self: center;
-        grid-area: 2 / 1 / 2 / -1;
+        grid-area: 1 / 1 / lastline / lastline;
         background-color: #4AD8F5;
         -webkit-transition: all 500ms;
         -moz-transition: all 500ms;
@@ -364,11 +367,6 @@ header{
       color: #fff;
       font-weight: 400;
       margin-left: 10px;
-      -webkit-transition: all 200ms;
-      -moz-transition: all 200ms;
-      -ms-transition: all 200ms;
-      -o-transition: all 200ms;
-      transition: all 200ms;
     }
 
     h4 {
@@ -380,11 +378,11 @@ header{
       -ms-transition: all 200ms;
       -o-transition: all 200ms;
       transition: all 200ms;
-      -webkit-transform: translateY(100px);
-      -moz-transform: translateY(100px);
-      -ms-transform: translateY(100px);
-      -o-transform: translateY(100px);
-      transform: translateY(100px);
+      -webkit-transform: translateY(20px);
+      -moz-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+      -o-transform: translateY(20px);
+      transform: translateY(20px);
 
       i {
         display: inline;
@@ -403,14 +401,19 @@ header{
       overflow: hidden;
       justify-content: flex-end;
       flex-direction: column;
+      -webkit-transition: 500ms;
+      -moz-transition: 500ms;
+      -ms-transition: 500ms;
+      -o-transition: 500ms;
+      transition: 500ms;
 
-      &:hover h3, &:hover h4, &:hover h1{
+      &:hover h4{
         opacity: 1;
-        -webkit-transform: translateY(-30px);
-        -moz-transform: translateY(-30px);
-        -ms-transform: translateY(-30px);
-        -o-transform: translateY(-30px);
-        transform: translateY(-30px);
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        transform: translateY(-10px);
       }
 
       h1{

@@ -9,7 +9,8 @@ module.exports = {
         index: './src/js/index.js',
         programs: './src/js/programs.js',
         upload: './src/js/upload.js',
-        artikler: './src/js/artikler.js'
+        artikler: './src/js/artikler.js',
+        dashboard: './src/js/dashboard.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -85,6 +86,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'uploadArtikel.html',
             template: './src/html/uploadArtikel.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'dashboard.html',
+            template: './src/html/dashboard.html',
+            chunks: ['waih','babel', 'dashboard']
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

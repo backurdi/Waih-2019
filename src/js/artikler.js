@@ -26,7 +26,7 @@ let state = {};
                 $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
                 $('#title').html(state.artikler.results[0].title);
                 $('#subtitle').html(state.artikler.results[0].subtitle);
-                $('#author').html(state.artikler.results[0].author);
+                $('#author').html('Udgivet af ' + state.artikler.results[0].author);
                 $('#date').html('Udgivet den ' + state.artikler.results[0].date);
                 $('#body').html(state.artikler.results[0].body);
             } else {
