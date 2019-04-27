@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ebd0cf6-f72b-40c6-9e53-b1a509bf3620" name="Default Changelist" comment="WaihAPI optimeret og gjort mere læsevenligt&#10;&#10;Har lavet et nyt endpoint som hedder http://waih.dk/WaihAPI/getLatest.php &#10;&#10;Som returnerer 2 array, seneste 6 podcasts og artikler.">
-      <change afterPath="$PROJECT_DIR$/src/WaihAPI/logic.php" afterDir="false" />
+    <list default="true" id="6ebd0cf6-f72b-40c6-9e53-b1a509bf3620" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WaihAPI/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/getArtikler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/getLatest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/getPodcasts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/getPrograms.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/uploadArticle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/uploadPodcast.php" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/js/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +18,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WaihAPI/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="416">
+              <caret line="73" column="99" selection-start-line="73" selection-start-column="99" selection-end-line="73" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WaihAPI/logic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="241" column="78" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="241" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -135,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/WaihAPI/getArtikler.php" />
         <option value="$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php" />
         <option value="$PROJECT_DIR$/src/WaihAPI/getPodcasts.php" />
-        <option value="$PROJECT_DIR$/src/WaihAPI/api.php" />
         <option value="$PROJECT_DIR$/src/WaihAPI/logic.php" />
+        <option value="$PROJECT_DIR$/src/WaihAPI/api.php" />
       </list>
     </option>
   </component>
@@ -201,7 +203,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556382851142" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556384412823" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
@@ -248,7 +250,7 @@
       <workItem from="1555337226389" duration="26425000" />
       <workItem from="1555624615568" duration="20613000" />
       <workItem from="1556133840700" duration="6570000" />
-      <workItem from="1556376191072" duration="5107000" />
+      <workItem from="1556376191072" duration="6375000" />
     </task>
     <task id="LOCAL-00001" summary="Har oprettet loadArtikler nederst og tilføjet en if der tjekker hvis latestArticle er null hvilket er årsagen til at koden stoppede og derfor ariklerne ikke dukkede op på artikler siden">
       <created>1553413111927</created>
@@ -404,11 +406,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555641925271</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="WAIHapi lavet helt om og optimeret til bedre skalerbarhed">
+      <created>1556382877972</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1556382877972</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139968000" />
+    <option name="totallyTimeSpent" value="141236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -472,7 +481,8 @@
     <MESSAGE value="program og article siden smooth transition ændret" />
     <MESSAGE value="WaihAPi opdateret til for artikler og fungere bedre. &#10;Tilføjet et icon til at indikere når en fil er blevet valgt i formen og den er klar til upload" />
     <MESSAGE value="WaihAPI optimeret og gjort mere læsevenligt&#10;&#10;Har lavet et nyt endpoint som hedder http://waih.dk/WaihAPI/getLatest.php &#10;&#10;Som returnerer 2 array, seneste 6 podcasts og artikler." />
-    <option name="LAST_COMMIT_MESSAGE" value="WaihAPI optimeret og gjort mere læsevenligt&#10;&#10;Har lavet et nyt endpoint som hedder http://waih.dk/WaihAPI/getLatest.php &#10;&#10;Som returnerer 2 array, seneste 6 podcasts og artikler." />
+    <MESSAGE value="WAIHapi lavet helt om og optimeret til bedre skalerbarhed" />
+    <option name="LAST_COMMIT_MESSAGE" value="WAIHapi lavet helt om og optimeret til bedre skalerbarhed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/babel-polyfill/README.md">
@@ -767,15 +777,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WaihAPI/logic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1856">
-          <caret line="135" column="49" selection-start-line="135" selection-start-column="49" selection-end-line="135" selection-end-column="49" />
+        <state relative-caret-position="283">
+          <caret line="241" column="78" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="241" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WaihAPI/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        <state relative-caret-position="416">
+          <caret line="73" column="99" selection-start-line="73" selection-start-column="99" selection-end-line="73" selection-end-column="99" />
         </state>
       </provider>
     </entry>

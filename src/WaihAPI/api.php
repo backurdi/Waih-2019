@@ -35,6 +35,9 @@ if ($requestMethod) {
                 case 'post':
                     $logic->postPodcast();
                 break;
+                default:
+                    $logic->getPodcasts();
+                break;
             }
         break;
         case 'artikel':
@@ -45,6 +48,10 @@ if ($requestMethod) {
                 break;
                 case 'post':
                     $logic->postArtikel();
+                break;
+                default:
+                    $logic->getArtikler();
+                break;
             }
         break;
         case 'program':
@@ -52,13 +59,19 @@ if ($requestMethod) {
             switch ($requestSQL) {
                 case 'get':
                     $logic->getProgrammer();
-                    break;
+                break;
+                default:
+                    $logic->getProgrammer();
+                break;
+
             }
         break;
         case 'index':
             $logic->getLatest();
         break;
-
+        default:
+            http_response_code(404);
+            echo json_encode(array('message' => 'Fejl i forspørgsel, vælg mellem følgende parametre: program/podcast/artikel/index efterfulgt af /get eller /post. tilføj id ved at skrive ?id=(her indsættes id) '));
     }
 }
 
