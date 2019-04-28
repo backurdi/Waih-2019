@@ -3,8 +3,6 @@ import * as reusable from './reusable-code';
 import Program from './model/programs';
 import Podcast from './model/podcast';
 import '../css/programs.scss';
-import '../css/animate.css';
-import '../css/queries.css';
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');

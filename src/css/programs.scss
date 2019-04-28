@@ -207,3 +207,25 @@
 
     }
 }
+
+@media only screen and (max-width: 600px){
+  html {
+    overflow: auto;
+  }
+  .programs-container {
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    padding: 0 0%;
+  }
+
+  .program-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    padding: 0 5%;
+
+    .podcasts{
+      overflow: visible;
+    }
+  }
+}

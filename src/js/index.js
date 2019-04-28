@@ -2,11 +2,7 @@ import Plyr from 'plyr';
 import * as reusable from './reusable-code';
 import Seneste from './model/seneste';
 import '../css/style.scss';
-import '../css/upload.scss';
-import '../css/artikler.scss';
-import '../css/artikel.scss';
 import '../css/animate.css';
-import '../css/queries.css';
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
@@ -14,9 +10,7 @@ reusable.head('.head', './reusable/head.html');
 
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
-const latestArticles = document.querySelector('.latest-articles');
 const state = {};
-let loadPodcasts = true;
 
 const seneste = async () => {
     state.seneste = new Seneste();
@@ -24,36 +18,36 @@ const seneste = async () => {
     try {
         // 1) Get responce
         await state.seneste.getResults();
-        console.log(state.seneste.results)
+        console.log(state.seneste.results);
+        let storArtikel = state.seneste.results.articles[0];
+        let lilleArtikel1 = state.seneste.results.articles[1];
+        let lilleArtikel2 = state.seneste.results.articles[2];
 
-        for (let artikel of state.seneste.results.articles) {
-            const article = `
-                <div class="artikel animated fadeInRight" data-id="${artikel.id}">
-                   <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${artikel.picture}') no-repeat center center;">
-                       <h1>${artikel.title}</h1>
-                       <h4>Læs denne artikel <i class="fas fa-arrow-right"> </i></h4>
-                   </div>
-               </div>
-                `;
-            latestArticles.insertAdjacentHTML('beforeEnd', article);
+        $('.article-content').attr('data-id', storArtikel.id);
+        $('.article-content h1').html(storArtikel.title);
+        $('.article-content .visual').attr('style', `background-image: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url("${storArtikel.picture}");`);
+        $('.article-content .info h2').html(storArtikel.author + `<span class="date"> | ${storArtikel.date}</span>`)
+        $('.article-content .info p').html(storArtikel.body );
+
+        $('.article-top').attr('data-id', lilleArtikel1.id);
+        $('.article-top h1').html(lilleArtikel1.title);
+        $('.article-top .visual').attr('style', `background-image: url("${lilleArtikel1.picture}"); background-repeat: no-repeat; background-size: cover;`);
+        $('.article-top .info h2').html(lilleArtikel1.author + `<span class="date"> | ${lilleArtikel1.date}</span>`);
+        $('.article-top .info p').html(lilleArtikel1.body );
+
+        $('.article-bottom').attr('data-id', lilleArtikel2.id);
+        $('.article-bottom h1').html(lilleArtikel2.title);
+        $('.article-bottom .visual').attr('style', `background-image: url("${lilleArtikel2.picture}"); background-repeat: no-repeat; background-size: cover;`);
+        $('.article-bottom .info h2').html(lilleArtikel2.author + `<span class="date"> | ${lilleArtikel2.date}</span>`);
+        $('.article-bottom .info p').html(lilleArtikel2.body );
+
             $('.artikel').click((e) => {
                 let targetArtikel = e.currentTarget.dataset.id;
+                console.log(e.currentTarget.dataset)
                 window.location.href = 'artikel.html#' + targetArtikel;
             });
-        }
-
-        window.onscroll = () => {
-            let scrollY = window.scrollY;
-            let podcastSection = document.querySelector('.latest-articles').offsetHeight - 80;
-            if (scrollY > podcastSection)
-                if (loadPodcasts) {
-                    loadPodcasts = false;
-                    createPlayer();
-                    Plyr.setup('.player');
-                }
-        }
-
-
+        createPlayer();
+        Plyr.setup('.player');
 
     } catch (err) {
         console.log('Something went wrong with loading the latest news, try again later\n'+err)

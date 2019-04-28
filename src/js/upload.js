@@ -1,7 +1,6 @@
 import '../css/style.scss';
 import '../css/upload.scss';
 import '../css/animate.css';
-import '../css/queries.css';
 import Program from "./model/programs";
 
 let state = {}

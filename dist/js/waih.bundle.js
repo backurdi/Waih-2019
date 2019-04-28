@@ -4084,36 +4084,14 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/css/artikel.scss":
+/***/ "./src/css/queries.scss":
 /*!******************************!*\
-  !*** ./src/css/artikel.scss ***!
+  !*** ./src/css/queries.scss ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/artikel.scss?");
-
-/***/ }),
-
-/***/ "./src/css/artikler.scss":
-/*!*******************************!*\
-  !*** ./src/css/artikler.scss ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/artikler.scss?");
-
-/***/ }),
-
-/***/ "./src/css/queries.css":
-/*!*****************************!*\
-  !*** ./src/css/queries.css ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/queries.css?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/queries.scss?");
 
 /***/ }),
 
@@ -4125,17 +4103,6 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/style.scss?");
-
-/***/ }),
-
-/***/ "./src/css/upload.scss":
-/*!*****************************!*\
-  !*** ./src/css/upload.scss ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/upload.scss?");
 
 /***/ }),
 

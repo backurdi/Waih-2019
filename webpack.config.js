@@ -7,6 +7,7 @@ module.exports = {
     entry: {
         babel: 'babel-polyfill',
         index: './src/js/index.js',
+        om: './src/js/om.js',
         programs: './src/js/programs.js',
         upload: './src/js/upload.js',
         artikler: './src/js/artikler.js',
@@ -59,14 +60,9 @@ module.exports = {
             chunks: ['waih','babel', 'index']
         }),
         new HtmlWebpackPlugin({
-            filename: 'programs.html',
-            template: './src/html/programs.html',
-            chunks: ['waih','babel', 'programs']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'program.html',
-            template: './src/html/program.html',
-            chunks: ['waih','babel', 'programs']
+            filename: 'om.html',
+            template: './src/html/om.html',
+            chunks: ['waih','babel', 'om']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',
@@ -77,6 +73,16 @@ module.exports = {
             filename: 'artikel.html',
             template: './src/html/artikel.html',
             chunks: ['waih','babel', 'artikler']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'programs.html',
+            template: './src/html/programs.html',
+            chunks: ['waih','babel', 'programs']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'program.html',
+            template: './src/html/program.html',
+            chunks: ['waih','babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
@@ -97,8 +103,8 @@ module.exports = {
             chunkFilename: "[id].css"
         }),
         new MiniCssExtractPlugin({
-        filename: "[name].sass",
-        chunkFilename: "[id].sass"
+            filename: "[name].sass",
+            chunkFilename: "[id].sass"
         })
     ],
 };

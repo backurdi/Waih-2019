@@ -1,9 +1,7 @@
 import Artikel from './model/artikler';
-import '../css/style.scss';
-import '../css/artikler.scss';
-import '../css/artikel.scss'
-import '../css/queries.css';
 import * as reusable from "./reusable-code";
+import '../css/artikler.scss';
+import '../css/artikel.scss';
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
@@ -40,7 +38,7 @@ let state = {};
     };
     artikel();
 
-const loadArtikler = () => {
+/*const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
         $("#artikler").append(`
         <div class="artikel animated fadeIn" data-id="${state.artikler.results[i].id}">
@@ -57,5 +55,5 @@ const loadArtikler = () => {
         const targetArtikel = e.currentTarget.dataset.id;
         window.location.href = `artikel.html#${targetArtikel}`;
     });
-};
+};*/
 
