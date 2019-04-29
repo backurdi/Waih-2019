@@ -162,9 +162,10 @@ header{
 .salah-mobil{
   z-index: 20;
   width: 70px;
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 20px;
+  
   div{
     background-color: #293443;
     border-radius: 50%;
