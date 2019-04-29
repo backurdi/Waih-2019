@@ -15,6 +15,101 @@
                 <li><a href="artikler.html">Artikler</a></li>
                 <li><a href="om.html">Om os</a></li>
             </ul>
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars nav-button"></i>
+            <div class="secondary-nav">
+                <ul>
+                    <li><a href="index.html">Hør radio</a></li>
+                    <li><a href="programs.html">Programmer</a></li>
+                    <li><a href="artikler.html">Artikler</a></li>
+                    <li><a href="om.html">Om os</a></li>
+                </ul>
+            </div>
         </nav>  
+        <div class="salah-mobil">
+            <ul class="salah-times">
+                <li><h3>Fajr</h3><p>06:23</p></li>
+                <li><h3>Shuruq</h3><p>10:23</p></li>
+                <li id="salah-time"><h3>Dhuhur</h3><p>12:23</p></li>
+                <li><h3>Asr</h3><p>14:23</p></li>
+                <li><h3>Maghreb</h3><p>20:23</p></li>
+                <li class="isha"><h3>Isha</h3><p>22:23</p></li>
+            </ul>
+            <div id="salah-button">
+                <img src="../img/muslim-praying.png" alt="">
+            </div>
+        </div>
 </header>
+<script>
+    //nav
+    var navToggle = function(){
+        const navButton = document.querySelector('.nav-button');
+        navButton.addEventListener('click', function(){
+            if(navButton.classList.contains('fa-bars')){
+                navButton.classList.remove('fa-bars');
+                navButton.classList.add('active-nav');
+                navButton.classList.add('fa-times');
+                document.querySelector('html').style.overflow = 'hidden';
+            }else{
+                navButton.classList.add('fa-bars');
+                navButton.classList.remove('active-nav');
+                navButton.classList.remove('fa-times');
+                document.querySelector('html').style.overflow = 'auto';
+            }
+        })
+    };
+
+    setTimeout(function(){
+        navToggle();
+    }, 0)
+
+    //salah tider
+    var salahToggle = function(){
+        const salahButton = document.querySelector('#salah-button');
+        const salahTimes = document.querySelector('.salah-times');
+        salahButton.addEventListener('click', function(){
+            if(salahTimes.classList.contains('salah-active')){
+                salahTimes.classList.remove('salah-active');
+            }else{
+                salahTimes.classList.add('salah-active');
+            }
+        })
+    };
+
+    setTimeout(function(){
+        salahToggle();
+    }, 0)
+
+    function setSalahTime(){
+        var today = new Date();
+        var hour = today.getHours();
+        var min = today.getMinutes();
+        var time;
+        if(hour < 10){
+            hour = "0" + today.getHours();
+        }
+        if(min < 10){
+            min = "0" + today.getMinutes();
+        }
+        time = hour + ":" + min;
+
+        var salah = document.querySelectorAll('.salah-times p');
+        var lastSalah = document.getElementById('salah-time');
+        var possibleSalah = [];
+        salah.forEach(function(el){
+            console.log(el.innerHTML , time);
+            if(el.innerHTML <= time){
+                console.log(el);
+                possibleSalah.push(el);
+            }
+        });
+        lastSalah.id = "";
+        if(possibleSalah.length === 0){
+            document.querySelectorAll('.isha')[0].id = 'salah-time';
+        }else{
+            var currentSalah = possibleSalah.pop();
+            currentSalah.parentNode.id = 'salah-time';
+        }
+    }
+
+    setSalahTime();
+</script>

@@ -27,7 +27,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
-
 }
 
 section{
@@ -50,6 +49,7 @@ header{
     justify-items: center;
     width: 100%;
     background-color: #3f4c5e;
+    z-index: 2;
 
     ul{
       list-style: none;
@@ -88,6 +88,48 @@ header{
         }
       }
     }
+    .secondary-nav{
+      grid-column: 1/13;
+      grid-row: 4/-1;
+      text-align: center;
+      z-index: 1;
+      
+      ul{
+        background: rgba(52, 69, 105, 0.9);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        transition: all 200ms;
+
+        li{
+          font-size: 20px;
+          line-height: 50px;
+          
+          a{
+            color: #fff;
+            text-decoration: none;
+          }
+
+          a:hover{
+            padding-bottom: 2px;
+            border-bottom: solid #4AD8F5 2px;
+          }
+        }
+      }
+    }
+
+    i{
+      grid-row: 2/3;
+      grid-column: 11/-1;
+      font-size: 4em;
+      align-self: center;
+    }
+    .active-nav + .secondary-nav > ul{
+      opacity: 1;
+    }
+
     .salah{
       float: left;
       grid-column: 1/6;
@@ -115,6 +157,73 @@ header{
       grid-row: 1;
     }
   }
+}
+
+.salah-mobil{
+  z-index: 20;
+  width: 70px;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  div{
+    background-color: #293443;
+    border-radius: 50%;
+    text-align: center;
+    padding: 15px 0;
+    
+    img{
+      width: 50%;
+    }
+  }
+  ul{
+    li{
+      background-color: #293443;
+      margin-bottom: 10px;
+      text-align: center;
+      padding: 20px 10px;
+      border-radius: 50%;
+      transition: all 1000ms;
+      list-style: none;
+    }
+    :nth-child(1){
+      transform: translateX(600px);
+    }
+    :nth-child(2){
+      transform: translateX(500px);
+    }
+    :nth-child(3){
+      transform: translateX(400px);
+    }
+    :nth-child(4){
+      transform: translateX(300px);
+    }
+    :nth-child(5){
+      transform: translateX(200px);
+    }
+    :nth-child(6){
+      transform: translateX(100px);
+    }
+
+    
+  }
+  .salah-active{
+    li{
+      transform: translateX(0);
+      h3{
+        transform: translateX(0);
+      }
+      p{
+        transform: translateX(0);
+
+      }
+    }
+  }
+  #salah-time{
+    background-color: #fff;
+    color: #293443;
+    border: 3px solid #4AD8F5;
+  }
+
 }
 
 //Hero sektion

@@ -38,22 +38,39 @@ let state = {};
     };
     artikel();
 
-/*const loadArtikler = () => {
+const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
-        $("#artikler").append(`
-        <div class="artikel animated fadeIn" data-id="${state.artikler.results[i].id}">
-           <div style="background: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url('${state.artikler.results[i].picture}') no-repeat center center;">
-               <h1>${state.artikler.results[i].title}</h1>
-               <h3>${state.artikler.results[i].subtitle}</h3>
-               <h4>Læs denne artikel <i class="fas fa-arrow-right"> </i></h4>
-           </div>
-       </div>
-        `)
+        if(i%2 !== 0){
+            $(".article-content").append(`
+            <div class="big-article">
+                <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');">
+                </div>
+                <div class="info">
+                    <h1>${state.artikler.results[i].title}</h1>
+                    <h2>${state.artikler.results[i].author} <span class="date">${state.artikler.results[i].date}</span></h2>
+
+                    <p>${state.artikler.results[i].body}</p>
+                </div>
+            </div>
+            `)
+        }else{
+            $(".article-little-content").append(`
+            <div class="little-article">
+                <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
+                <div class="info">
+                    <h1>${state.artikler.results[i].title}</h1>
+                    <h2>${state.artikler.results[i].author} <span class="date">${state.artikler.results[i].date}</span></h2>
+
+                    <p>${state.artikler.results[i].body}</p>
+                </div>
+            </div>
+            `)
+        }
     }
 
     $('.artikel').click((e) => {
         const targetArtikel = e.currentTarget.dataset.id;
         window.location.href = `artikel.html#${targetArtikel}`;
     });
-};*/
+};
 

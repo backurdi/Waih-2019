@@ -44,7 +44,6 @@ const loadProgram = () => {
     $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
 }
 
-
 const loadPodcasts = async () => {
     state.podcast = new Podcast();
 
