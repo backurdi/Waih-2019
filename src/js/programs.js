@@ -39,7 +39,6 @@ programs();
 
 
 const loadProgram = () => {
-
     $('#title').html(state.program.results[0].title);
     $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
 }

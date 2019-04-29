@@ -64,9 +64,13 @@ if ($requestMethod) {
         case 'index':
             $logic->getLatest();
         break;
+        case 'salah':
+            $logic->getSalahByDate();
+        break;
         default:
             http_response_code(404);
-            echo json_encode(array('message' => 'Fejl i forspørgsel, vælg mellem følgende parametre: program/podcast/artikel/index efterfulgt af /get eller /post. tilføj id ved at skrive ?id=(her indsættes id) '));
+            echo json_encode(array('message' =>  'Fejl i forspørgsel, vælg mellem følgende parametre: program/podcast/artikel/index efterfulgt af /get eller /post. tilføj id ved at skrive ?id=(her indsættes id)', 'url' => $url));
+            break;
     }
 }
 

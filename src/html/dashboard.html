@@ -1,33 +1,30 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <nav id="site-bar"></nav>
-        <section>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Titel</th>
-                            <th>Programmet</th>
-                            <th>Vært</th>
-                            <th>Gæst</th>
-                            <th>Beskrivelse</th>
-                            <th>Indstillinger</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        <script src="" async defer></script>
-    </body>
+<html lang="da">
+<body>
+    <div class="head"></div>
+    <section class="dashboard">
+        <h1>WAIH Kontrolpanel</h1>
+
+        <label for="program" id="programOps">
+            <select name="program" id="program" required>
+                <option value="" disabled selected>Vælg et program</option>
+            </select>
+        </label>
+
+        <input type="button" class="save" value="Gem Ændringer">
+        <table>
+            <tr>
+                <th>Titel</th>
+                <th>Vært</th>
+                <th>Program</th>
+                <th>Gæst</th>
+                <th>Beskrivelse</th>
+            </tr>
+            <tbody>
+            </tbody>
+        </table>
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</body>
 </html>

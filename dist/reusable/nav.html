@@ -63,11 +63,10 @@
     }, 0)
 
     //salah tider
-    var salahToggle = function(){
+    let salahToggle = function(){
         const salahButton = document.querySelector('#salah-button');
         const salahTimes = document.querySelector('.salah-times');
         salahButton.addEventListener('click', function(){
-            console
             if(salahTimes.classList.contains('salah-active')){
                 salahTimes.classList.remove('salah-active');
             }else{
@@ -81,10 +80,10 @@
     }, 0)
 
     function setSalahTime(salahUl, salahActive){
-        var today = new Date();
-        var hour = today.getHours();
-        var min = today.getMinutes();
-        var time;
+        let today = new Date();
+        let hour = today.getHours();
+        let min = today.getMinutes();
+        let time;
         if(hour < 10){
             hour = "0" + today.getHours();
         }
@@ -93,9 +92,9 @@
         }
         time = hour + ":" + min;
 
-        var salah = document.querySelectorAll(salahUl + ' p');
-        var lastSalah = document.getElementById(salahActive);
-        var possibleSalah = [];
+        let salah = document.querySelectorAll(salahUl + ' p');
+        let lastSalah = document.getElementById(salahActive);
+        let possibleSalah = [];
         salah.forEach(function(el){
             if(el.innerHTML <= time){
                 possibleSalah.push(el);

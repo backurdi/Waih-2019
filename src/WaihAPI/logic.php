@@ -15,6 +15,60 @@ Class logic {
 
     }
 
+    function getSalahByDate() {
+    include_once './Model/Salah.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $salah = new Salah($db);
+
+        if(isset($_GET['dato'])) {
+            $stmt = $salah->getByDate($_GET['dato']);
+        } else {
+            echo "<script>
+                 alert('Kunne ikke hente dato fra forespørgsel!'); 
+                 window.history.go(-1);
+                 </script>";
+        }
+
+        $num = $stmt->rowCount();
+
+        if ($num>0) {
+
+            //opret arrays
+
+            $salah_arr=array();
+            $salah_arr['salah']=array();
+
+            //hent inhold fra tabel
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //hente rækker fra tabellen således at $row[title] bare bliver $title
+                extract($row);
+
+                $salah_item = array(
+                    'dato' => $dato,
+                    'fajr' => $fajr,
+                    'shuruq' => $shuruq,
+                    'dhuhr' => $dhuhr,
+                    'asr' => $asr,
+                    'maghrib' => $maghrib,
+                    'isha' => $isha
+                );
+
+                array_push($salah_arr['salah'], $salah_item);
+
+            }
+            http_response_code(200);
+            echo json_encode($salah_arr);
+
+
+        } else {
+            http_response_code(400);
+            echo json_encode(array('message' => 'kunne ikke gennemføre salah forespørgsel', 'rows' => $num, 'dato' => $_GET['dato'], 'stmt' => $stmt));
+        }
+
+    }
+
 
     function getPodcasts() {
     include_once './Model/Podcast.php';
