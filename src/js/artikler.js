@@ -47,7 +47,7 @@ const loadArtikler = () => {
                 </div>
                 <div class="info">
                     <h1>${state.artikler.results[i].title}</h1>
-                    <h2>${state.artikler.results[i].author} <span class="date">${state.artikler.results[i].date}</span></h2>
+                    <h2>${state.artikler.results[i].author} <span class="date">| ${state.artikler.results[i].date}</span></h2>
 
                     <p>${state.artikler.results[i].body}</p>
                 </div>
@@ -59,7 +59,7 @@ const loadArtikler = () => {
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
                 <div class="info">
                     <h1>${state.artikler.results[i].title}</h1>
-                    <h2>${state.artikler.results[i].author} <span class="date">${state.artikler.results[i].date}</span></h2>
+                    <h2>${state.artikler.results[i].author} <span class="date">| ${state.artikler.results[i].date}</span></h2>
 
                     <p>${state.artikler.results[i].body}</p>
                 </div>

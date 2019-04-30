@@ -89,6 +89,13 @@ header{
         }
       }
     }
+
+    @media screen and (min-width: 1024px){
+      .secondary-nav, .nav-button, .salah-mobil{
+        display: none;
+      }
+    }
+
     .secondary-nav{
       grid-column: 1/13;
       grid-row: 4/-1;

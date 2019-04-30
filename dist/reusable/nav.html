@@ -104,7 +104,7 @@
         if(possibleSalah.length === 0){
             document.querySelectorAll('.isha')[0].id = salahActive;
         }else{
-            var currentSalah = possibleSalah.pop();
+            let currentSalah = possibleSalah.pop();
             currentSalah.parentNode.id = salahActive;
         }
     }
