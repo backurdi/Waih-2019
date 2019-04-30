@@ -56,7 +56,7 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"upload": 0
+/******/ 		"salah": 0
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
@@ -147,33 +147,34 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/js/upload.js","waih"]);
+/******/ 	deferredModules.push(["./src/js/salah.js","waih"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/css/upload.scss":
-/*!*****************************!*\
-  !*** ./src/css/upload.scss ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/upload.scss?");
-
-/***/ }),
-
-/***/ "./src/js/upload.js":
-/*!**************************!*\
-  !*** ./src/js/upload.js ***!
-  \**************************/
+/***/ "./src/js/model/salah.js":
+/*!*******************************!*\
+  !*** ./src/js/model/salah.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ../css/style.scss */ \"./src/css/style.scss\");\n\n__webpack_require__(/*! ../css/upload.scss */ \"./src/css/upload.scss\");\n\n__webpack_require__(/*! ../css/animate.css */ \"./src/css/animate.css\");\n\nvar _programs = __webpack_require__(/*! ./model/programs */ \"./src/js/model/programs.js\");\n\nvar _programs2 = _interopRequireDefault(_programs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nvar state = {};\n\nvar programs = function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n        var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, program;\n\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n            while (1) {\n                switch (_context.prev = _context.next) {\n                    case 0:\n\n                        state.program = new _programs2.default();\n\n                        _context.prev = 1;\n                        _context.next = 4;\n                        return state.program.getResults();\n\n                    case 4:\n                        console.log(state.program.results);\n\n                        _iteratorNormalCompletion = true;\n                        _didIteratorError = false;\n                        _iteratorError = undefined;\n                        _context.prev = 8;\n                        for (_iterator = state.program.results[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n                            program = _step.value;\n\n                            $(\"#programId\").append('<option value=\"' + program.id + '\">' + program.title + '</option>');\n                        }\n\n                        _context.next = 16;\n                        break;\n\n                    case 12:\n                        _context.prev = 12;\n                        _context.t0 = _context['catch'](8);\n                        _didIteratorError = true;\n                        _iteratorError = _context.t0;\n\n                    case 16:\n                        _context.prev = 16;\n                        _context.prev = 17;\n\n                        if (!_iteratorNormalCompletion && _iterator.return) {\n                            _iterator.return();\n                        }\n\n                    case 19:\n                        _context.prev = 19;\n\n                        if (!_didIteratorError) {\n                            _context.next = 22;\n                            break;\n                        }\n\n                        throw _iteratorError;\n\n                    case 22:\n                        return _context.finish(19);\n\n                    case 23:\n                        return _context.finish(16);\n\n                    case 24:\n                        _context.next = 29;\n                        break;\n\n                    case 26:\n                        _context.prev = 26;\n                        _context.t1 = _context['catch'](1);\n\n                        console.log('Something went wrong with the search, try again later');\n\n                    case 29:\n                    case 'end':\n                        return _context.stop();\n                }\n            }\n        }, _callee, undefined, [[1, 26], [8, 12, 16, 24], [17,, 19, 23]]);\n    }));\n\n    return function programs() {\n        return _ref.apply(this, arguments);\n    };\n}();\n\nprograms();\n\n//# sourceURL=webpack:///./src/js/upload.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Salah = function () {\n    function Salah() {\n        _classCallCheck(this, Salah);\n    }\n\n    _createClass(Salah, [{\n        key: 'getResults',\n        value: function () {\n            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n                var today, dd, mm, yyyy, salahResults;\n                return regeneratorRuntime.wrap(function _callee$(_context) {\n                    while (1) {\n                        switch (_context.prev = _context.next) {\n                            case 0:\n                                today = new Date();\n                                dd = today.getDate() < 10 ? '0' + today.getDate() : today.getDate();\n                                mm = today.getMonth() + 1 < 10 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;\n                                yyyy = today.getFullYear();\n\n                                today = dd + '/' + mm + '/' + yyyy;\n                                console.log(today);\n\n                                _context.prev = 6;\n                                _context.next = 9;\n                                return (0, _axios2.default)('http://waih.dk/WaihAPI/salah/?dato=' + today);\n\n                            case 9:\n                                salahResults = _context.sent;\n\n                                this.results = salahResults.data.salah;\n                                _context.next = 16;\n                                break;\n\n                            case 13:\n                                _context.prev = 13;\n                                _context.t0 = _context['catch'](6);\n\n                                alert(_context.t0);\n\n                            case 16:\n                            case 'end':\n                                return _context.stop();\n                        }\n                    }\n                }, _callee, this, [[6, 13]]);\n            }));\n\n            function getResults() {\n                return _ref.apply(this, arguments);\n            }\n\n            return getResults;\n        }()\n    }]);\n\n    return Salah;\n}();\n\nexports.default = Salah;\n\n//# sourceURL=webpack:///./src/js/model/salah.js?");
+
+/***/ }),
+
+/***/ "./src/js/salah.js":
+/*!*************************!*\
+  !*** ./src/js/salah.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _salah = __webpack_require__(/*! ./model/salah */ \"./src/js/model/salah.js\");\n\nvar _salah2 = _interopRequireDefault(_salah);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nvar state = {};\n\nvar salah = function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n            while (1) {\n                switch (_context.prev = _context.next) {\n                    case 0:\n                        state.salah = new _salah2.default();\n\n                        _context.prev = 1;\n                        _context.next = 4;\n                        return state.salah.getResults();\n\n                    case 4:\n                        console.log(state.salah.results);\n                        _context.next = 9;\n                        break;\n\n                    case 7:\n                        _context.prev = 7;\n                        _context.t0 = _context[\"catch\"](1);\n\n                    case 9:\n                    case \"end\":\n                        return _context.stop();\n                }\n            }\n        }, _callee, undefined, [[1, 7]]);\n    }));\n\n    return function salah() {\n        return _ref.apply(this, arguments);\n    };\n}();\nsalah();\n\n//# sourceURL=webpack:///./src/js/salah.js?");
 
 /***/ })
 

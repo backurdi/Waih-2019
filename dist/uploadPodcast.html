@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload podcasts</title>
+        <div class="head"></div>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="waih.css" rel="stylesheet"><link href="upload.css" rel="stylesheet"></head>
+    <body class="body pyro">
+    <h1 class="animated bounceInDown">Upload podcast</h1>
+    <form autocomplete="off" class="upload_form" action="http://waih.dk/WaihAPI/uploadPodcast.php" method="post" enctype="multipart/form-data">
+
+        <input class="input hide animated flipInX" placeholder="Titlen på dagens show" type="text" name="title" id="title" required="required"/>
+
+        <input class="input hide animated flipInX" placeholder="Værtens navn" type="text" name="hostname" id="hostname" required="required"/>
+
+        <input class="input hide animated flipInX" placeholder="Gæstens navn" type="text" name="guestname" id="guestname" required="required"/>
+
+        <textarea id="description" class="animated flipInX" name="description" rows='3' data-min-rows='3'
+                  placeholder='En kort beskrivelse'></textarea>
+
+
+        <label for="programId" id="programName" class="input hide animated flipInX" >
+            <select id="programId" name="programId" required>
+                <option value="" disabled selected>Vælg et program</option>
+            </select>
+        </label>
+
+        <label for="audioPath" class="label audioPath input hide animated flipInX">
+            <i class="fas fa-music"></i>
+            <p> Lydfilen fra dagens podcast</p>
+            <input type="file"  id="audioPath" name="audioPath" accept="audio/*" required>
+            <i class="fas fa-check"></i>
+        </label>
+
+        <input id="submit" class="animated flipInX" type="submit">
+
+        
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/waih.bundle.js"></script><script type="text/javascript" src="js/babel.bundle.js"></script><script type="text/javascript" src="js/upload.bundle.js"></script></body>
+</html>

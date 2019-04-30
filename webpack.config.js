@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: {
         babel: 'babel-polyfill',
+        salah: './src/js/salah.js',
         index: './src/js/index.js',
         om: './src/js/om.js',
         programs: './src/js/programs.js',
@@ -57,32 +58,32 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/html/index.html',
-            chunks: ['waih','babel', 'index']
+            chunks: ['waih', 'babel', 'salah', 'index']
         }),
         new HtmlWebpackPlugin({
             filename: 'om.html',
             template: './src/html/om.html',
-            chunks: ['waih','babel', 'om']
+            chunks: ['waih','babel','salah', 'om']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',
             template: './src/html/artikler.html',
-            chunks: ['waih','babel', 'artikler']
+            chunks: ['waih','babel','salah', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikel.html',
             template: './src/html/artikel.html',
-            chunks: ['waih','babel', 'artikler']
+            chunks: ['waih','babel','salah', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'programs.html',
             template: './src/html/programs.html',
-            chunks: ['waih','babel', 'programs']
+            chunks: ['waih','babel','salah', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'program.html',
             template: './src/html/program.html',
-            chunks: ['waih','babel', 'programs']
+            chunks: ['waih','babel','salah', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
@@ -105,7 +106,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].sass",
             chunkFilename: "[id].sass"
-        })
+        }),
     ],
 };
 

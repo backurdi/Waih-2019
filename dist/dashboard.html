@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="da"><head><link href="waih.css" rel="stylesheet"><link href="dashboard.css" rel="stylesheet"></head>
+<body>
+    <div class="head"></div>
+    <section class="dashboard">
+        <h1>WAIH Kontrolpanel</h1>
+
+        <label for="program" id="programOps">
+            <select name="program" id="program" required>
+                <option value="" disabled selected>Vælg et program</option>
+            </select>
+        </label>
+
+        <input type="button" class="save" value="Gem Ændringer">
+        <table>
+            <tr>
+                <th>Titel</th>
+                <th>Vært</th>
+                <th>Program</th>
+                <th>Gæst</th>
+                <th>Beskrivelse</th>
+            </tr>
+            <tbody>
+            </tbody>
+        </table>
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/waih.bundle.js"></script><script type="text/javascript" src="js/babel.bundle.js"></script><script type="text/javascript" src="js/dashboard.bundle.js"></script></body>
+</html>

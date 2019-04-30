@@ -3,7 +3,6 @@ import * as reusable from './reusable-code';
 import Seneste from './model/seneste';
 import '../css/style.scss';
 import '../css/animate.css';
-import Salah from "./model/salah";
 
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
@@ -12,17 +11,6 @@ reusable.head('.head', './reusable/head.html');
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
 const state = {};
-
-const salah = async () => {
-    state.salah = new Salah();
-
-    try{
-        await state.salah.getResults();
-        console.log(state.salah.results)
-    } catch (e) {
-    console.log(e)
-}}
-salah();
 
 const seneste = async () => {
     state.seneste = new Seneste();

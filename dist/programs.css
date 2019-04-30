@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit; }
+  *::before, *::after {
+    box-sizing: inherit; }
+
+html {
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  background: linear-gradient(to right bottom, #293443, #161b24);
+  min-height: 100vh; }
+
+@media only screen and (max-width: 68.75em) {
+  html {
+    font-size: 50%; } }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  color: #fff; }
+
+section {
+  padding: 0 80px; }
+
+.mobile {
+  display: none; }
+
+header {
+  width: 100%; }
+  header nav {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 10px 60px 10px;
+    justify-items: center;
+    width: 100%;
+    background-color: #3f4c5e; }
+    header nav ul {
+      list-style: none;
+      list-style-image: none; }
+    header nav .main-nav {
+      float: right;
+      font-size: 16px;
+      grid-column: 8/13;
+      grid-row: 2; }
+      header nav .main-nav li {
+        float: left;
+        margin-right: 60px;
+        margin-top: 4%; }
+        header nav .main-nav li a {
+          text-decoration: none;
+          color: #fff; }
+        header nav .main-nav li a:hover {
+          padding-bottom: 2px;
+          border-bottom: solid #4AD8F5 2px; }
+    header nav .salah {
+      float: left;
+      grid-column: 1/6;
+      grid-row: 2; }
+      header nav .salah li {
+        border: #fff solid 1.5px;
+        border-radius: 50%;
+        width: 60px;
+        float: left;
+        margin-right: 20px;
+        text-align: center;
+        padding: 17px 0; }
+        header nav .salah li h3 {
+          font-size: 0.8em; }
+    header nav .logo {
+      width: 80px;
+      margin: 0 auto;
+      grid-column: 6/8;
+      grid-row: 1; }
+
+/*------------------------ Programs ------------------------*/
+.programs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 10%; }
+  .programs-container .img-wrapper {
+    margin-top: 20px;
+    background-size: cover;
+    height: 200px;
+    border-radius: 0 20px 0 0;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms; }
+    .programs-container .img-wrapper:hover + div, .programs-container .img-wrapper:hover {
+      -webkit-transform: scale(1.03);
+      -moz-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+      -o-transform: scale(1.03);
+      transform: scale(1.03); }
+  .programs-container .programs-title-container {
+    background-color: #187dc0;
+    padding: 15px 0 15px 20px;
+    border-radius: 0 0 0 20px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms; }
+    .programs-container .programs-title-container h3 {
+      font-size: 1.4em; }
+
+#title {
+  text-align: center;
+  font-size: 4em;
+  text-transform: uppercase;
+  margin-top: 15px; }
+
+.program-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 10%; }
+  .program-container .img-wrapper {
+    margin-top: 20px;
+    background-size: cover;
+    height: 270px;
+    border-radius: 20px 0 20px 0; }
+  .program-container .description {
+    margin-top: 1em;
+    font-size: 1.35em;
+    text-align: justify; }
+  .program-container .podcasts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    overflow: auto;
+    height: calc(100vh - 25%); }
+    .program-container .podcasts h1 {
+      margin-top: 5px;
+      font-size: 2em;
+      font-weight: 100;
+      line-height: 0.83; }
+    .program-container .podcasts .plyr--audio .plyr__controls {
+      margin: 10px 0;
+      background: #1c232c;
+      border: 1px solid #4ad8f5;
+      color: #fff; }
+    .program-container .podcasts .plyr--audio .plyr__progress--buffer, .program-container .podcasts .plyr--audio .plyr__volume--display {
+      background: #444957; }
+
+@media only screen and (max-width: 600px) {
+  html {
+    overflow: auto; }
+  .programs-container {
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    padding: 0 0%; }
+  .program-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    padding: 0 5%; }
+    .program-container .podcasts {
+      overflow: visible; } }
+

@@ -173,6 +173,7 @@ header{
 }
 
 .salah-mobil{
+  display: none;
   z-index: 20;
   width: 70px;
   position: fixed;
@@ -198,6 +199,10 @@ header{
       border-radius: 50%;
       transition: all 1000ms;
       list-style: none;
+
+      h3{
+        font-size: 1.2em;
+      }
     }
     :nth-child(1){
       transform: translateX(600px);
@@ -545,6 +550,13 @@ footer{
 }
 
 @media only screen and (max-width: 600px) {
+  .nav-button{
+    display: block;
+  }
+  .salah-mobil{
+    display: block;
+  }
+
   .salah {
     display: none;
   }

@@ -1,12 +1,12 @@
 <header>
         <nav>
             <ul class="salah salah-times-desktop">
-                <li><h3>Fajr</h3><p>06:23</p></li>
-                <li id="salah-time-desktop"><h3>Shuruq</h3><p>10:23</p></li>
-                <li><h3>Dhuhur</h3><p>12:23</p></li>
-                <li><h3>Asr</h3><p>14:23</p></li>
-                <li><h3>Maghreb</h3><p>20:23</p></li>
-                <li class="isha"><h3>Isha</h3><p>22:23</p></li>
+                <li><h3>Fajr</h3><p class="fajr">--:--</p></li>
+                <li id="salah-time-desktop"><h3>Shuruq</h3><p class="shuruq">--:--</p></li>
+                <li><h3>Dhuhur</h3><p class="dhuhur">--:--</p></li>
+                <li><h3>Asr</h3><p class="asr">--:--</p></li>
+                <li><h3>Maghreb</h3><p class="maghreb">--:--</p></li>
+                <li class="last"><h3>Isha</h3><p class="isha">--:--</p></li>
             </ul>
             <img class="logo" src="img/logo.png">
             <ul class="main-nav">
@@ -15,7 +15,7 @@
                 <li><a href="artikler.html">Artikler</a></li>
                 <li><a href="om.html">Om os</a></li>
             </ul>
-            <i class="fas fa-bars nav-button" style="display:"></i>
+            <i class="fas fa-bars nav-button"></i>
             <div class="secondary-nav">
                 <ul>
                     <li><a href="index.html">Hør radio</a></li>
@@ -27,18 +27,19 @@
         </nav>  
         <div class="salah-mobil">
             <ul class="salah-times">
-                <li><h3>Fajr</h3><p>06:23</p></li>
-                <li><h3>Shuruq</h3><p>10:23</p></li>
-                <li id="salah-time"><h3>Dhuhur</h3><p>12:23</p></li>
-                <li><h3>Asr</h3><p>14:23</p></li>
-                <li><h3>Maghreb</h3><p>20:23</p></li>
-                <li class="isha"><h3>Isha</h3><p>22:23</p></li>
+                <li><h3>Fajr</h3><p class="fajr-mobil">--:--</p></li>
+                <li><h3>Shuruq</h3><p class="shuruq-mobil">--:--</p></li>
+                <li id="salah-time"><h3>Dhuhur</h3><p class="dhuhur-mobil">--:--</p></li>
+                <li><h3>Asr</h3><p class="asr-mobil">--:--</p></li>
+                <li><h3>Maghreb</h3><p class="maghreb-mobil">--:--</p></li>
+                <li class="last"><h3>Isha</h3><p class="isha-mobil">--:--</p></li>
             </ul>
             <div id="salah-button">
                 <img src="../img/muslim-praying.png" alt="">
             </div>
         </div>
 </header>
+
 <script>
     //nav
     var navToggle = function(){
@@ -62,53 +63,4 @@
         navToggle();
     }, 0)
 
-    //salah tider
-    let salahToggle = function(){
-        const salahButton = document.querySelector('#salah-button');
-        const salahTimes = document.querySelector('.salah-times');
-        salahButton.addEventListener('click', function(){
-            if(salahTimes.classList.contains('salah-active')){
-                salahTimes.classList.remove('salah-active');
-            }else{
-                salahTimes.classList.add('salah-active');
-            }
-        })
-    };
-
-    setTimeout(function(){
-        salahToggle();
-    }, 0)
-
-    function setSalahTime(salahUl, salahActive){
-        let today = new Date();
-        let hour = today.getHours();
-        let min = today.getMinutes();
-        let time;
-        if(hour < 10){
-            hour = "0" + today.getHours();
-        }
-        if(min < 10){
-            min = "0" + today.getMinutes();
-        }
-        time = hour + ":" + min;
-
-        let salah = document.querySelectorAll(salahUl + ' p');
-        let lastSalah = document.getElementById(salahActive);
-        let possibleSalah = [];
-        salah.forEach(function(el){
-            if(el.innerHTML <= time){
-                possibleSalah.push(el);
-            }
-        });
-        lastSalah.id = "";
-        if(possibleSalah.length === 0){
-            document.querySelectorAll('.isha')[0].id = salahActive;
-        }else{
-            let currentSalah = possibleSalah.pop();
-            currentSalah.parentNode.id = salahActive;
-        }
-    }
-
-    setSalahTime('.salah-times', 'salah-time');
-    setSalahTime('.salah-times-desktop', 'salah-time-desktop');
 </script>
