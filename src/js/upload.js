@@ -2,8 +2,12 @@ import '../css/style.scss';
 import '../css/upload.scss';
 import '../css/animate.css';
 import Program from "./model/programs";
+import * as reusable from "./reusable-code";
 
-let state = {}
+reusable.head('.head', './reusable/head.html');
+reusable.dbnav('.nav', './reusable/dbnav.html');
+
+let state = {};
 
 const programs = async () => {
 

@@ -5,6 +5,9 @@
     margin-bottom: 20px;
     padding: 0 200px;
 
+    .artikel{
+        cursor: pointer;
+    }
     .titel{
         grid-column: 1 / -1;
         margin-top: 20px;

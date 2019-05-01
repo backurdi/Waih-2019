@@ -32,7 +32,6 @@ salah();
 let salahToggle = function(){
     const salahButton = document.querySelector('#salah-button');
     const salahTimes = document.querySelector('.salah-times');
-    console.log(salahButton);
     salahButton.addEventListener('click', function(){
         if(salahTimes.classList.contains('salah-active')){
             salahTimes.classList.remove('salah-active');

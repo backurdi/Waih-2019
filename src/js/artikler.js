@@ -42,7 +42,7 @@ const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
         if(i%2 !== 0){
             $(".article-content").append(`
-            <div class="big-article">
+            <div class="artikel big-article" data-id="${state.artikler.results[i].id}">
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');">
                 </div>
                 <div class="info">
@@ -55,7 +55,7 @@ const loadArtikler = () => {
             `)
         }else{
             $(".article-little-content").append(`
-            <div class="little-article">
+            <div class="artikel little-article" data-id="${state.artikler.results[i].id}"">
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
                 <div class="info">
                     <h1>${state.artikler.results[i].title}</h1>

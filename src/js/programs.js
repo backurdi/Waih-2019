@@ -29,7 +29,7 @@ const programs = async () => {
         }
 
     }catch(err){
-        $('#title').html('Siden du leder efter findes ikke');
+        $('.title').html('Siden du leder efter findes ikke');
         $('.img-wrapper').css("background-image", ` url(../img/404.png)`);
         console.log('Something went wrong with the search, try again later')
     }
@@ -39,7 +39,7 @@ programs();
 
 
 const loadProgram = () => {
-    $('#title').html(state.program.results[0].title);
+    $('.title').html(state.program.results[0].title);
     $('.img-wrapper').css("background-image", ` url('${state.program.results[0].picture}')`);
 }
 
@@ -48,7 +48,7 @@ const loadPodcasts = async () => {
 
     try {
         // 1) Get responce
-        await state.podcast.getResults(state.program.results[0].id);
+        await state.podcast.get(state.program.results[0].id);
         console.log(state.podcast.results)
 
         let i = 0;

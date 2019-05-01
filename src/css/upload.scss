@@ -3,7 +3,7 @@ h1{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-align: center;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0 0 0.5em 0;
 }
 
 html {
@@ -14,7 +14,6 @@ html {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-auto-flow: column;
-    grid-template-rows: repeat(8, 1fr);
 
     input, label{
         grid-column: 2 / 2;
@@ -208,7 +207,7 @@ html {
     grid-auto-flow: column;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: repeat(8, 1fr);
-    height: 85vh;
+    height: 80vh;
 
 
     input, label{

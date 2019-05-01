@@ -16,7 +16,7 @@ Class logic {
     }
 
     function getSalahByDate() {
-    include_once './Model/Salah.php';
+        include_once './Model/Salah.php';
 
         $database = new WaihDB();
         $db = $database->getConnection();
@@ -69,9 +69,44 @@ Class logic {
 
     }
 
+    function deletePodcast() {
+        include_once './Model/Podcast.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $podcast = new Podcast($db);
+
+        if( isset($_GET['id']) )
+        {
+            $stmt = $podcast->getAudioPath($_GET['id']);
+        }
+
+        if (unlink($stmt))
+        {
+            unset($stmt);
+            $stmt = $podcast->delete($_GET['id']);
+
+        } else {
+
+            echo "<script>
+                 alert('Der skete en fejl, filen blev ikke slettet '); 
+                 </script>";
+        }
+
+        $num = $stmt->rowCount();
+
+        if ($num>0) {
+            http_response_code(200);
+            echo json_encode(array('isDeleted' => true, 'rowsAffected' => $num));
+        } else{
+            http_response_code(401);
+            echo json_encode(array('isDeleted' => false, 'rowsAffected' => $num));
+        }
+
+    }
 
     function getPodcasts() {
-    include_once './Model/Podcast.php';
+        include_once './Model/Podcast.php';
 
         $database = new WaihDB();
         $db = $database->getConnection();
@@ -81,7 +116,7 @@ Class logic {
         {
             $stmt = $podcast->getById($_GET['id']);
         } else {
-            $stmt = $podcast->GetAll();
+            $stmt = $podcast->getAll();
         }
 
         //se om respons er tom

@@ -27,7 +27,33 @@ class Podcast
         $this->conn = $db;
     }
 
-    function GetAll(){
+    function getAudioPath($id)
+    {
+        $this->id = $id;
+
+        $query = 'SELECT audioPath FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function delete($id)
+    {
+        $this->id = $id;
+
+        $query = 'DELETE FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function getAll(){
     $query = 'SELECT * FROM ' . $this->table_name . ' ORDER BY id DESC';
 
     $stmt = $this->conn->prepare($query);

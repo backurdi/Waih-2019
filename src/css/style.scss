@@ -37,7 +37,6 @@ section{
 .mobil{
   display: none;
 }
-// General CSS end
 
 //top navigationen
 header{
@@ -681,5 +680,42 @@ footer{
 }
 
 
+.dbnav {
+  ul {
+    display: flex;
+    margin-left: 50px;
+
+    a{
+      z-index: 2;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 2px solid #fff;
+      text-align: center;
+      padding: 8px;
+
+    }
+    li {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+        a:last-of-type{
+          border: none;
+          opacity: 0;
+          z-index: 1;
+          -webkit-transition: all 300ms;
+          -moz-transition: all 300ms;
+          -ms-transition: all 300ms;
+          -o-transition: all 300ms;
+          transition: all 300ms;
+        }
+
+        &:hover ,&:hover :last-child{
+          opacity: 1;
+        }
+
+    }
+  }
+}
 
 
