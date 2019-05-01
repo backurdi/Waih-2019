@@ -1,114 +1,8 @@
-// General CSS
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: inherit;
-    &::before, &::after {
-      box-sizing: inherit;
-    }
-  }
-  
-  html {
-    overflow: hidden;
-    box-sizing: border-box;
-    font-size: 62.5%;
-    background: linear-gradient(to right bottom, #293443, #161b24);
-    min-height: 100vh;
-  }
-  
-  @media only screen and (max-width: 68.75em) {
-    html {
-      font-size: 50%;
-    }
-  }
-  
-  body {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 400;
-    color: #fff;
-  }
-  
-  section{
-    padding: 0 80px;
-  }
-  
-  .mobile{
-    display: none;
-  }
-  // General CSS end
-  
-  //top navigationen
-  header{
-  
-    width: 100%;
-    nav{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 10px 60px 10px;
-      justify-items: center;
-      width: 100%;
-      background-color: #3f4c5e;
-  
-      ul{
-        list-style: none;
-        list-style-image: none;
-      }
-  
-      .main-nav{
-        float: right;
-        font-size: 16px;
-        grid-column: 8/13;
-        grid-row: 2;
-        
-        li{
-          float: left;
-          margin-right: 60px;
-          margin-top: 4%;
-          
-          a{
-            text-decoration: none;
-            color: #fff;
-          }
-  
-          a:hover{
-            padding-bottom: 2px;
-            border-bottom: solid #4AD8F5 2px;
-          }
-        }
-      }
-      .salah{
-        float: left;
-        grid-column: 1/6;
-        grid-row: 2;
-  
-        li{
-          border: #fff solid 1.5px;
-          border-radius: 50%;
-          width: 60px;
-          float: left;
-          margin-right: 20px;
-          text-align: center;
-          padding: 17px 0;
-  
-          h3{
-            font-size: 0.8em;
-          }
-        }
-      }
-  
-      .logo{
-        width: 80px;
-        margin: 0 auto;
-        grid-column: 6/8;
-        grid-row: 1;
-      }
-    }
-  }
-
-
-
 /*------------------------ Programs ------------------------*/
+.body{
+  min-height: 120vh;
+  background-image: linear-gradient(to right bottom, #293443, #161b24);
+}
 
 .programs-container{
     display: grid;
@@ -208,6 +102,12 @@
     }
 }
 
+@media only screen and (max-width: 1010px){
+  .programs-container {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+}
 @media only screen and (max-width: 600px){
   html {
     overflow: auto;

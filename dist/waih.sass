@@ -26,7 +26,7 @@ body {
 section {
   padding: 0 80px; }
 
-.mobile {
+.mobil {
   display: none; }
 
 header {
@@ -47,9 +47,11 @@ header {
       font-size: 16px;
       grid-column: 8/13;
       grid-row: 2; }
+      header nav .main-nav :last-child {
+        margin-right: 0; }
       header nav .main-nav li {
         float: left;
-        margin-right: 60px;
+        margin-right: 4vw;
         margin-top: 4%; }
         header nav .main-nav li a {
           -webkit-transition: border 150ms;
@@ -67,9 +69,6 @@ header {
         header nav .main-nav li a:hover {
           padding-bottom: 2px;
           border-bottom: solid #4AD8F5 2px; }
-    @media screen and (min-width: 1024px) {
-      header nav .secondary-nav, header nav .nav-button, header nav .salah-mobil {
-        display: none; } }
     header nav .secondary-nav {
       grid-column: 1/13;
       grid-row: 4/-1;
@@ -92,7 +91,7 @@ header {
           header nav .secondary-nav ul li a:hover {
             padding-bottom: 2px;
             border-bottom: solid #4AD8F5 2px; }
-    header nav i {
+    header nav .nav-button {
       grid-row: 2/3;
       grid-column: 11/-1;
       font-size: 4em;
@@ -108,7 +107,7 @@ header {
         border-radius: 50%;
         width: 60px;
         float: left;
-        margin-right: 20px;
+        margin-right: 1vw;
         text-align: center;
         padding: 17px 0; }
         header nav .salah li h3 {
@@ -144,6 +143,8 @@ header {
     border-radius: 50%;
     transition: all 1000ms;
     list-style: none; }
+    .salah-mobil ul li h3 {
+      font-size: 1.2em; }
   .salah-mobil ul :nth-child(1) {
     transform: translateX(600px); }
   .salah-mobil ul :nth-child(2) {
@@ -391,6 +392,8 @@ footer {
       padding: 10px 15px; }
 
 @media only screen and (max-width: 600px) {
+  .mobil {
+    display: block; }
   .salah {
     display: none; }
   .main-nav {

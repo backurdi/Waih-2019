@@ -7,7 +7,6 @@ export default class Salah {
     let mm = today.getMonth()+1 < 10 ? '0'+(today.getMonth()+1) : today.getMonth()+1;
     let yyyy = today.getFullYear();
     today = `${dd}/${mm}/${yyyy}`;
-    console.log(today)
 
         try {
             const salahResults = await axios(`http://waih.dk/WaihAPI/salah/?dato=`+ today);

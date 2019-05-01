@@ -6,13 +6,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: {
         babel: 'babel-polyfill',
-        salah: './src/js/salah.js',
         index: './src/js/index.js',
         om: './src/js/om.js',
         programs: './src/js/programs.js',
         upload: './src/js/upload.js',
         artikler: './src/js/artikler.js',
-        dashboard: './src/js/dashboard.js'
+        dashboard: './src/js/dashboard.js',
+        salah: './src/js/salah.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -58,32 +58,32 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/html/index.html',
-            chunks: ['waih', 'babel', 'salah', 'index']
+            chunks: ['waih', 'babel', 'index']
         }),
         new HtmlWebpackPlugin({
             filename: 'om.html',
             template: './src/html/om.html',
-            chunks: ['waih','babel','salah', 'om']
+            chunks: ['waih','babel', 'om']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',
             template: './src/html/artikler.html',
-            chunks: ['waih','babel','salah', 'artikler']
+            chunks: ['waih','babel', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikel.html',
             template: './src/html/artikel.html',
-            chunks: ['waih','babel','salah', 'artikler']
+            chunks: ['waih','babel', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'programs.html',
             template: './src/html/programs.html',
-            chunks: ['waih','babel','salah', 'programs']
+            chunks: ['waih','babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'program.html',
             template: './src/html/program.html',
-            chunks: ['waih','babel','salah', 'programs']
+            chunks: ['waih','babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
