@@ -718,4 +718,11 @@ footer{
   }
 }
 
-
+@media only screen and (max-width: 500px) {
+  #hero {
+    .article-little-content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+}

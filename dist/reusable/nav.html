@@ -15,7 +15,8 @@
                 <li><a href="artikler.html">Artikler</a></li>
                 <li><a href="om.html">Om os</a></li>
             </ul>
-            <div class="mobil nav-button fas fa-bars">
+            <div class="mobil nav-button">
+                <i class="fas fa-bars"></i>
             </div>
             <div class="secondary-nav mobil">
                 <ul>
@@ -46,17 +47,17 @@
 <script>
     //nav
     var navToggle = function(){
-        const navButton = document.querySelector('.nav-button');
+        const navButton = document.querySelector('.nav-button i');
         navButton.addEventListener('click', function(){
             if(navButton.classList.contains('fa-bars')){
                 navButton.classList.remove('fa-bars');
-                navButton.classList.add('active-nav');
+                navButton.parentElement.classList.add('active-nav');
                 navButton.classList.add('fa-times');
                 document.querySelector('.secondary-nav').style.zIndex = '1';
                 document.querySelector('html').style.overflow = 'hidden';
             }else{
                 navButton.classList.add('fa-bars');
-                navButton.classList.remove('active-nav');
+                navButton.parentElement.classList.remove('active-nav');
                 navButton.classList.remove('fa-times');
                 document.querySelector('.secondary-nav').style.zIndex = '-1';
                 document.querySelector('html').style.overflow = 'auto';
