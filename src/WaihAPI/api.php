@@ -35,6 +35,10 @@ if ($requestMethod) {
                 case 'delete':
                     $logic->deletePodcast();
                 break;
+
+                case 'update':
+                    $logic->updatePodcast();
+                break;
             }
         break;
         case 'artikel':

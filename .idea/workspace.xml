@@ -2,44 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebd0cf6-f72b-40c6-9e53-b1a509bf3620" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/reusable/dbnav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/artikel.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/artikler.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikler.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/artikler.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikler.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/artikler.sass" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikler.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/artikler.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/artikler.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/dashboard.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/dashboard.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/programs.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/programs.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/waih.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/waih.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/om.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/om.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/program.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/program.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/programs.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/programs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WaihAPI/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WaihAPI/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/logic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/artikler.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/artikler.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/dashboard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/dashboard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/programs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/programs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/upload.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/upload.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/artikler.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/artikler.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/program.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/program.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/programs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/programs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/uploadArtikel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/uploadArtikel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/uploadPodcast.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/uploadPodcast.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/artikler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/artikler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/artikler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/artikler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/model/podcast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/podcast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/salah.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/salah.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/seneste.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/seneste.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/programs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/programs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/reusable-code.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/reusable-code.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/salah.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/salah.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/upload.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/js/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,23 +21,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/css/dashboard.scss">
+        <entry file="file://$PROJECT_DIR$/src/js/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            <state relative-caret-position="474">
+              <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/dashboard.js">
+        <entry file="file://$PROJECT_DIR$/src/js/model/podcast.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -86,16 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scroll</find>
-      <find>dash</find>
-      <find>bodu</find>
-      <find>active</find>
-      <find>mus</find>
-      <find>hide</find>
-      <find>selece</find>
-      <find>selecet</find>
-      <find>program</find>
-      <find>none</find>
       <find>invali</find>
       <find>getB</find>
       <find>sec</find>
@@ -116,6 +74,16 @@
       <find>nav</find>
       <find>h1</find>
       <find>vh</find>
+      <find>fo</find>
+      <find>de</find>
+      <find>delet</find>
+      <find>delete</find>
+      <find>beforeChange</find>
+      <find>new</find>
+      <find>det vi</find>
+      <find>update</find>
+      <find>val</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>colorCode</replace>
@@ -129,6 +97,7 @@
       <replace>podcast.</replace>
       <replace>large</replace>
       <replace>storArtikel</replace>
+      <replace>oldValue</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,11 +128,9 @@
         <option value="$PROJECT_DIR$/dist/reusable/head.html" />
         <option value="$PROJECT_DIR$/src/WaihAPI/Model/Salah.php" />
         <option value="$PROJECT_DIR$/src/js/index.js" />
-        <option value="$PROJECT_DIR$/src/js/model/podcast.js" />
         <option value="$PROJECT_DIR$/src/js/model/artikler.js" />
         <option value="$PROJECT_DIR$/src/js/model/seneste.js" />
         <option value="$PROJECT_DIR$/src/js/model/programs.js" />
-        <option value="$PROJECT_DIR$/src/WaihAPI/api.php" />
         <option value="$PROJECT_DIR$/src/css/artikler.scss" />
         <option value="$PROJECT_DIR$/src/html/artikler.html" />
         <option value="$PROJECT_DIR$/src/js/artikler.js" />
@@ -171,8 +138,6 @@
         <option value="$PROJECT_DIR$/dist/waih.sass" />
         <option value="$PROJECT_DIR$/dist/reusable/nav.html" />
         <option value="$PROJECT_DIR$/src/js/salah.js" />
-        <option value="$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php" />
-        <option value="$PROJECT_DIR$/src/WaihAPI/logic.php" />
         <option value="$PROJECT_DIR$/dist/reusable/Dbnav.html" />
         <option value="$PROJECT_DIR$/src/js/reusable-code.js" />
         <option value="$PROJECT_DIR$/src/html/dashboard.html" />
@@ -186,8 +151,12 @@
         <option value="$PROJECT_DIR$/dist/reusable/dbnav.html" />
         <option value="$PROJECT_DIR$/src/css/upload.scss" />
         <option value="$PROJECT_DIR$/src/css/style.scss" />
-        <option value="$PROJECT_DIR$/src/js/dashboard.js" />
         <option value="$PROJECT_DIR$/src/css/dashboard.scss" />
+        <option value="$PROJECT_DIR$/src/WaihAPI/api.php" />
+        <option value="$PROJECT_DIR$/src/WaihAPI/logic.php" />
+        <option value="$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php" />
+        <option value="$PROJECT_DIR$/src/js/model/podcast.js" />
+        <option value="$PROJECT_DIR$/src/js/dashboard.js" />
       </list>
     </option>
   </component>
@@ -291,7 +260,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556754564102" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556839981030" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -340,7 +309,7 @@
       <workItem from="1555337226389" duration="26425000" />
       <workItem from="1555624615568" duration="20613000" />
       <workItem from="1556133840700" duration="6570000" />
-      <workItem from="1556376191072" duration="64967000" />
+      <workItem from="1556376191072" duration="73393000" />
     </task>
     <task id="LOCAL-00001" summary="Har oprettet loadArtikler nederst og tilføjet en if der tjekker hvis latestArticle er null hvilket er årsagen til at koden stoppede og derfor ariklerne ikke dukkede op på artikler siden">
       <created>1553413111927</created>
@@ -531,14 +500,22 @@
       <option name="project" value="LOCAL" />
       <updated>1556609375427</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Dashboard er i gang, nav er blevet lavet og lidt tilkobling mellem de forskellige sider. mangler bare en oversigt til artikler">
+      <created>1556754612542</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1556754612542</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199828000" />
+    <option name="totallyTimeSpent" value="208254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -549,7 +526,7 @@
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.3299363" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.4985694" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49713877" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49713877" visible="true" weight="0.10955414" />
       <window_info anchor="bottom" id="TypeScript" order="2" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5028612" side_tool="true" weight="0.3299363" />
@@ -576,7 +553,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="optimeret design til upload siderne" />
     <MESSAGE value="upload artikel er siden færdig til perfektion" />
     <MESSAGE value="upload artikel er siden færdig til perfektion + final touch" />
     <MESSAGE value="upload podcasts siden færdig til perfektion + final touches" />
@@ -601,12 +577,10 @@
     <MESSAGE value="artikler WIP" />
     <MESSAGE value="Dashboard WIP" />
     <MESSAGE value="Salah endpoint kører" />
-    <option name="LAST_COMMIT_MESSAGE" value="Salah endpoint kører" />
+    <MESSAGE value="Dashboard er i gang, nav er blevet lavet og lidt tilkobling mellem de forskellige sider. mangler bare en oversigt til artikler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard er i gang, nav er blevet lavet og lidt tilkobling mellem de forskellige sider. mangler bare en oversigt til artikler" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/img/mLogo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/mLogo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -644,9 +618,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/artikel.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/dashboard.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/artikel.html">
@@ -691,13 +662,6 @@
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/model/podcast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -768,31 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaihAPI/logic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/reusable-code.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WaihAPI/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -901,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/upload.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="209" column="16" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/style.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -929,21 +865,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/dashboard.js">
+    <entry file="file://$PROJECT_DIR$/dist/dashboard.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/upload.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="271" column="34" lean-forward="true" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/dashboard.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="61">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaihAPI/Model/Podcast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaihAPI/logic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="90" column="26" lean-forward="true" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WaihAPI/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/model/podcast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

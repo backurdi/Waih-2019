@@ -69,6 +69,33 @@ Class logic {
 
     }
 
+    function updatePodcast() {
+        include_once './Model/Podcast.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $podcast = new Podcast($db);
+
+        if( isset($_GET['id']) && isset($_GET['param']) && isset($_GET['newValue']))
+        {
+            $stmt = $podcast->changeParam($_GET['id'], $_GET['param'], $_GET['newValue']);
+        }
+
+        $num = $stmt->rowCount();
+
+
+        if ($num>0) {
+            http_response_code(200);
+            echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
+        } else{
+            echo '<script>
+                 alert("rows affected: " '. $num . '"params: "' . $_GET["newValue"] . ')
+                 </script>';
+        }
+
+
+    }
+
     function deletePodcast() {
         include_once './Model/Podcast.php';
 

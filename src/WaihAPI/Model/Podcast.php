@@ -27,6 +27,20 @@ class Podcast
         $this->conn = $db;
     }
 
+    function changeParam($id, $param, $newValue) {
+
+        $this->id = $id;
+
+        $query = 'UPDATE ' . $this->table_name . ' SET ' . $param . ' = "' . $newValue . '" WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
     function getAudioPath($id)
     {
         $this->id = $id;
