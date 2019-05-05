@@ -3,7 +3,7 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-align: center;
-  margin: 0.5em 0 0.5em 0; }
+  margin: 0 0 0.5em 0; }
 
 html {
   min-height: 100vh; }
@@ -11,8 +11,7 @@ html {
 .upload_form {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(8, 1fr); }
+  grid-auto-flow: column; }
   .upload_form input, .upload_form label {
     grid-column: 2 / 2;
     caret-color: transparent;
@@ -164,7 +163,7 @@ html {
   grid-auto-flow: column;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(8, 1fr);
-  height: 85vh; }
+  height: 80vh; }
   .upload_form-a input, .upload_form-a label {
     caret-color: transparent;
     background-color: transparent;

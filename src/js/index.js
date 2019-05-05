@@ -27,19 +27,19 @@ const seneste = async () => {
         $('.article-content h1').html(storArtikel.title);
         $('.article-content .visual').attr('style', `background-image: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url("${storArtikel.picture}");`);
         $('.article-content .info h2').html(storArtikel.author + `<span class="date"> | ${storArtikel.date}</span>`)
-        $('.article-content .info p').html(storArtikel.body );
+        $('.article-content .info p').html(storArtikel.subtitle );
 
         $('.article-top').attr('data-id', lilleArtikel1.id);
         $('.article-top h1').html(lilleArtikel1.title);
         $('.article-top .visual').attr('style', `background-image: url("${lilleArtikel1.picture}"); background-repeat: no-repeat; background-size: cover;`);
         $('.article-top .info h2').html(lilleArtikel1.author + `<span class="date"> | ${lilleArtikel1.date}</span>`);
-        $('.article-top .info p').html(lilleArtikel1.body );
+        $('.article-top .info p').html(lilleArtikel1.subtitle );
 
         $('.article-bottom').attr('data-id', lilleArtikel2.id);
         $('.article-bottom h1').html(lilleArtikel2.title);
         $('.article-bottom .visual').attr('style', `background-image: url("${lilleArtikel2.picture}"); background-repeat: no-repeat; background-size: cover;`);
         $('.article-bottom .info h2').html(lilleArtikel2.author + `<span class="date"> | ${lilleArtikel2.date}</span>`);
-        $('.article-bottom .info p').html(lilleArtikel2.body );
+        $('.article-bottom .info p').html(lilleArtikel2.subtitle );
 
             $('.artikel').click((e) => {
                 let targetArtikel = e.currentTarget.dataset.id;

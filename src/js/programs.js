@@ -22,6 +22,7 @@ const programs = async () => {
         if(window.location.hash) {
             loadProgram();
             loadPodcasts();
+            document.querySelector('html').style.overflow = 'hidden';
         } else {
             for (let i = 0; i<state.program.results.length; i++){
                 createPrograms(i);

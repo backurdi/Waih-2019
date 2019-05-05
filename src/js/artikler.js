@@ -24,8 +24,8 @@ let state = {};
                 $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
                 $('#title').html(state.artikler.results[0].title);
                 $('#subtitle').html(state.artikler.results[0].subtitle);
-                $('#author').html('Udgivet af ' + state.artikler.results[0].author);
-                $('#date').html('Udgivet den ' + state.artikler.results[0].date);
+                $('#author').html(state.artikler.results[0].author);
+                $('#date').html(state.artikler.results[0].date);
                 $('#body').html(state.artikler.results[0].body);
                 $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
             } else {
@@ -50,7 +50,7 @@ const loadArtikler = () => {
                     <h1>${state.artikler.results[i].title}</h1>
                     <h2>${state.artikler.results[i].author} <span class="date">| ${state.artikler.results[i].date}</span></h2>
 
-                    <p>${state.artikler.results[i].body}</p>
+                    <p>${state.artikler.results[i].subtitle}</p>
                 </div>
             </div>
             `)
@@ -62,7 +62,7 @@ const loadArtikler = () => {
                     <h1>${state.artikler.results[i].title}</h1>
                     <h2>${state.artikler.results[i].author} <span class="date">| ${state.artikler.results[i].date}</span></h2>
 
-                    <p>${state.artikler.results[i].body}</p>
+                    <p>${state.artikler.results[i].subtitle}</p>
                 </div>
             </div>
             `)

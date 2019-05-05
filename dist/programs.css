@@ -1,4 +1,8 @@
 /*------------------------ Programs ------------------------*/
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #293443, #161b24); }
+
 .programs-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -32,7 +36,7 @@
     .programs-container .programs-title-container h3 {
       font-size: 1.4em; }
 
-#title {
+.title {
   text-align: center;
   font-size: 4em;
   text-transform: uppercase;
@@ -57,7 +61,8 @@
     flex-direction: column;
     margin-top: 15px;
     overflow: auto;
-    height: calc(100vh - 25%); }
+    height: 75vh;
+    border-bottom: 3px solid #fff; }
     .program-container .podcasts h1 {
       margin-top: 5px;
       font-size: 2em;
@@ -70,6 +75,11 @@
       color: #fff; }
     .program-container .podcasts .plyr--audio .plyr__progress--buffer, .program-container .podcasts .plyr--audio .plyr__volume--display {
       background: #444957; }
+
+@media only screen and (max-width: 1010px) {
+  .programs-container {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px; } }
 
 @media only screen and (max-width: 600px) {
   html {
