@@ -6,6 +6,7 @@ export default class Artikler {
             id = id ? '?id=' + id : '';
             const artiklerResults = await axios(`http://waih.dk/WaihAPI/artikel/get/` + id);
             this.results = artiklerResults.data.articles;
+            console.log(this.results[0].quote);
         } catch (error) {
             alert(error);
         }

@@ -18,6 +18,7 @@ class Article
     public $subtitle;
     public $author;
     public $body;
+    public $quote;
     public $date;
     public $picture;
 
@@ -63,7 +64,7 @@ class Article
     function upload(){
         
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, picture=:picture, date=:date';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, picture=:picture, date=:date';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
@@ -73,12 +74,14 @@ class Article
         $this->title=htmlspecialchars(strip_tags($this->title));
         $this->subtitle=htmlspecialchars(strip_tags($this->subtitle));
         $this->body=htmlspecialchars(strip_tags($this->body));
+        $this->quote=htmlspecialchars(strip_tags($this->quote));
 
         //erstat placeholders i query
         $stmt->bindParam(':title',$this->title);
         $stmt->bindParam(':subtitle',$this->subtitle);
         $stmt->bindParam(':author',$this->author);
         $stmt->bindParam(':body',$this->body);
+        $stmt->bindParam(':quote',$this->quote);
         $stmt->bindParam(':picture',$this->picture);
         $stmt->bindParam(':date',$this->date);
 

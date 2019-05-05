@@ -223,6 +223,7 @@ Class logic {
                     'title' => $title,
                     'subtitle' => $subtitle,
                     'body' => html_entity_decode($body),
+                    'quote' => html_entity_decode($quote),
                     'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
                     'date' => $date
                 );
@@ -343,6 +344,7 @@ Class logic {
                             'title' => $title,
                             'subtitle' => $subtitle,
                             'body' => html_entity_decode($body),
+                            'quote' => $quote,
                             'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
                             'date' => $date
                         );
@@ -433,6 +435,7 @@ Class logic {
             isset($_POST['title']) &&
             isset($_POST['subtitle']) &&
             isset($_POST['body']) &&
+            isset($_POST['quote']) &&
             $picture['size']>0
         ){
 
@@ -440,6 +443,7 @@ Class logic {
             $article->subtitle= $_POST['subtitle'];
             $article->author= $_POST['author'];
             $article->body= $_POST['body'];
+            $article->quote= $_POST['quote'];
             $article->picture = file_get_contents($picture['tmp_name']);
 
             if ($article->upload()) {
