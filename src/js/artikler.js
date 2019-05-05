@@ -40,7 +40,7 @@ let state = {};
 
 const loadArtikler = () => {
     for(let i=0; i < state.artikler.results.length; i++){
-        if(i%2 !== 0){
+        if(i%2 === 0){
             $(".article-content").append(`
             <div class="artikel big-article" data-id="${state.artikler.results[i].id}">
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');">

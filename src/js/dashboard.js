@@ -3,6 +3,8 @@ import '../css/dashboard.scss';
 import '../css/animate.css';
 import Podcast from "./model/podcast";
 import Program from "./model/programs";
+import Artikel from './model/artikler';
+import { async } from 'q';
 
 reusable.head('.head', './reusable/head.html');
 reusable.dbnav('.nav', './reusable/dbnav.html');
@@ -25,9 +27,6 @@ const deletePodcast = async (id, index) => {
 const updatePodcast = async  (id, param, newValue, target, oldVal) => {
     try {
         await state.podcast.update(id, param, newValue)
-
-
-
     } catch (err) {
         alert(`Fejl: ${param} kunne ikke opdateres pga følgende:\n${err}`)
         target.innerText = oldVal;
@@ -46,8 +45,7 @@ const loadPodcasts = async (id) => {
             let podRow =
                 `<tr class="animated fadeIn" data-id="${podcast.id}">
                     <td data-param="title" contenteditable>${podcast.title}</td>   
-                    <td data-param="hostname" contenteditable>${podcast.hostname}</td>   
-                    <td data-param="title" contenteditable>${podcast.title}</td>   
+                    <td data-param="hostname" contenteditable>${podcast.hostname}</td>     
                     <td data-param="guestname" contenteditable>${podcast.guestname}</td>
                     <td data-param="description" contenteditable>${podcast.description}</td>    
                     <td style="padding: 0"><input data-id="${podcast.id}" type="button" class="slet" value="Slet"></td>    
@@ -116,4 +114,98 @@ select.addEventListener('input', () => {
     loadPodcasts(select.value)
 })
 
+const artikel = async () => {
+
+    // tager hash og fjerner alt der ikke er tal som #
+    let id = window.location.hash.replace(/\D/g,'');
+    state.artikler = new Artikel();
+
+    try{
+        // 1) Get responce
+        await state.artikler.getResults(id);
+
+
+        if (window.location.hash) {
+            $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
+            $('#title').html(state.artikler.results[0].title);
+            $('#subtitle').html(state.artikler.results[0].subtitle);
+            $('#author').html('Udgivet af ' + state.artikler.results[0].author);
+            $('#date').html('Udgivet den ' + state.artikler.results[0].date);
+            $('#body').html(state.artikler.results[0].body);
+        } else {
+            loadArtikler()
+        }
+
+    }catch(err){
+        $('#top').css('background-image', 'url("../img/404.png")');
+        console.log('Something went wrong, try again later')
+    }
+};
+
+const loadArtikler = () => {
+    var artikelContainer = document.querySelector('.artikel');
+    var artikel;
+    for(let i=0; i < state.artikler.results.length; i++){
+        artikel = 
+        `
+        <div class="artikel-content" id="${state.artikler.results[i].id}">
+            <img src="${state.artikler.results[i].picture}" alt="">
+            <h2>${state.artikler.results[i].title}</h2>
+        </div>
+        `
+        artikelContainer.insertAdjacentHTML('beforeEnd', artikel);
+    }
+
+    document.querySelector('.search input').addEventListener('keyup', function(){
+        filterFunction();
+    });
+
+    $('.artikel img').click((e) => {
+        const targetArtikel = e.target.parentElement.id;
+        window.location.href = `artikel.html#${targetArtikel}`;
+    });
+};
+
+function filterFunction() {
+    var search, input, filter, h2, txtValue;
+    search = document.querySelector(".search");
+    input = search.getElementsByTagName("input");
+    filter = input[0].value.toUpperCase();
+    h2 = document.querySelectorAll(".artikel-content h2");
+    for (var i = 0; i < h2.length; i++) {
+        txtValue = h2[i].innerHTML;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            h2[i].parentElement.style.display = "";
+        } else {
+            h2[i].parentElement.style.display = "none";
+        }
+    }
+}
+
+    
+artikel();
 programs();
+
+window.onload = function(){
+    if(window.location.hash){
+        window.location.hash = ""
+    }
+    checkHash();
+
+}
+
+window.addEventListener('hashchange', function(){
+    checkHash();
+})
+
+function checkHash(){
+    if(window.location.hash ==='#art'){
+        document.querySelector('.dashboard h1').innerHTML = 'WAIH Artikel Kontrolpanel';
+        document.getElementById('artikler').style.display = '';
+        document.getElementById('podcast').style.display = 'none';
+    }else{
+        document.querySelector('.dashboard h1').innerHTML = 'WAIH Podcast Kontrolpanel';
+        document.getElementById('podcast').style.display = '';
+        document.getElementById('artikler').style.display = 'none';
+    }
+}
