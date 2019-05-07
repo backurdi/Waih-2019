@@ -15,6 +15,8 @@ Class logic {
 
     }
 
+    //Salah Endpoints
+
     function getSalahByDate() {
         include_once './Model/Salah.php';
 
@@ -69,6 +71,9 @@ Class logic {
 
     }
 
+
+    //Podcast endpoints
+
     function updatePodcast() {
         include_once './Model/Podcast.php';
 
@@ -92,8 +97,6 @@ Class logic {
                  alert("rows affected: " '. $num . '"params: "' . $_GET["newValue"] . ')
                  </script>';
         }
-
-
     }
 
     function deletePodcast() {
@@ -184,6 +187,66 @@ Class logic {
         }
     }
 
+    function postPodcast() {
+        include_once './Model/Podcast.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+
+        $podcast = new Podcast($db);
+
+
+        $audiofile = $_FILES['audioPath'];
+        $name = $audiofile['name'];
+        $path = "/audio/" . basename($name);
+
+
+        if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
+
+            if (isset($_POST['title']) &&
+                isset($_POST['hostname']) &&
+                isset($_POST['guestname']) &&
+                isset($_POST['description']) &&
+                isset($_POST['guestname']) &&
+                isset($_POST['programId'])
+            ){
+
+                $podcast->title = $_POST['title'];
+                $podcast->hostname = $_POST['hostname'];
+                $podcast->guestname = $_POST['guestname'];
+                $podcast->description = $_POST['description'];
+                $podcast->programId = $_POST['programId'];
+
+                if ($podcast->upload($path)) {
+                    $uploadComplete = true;
+                    echo "<script>
+             alert('Podcasten er uploaded Alhamdulillah!'); 
+             window.history.go(-1);
+                 </script>";
+
+                } else {
+                    echo "<script>
+             alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+             window.history.go(-1);
+                 </script>";
+                }
+
+            } else {
+                echo "<script>
+             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
+            }
+
+        } else {
+            echo "<script>
+             alert('Filen blev ikke uploaded til serveren, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
+        }
+    }
+
+    //Artikler endpoints
 
     function getArtikler() {
         include_once './Model/Article.php';
@@ -242,6 +305,76 @@ Class logic {
 
     }
 
+    function postArtikel() {
+        include_once './Model/Article.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $article = new Article($db);
+        $picture = $_FILES['picture'];
+
+        if (isset($_POST['author']) &&
+            isset($_POST['title']) &&
+            isset($_POST['subtitle']) &&
+            isset($_POST['body']) &&
+            $picture['size']>0
+        ){
+
+            $article->title= $_POST['title'];
+            $article->subtitle= $_POST['subtitle'];
+            $article->author= $_POST['author'];
+            $article->body= $_POST['body'];
+            $article->picture = file_get_contents($picture['tmp_name']);
+
+            if ($article->upload()) {
+                echo "<script>
+                 alert('Artiklen er uploaded Alhamdulillah!'); 
+                 window.history.go(-1);
+                 </script>";
+
+            } else {
+                echo "<script>
+                 alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+                 window.history.go(-1);
+                 </script>";
+            }
+
+        } else {
+            echo "<script>
+             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             window.history.go(-1);
+             </script>";
+        }
+    }
+
+    function updateArtikel() {
+        include_once './Model/Article.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $article = new Article($db);
+
+        if( isset($_GET['id']) && isset($_GET['param']) && isset($_GET['newValue']))
+        {
+            $stmt = $podcast->changeParam($_GET['id'], $_GET['param'], $_GET['newValue']);
+        }
+
+        $num = $stmt->rowCount();
+
+
+        if ($num>0) {
+            http_response_code(200);
+            echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
+        } else{
+            echo '<script>
+                 alert("rows affected: " '. $num . '"params: "' . $_GET["newValue"] . ')
+                 </script>';
+        }
+    }
+
+
+    //Program endpoints
+
     function getProgrammer() {
         include_once './Model/Program.php';
 
@@ -293,6 +426,8 @@ Class logic {
             echo json_encode(array('message' => 'Tabel er tom'));
         }
     }
+
+    //Forside endpoint
 
     function getLatest(){
         include_once './Model/Podcast.php';
@@ -364,108 +499,4 @@ Class logic {
             echo json_encode(array('message' => 'Kunne ikke hente podcasts'));
         }
     }
-    function postPodcast() {
-        include_once './Model/Podcast.php';
-
-        $database = new WaihDB();
-        $db = $database->getConnection();
-
-        $podcast = new Podcast($db);
-
-
-        $audiofile = $_FILES['audioPath'];
-        $name = $audiofile['name'];
-        $path = "/audio/" . basename($name);
-
-
-        if (move_uploaded_file($audiofile['tmp_name'], '..' . $path)) {
-
-            if (isset($_POST['title']) &&
-                isset($_POST['hostname']) &&
-                isset($_POST['guestname']) &&
-                isset($_POST['description']) &&
-                isset($_POST['guestname']) &&
-                isset($_POST['programId'])
-            ){
-
-                $podcast->title = $_POST['title'];
-                $podcast->hostname = $_POST['hostname'];
-                $podcast->guestname = $_POST['guestname'];
-                $podcast->description = $_POST['description'];
-                $podcast->programId = $_POST['programId'];
-
-                if ($podcast->upload($path)) {
-                    $uploadComplete = true;
-                    echo "<script>
-             alert('Podcasten er uploaded Alhamdulillah!'); 
-             window.history.go(-1);
-                 </script>";
-
-                } else {
-                    echo "<script>
-             alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
-             window.history.go(-1);
-                 </script>";
-                }
-
-            } else {
-                echo "<script>
-             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
-             window.history.go(-1);
-             </script>";
-            }
-
-        } else {
-            echo "<script>
-             alert('Filen blev ikke uploaded til serveren, prøv igen InshAllah!'); 
-             window.history.go(-1);
-             </script>";
-        }
-    }
-
-    function postArtikel() {
-        include_once './Model/Article.php';
-
-        $database = new WaihDB();
-        $db = $database->getConnection();
-        $article = new Article($db);
-        $picture = $_FILES['picture'];
-
-        if (isset($_POST['author']) &&
-            isset($_POST['title']) &&
-            isset($_POST['subtitle']) &&
-            isset($_POST['body']) &&
-            isset($_POST['quote']) &&
-            $picture['size']>0
-        ){
-
-            $article->title= $_POST['title'];
-            $article->subtitle= $_POST['subtitle'];
-            $article->author= $_POST['author'];
-            $article->body= $_POST['body'];
-            $article->quote= $_POST['quote'];
-            $article->picture = file_get_contents($picture['tmp_name']);
-
-            if ($article->upload()) {
-                echo "<script>
-                 alert('Artiklen er uploaded Alhamdulillah!'); 
-                 window.history.go(-1);
-                 </script>";
-
-            } else {
-                echo "<script>
-                 alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
-                 window.history.go(-1);
-                 </script>";
-            }
-
-        } else {
-            echo "<script>
-             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
-             window.history.go(-1);
-             </script>";
-        }
-    }
-
-
 }

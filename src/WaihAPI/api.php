@@ -51,6 +51,10 @@ if ($requestMethod) {
                 case 'post':
                     $logic->postArtikel();
                 break;
+
+                case 'update':
+                    $logic->updateArtikel();
+                break;
             }
         break;
         case 'program':
