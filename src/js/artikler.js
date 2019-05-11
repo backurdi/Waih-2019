@@ -27,6 +27,7 @@ let state = {};
                 $('#author').html(state.artikler.results[0].author);
                 $('#date').html(state.artikler.results[0].date);
                 $('#body').html(state.artikler.results[0].body);
+                $('#type').html(state.artikler.results[0].type);
                 $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
             } else {
                 loadArtikler()

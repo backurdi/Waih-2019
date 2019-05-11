@@ -541,7 +541,17 @@ footer {
 @media only screen and (max-width: 500px) {
   #hero .article-little-content {
     grid-template-columns: 1fr;
-    grid-template-rows: auto; } }
+    grid-template-rows: auto; }
+    #hero .article-little-content .article-bottom {
+      display: grid;
+      grid-template-columns: 1fr 2fr; }
+      #hero .article-little-content .article-bottom .visual {
+        height: auto; }
+    #hero .article-little-content .article-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr; }
+      #hero .article-little-content .article-top .visual {
+        height: auto; } }
 
 /*!
  * animate.css -http://daneden.me/animate

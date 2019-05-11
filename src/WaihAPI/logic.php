@@ -285,6 +285,7 @@ Class logic {
                     'author' => $author,
                     'title' => $title,
                     'subtitle' => $subtitle,
+                    'type' => $type,
                     'body' => html_entity_decode($body),
                     'quote' => html_entity_decode($quote),
                     'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
@@ -296,7 +297,6 @@ Class logic {
             }
             http_response_code(200);
             echo json_encode($article_arr);
-
 
         } else {
             http_response_code(400);
@@ -317,6 +317,7 @@ Class logic {
             isset($_POST['title']) &&
             isset($_POST['subtitle']) &&
             isset($_POST['body']) &&
+            isset($_POST['type']) &&
             $picture['size']>0
         ){
 
@@ -324,24 +325,26 @@ Class logic {
             $article->subtitle= $_POST['subtitle'];
             $article->author= $_POST['author'];
             $article->body= $_POST['body'];
+            $article->quote= $_POST['quote'];
+            $article->type= $_POST['type'];
             $article->picture = file_get_contents($picture['tmp_name']);
 
             if ($article->upload()) {
                 echo "<script>
-                 alert('Artiklen er uploaded Alhamdulillah!'); 
+                 alert('Artiklen er uploaded!'); 
                  window.history.go(-1);
                  </script>";
 
             } else {
                 echo "<script>
-                 alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+                 alert('Der skete en fejl under upload, prøv igen!'); 
                  window.history.go(-1);
                  </script>";
             }
 
         } else {
             echo "<script>
-             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             alert('Udfyld venligtst alle felter, prøv igen!'); 
              window.history.go(-1);
              </script>";
         }
@@ -478,6 +481,7 @@ Class logic {
                             'author' => $author,
                             'title' => $title,
                             'subtitle' => $subtitle,
+                            'type' => $type,
                             'body' => html_entity_decode($body),
                             'quote' => $quote,
                             'picture' => "data:image/jpeg;base64, " . base64_encode($picture),

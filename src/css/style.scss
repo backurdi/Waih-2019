@@ -293,7 +293,7 @@ header{
     h1{
       text-align: left;
       font-weight: 400;
-      font-size: 40px;
+      font-size: 30px;
       margin: 0;
     }
 
@@ -348,7 +348,7 @@ header{
       h1{
         text-align: left;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 20px;
       }
       
       h2{
@@ -748,6 +748,23 @@ footer{
     .article-little-content {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
+    
+    .article-bottom{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+
+      .visual{
+        height: auto;
+      }
+    }
+    .article-top{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+
+      .visual{
+        height: auto;
+      }
+    }
     }
   }
 }
