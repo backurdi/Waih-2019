@@ -9,8 +9,10 @@
         }
     }
     #top{
-        background-size: cover;
-        background-color: black;
+        size: cover;
+        font-size: 80%;
+        color: black;
+        font-size: 80%;
         display: flex;
         justify-content: flex-end;
         align-content: flex-end;
@@ -23,16 +25,20 @@
         font-size: 1.4em;
         text-align: justify;
         .Debatindlæg{
-            background-color: red;
+            color: red;
+            font-size: 80%;
         }
         .Artikel{
-            background-color: purple;
+            color: purple;
+            font-size: 80%;
         }
         .Kronik{
-            background-color: blue;
+            color: blue;
+            font-size: 80%;
         }
         .Leder{
-            background-color: green;
+            color: green;
+            font-size: 80%;
         }
 
         h1{
@@ -68,7 +74,56 @@
             margin: 0 auto;
         }
     }
+}
 
+#share{
+    text-align: center;
+    margin: 40px 0;
+
+    h2{
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-bottom: 10px; 
+        width: 400px;
+        border-bottom: 1px solid #fff; 
+    }
+
+    ul{
+        margin: 0 auto;
+        display: inline-block;
+        li{
+            float: left;
+            list-style: none;
+            margin-left: 40px;
+            border: 1px solid #fff;
+            padding: 10px;
+
+            a{
+                color: #fff;
+                i{
+                    font-size: 30px;
+                    width: 30px;
+                }
+            }
+
+            :hover{
+                
+            }
+        }
+
+        :first-child{
+            margin-left: 0;
+        }
+
+        li:hover{
+            background-color: #fff;
+            font-size: 80%;
+            a{
+                color: #212a36;
+            }
+        }
+
+    }
 }
 
 @media only screen and (max-width: 850px) {

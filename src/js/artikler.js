@@ -31,6 +31,8 @@ let state = {};
                 $('#body').html(state.artikler.results[0].body);
                 $('#type').html(state.artikler.results[0].type);
                 $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
+                $('#facebookShare').attr('href',`https://www.facebook.com/sharer.php?u=${document.location.href}`);
+
             } else {
                 loadArtikler()
             }
@@ -77,3 +79,10 @@ const loadArtikler = () => {
     });
 };
 
+$('#linkCopy').click(()=>{
+    navigator.clipboard.writeText(document.location.href).then(()=>{
+        console.log('copied');
+    }), ()=>{
+        console.log('something went wrong');
+    }
+});
