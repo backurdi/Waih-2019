@@ -62,7 +62,8 @@ class Article
         return $stmt;
     }
 
-    function upload(){
+    function upload($path){
+        $this->picture = $path;
         
         //opret query
         $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, type=:type, picture=:picture, date=:date';

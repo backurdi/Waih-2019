@@ -48,7 +48,6 @@ const seneste = async () => {
             });
         createPlayer();
         Plyr.setup('.player');
-        document.addEventListener("touchstart", function() {},false);
 
     } catch (err) {
         console.log('Something went wrong with loading the latest news, try again later\n'+err)

@@ -109,15 +109,18 @@ Class logic {
         if( isset($_GET['id']) )
         {
             $stmt = $podcast->getAudioPath($_GET['id']);
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                extract($row);
+                $audioPath;
+            }
         }
 
-        if (unlink($stmt))
+        if (unlink($audioPath))
         {
             unset($stmt);
             $stmt = $podcast->delete($_GET['id']);
 
         } else {
-
             echo "<script>
                  alert('Der skete en fejl, filen blev ikke slettet '); 
                  </script>";
@@ -220,27 +223,27 @@ Class logic {
                 if ($podcast->upload($path)) {
                     $uploadComplete = true;
                     echo "<script>
-             alert('Podcasten er uploaded Alhamdulillah!'); 
+             alert('Podcasten er uploaded!'); 
              window.history.go(-1);
                  </script>";
 
                 } else {
                     echo "<script>
-             alert('Der skete en fejl under upload, prøv igen InshAllah!'); 
+             alert('Der skete en fejl under upload, prøv igen!'); 
              window.history.go(-1);
                  </script>";
                 }
 
             } else {
                 echo "<script>
-             alert('Udfyld venligtst alle felter, prøv igen InshAllah!'); 
+             alert('Udfyld venligtst alle felter, prøv igen!'); 
              window.history.go(-1);
              </script>";
             }
 
         } else {
             echo "<script>
-             alert('Filen blev ikke uploaded til serveren, prøv igen InshAllah!'); 
+             alert('Filen blev ikke uploaded til serveren, prøv igen!'); 
              window.history.go(-1);
              </script>";
         }
@@ -288,7 +291,7 @@ Class logic {
                     'type' => $type,
                     'body' => html_entity_decode($body),
                     'quote' => html_entity_decode($quote),
-                    'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
+                    'picture' => $picture,
                     'date' => $date
                 );
 
@@ -312,39 +315,48 @@ Class logic {
         $db = $database->getConnection();
         $article = new Article($db);
         $picture = $_FILES['picture'];
+        $name = $picture['name'];
+        $path = "/img-articles/" . basename($name);
 
-        if (isset($_POST['author']) &&
-            isset($_POST['title']) &&
-            isset($_POST['subtitle']) &&
-            isset($_POST['body']) &&
-            isset($_POST['type']) &&
-            $picture['size']>0
-        ){
 
-            $article->title= $_POST['title'];
-            $article->subtitle= $_POST['subtitle'];
-            $article->author= $_POST['author'];
-            $article->body= $_POST['body'];
-            $article->quote= $_POST['quote'];
-            $article->type= $_POST['type'];
-            $article->picture = file_get_contents($picture['tmp_name']);
+        if (move_uploaded_file($picture['tmp_name'], '..' . $path)) {
+            if (isset($_POST['author']) &&
+                isset($_POST['title']) &&
+                isset($_POST['subtitle']) &&
+                isset($_POST['body']) &&
+                isset($_POST['type'])
+            ){
 
-            if ($article->upload()) {
-                echo "<script>
+                $article->title= $_POST['title'];
+                $article->subtitle= $_POST['subtitle'];
+                $article->author= $_POST['author'];
+                $article->body= $_POST['body'];
+                $article->quote= $_POST['quote'];
+                $article->type= $_POST['type'];
+                $article->type= $_POST['type'];
+
+                if ($article->upload($path)) {
+                    echo "<script>
                  alert('Artiklen er uploaded!'); 
                  window.history.go(-1);
                  </script>";
 
-            } else {
-                echo "<script>
+                } else {
+                    echo "<script>
                  alert('Der skete en fejl under upload, prøv igen!'); 
                  window.history.go(-1);
                  </script>";
-            }
+                }
 
+            } else {
+                echo "<script>
+                 alert('Udfyld venligtst alle felter, prøv igen!'); 
+                 window.history.go(-1);
+                 </script>";
+            }
         } else {
             echo "<script>
-             alert('Udfyld venligtst alle felter, prøv igen!'); 
+             alert('Billedet blev ikke uploadet!'); 
              window.history.go(-1);
              </script>";
         }
@@ -413,7 +425,7 @@ Class logic {
                 $program_item = array(
                     'id' => $id,
                     'title' => $title,
-                    'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
+                    'picture' => $picture,
                     'colorCode' => $colorCode
                 );
 
@@ -484,7 +496,7 @@ Class logic {
                             'type' => $type,
                             'body' => html_entity_decode($body),
                             'quote' => $quote,
-                            'picture' => "data:image/jpeg;base64, " . base64_encode($picture),
+                            'picture' => $picture,
                             'date' => $date
                         );
                         array_push($article_arr['articles'], $article_item);

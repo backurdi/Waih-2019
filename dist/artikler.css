@@ -89,6 +89,7 @@
     margin-bottom: 20px;
     padding: 0 0%; } }
 
+@charset "UTF-8";
 .artiklen div {
   margin: 0 auto;
   width: 60%; }
@@ -106,15 +107,20 @@
   padding: 15% 0 0% 0;
   margin-bottom: 10px;
   height: 300px; }
-  .artiklen #top h1 {
-    text-align: left;
-    background-image: linear-gradient(#29344300, #1e2530);
-    font-size: 25px;
-    padding: 0 0 1% 1%; }
 
 .artiklen #content {
   font-size: 1.4em;
   text-align: justify; }
+  .artiklen #content .Debatindlæg {
+    background-color: red; }
+  .artiklen #content .Artikel {
+    background-color: purple; }
+  .artiklen #content .Kronik {
+    background-color: blue; }
+  .artiklen #content .Leder {
+    background-color: green; }
+  .artiklen #content h1 {
+    font-size: 25px; }
   .artiklen #content h2 {
     font-size: 15px; }
   .artiklen #content p {

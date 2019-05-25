@@ -47,7 +47,8 @@ class Program
         return $stmt;
     }
 
-    function upload(){
+    function upload($path){
+        $this->picture = $path;
 
         //opret query
         $query = 'INSERT INTO ' . $this->table_name . ' SET title=:title, picture=:picture, colorCode=:colorCode';
@@ -71,6 +72,4 @@ class Program
             return false;
         }
     }
-
-
 }

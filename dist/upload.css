@@ -167,7 +167,7 @@ html {
   .upload_form-a input, .upload_form-a label {
     caret-color: transparent;
     background-color: transparent;
-    padding: 15px;
+    padding: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin: 1em;
     border: 1px solid #fff;
@@ -231,7 +231,6 @@ html {
   .upload_form-a textarea {
     grid-area: 1 / 2 / lastline / lastline;
     caret-color: white;
-    overflow: hidden;
     margin: 1em;
     -webkit-transition: all 0.65s;
     -moz-transition: all 0.65s;
