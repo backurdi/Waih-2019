@@ -25,7 +25,7 @@ const seneste = async () => {
 
         $('.article-content').attr('data-id', storArtikel.id);
         $('.article-content h1').html(storArtikel.title);
-        $('.article-content .visual').attr('style', `background-image: linear-gradient(rgba(40, 57, 80, 0.67), rgba(40, 57, 80, 0.67)), url("${storArtikel.picture}");`);
+        $('.article-content .visual').attr('style', `background-image: url("${storArtikel.picture}");`);
         $('.article-content .info h2').html(storArtikel.author + `<span class="date"> | ${storArtikel.date}</span>`)
         $('.article-content .info p').html(storArtikel.subtitle );
 

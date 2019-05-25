@@ -45,8 +45,7 @@ const loadArtikler = () => {
         if(i%2 === 0){
             $(".article-content").append(`
             <div class="artikel big-article" data-id="${state.artikler.results[i].id}">
-                <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');">
-                </div>
+                <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
                 <div class="info">
                     <h1>${state.artikler.results[i].title}</h1>
                     <h2>${state.artikler.results[i].author} <span class="date">| ${state.artikler.results[i].date}</span></h2>

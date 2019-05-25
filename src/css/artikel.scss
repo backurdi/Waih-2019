@@ -19,16 +19,13 @@
         margin-bottom: 10px;
         height: 300px;
         
-        h1{
-            text-align: left;
-            background-image: linear-gradient( #29344300, #1e2530);
-            font-size: 25px;
-            padding: 0 0 1% 1%;
-        }
     }
     #content{
         font-size: 1.4em;
         text-align: justify;
+        h1{
+            font-size: 25px;
+        }
 
         h2{
             font-size: 15px;
