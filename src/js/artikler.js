@@ -22,6 +22,8 @@ let state = {};
 
             if (window.location.hash) {
                 $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
+                $('#type').html(state.artikler.results[0].type);
+                $('#type').addClass(state.artikler.results[0].type);
                 $('#title').html(state.artikler.results[0].title);
                 $('#subtitle').html(state.artikler.results[0].subtitle);
                 $('#author').html(state.artikler.results[0].author);

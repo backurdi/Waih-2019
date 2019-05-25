@@ -18,11 +18,23 @@
         padding: 15% 0 0% 0;
         margin-bottom: 10px;
         height: 300px;
-        
     }
     #content{
         font-size: 1.4em;
         text-align: justify;
+        .Debatindlæg{
+            background-color: red;
+        }
+        .Artikel{
+            background-color: purple;
+        }
+        .Kronik{
+            background-color: blue;
+        }
+        .Leder{
+            background-color: green;
+        }
+
         h1{
             font-size: 25px;
         }

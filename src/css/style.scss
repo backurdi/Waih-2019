@@ -385,7 +385,6 @@ header{
   .latest-podcasts{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
     grid-column-gap: 40px;
     
     .podcast-episode{
@@ -753,7 +752,7 @@ footer{
       grid-template-columns: 1fr 2fr;
 
       .visual{
-        height: auto;
+        height: 100px;
       }
     }
     .article-top{
@@ -761,7 +760,7 @@ footer{
       grid-template-columns: 1fr 2fr;
 
       .visual{
-        height: auto;
+        height: 100px;
       }
     }
     }
