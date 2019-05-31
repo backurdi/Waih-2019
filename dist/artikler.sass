@@ -98,8 +98,10 @@
     font-size: 200%; }
 
 .artiklen #top {
-  background-size: cover;
-  background-color: black;
+  size: cover;
+  font-size: 80%;
+  color: black;
+  font-size: 80%;
   display: flex;
   justify-content: flex-end;
   align-content: flex-end;
@@ -112,13 +114,17 @@
   font-size: 1.4em;
   text-align: justify; }
   .artiklen #content .Debatindlæg {
-    background-color: red; }
+    color: red;
+    font-size: 80%; }
   .artiklen #content .Artikel {
-    background-color: purple; }
+    color: purple;
+    font-size: 80%; }
   .artiklen #content .Kronik {
-    background-color: blue; }
+    color: blue;
+    font-size: 80%; }
   .artiklen #content .Leder {
-    background-color: green; }
+    color: green;
+    font-size: 80%; }
   .artiklen #content h1 {
     font-size: 25px; }
   .artiklen #content h2 {
@@ -138,6 +144,37 @@
     .artiklen #content .quote i {
       width: 100%;
       font-size: large; }
+
+#share {
+  text-align: center;
+  margin: 40px 0; }
+  #share h2 {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    width: 400px;
+    border-bottom: 1px solid #fff; }
+  #share ul {
+    margin: 0 auto;
+    display: inline-block; }
+    #share ul li {
+      float: left;
+      list-style: none;
+      margin-left: 40px;
+      border: 1px solid #fff;
+      padding: 10px; }
+      #share ul li a {
+        color: #fff; }
+        #share ul li a i {
+          font-size: 30px;
+          width: 30px; }
+    #share ul :first-child {
+      margin-left: 0; }
+    #share ul li:hover {
+      background-color: #fff;
+      font-size: 80%; }
+      #share ul li:hover a {
+        color: #212a36; }
 
 @media only screen and (max-width: 850px) {
   section {

@@ -6,28 +6,9 @@
       <change beforePath="$PROJECT_DIR$/dist/artikel.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/artikler.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikler.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/artikler.sass" beforeDir="false" afterPath="$PROJECT_DIR$/dist/artikler.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/dashboard.sass" beforeDir="false" afterPath="$PROJECT_DIR$/dist/dashboard.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/img/myter.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/img/upto.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/artikler.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/artikler.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/index.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/index.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/programs.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/programs.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/waih.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/waih.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/upload.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/upload.sass" beforeDir="false" afterPath="$PROJECT_DIR$/dist/upload.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/uploadArtikel.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/uploadArtikel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/waih.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/waih.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/waih.sass" beforeDir="false" afterPath="$PROJECT_DIR$/dist/waih.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/Model/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/Model/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/Model/Program.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/Model/Program.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WaihAPI/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/WaihAPI/logic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/uploadArtikel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/uploadArtikel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/artikler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/artikler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/programs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/programs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/model/seneste.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/model/seneste.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/js/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,16 +24,25 @@
         <entry file="file://$PROJECT_DIR$/src/html/uploadPodcast.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="398">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/html/uploadArtikel.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/html/uploadArtikel.html">
+        <entry file="file://$PROJECT_DIR$/dist/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="333">
+              <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -124,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/WaihAPI/uploadArticle.php" />
         <option value="$PROJECT_DIR$/src/WaihAPI/GetLatest.php" />
         <option value="$PROJECT_DIR$/src/js/model/index.js" />
         <option value="$PROJECT_DIR$/src/js/model/latestPodcast&amp;Artikler.js" />
@@ -175,11 +164,12 @@
         <option value="$PROJECT_DIR$/src/js/model/seneste.js" />
         <option value="$PROJECT_DIR$/dist/uploadArtikel.html" />
         <option value="$PROJECT_DIR$/src/html/uploadArtikel.html" />
+        <option value="$PROJECT_DIR$/dist/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="y" value="173" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -266,7 +256,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558806517342" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558806729413" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -321,7 +311,7 @@
       <workItem from="1557190756462" duration="4316000" />
       <workItem from="1557409440418" duration="1327000" />
       <workItem from="1557593868215" duration="576000" />
-      <workItem from="1558795997735" duration="5953000" />
+      <workItem from="1558795997735" duration="6288000" />
     </task>
     <task id="LOCAL-00001" summary="Har oprettet loadArtikler nederst og tilføjet en if der tjekker hvis latestArticle er null hvilket er årsagen til at koden stoppede og derfor ariklerne ikke dukkede op på artikler siden">
       <created>1553413111927</created>
@@ -533,11 +523,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557243029195</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="alt er merget">
+      <created>1558806535226</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1558806535226</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229170000" />
+    <option name="totallyTimeSpent" value="229505000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -549,7 +546,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="173" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -587,7 +585,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="upload podcasts siden færdig til perfektion + final touches" />
     <MESSAGE value="WaihAPI programs endpoint tilføjet" />
     <MESSAGE value="WaihAPI programs endpoint rettet" />
     <MESSAGE value="program siden WIP" />
@@ -612,16 +609,10 @@
     <MESSAGE value="Dashboard er i gang, nav er blevet lavet og lidt tilkobling mellem de forskellige sider. mangler bare en oversigt til artikler" />
     <MESSAGE value="Dasboard WIP &#10;Alle felter i podcast kan nu ændres" />
     <MESSAGE value="salah tid ændret" />
-    <option name="LAST_COMMIT_MESSAGE" value="salah tid ændret" />
+    <MESSAGE value="alt er merget" />
+    <option name="LAST_COMMIT_MESSAGE" value="alt er merget" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/js/artikler.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="175" column="13" lean-forward="true" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/om.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -963,14 +954,21 @@
     <entry file="file://$PROJECT_DIR$/src/html/uploadPodcast.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/uploadArtikel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="562">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
         </state>
       </provider>
     </entry>
