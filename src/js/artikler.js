@@ -21,9 +21,8 @@ let state = {};
             console.log(state)
 
             if (window.location.hash) {
-                $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
+                $('#top').attr('src', `${state.artikler.results[0].picture}`);
                 $('#type').html(state.artikler.results[0].type);
-                $('#type').addClass(state.artikler.results[0].type);
                 $('#title').html(state.artikler.results[0].title);
                 $('#subtitle').html(state.artikler.results[0].subtitle);
                 $('#author').html(state.artikler.results[0].author);
@@ -31,7 +30,7 @@ let state = {};
                 $('#body').html(state.artikler.results[0].body);
                 $('#type').html(state.artikler.results[0].type);
                 $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
-                $('#facebookShare').attr('href',`https://www.facebook.com/sharer.php?u=${document.location.href}`);
+                $('#facebookShare').attr('href',`https://www.facebook.com/sharer.php?u=http://waih.dk/artikel.html#11`);
 
             } else {
                 loadArtikler()
@@ -80,9 +79,11 @@ const loadArtikler = () => {
 };
 
 $('#linkCopy').click(()=>{
-    navigator.clipboard.writeText(document.location.href).then(()=>{
+    navigator.clipboard.writeText(document.location.href)
+    .then(()=>{
         console.log('copied');
-    }), ()=>{
-        console.log('something went wrong');
-    }
+    }).catch(err => {
+        // This can happen if the user denies clipboard permissions:
+        console.error('Could not copy text: ', err);
+      });
 });

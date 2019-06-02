@@ -9,7 +9,8 @@
         }
     }
     #top{
-        size: cover;
+        margin: 0 auto;
+        width: 80%;
         font-size: 80%;
         color: black;
         font-size: 80%;
@@ -17,28 +18,13 @@
         justify-content: flex-end;
         align-content: flex-end;
         flex-direction: column;
-        padding: 15% 0 0% 0;
         margin-bottom: 10px;
-        height: 300px;
     }
     #content{
         font-size: 1.4em;
         text-align: justify;
-        .Debatindlæg{
-            color: red;
-            font-size: 80%;
-        }
-        .Artikel{
-            color: purple;
-            font-size: 80%;
-        }
-        .Kronik{
-            color: blue;
-            font-size: 80%;
-        }
-        .Leder{
-            color: green;
-            font-size: 80%;
+        #type{
+            color: rgb(159, 159, 159);
         }
 
         h1{
@@ -51,12 +37,32 @@
 
         p{
             text-align: justify;
+            white-space: pre-wrap;
+
         }
 
+        #title{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #subtitle{
+            font-size: 140%;
+            font-weight: 400;
+        }
+        #body{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 120%;
+            line-height: 22px;
+        }
         #date {
-
+            margin-bottom: 20px;
         }
-
+        
+        #author{
+            color: #afafaf;
+            margin-bottom: 20px;
+        }
+        
         .quote{
             i{
                 width: 100%;
