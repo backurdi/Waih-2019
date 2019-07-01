@@ -76,10 +76,10 @@ if ($requestMethod) {
         case 'users':
 
             switch ($requestSQL) {
-                case 'login':
+                case 'get':
                     $logic->auth();
                 break;
-                case 'create':
+                case 'post':
                     $logic->createUser();
                 break;
             }
