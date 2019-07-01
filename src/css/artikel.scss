@@ -18,7 +18,7 @@
         justify-content: flex-end;
         align-content: flex-end;
         flex-direction: column;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     #content{
         font-size: 1.4em;
@@ -42,25 +42,27 @@
         }
 
         #title{
+            font-size: 200%;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
         #subtitle{
             font-size: 140%;
             font-weight: 400;
+            margin-bottom: 25px;
         }
         #body{
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 120%;
-            line-height: 22px;
+            line-height: 28px;
         }
         #date {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         #author{
             color: #afafaf;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .quote{
