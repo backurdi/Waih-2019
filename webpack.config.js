@@ -99,6 +99,11 @@ module.exports = {
             template: './src/html/dashboard.html',
             chunks: ['waih','babel', 'dashboard']
         }),
+        new HtmlWebpackPlugin({
+            filename: 'login.html',
+            template: './src/html/login.html',
+            chunks: ['waih','babel', 'dashboard']
+        }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"

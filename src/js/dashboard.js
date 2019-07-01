@@ -108,11 +108,13 @@ const programs = async () => {
 
 
 const select = document.querySelector('#program');
-select.addEventListener('input', () => {
-    tbody.parentNode.style.opacity = 1
-    while(tbody.childElementCount !== 1) {tbody.removeChild(tbody.lastChild)}
-    loadPodcasts(select.value)
-})
+if(select){
+    select.addEventListener('input', () => {
+        tbody.parentNode.style.opacity = 1
+        while(tbody.childElementCount !== 1) {tbody.removeChild(tbody.lastChild)}
+        loadPodcasts(select.value)
+    })
+}
 
 const artikel = async () => {
 
@@ -199,13 +201,15 @@ window.addEventListener('hashchange', function(){
 })
 
 function checkHash(){
-    if(window.location.hash ==='#art'){
-        document.querySelector('.dashboard h1').innerHTML = 'WAIH Artikel Kontrolpanel';
-        document.getElementById('artikler').style.display = '';
-        document.getElementById('podcast').style.display = 'none';
-    }else{
-        document.querySelector('.dashboard h1').innerHTML = 'WAIH Podcast Kontrolpanel';
-        document.getElementById('podcast').style.display = '';
-        document.getElementById('artikler').style.display = 'none';
+    if(document.querySelector('.dashboard')){
+        if(window.location.hash ==='#art'){
+            document.querySelector('.dashboard h1').innerHTML = 'WAIH Artikel Kontrolpanel';
+            document.getElementById('artikler').style.display = '';
+            document.getElementById('podcast').style.display = 'none';
+        }else{
+            document.querySelector('.dashboard h1').innerHTML = 'WAIH Podcast Kontrolpanel';
+            document.getElementById('podcast').style.display = '';
+            document.getElementById('artikler').style.display = 'none';
+        }
     }
 }
