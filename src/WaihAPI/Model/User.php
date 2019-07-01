@@ -24,39 +24,55 @@ class User
         $this->username = $username;
         $this->password = $password;
 
-        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE username=:username, password=:password';
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE username=:username';
 
         $stmt = $this->conn->prepare($query);
 
         $this->username=htmlspecialchars(strip_tags($this->username));
-        $this->password=htmlspecialchars(strip_tags($this->password));
+
+        $stmt->bindParam(':username',$this->username);
+
+        $stmt->execute();
+
+        $user = null;
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            //hente rækker fra tabellen således at $row[title] bare bliver $title
+            extract($row);
+
+            $user = array(
+                'id' => $id,
+                'username' => $username,
+                'password' => $password,
+                'admin' => $admin
+            );
+        }
+
+        if(password_verify($this->password, $user['password'])){
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
+
+    function createUser($username, $password) {
+
+        $this->username = $username;
+        $this->password = $password;
+
+        $query = 'INSERT INTO ' . $this->table_name . ' SET username=:username, password=:password';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->username=htmlspecialchars(strip_tags($this->username));
 
         $stmt->bindParam(':username',$this->username);
         $stmt->bindParam(':password',$this->password);
 
         $stmt->execute();
 
-        return $stmt->rowCount();
-    }
-
-    function createUser($username, $password) {
-
-        if (!($this->AuthUser($username, $password) > 0)){
-
-            $this->username = $username;
-            $this->password = $password;
-
-            $query = 'INSERT INTO ' . $this->table_name . ' SET username=:username, password=:password';
-
-            $stmt = $this->conn->prepare($query);
-
-            $this->username=htmlspecialchars(strip_tags($this->username));
-            $this->password=htmlspecialchars(strip_tags($this->password));
-
-            $stmt->bindParam(':username',$this->username);
-            $stmt->bindParam(':password',$this->password);
-
-            $stmt->execute();
+        return $stmt;
         }
-    }
 }

@@ -24,7 +24,13 @@ Class logic {
 
         if(isset($_POST['username']) && $_POST['password']) {
             $user->createUser($_POST['username'],password_hash($_POST['password'],PASSWORD_DEFAULT));
+        } else {
+            echo "<script>
+                 alert('Udfyld brugernavn og kodeord!'); 
+                 window.history.go(-1);
+                 </script>";
         }
+
 
     }
     function auth(){
@@ -35,9 +41,16 @@ Class logic {
         $user = new User($db);
 
         if(isset($_POST['username']) && $_POST['password']) {
-            $user->AuthUser($_POST['username'],password_hash($_POST['password'],PASSWORD_DEFAULT));
-        }
+            $stmt = $user->AuthUser($_POST['username'],$_POST['password']);
 
+            if ($stmt) {
+                header('Location: http://waih.dk/');
+            } else {
+                echo "<script>alert('Forkert kodeord');</script>";
+            }
+        } else {
+
+        }
     }
 
 

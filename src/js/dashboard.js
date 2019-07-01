@@ -213,3 +213,8 @@ function checkHash(){
         }
     }
 }
+
+
+document.getElementById('login').addEventListener('submit', (e) => {
+    e.preventDefault()
+})

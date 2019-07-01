@@ -106,7 +106,7 @@
   justify-content: flex-end;
   align-content: flex-end;
   flex-direction: column;
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
 .artiklen #content {
   font-size: 1.4em;
@@ -121,19 +121,21 @@
     text-align: justify;
     white-space: pre-wrap; }
   .artiklen #content #title {
+    font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif; }
   .artiklen #content #subtitle {
     font-size: 140%;
-    font-weight: 400; }
+    font-weight: 400;
+    margin-bottom: 25px; }
   .artiklen #content #body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 120%;
-    line-height: 22px; }
+    line-height: 28px; }
   .artiklen #content #date {
-    margin-bottom: 20px; }
+    margin-bottom: 15px; }
   .artiklen #content #author {
     color: #afafaf;
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
   .artiklen #content .quote {
     font-size: 20px;
     border-top: 1px solid #fff;
