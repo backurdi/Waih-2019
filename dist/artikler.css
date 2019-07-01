@@ -89,7 +89,6 @@
     margin-bottom: 20px;
     padding: 0 0%; } }
 
-@charset "UTF-8";
 .artiklen div {
   margin: 0 auto;
   width: 60%; }
@@ -98,7 +97,8 @@
     font-size: 200%; }
 
 .artiklen #top {
-  size: cover;
+  margin: 0 auto;
+  width: 80%;
   font-size: 80%;
   color: black;
   font-size: 80%;
@@ -106,31 +106,34 @@
   justify-content: flex-end;
   align-content: flex-end;
   flex-direction: column;
-  padding: 15% 0 0% 0;
-  margin-bottom: 10px;
-  height: 300px; }
+  margin-bottom: 10px; }
 
 .artiklen #content {
   font-size: 1.4em;
   text-align: justify; }
-  .artiklen #content .Debatindlæg {
-    color: red;
-    font-size: 80%; }
-  .artiklen #content .Artikel {
-    color: purple;
-    font-size: 80%; }
-  .artiklen #content .Kronik {
-    color: blue;
-    font-size: 80%; }
-  .artiklen #content .Leder {
-    color: green;
-    font-size: 80%; }
+  .artiklen #content #type {
+    color: #9f9f9f; }
   .artiklen #content h1 {
     font-size: 25px; }
   .artiklen #content h2 {
     font-size: 15px; }
   .artiklen #content p {
-    text-align: justify; }
+    text-align: justify;
+    white-space: pre-wrap; }
+  .artiklen #content #title {
+    font-family: Georgia, 'Times New Roman', Times, serif; }
+  .artiklen #content #subtitle {
+    font-size: 140%;
+    font-weight: 400; }
+  .artiklen #content #body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 120%;
+    line-height: 22px; }
+  .artiklen #content #date {
+    margin-bottom: 20px; }
+  .artiklen #content #author {
+    color: #afafaf;
+    margin-bottom: 20px; }
   .artiklen #content .quote {
     font-size: 20px;
     border-top: 1px solid #fff;

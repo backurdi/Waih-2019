@@ -14,9 +14,34 @@ Class logic {
         header('Content-Type: application/json; charset=UTF-8');
 
     }
+    //login
+    function createUser() {
+        include_once './Model/User.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $user = new User($db);
+
+        if(isset($_POST['username']) && $_POST['password']) {
+            $user->createUser($_POST['username'],password_hash($_POST['password'],PASSWORD_DEFAULT));
+        }
+
+    }
+    function auth(){
+        include_once './Model/User.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $user = new User($db);
+
+        if(isset($_POST['username']) && $_POST['password']) {
+            $user->AuthUser($_POST['username'],password_hash($_POST['password'],PASSWORD_DEFAULT));
+        }
+
+    }
+
 
     //Salah Endpoints
-
     function getSalahByDate() {
         include_once './Model/Salah.php';
 

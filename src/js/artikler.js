@@ -18,7 +18,6 @@ let state = {};
         try{
             // 1) Get responce
             await state.artikler.getResults(id);
-            console.log(state)
 
             if (window.location.hash) {
                 $('#top').attr('src', `${state.artikler.results[0].picture}`);
@@ -30,7 +29,7 @@ let state = {};
                 $('#body').html(state.artikler.results[0].body);
                 $('#type').html(state.artikler.results[0].type);
                 $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
-                $('#facebookShare').attr('href',`https://www.facebook.com/sharer.php?u=http://waih.dk/artikel.html#11`);
+                $('#facebookShare').attr('href',`https://www.facebook.com/sharer.php?u=waih.dk/artikel#10`);
 
             } else {
                 loadArtikler()

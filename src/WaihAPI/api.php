@@ -73,6 +73,18 @@ if ($requestMethod) {
         case 'salah':
             $logic->getSalahByDate();
         break;
+        case 'users':
+
+            switch ($requestSQL) {
+                case 'login':
+                    $logic->auth();
+                break;
+                case 'create':
+                    $logic->createUser();
+                break;
+            }
+
+        break;
 
         default:
             http_response_code(404);
