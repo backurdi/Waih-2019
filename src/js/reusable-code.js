@@ -1,9 +1,13 @@
-export const nav = (el, path) =>{
+export const nav = (el, path) => {
     $(el).load(path);
 };
-export const dbnav= (el, path) =>{
+export const dbnav = (el, path) => {
     $(el).load(path);
 };
-export const head = (el, path) =>{
+export const head = (el, path) => {
     $(el).load(path);
 };
+
+export const footer = (el, path) => {
+    $(el).load(path);
+}

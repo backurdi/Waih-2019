@@ -7,6 +7,7 @@ import '../css/animate.css';
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
+reusable.footer('.footer', './reusable/footer.html');
 
 // Base selecting
 const latestPodcast = document.querySelector('.latest-podcasts');
@@ -27,36 +28,36 @@ const seneste = async () => {
         $('.article-content h1').html(storArtikel.title);
         $('.article-content .visual').attr('style', `background-image: url("${storArtikel.picture}");`);
         $('.article-content .info h2').html(storArtikel.author + `<span class="date"> | ${storArtikel.date}</span>`)
-        $('.article-content .info p').html(storArtikel.subtitle );
+        $('.article-content .info p').html(storArtikel.subtitle);
 
         $('.article-top').attr('data-id', lilleArtikel1.id);
         $('.article-top h1').html(lilleArtikel1.title);
         $('.article-top .visual').attr('style', `background-image: url("${lilleArtikel1.picture}"); background-repeat: no-repeat; background-size: cover;`);
         $('.article-top .info h2').html(lilleArtikel1.author + `<span class="date"> | ${lilleArtikel1.date}</span>`);
-        $('.article-top .info p').html(lilleArtikel1.subtitle );
+        $('.article-top .info p').html(lilleArtikel1.subtitle);
 
         $('.article-bottom').attr('data-id', lilleArtikel2.id);
         $('.article-bottom h1').html(lilleArtikel2.title);
         $('.article-bottom .visual').attr('style', `background-image: url("${lilleArtikel2.picture}"); background-repeat: no-repeat; background-size: cover;`);
         $('.article-bottom .info h2').html(lilleArtikel2.author + `<span class="date"> | ${lilleArtikel2.date}</span>`);
-        $('.article-bottom .info p').html(lilleArtikel2.subtitle );
+        $('.article-bottom .info p').html(lilleArtikel2.subtitle);
 
-            $('.artikel').click((e) => {
-                let targetArtikel = e.currentTarget.dataset.id;
-                console.log(e.currentTarget.dataset)
-                window.location.href = 'artikel.html#' + targetArtikel;
-            });
+        $('.artikel').click((e) => {
+            let targetArtikel = e.currentTarget.dataset.id;
+            console.log(e.currentTarget.dataset)
+            window.location.href = 'artikel.html#' + targetArtikel;
+        });
         createPlayer();
         Plyr.setup('.player');
 
     } catch (err) {
-        console.log('Something went wrong with loading the latest news, try again later\n'+err)
+        console.log('Something went wrong with loading the latest news, try again later\n' + err)
     }
 };
 seneste()
 
 const createPlayer = () => {
-    for (let podcast of state.seneste.results.podcasts){
+    for (let podcast of state.seneste.results.podcasts) {
 
         const player = `
         <div class="podcast-episode animated fadeInLeft">

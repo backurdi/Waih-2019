@@ -6,46 +6,47 @@ import '../css/artikel.scss';
 // Implementing reusable HTML code
 reusable.nav('.nav', './reusable/nav.html');
 reusable.head('.head', './reusable/head.html');
+reusable.footer('.footer', './reusable/footer.html');
 
 let state = {};
 
-    const artikel = async () => {
+const artikel = async () => {
 
-        // tager hash og fjerner alt der ikke er tal som #
-        let id = window.location.hash.replace(/\D/g,'');
-        state.artikler = new Artikel();
+    // tager hash og fjerner alt der ikke er tal som #
+    let id = window.location.hash.replace(/\D/g, '');
+    state.artikler = new Artikel();
 
-        try{
-            // 1) Get responce
-            await state.artikler.getResults(id);
-            console.log(state)
+    try {
+        // 1) Get responce
+        await state.artikler.getResults(id);
+        console.log(state)
 
-            if (window.location.hash) {
-                $('#top').attr('src', `${state.artikler.results[0].picture}`);
-                $('#type').html(state.artikler.results[0].type);
-                $('#title').html(state.artikler.results[0].title);
-                $('#subtitle').html(state.artikler.results[0].subtitle);
-                $('#author').html(state.artikler.results[0].author);
-                $('#date').html(state.artikler.results[0].date);
-                $('#body').html(state.artikler.results[0].body);
-                $('#type').html(state.artikler.results[0].type);
-                $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
-                $('#facebookShare').attr('href',`urlhttps://www.facebook.com/sharer.php?u=waih.dk/artikel.html#11`);
+        if (window.location.hash) {
+            $('#top').attr('src', `${state.artikler.results[0].picture}`);
+            $('#type').html(state.artikler.results[0].type);
+            $('#title').html(state.artikler.results[0].title);
+            $('#subtitle').html(state.artikler.results[0].subtitle);
+            $('#author').html(state.artikler.results[0].author);
+            $('#date').html(state.artikler.results[0].date);
+            $('#body').html(state.artikler.results[0].body);
+            $('#type').html(state.artikler.results[0].type);
+            $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
+            $('#facebookShare').attr('href', `urlhttps://www.facebook.com/sharer.php?u=waih.dk/artikel.html#11`);
 
-            } else {
-                loadArtikler()
-            }
-
-        }catch(err){
-            $('#top').css('background-image', 'url("../img/404.png")');
-            console.log('Something went wrong, try again later')
+        } else {
+            loadArtikler()
         }
-    };
-    artikel();
+
+    } catch (err) {
+        $('#top').css('background-image', 'url("../img/404.png")');
+        console.log('Something went wrong, try again later')
+    }
+};
+artikel();
 
 const loadArtikler = () => {
-    for(let i=0; i < state.artikler.results.length; i++){
-        if(i%2 === 0){
+    for (let i = 0; i < state.artikler.results.length; i++) {
+        if (i % 2 === 0) {
             $(".article-content").append(`
             <div class="artikel big-article" data-id="${state.artikler.results[i].id}">
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
@@ -57,7 +58,7 @@ const loadArtikler = () => {
                 </div>
             </div>
             `)
-        }else{
+        } else {
             $(".article-little-content").append(`
             <div class="artikel little-article" data-id="${state.artikler.results[i].id}"">
                 <div class="visual" style="background-image: url('${state.artikler.results[i].picture}');"></div>
@@ -78,12 +79,12 @@ const loadArtikler = () => {
     });
 };
 
-$('#linkCopy').click(()=>{
+$('#linkCopy').click(() => {
     navigator.clipboard.writeText(document.location.href)
-    .then(()=>{
-        console.log('copied');
-    }).catch(err => {
-        // This can happen if the user denies clipboard permissions:
-        console.error('Could not copy text: ', err);
-      });
+        .then(() => {
+            console.log('copied');
+        }).catch(err => {
+            // This can happen if the user denies clipboard permissions:
+            console.error('Could not copy text: ', err);
+        });
 });

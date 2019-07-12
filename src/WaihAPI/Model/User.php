@@ -14,6 +14,7 @@ class User
     public $id;
     public $username;
     public $password;
+    public $token;
 
     public function __construct($db)
     {
@@ -61,8 +62,10 @@ class User
 
         $this->username = $username;
         $this->password = $password;
+        $length = 32;
+        $this->token = bin2hex(random_bytes($length));
 
-        $query = 'INSERT INTO ' . $this->table_name . ' SET username=:username, password=:password';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET username=:username, password=:password, token:=token';
 
         $stmt = $this->conn->prepare($query);
 
@@ -70,6 +73,7 @@ class User
 
         $stmt->bindParam(':username',$this->username);
         $stmt->bindParam(':password',$this->password);
+        $stmt->bindParam(':token',$this->token);
 
         $stmt->execute();
 

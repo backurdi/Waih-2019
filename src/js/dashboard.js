@@ -4,13 +4,19 @@ import '../css/animate.css';
 import Podcast from "./model/podcast";
 import Program from "./model/programs";
 import Artikel from './model/artikler';
-import { async } from 'q';
+import {
+    async
+} from 'q';
 
 reusable.head('.head', './reusable/head.html');
 reusable.dbnav('.nav', './reusable/dbnav.html');
 
 let state = {};
 const tbody = document.querySelector('tbody');
+
+const checkForTokenInCookies = () => {
+
+}
 
 const deletePodcast = async (id, index) => {
     state.podcast = new Podcast();
@@ -19,12 +25,12 @@ const deletePodcast = async (id, index) => {
 
         tbody.deleteRow(index);
 
-    }catch (err) {
+    } catch (err) {
         alert('fejl:', err)
     }
 };
 
-const updatePodcast = async  (id, param, newValue, target, oldVal) => {
+const updatePodcast = async (id, param, newValue, target, oldVal) => {
     try {
         await state.podcast.update(id, param, newValue)
     } catch (err) {
@@ -59,7 +65,7 @@ const loadPodcasts = async (id) => {
             title = e.currentTarget.parentNode.parentNode.firstElementChild.innerHTML;
             podId = e.currentTarget.dataset.id;
             index = e.currentTarget.parentNode.parentNode.rowIndex;
-            if(confirm('Er du sikker på at du vil slette podcasten med titlen: \n"'+ title + '" ?')) {
+            if (confirm('Er du sikker på at du vil slette podcasten med titlen: \n"' + title + '" ?')) {
                 deletePodcast(podId, index);
             }
         });
@@ -68,7 +74,7 @@ const loadPodcasts = async (id) => {
             param = e.currentTarget.dataset.param;
             oldValue = e.currentTarget.innerText;
             $('td').on('keyup', (e) => {
-                if(e.target.innerText !== oldValue) {
+                if (e.target.innerText !== oldValue) {
                     e.currentTarget.parentNode.lastElementChild.style.opacity = 1;
                 }
             });
@@ -76,7 +82,7 @@ const loadPodcasts = async (id) => {
         });
         $('td').on('blur', (e) => {
             newValue = e.currentTarget.innerText;
-            if (oldValue !== newValue){
+            if (oldValue !== newValue) {
                 updatePodcast(podId, param, newValue, e.currentTarget, oldValue)
                 e.currentTarget.parentNode.lastElementChild.style.opacity = 0;
             } else {
@@ -92,7 +98,7 @@ const loadPodcasts = async (id) => {
 const programs = async () => {
     state.program = new Program();
 
-    try{
+    try {
         await state.program.getResults();
         console.log(state.program.results);
 
@@ -101,17 +107,19 @@ const programs = async () => {
         }
 
 
-    }catch(err){
+    } catch (err) {
         console.log('Something went wrong with the search, try again later')
     }
 };
 
 
 const select = document.querySelector('#program');
-if(select){
+if (select) {
     select.addEventListener('input', () => {
         tbody.parentNode.style.opacity = 1
-        while(tbody.childElementCount !== 1) {tbody.removeChild(tbody.lastChild)}
+        while (tbody.childElementCount !== 1) {
+            tbody.removeChild(tbody.lastChild)
+        }
         loadPodcasts(select.value)
     })
 }
@@ -119,10 +127,10 @@ if(select){
 const artikel = async () => {
 
     // tager hash og fjerner alt der ikke er tal som #
-    let id = window.location.hash.replace(/\D/g,'');
+    let id = window.location.hash.replace(/\D/g, '');
     state.artikler = new Artikel();
 
-    try{
+    try {
         // 1) Get responce
         await state.artikler.getResults(id);
 
@@ -138,7 +146,7 @@ const artikel = async () => {
             loadArtikler()
         }
 
-    }catch(err){
+    } catch (err) {
         $('#top').css('background-image', 'url("../img/404.png")');
         console.log('Something went wrong, try again later')
     }
@@ -147,9 +155,9 @@ const artikel = async () => {
 const loadArtikler = () => {
     var artikelContainer = document.querySelector('.artikel');
     var artikel;
-    for(let i=0; i < state.artikler.results.length; i++){
-        artikel = 
-        `
+    for (let i = 0; i < state.artikler.results.length; i++) {
+        artikel =
+            `
         <div class="artikel-content" id="${state.artikler.results[i].id}">
             <img src="${state.artikler.results[i].picture}" alt="">
             <h2>${state.artikler.results[i].title}</h2>
@@ -158,7 +166,7 @@ const loadArtikler = () => {
         artikelContainer.insertAdjacentHTML('beforeEnd', artikel);
     }
 
-    document.querySelector('.search input').addEventListener('keyup', function(){
+    document.querySelector('.search input').addEventListener('keyup', function () {
         filterFunction();
     });
 
@@ -184,29 +192,29 @@ function filterFunction() {
     }
 }
 
-    
+
 artikel();
 programs();
 
-window.onload = function(){
-    if(window.location.hash){
+window.onload = function () {
+    if (window.location.hash) {
         window.location.hash = ""
     }
     checkHash();
 
 }
 
-window.addEventListener('hashchange', function(){
+window.addEventListener('hashchange', function () {
     checkHash();
 })
 
-function checkHash(){
-    if(document.querySelector('.dashboard')){
-        if(window.location.hash ==='#art'){
+function checkHash() {
+    if (document.querySelector('.dashboard')) {
+        if (window.location.hash === '#art') {
             document.querySelector('.dashboard h1').innerHTML = 'WAIH Artikel Kontrolpanel';
             document.getElementById('artikler').style.display = '';
             document.getElementById('podcast').style.display = 'none';
-        }else{
+        } else {
             document.querySelector('.dashboard h1').innerHTML = 'WAIH Podcast Kontrolpanel';
             document.getElementById('podcast').style.display = '';
             document.getElementById('artikler').style.display = 'none';
