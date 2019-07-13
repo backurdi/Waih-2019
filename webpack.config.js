@@ -1,4 +1,4 @@
-const path = require ('path');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -12,6 +12,7 @@ module.exports = {
         upload: './src/js/upload.js',
         artikler: './src/js/artikler.js',
         dashboard: './src/js/dashboard.js',
+        editArticle: './src/js/editArticle.js',
         salah: './src/js/salah.js'
     },
     output: {
@@ -28,11 +29,10 @@ module.exports = {
         contentBase: './dist'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use:{
+                use: {
                     loader: 'babel-loader'
                 }
             },
@@ -43,15 +43,15 @@ module.exports = {
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
-                  'file-loader',
-                  {
-                    loader: 'image-webpack-loader',
-                    options: {
-                      disable: true, // webpack@2.x and newer
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            disable: true, // webpack@2.x and newer
+                        },
                     },
-                  },
                 ],
-              }
+            }
         ]
     },
     plugins: [
@@ -63,46 +63,52 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'om.html',
             template: './src/html/om.html',
-            chunks: ['waih','babel', 'om']
+            chunks: ['waih', 'babel', 'om']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikler.html',
             template: './src/html/artikler.html',
-            chunks: ['waih','babel', 'artikler']
+            chunks: ['waih', 'babel', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'artikel.html',
             template: './src/html/artikel.html',
-            chunks: ['waih','babel', 'artikler']
+            chunks: ['waih', 'babel', 'artikler']
         }),
         new HtmlWebpackPlugin({
             filename: 'programs.html',
             template: './src/html/programs.html',
-            chunks: ['waih','babel', 'programs']
+            chunks: ['waih', 'babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'program.html',
             template: './src/html/program.html',
-            chunks: ['waih','babel', 'programs']
+            chunks: ['waih', 'babel', 'programs']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadPodcast.html',
             template: './src/html/uploadPodcast.html',
-            chunks: ['waih','babel', 'upload']
+            chunks: ['waih', 'babel', 'upload']
         }),
         new HtmlWebpackPlugin({
             filename: 'uploadArtikel.html',
-            template: './src/html/uploadArtikel.html'
+            template: './src/html/uploadArtikel.html',
+            chunks: ['waih', 'babel', 'upload']
         }),
         new HtmlWebpackPlugin({
             filename: 'dashboard.html',
             template: './src/html/dashboard.html',
-            chunks: ['waih','babel', 'dashboard']
+            chunks: ['waih', 'babel', 'dashboard']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'editArticle.html',
+            template: './src/html/editArticle.html',
+            chunks: ['waih', 'babel', 'editArticle']
         }),
         new HtmlWebpackPlugin({
             filename: 'login.html',
             template: './src/html/login.html',
-            chunks: ['waih','babel', 'dashboard']
+            chunks: ['waih', 'babel', 'dashboard']
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

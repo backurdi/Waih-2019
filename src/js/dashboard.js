@@ -134,17 +134,7 @@ const artikel = async () => {
         // 1) Get responce
         await state.artikler.getResults(id);
 
-
-        if (window.location.hash) {
-            $('#top').css('background-image', ` url('${state.artikler.results[0].picture}')`);
-            $('#title').html(state.artikler.results[0].title);
-            $('#subtitle').html(state.artikler.results[0].subtitle);
-            $('#author').html('Udgivet af ' + state.artikler.results[0].author);
-            $('#date').html('Udgivet den ' + state.artikler.results[0].date);
-            $('#body').html(state.artikler.results[0].body);
-        } else {
-            loadArtikler()
-        }
+        loadArtikler()
 
     } catch (err) {
         $('#top').css('background-image', 'url("../img/404.png")');
@@ -153,6 +143,7 @@ const artikel = async () => {
 };
 
 const loadArtikler = () => {
+    console.log(state.artikler)
     var artikelContainer = document.querySelector('.artikel');
     var artikel;
     for (let i = 0; i < state.artikler.results.length; i++) {
@@ -172,7 +163,7 @@ const loadArtikler = () => {
 
     $('.artikel img').click((e) => {
         const targetArtikel = e.target.parentElement.id;
-        window.location.href = `artikel.html#${targetArtikel}`;
+        window.location.href = `editArticle.html#${targetArtikel}`;
     });
 };
 
@@ -223,6 +214,6 @@ function checkHash() {
 }
 
 
-document.getElementById('login').addEventListener('submit', (e) => {
-    e.preventDefault()
-})
+// document.getElementById('login').addEventListener('submit', (e) => {
+//     e.preventDefault()
+// })

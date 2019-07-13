@@ -13,7 +13,7 @@ const programs = async () => {
 
     state.program = new Program();
 
-    try{
+    try {
         await state.program.getResults();
         console.log(state.program.results)
 
@@ -23,12 +23,9 @@ const programs = async () => {
 
 
 
-    }catch(err){
+    } catch (err) {
         console.log('Something went wrong with the search, try again later')
     }
 };
 
 programs()
-
-
-
