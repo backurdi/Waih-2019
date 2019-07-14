@@ -660,6 +660,12 @@ footer {
 
 @media only screen and (max-width: 850px) {
   #hero {
+    .article-content {
+      grid-row: auto;
+      background-color: #3f4c5e;
+      padding: 10px;
+    }
+
     .article-little-content {
       grid-template-rows: 1fr;
 
@@ -686,6 +692,12 @@ footer {
       grid-row: auto;
       background-color: #3f4c5e;
       padding: 10px;
+
+      .info {
+        p {
+          font-size: 12px;
+        }
+      }
     }
 
     .article-little-content {
@@ -693,6 +705,10 @@ footer {
       display: grid;
       grid-template-rows: 1fr;
       grid-row-gap: 20px;
+
+      p {
+        display: none;
+      }
 
       .article-top {
         background-color: #3f4c5e;
@@ -789,6 +805,14 @@ footer {
 
 @media only screen and (max-width: 500px) {
   #hero {
+    .article-content {
+      .info {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+
     .article-little-content {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -805,6 +829,7 @@ footer {
       .article-top {
         display: grid;
         grid-template-columns: 1fr 2fr;
+
 
         .visual {
           height: 100px;
