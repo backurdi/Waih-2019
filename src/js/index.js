@@ -21,8 +21,17 @@ const seneste = async () => {
         await state.seneste.getResults();
         console.log(state.seneste.results);
         let storArtikel = state.seneste.results.articles[0];
+        if (storArtikel.title.length > 65) {
+            storArtikel.title = storArtikel.title.substring(0, 65) + " ...";
+        }
         let lilleArtikel1 = state.seneste.results.articles[1];
+        if (lilleArtikel1.title.length > 65) {
+            lilleArtikel1.title = lilleArtikel1.title.substring(0, 65) + " ...";
+        }
         let lilleArtikel2 = state.seneste.results.articles[2];
+        if (lilleArtikel2.title.length > 40) {
+            lilleArtikel2.title = lilleArtikel2.title.substring(0, 40) + " ...";
+        }
 
         $('.article-content').attr('data-id', storArtikel.id);
         $('.article-content h1').html(storArtikel.title);
@@ -33,13 +42,13 @@ const seneste = async () => {
         $('.article-top').attr('data-id', lilleArtikel1.id);
         $('.article-top h1').html(lilleArtikel1.title);
         $('.article-top .visual').attr('style', `background-image: url("${lilleArtikel1.picture}"); background-repeat: no-repeat; background-size: cover;`);
-        $('.article-top .info h2').html(lilleArtikel1.author + `<span class="date"> | ${lilleArtikel1.date}</span>`);
+        $('.article-top .info h2').html(lilleArtikel1.author);
         $('.article-top .info p').html(lilleArtikel1.subtitle);
 
         $('.article-bottom').attr('data-id', lilleArtikel2.id);
         $('.article-bottom h1').html(lilleArtikel2.title);
         $('.article-bottom .visual').attr('style', `background-image: url("${lilleArtikel2.picture}"); background-repeat: no-repeat; background-size: cover;`);
-        $('.article-bottom .info h2').html(lilleArtikel2.author + `<span class="date"> | ${lilleArtikel2.date}</span>`);
+        $('.article-bottom .info h2').html(lilleArtikel2.author);
         $('.article-bottom .info p').html(lilleArtikel2.subtitle);
 
         $('.artikel').click((e) => {
@@ -47,6 +56,7 @@ const seneste = async () => {
             console.log(e.currentTarget.dataset)
             window.location.href = 'artikel.html#' + targetArtikel;
         });
+
         createPlayer();
         Plyr.setup('.player');
 
@@ -66,7 +76,10 @@ const createPlayer = () => {
             </div>
             <div class="bottom-part">
                 <button class="play-button hvr-radial-out"><i class="fas fa-headphones"></i></button>
-                <p class="player-text">${podcast.description}</p>
+                <div class="podcast-text">
+                    <h3 class="player-text">Vært: ${podcast.hostname}</h3>
+                    <h3 class="player-text">Gæst: ${podcast.guestname}</h3>
+                </div>
                 <div class="player-placeholder">
                     <audio class="player" controls>
                         <source src="${podcast.audioPath}" type="audio/mpeg" />

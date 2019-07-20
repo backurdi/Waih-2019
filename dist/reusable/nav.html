@@ -1,33 +1,33 @@
 <header>
-        <nav>
-            <ul class="salah salah-times-desktop">
+    <nav>
+        <!-- <ul class="salah salah-times-desktop">
                 <li><h3>Fajr</h3><p class="fajr">--:--</p></li>
                 <li id="salah-time-desktop"><h3>Shuruq</h3><p class="shuruq">--:--</p></li>
                 <li><h3>Dhuhur</h3><p class="dhuhur">--:--</p></li>
                 <li><h3>Asr</h3><p class="asr">--:--</p></li>
                 <li><h3>Maghreb</h3><p class="maghreb">--:--</p></li>
                 <li class="last"><h3>Isha</h3><p class="isha">--:--</p></li>
-            </ul>
-            <img class="logo" src="img/logo.png">
-            <ul class="main-nav">
+            </ul> -->
+        <img class="logo" src="img/logo1.png">
+        <ul class="main-nav">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="programs.html">Podcast</a></li>
+            <li><a href="artikler.html">Artikler</a></li>
+            <li><a href="om.html">Om os</a></li>
+        </ul>
+        <div class="mobil nav-button">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="secondary-nav mobil">
+            <ul>
                 <li><a href="index.html">Hjem</a></li>
                 <li><a href="programs.html">Programmer</a></li>
                 <li><a href="artikler.html">Artikler</a></li>
                 <li><a href="om.html">Om os</a></li>
             </ul>
-            <div class="mobil nav-button">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="secondary-nav mobil">
-                <ul>
-                    <li><a href="index.html">Hjem</a></li>
-                    <li><a href="programs.html">Programmer</a></li>
-                    <li><a href="artikler.html">Artikler</a></li>
-                    <li><a href="om.html">Om os</a></li>
-                </ul>
-            </div>
-        </nav>  
-        <div class="salah-mobil mobil">
+        </div>
+    </nav>
+    <!-- <div class="salah-mobil mobil">
             <ul class="salah-times">
                 <li><h3>Fajr</h3><p class="fajr-mobil">--:--</p></li>
                 <li><h3>Shuruq</h3><p class="shuruq-mobil">--:--</p></li>
@@ -39,23 +39,23 @@
             <div id="salah-button">
                 <img src="../img/muslim-praying.png" alt="">
             </div>
-        </div>
+        </div> -->
 </header>
 
 <script src="../js/salah.bundle.js"></script>
 
 <script>
     //nav
-    var navToggle = function(){
+    var navToggle = function () {
         const navButton = document.querySelector('.nav-button i');
-        navButton.addEventListener('click', function(){
-            if(navButton.classList.contains('fa-bars')){
+        navButton.addEventListener('click', function () {
+            if (navButton.classList.contains('fa-bars')) {
                 navButton.classList.remove('fa-bars');
                 navButton.parentElement.classList.add('active-nav');
                 navButton.classList.add('fa-times');
                 document.querySelector('.secondary-nav').style.zIndex = '1';
                 document.querySelector('html').style.overflow = 'hidden';
-            }else{
+            } else {
                 navButton.classList.add('fa-bars');
                 navButton.parentElement.classList.remove('active-nav');
                 navButton.classList.remove('fa-times');
@@ -65,8 +65,7 @@
         })
     };
 
-    setTimeout(function(){
+    setTimeout(function () {
         navToggle();
     }, 0)
-
 </script>

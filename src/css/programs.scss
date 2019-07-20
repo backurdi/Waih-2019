@@ -1,10 +1,11 @@
 /*------------------------ Programs ------------------------*/
 body {
   min-height: 100vh;
-  background-image: linear-gradient(to right bottom, #293443, #161b24);
+  background: #255877;
 }
 
 .programs-container {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
@@ -22,6 +23,8 @@ body {
     -ms-transition: all 500ms;
     -o-transition: all 500ms;
     transition: all 500ms;
+    border: 1px solid #fff;
+    border-bottom: transparent;
 
 
     &:hover+div,
