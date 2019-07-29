@@ -43,7 +43,7 @@ document.getElementById('submit').addEventListener('click', () => {
     for (let input of inputs) {
         if(input.name && input.value !== '')
             newData[input.name] = input.value
-    }°°
+    }
         updateArtikel(id, newData);
 })
 
