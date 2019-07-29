@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Upload Artikel</title>
+    <title>Rediger Artikel</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#ffffff">
@@ -16,19 +16,15 @@
     <div class="nav"></div>
     <div class="head"></div>
     <h1 class="animated bounceInDown">Rediger Artikel</h1>
-    <form autocomplete="off" class="upload_form-a" action="http://waih.dk/WaihAPI/uploadArticle.php" method="post"
-        enctype="multipart/form-data">
-        <input class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title"
-            required="required" />
+    <form autocomplete="off" class="upload_form-a" enctype="multipart/form-data">
+        <input class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title"/>
 
-        <input class="input hide animated flipInX" placeholder="Underrubrik" type="text" name="subtitle" id="subtitle"
-            required="required" />
+        <input class="input hide animated flipInX" placeholder="Underrubrik" type="text" name="subtitle" id="subtitle"/>
 
-        <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author"
-            required="required" />
+        <input class="input hide animated flipInX" placeholder="Forfatter" type="text" name="author" id="author"/>
 
         <label for="type" class="input hide animated flipInX">
-            <select id="type" name="type" required>
+            <select id="type" name="type" >
                 <option disabled selected value="">Vælg type</option>
                 <option value="Artikel">Artikel</option>
                 <option value="Debatindlæg">Debatindlæg</option>
@@ -42,7 +38,7 @@
         <label for="picture" class="picture label input hide animated flipInX">
             <i class="fas fa-image"></i>
             <p>Upload billede</p>
-            <input id="picture" type="file" name="picture" accept="image/*" required />
+            <input id="picture" type="file" name="picture" accept="image/*" />
             <i class="fas fa-check"></i>
         </label>
 

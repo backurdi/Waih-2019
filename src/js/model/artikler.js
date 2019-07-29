@@ -12,8 +12,21 @@ export default class Artikler {
                 let date = new Date(artikel.date.replace(' ', 'T'));
                 artikel.date = `${date.getDate() > 9 ? date.getDate():'0'+date.getDate()}. ${monthNames[date.getMonth()]} ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()===0?'0'+date.getMinutes():date.getMinutes()}`;
             }
-        } catch (error) {
-            alert(error)
+        } catch (err) {
+            alert(err)
+        }
+
+    }
+
+    async update(id, article) {
+        try {
+            id = id ? '?id=' + id : '';
+            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/update/` + id, article);
+            this.results = artiklerResults.data.update;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
         }
     }
 

@@ -30,9 +30,8 @@ Class logic {
                  window.history.go(-1);
                  </script>";
         }
-
-
     }
+
     function auth(){
         include_once './Model/User.php';
 
@@ -41,15 +40,47 @@ Class logic {
         $user = new User($db);
 
         if(isset($_POST['username']) && $_POST['password']) {
-            $stmt = $user->AuthUser($_POST['username'],$_POST['password']);
+            $token = $user->authUser($_POST['username'],$_POST['password']);
 
-            if ($stmt) {
-                header('Location: http://waih.dk/');
+            if ($token) {
+                setcookie('WaihToken',$token, 0, '/');
+                header('Location: ../../../dashboard.html');
             } else {
                 echo "<script>alert('Forkert kodeord');</script>";
             }
         } else {
+            echo "<script>alert('Udfyld brugernavn og kodeord!');</script>";
+        }
+    }
 
+    function checkToken() {
+        include_once './Model/User.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $user = new User($db);
+        $response = new stdClass();
+        $response->Cookie = false;
+        $response->token = false;
+
+        if (!isset($_COOKIE['WaihToken'])) {
+            http_response_code(201);
+            echo json_encode($response);
+
+        } else {
+            $stmt = $user->checkToken(($_COOKIE['WaihToken']));
+            $num = $stmt->rowCount();
+
+            if ($num>0) {
+                http_response_code(201);
+                $response->Cookie = true;
+                $response->token = true;
+                echo json_encode($response);
+            } else {
+                http_response_code(201);
+                $response->Cookie = true;
+                echo json_encode($response);
+            }
         }
     }
 
@@ -121,7 +152,7 @@ Class logic {
 
         if( isset($_GET['id']) && isset($_GET['param']) && isset($_GET['newValue']))
         {
-            $stmt = $podcast->changeParam($_GET['id'], $_GET['param'], $_GET['newValue']);
+            $stmt = $podcast->updateAttribute($_GET['id'], $_GET['param'], $_GET['newValue']);
         }
 
         $num = $stmt->rowCount();
@@ -153,15 +184,19 @@ Class logic {
             }
         }
 
-        if (unlink($audioPath))
-        {
-            unset($stmt);
-            $stmt = $podcast->delete($_GET['id']);
+        try{
+            if (unlink('..'.$audioPath))
+            {
+                unset($stmt);
+                $stmt = $podcast->delete($_GET['id']);
 
-        } else {
-            echo "<script>
-                 alert('Der skete en fejl, filen blev ikke slettet '); 
-                 </script>";
+            } else {
+                echo "<script>
+                     alert('Der skete en fejl, filen blev ikke slettet '); 
+                     </script>";
+            }
+        } catch (ErrorException $err) {
+            echo $err;
         }
 
         $num = $stmt->rowCount();
@@ -223,7 +258,7 @@ Class logic {
 
 
         } else {
-            http_response_code(400);
+            http_response_code(200);
             echo json_encode(array('message' => 'Tabel er tom'));
         }
     }
@@ -364,26 +399,19 @@ Class logic {
                 isset($_POST['body']) &&
                 isset($_POST['type'])
             ){
-
                 $article->title= $_POST['title'];
                 $article->subtitle= $_POST['subtitle'];
                 $article->author= $_POST['author'];
                 $article->body= $_POST['body'];
                 $article->quote= $_POST['quote'];
                 $article->type= $_POST['type'];
-                $article->type= $_POST['type'];
 
                 if ($article->upload($path)) {
-                    echo "<script>
-                 alert('Artiklen er uploaded!'); 
-                 window.history.go(-1);
-                 </script>";
-
+                    http_response_code(201);
+                    echo json_encode(array('Upload' => true));
                 } else {
-                    echo "<script>
-                 alert('Der skete en fejl under upload, prøv igen!'); 
-                 window.history.go(-1);
-                 </script>";
+                    http_response_code(301);
+                    echo json_encode(array('Upload' => false));
                 }
 
             } else {
@@ -400,34 +428,83 @@ Class logic {
         }
     }
 
-    function updateArtikel() {
+    function updateArtikel()
+    {
         include_once './Model/Article.php';
 
         $database = new WaihDB();
         $db = $database->getConnection();
         $article = new Article($db);
 
-        if( isset($_GET['id']) && isset($_GET['param']) && isset($_GET['newValue']))
-        {
-            $stmt = $podcast->changeParam($_GET['id'], $_GET['param'], $_GET['newValue']);
-        }
+        echo json_encode(array('Update' => false, 'data' => $_POST));
+        if (isset($_FILES['picture'])) {
+            $picture = $article->getPathToPicture($_REQUEST['id']);
 
-        $num = $stmt->rowCount();
+            try {
+                if (unlink('..' . $picture)) {
+                    unset($picture);
+                } else {
+                    http_response_code(300);
+                    echo json_encode(array('Picture deleted' => false));
+                }
+            } catch (ErrorException $err) {
+                http_response_code(300);
+                echo $err;
+            }
+
+            $picture = $_FILES['picture'];
+            $name = $picture['name'];
+            $path = "/img-articles/" . basename($name);
 
 
-        if ($num>0) {
-            http_response_code(200);
-            echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
-        } else{
-            echo '<script>
-                 alert("rows affected: " '. $num . '"params: "' . $_GET["newValue"] . ')
-                 </script>';
+            if (move_uploaded_file($picture['tmp_name'], '..' . $path)) {
+                if (isset($_POST['author']) &&
+                    isset($_POST['title']) &&
+                    isset($_POST['subtitle']) &&
+                    isset($_POST['body']) &&
+                    isset($_POST['type'])) {
+                    $article->title = $_POST['title'];
+                    $article->subtitle = $_POST['subtitle'];
+                    $article->author = $_POST['author'];
+                    $article->body = $_POST['body'];
+                    $article->quote = $_POST['quote'];
+                    $article->type = $_POST['type'];
+
+                    if ($article->update($_REQUEST['id'], $path)) {
+                        http_response_code(201);
+                        echo json_encode(array('Update' => true, 'Path' => $path ));
+                    } else {
+                        http_response_code(201);
+                        echo json_encode(array('Update' => false, 'Path' => $path ));
+                    }
+
+                } else {
+                    http_response_code(301);
+                    echo json_encode(array('Felter udfyldt' => false));
+                }
+            } else {
+                http_response_code(301);
+                echo json_encode(array('Billede uploaded' => false));
+            }
+        } else {
+            $article->title = $_POST['title'];
+            $article->subtitle = $_POST['subtitle'];
+            $article->author = $_POST['author'];
+            $article->body = $_POST['body'];
+            $article->quote = $_POST['quote'];
+            $article->type = $_POST['type'];
+
+            if ($article->update($_REQUEST['id'], null)) {
+                http_response_code(201);
+                echo json_encode(array('Update' => true));
+            } else {
+                http_response_code(201);
+                echo json_encode(array('Update' => false, 'data' => $_POST));
+            }
         }
     }
 
-
     //Program endpoints
-
     function getProgrammer() {
         include_once './Model/Program.php';
 

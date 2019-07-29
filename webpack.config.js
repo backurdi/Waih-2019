@@ -108,7 +108,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'login.html',
             template: './src/html/login.html',
-            chunks: ['waih', 'babel', 'dashboard']
+            chunks: ['waih', 'babel']
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

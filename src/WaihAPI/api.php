@@ -82,8 +82,10 @@ if ($requestMethod) {
                 case 'post':
                     $logic->createUser();
                 break;
+                case 'token':
+                    $logic->checkToken();
+                    break;
             }
-
         break;
 
         default:
