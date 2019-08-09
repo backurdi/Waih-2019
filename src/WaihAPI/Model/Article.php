@@ -113,47 +113,32 @@ class Article
         }
     }
 
-    function update($id, $path){
+    function updateAttr($id, $attr, $newValue){
 
         $this->id = $id;
 
-        if( isset($path) ) {
-            $this->picture = $path;
+        $query = 'UPDATE ' . $this->table_name . ' SET ' . $attr . ' = "' . $newValue . '" WHERE id = ' . $this->id;
 
-            //opret query
-            $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, type=:type, picture=:picture WHERE id = ' .$this->id;
+        $stmt = $this->conn->prepare($query);
 
-        } else {
-            //opret query
-            $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, type=:type WHERE id = ' .$this->id;
-        }
+        $stmt->execute();
 
-        //gør klar til at køre query
-        $stmt =$this->conn->prepare($query);
+        return $stmt;
 
-        //rens for sql angreb
-        $this->author=htmlspecialchars(strip_tags($this->author));
-        $this->title=htmlspecialchars(strip_tags($this->title));
-        $this->subtitle=htmlspecialchars(strip_tags($this->subtitle));
-        $this->body=htmlspecialchars(strip_tags($this->body));
-        $this->type=htmlspecialchars(strip_tags($this->type));
-        $this->quote=htmlspecialchars(strip_tags($this->quote));
+    }
 
-        //erstat placeholders i query
-        $stmt->bindParam(':title',$this->title);
-        $stmt->bindParam(':subtitle',$this->subtitle);
-        $stmt->bindParam(':author',$this->author);
-        $stmt->bindParam(':body',$this->body);
-        $stmt->bindParam(':type',$this->type);
-        $stmt->bindParam(':quote',$this->quote);
-        if(isset($path)) $stmt->bindParam(':picture',$this->picture);
+    function updatePic($id, $picture){
 
-        //kør query
-        if ($stmt->execute()){
-            return true;
-        } else {
-            return false;
-        }
+        $this->id = $id;
+
+        $query = 'UPDATE ' . $this->table_name . ' SET picture = "' . $picture . '" WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+
     }
 
     

@@ -18,10 +18,24 @@ export default class Artikler {
 
     }
 
-    async update(id, article) {
+    async updateAttr(id, attr, newValue) {
+        try {
+            let query = id ? `?id=${id}&attr=${attr}&newValue=${newValue}` : '';
+            const artiklerResults = await axios(`http://waih.dk/WaihAPI/artikel/updateAttr/${query}`);
+            this.results = artiklerResults.data.update;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    async updatePic(id, data) {
         try {
             id = id ? '?id=' + id : '';
-            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/update/` + id, article);
+            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/updatePic/${id}`, data,
+            {headers: {'Content-Type' : 'multipart/form-data'}
+                });
             this.results = artiklerResults.data.update;
             console.log(this.results);
 

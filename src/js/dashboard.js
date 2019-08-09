@@ -17,11 +17,7 @@ const checkForTokenInCookies = async () => {
     try {
         await state.token.getResults();
 
-        if(!state.token.results.Cookie) {
-            alert('Du skal logge ind!');
-            window.location.href = 'login.html';
-            return false;
-        } else {
+        if(document.location.href.includes('dashboard')) {
             if (!state.token.results.token) {
                 alert('Du skal logge ind!');
                 window.location.href = 'login.html';

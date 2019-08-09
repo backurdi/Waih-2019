@@ -36,26 +36,58 @@ const replaceContent = (el) => {
     items[el].value = state.artikel.results[0][el];
 };
 
-document.getElementById('submit').addEventListener('click', () => {
-    let inputs = document.getElementsByClassName('upload_form-a')[0];
-    let id = window.location.hash.replace(/\D/g, '');
-    let newData = {};
-    for (let input of inputs) {
-        if(input.name && input.value !== '')
-            newData[input.name] = input.value
-    }
-        updateArtikel(id, newData);
-})
-
 artikel();
 
 
-const updateArtikel = async (id, data) => {
+const updateAttr = async (id, prop, data) => {
     try {
-        await state.artikel.update(id, data);
+        await state.artikel.updateAttr(id, prop, data);
 
+        console.log('update:true')
 
     } catch (error) {
         console.log(error)
     }
 }
+
+const updatePic = async (id) => {
+    id = window.location.hash.replace(/\D/g, '');
+
+    try {
+        await state.artikel.updatePic(id);
+
+        console.log('updatepic:true')
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+let id, param, oldValue, newValue;
+
+$('.input').on('focus', (e) => {
+    id = window.location.hash.replace(/\D/g, '');
+    param = e.currentTarget.name;
+    oldValue = e.currentTarget.value;
+});
+
+$('.input').on('blur', (e) => {
+    newValue = e.currentTarget.value;
+    if (oldValue !== newValue) {
+        updateAttr(id, e.currentTarget.dataset.prop, newValue)
+    } else {
+        console.log('ingen ændring')
+    }
+});
+
+$('select').on('change', (e) => {
+    updateAttr(id, 'type', e.currentTarget.value);
+});
+
+$("input[type=file]").on('click' , () => {
+    $(this).val("");
+});
+$('input[type=file]').on('change', (e) => {
+
+    updatePic()
+})

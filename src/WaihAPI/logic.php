@@ -428,7 +428,7 @@ Class logic {
         }
     }
 
-    function updateArtikel()
+    function updateArtikelAttr()
     {
         include_once './Model/Article.php';
 
@@ -436,7 +436,36 @@ Class logic {
         $db = $database->getConnection();
         $article = new Article($db);
 
-        echo json_encode(array('Update' => false, 'data' => $_POST));
+        if( isset($_GET['id']) && isset($_GET['attr']) && isset($_GET['newValue']))
+        {
+            $stmt = $article->updateAttr($_GET['id'], $_GET['attr'], $_GET['newValue']);
+        } else {
+            http_response_code(400);
+            echo json_encode(array('id' => $_GET['id'],'attr' => $_GET['attr'], 'newValue' => $_GET['newValue'] ));
+        }
+
+        $num = $stmt->rowCount();
+
+
+        if ($num>0) {
+            http_response_code(200);
+            echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
+        } else{
+            http_response_code(400);
+            echo json_encode(array('num' => $num, 'param' => $_GET['param'], 'newValue' => $_GET['newValue'] ));
+        }
+
+
+    }
+
+    function updateArtikelPic()
+    {
+        include_once './Model/Article.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $article = new Article($db);
+
         if (isset($_FILES['picture'])) {
             $picture = $article->getPathToPicture($_REQUEST['id']);
 
@@ -458,19 +487,8 @@ Class logic {
 
 
             if (move_uploaded_file($picture['tmp_name'], '..' . $path)) {
-                if (isset($_POST['author']) &&
-                    isset($_POST['title']) &&
-                    isset($_POST['subtitle']) &&
-                    isset($_POST['body']) &&
-                    isset($_POST['type'])) {
-                    $article->title = $_POST['title'];
-                    $article->subtitle = $_POST['subtitle'];
-                    $article->author = $_POST['author'];
-                    $article->body = $_POST['body'];
-                    $article->quote = $_POST['quote'];
-                    $article->type = $_POST['type'];
 
-                    if ($article->update($_REQUEST['id'], $path)) {
+                    if ($article->updatePic($_REQUEST['id'], $path)) {
                         http_response_code(201);
                         echo json_encode(array('Update' => true, 'Path' => $path ));
                     } else {
@@ -478,29 +496,13 @@ Class logic {
                         echo json_encode(array('Update' => false, 'Path' => $path ));
                     }
 
-                } else {
-                    http_response_code(301);
-                    echo json_encode(array('Felter udfyldt' => false));
-                }
             } else {
                 http_response_code(301);
                 echo json_encode(array('Billede uploaded' => false));
             }
         } else {
-            $article->title = $_POST['title'];
-            $article->subtitle = $_POST['subtitle'];
-            $article->author = $_POST['author'];
-            $article->body = $_POST['body'];
-            $article->quote = $_POST['quote'];
-            $article->type = $_POST['type'];
-
-            if ($article->update($_REQUEST['id'], null)) {
-                http_response_code(201);
-                echo json_encode(array('Update' => true));
-            } else {
-                http_response_code(201);
-                echo json_encode(array('Update' => false, 'data' => $_POST));
-            }
+            http_response_code(301);
+            echo json_encode(array('Fil valgt' => false, 'id' => $_REQUEST['id'], 'picturename' => $_FILES['picture']));
         }
     }
 

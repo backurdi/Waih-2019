@@ -52,8 +52,12 @@ if ($requestMethod) {
                     $logic->postArtikel();
                 break;
 
-                case 'update':
-                    $logic->updateArtikel();
+                case 'updateAttr':
+                    $logic->updateArtikelAttr();
+                break;
+
+                case 'updatePic':
+                    $logic->updateArtikelPic();
                 break;
             }
         break;
