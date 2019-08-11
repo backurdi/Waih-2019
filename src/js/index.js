@@ -68,6 +68,13 @@ seneste()
 
 const createPlayer = () => {
     for (let podcast of state.seneste.results.podcasts) {
+        if (podcast.hostname.length > 20) {
+            podcast.hostname = podcast.hostname.substring(0, 30) + " ...";
+        }
+        if (podcast.guestname.length > 70) {
+            console.log(podcast.guestname);
+            podcast.guestname = podcast.guestname.substring(0, 20) + " ...";
+        }
 
         const player = `
         <div class="podcast-episode animated fadeInLeft">

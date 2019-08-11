@@ -1,13 +1,14 @@
-h1{
+h1 {
     font-size: 4em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-align: center;
     margin: 0 0 0.5em 0;
+    color: #000;
 }
 
 html {
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 .upload_form {
@@ -15,7 +16,8 @@ html {
     grid-template-columns: 1fr 3fr 1fr;
     grid-auto-flow: column;
 
-    input, label{
+    input,
+    label {
         grid-column: 2 / 2;
         caret-color: transparent;
         background-color: inherit;
@@ -23,9 +25,9 @@ html {
         padding: 15px;
         box-shadow: 2px 2px 8px rgba(black, .3);
         margin: 1em;
-        border: 1px solid #fff;
+        border: 1px solid #000;
         border-radius: 5px;
-        color: #fff;
+        color: #000;
         font-size: 15px;
         -webkit-transition: all 0.65s;
         -moz-transition: all 0.65s;
@@ -34,7 +36,8 @@ html {
         transition: all 0.65s;
         overflow: hidden;
 
-        p, i{
+        p,
+        i {
             cursor: pointer;
             -webkit-transition: all 0.65s;
             -moz-transition: all 0.65s;
@@ -44,14 +47,15 @@ html {
             display: inline-block;
         }
 
-        i{
+        i {
             -webkit-transform: translateX(-250%);
             -moz-transform: translateX(-250%);
             -ms-transform: translateX(-250%);
             -o-transform: translateX(-250%);
             transform: translateX(-250%);
         }
-        p{
+
+        p {
             margin-left: 10px;
             display: inline-block;
             -webkit-transform: translateX(-35px);
@@ -64,15 +68,18 @@ html {
 
     }
 
-    label{
+    label {
         cursor: pointer;
     }
 
-    input:focus{
+    input:focus {
         background-color: rgba(0, 0, 0, 0.16);
     }
 
-    label:hover p, label:hover i, label:focus p, label:focus i{
+    label:hover p,
+    label:hover i,
+    label:focus p,
+    label:focus i {
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
         -ms-transform: translateX(0);
@@ -81,8 +88,8 @@ html {
 
     }
 
-    ::placeholder{
-        color: #fff;
+    ::placeholder {
+        color: #000;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -ms-transition: all 0.5s;
@@ -90,11 +97,14 @@ html {
         transition: all 0.5s;
     }
 
-    :focus, :hover{
+    :focus,
+    :hover {
         display: inline-block;
-        color: white;
+        color: #000;
     }
-    :focus::placeholder, :hover::placeholder{
+
+    :focus::placeholder,
+    :hover::placeholder {
         opacity: 0;
         -webkit-transform: translateX(50px);
         -moz-transform: translateX(50px);
@@ -103,15 +113,16 @@ html {
         transform: translateX(50px);
     }
 
-    input[type='file']:hover+ label, input[type='file']:focus+ label{
-        color: #fff;
+    input[type='file']:hover+label,
+    input[type='file']:focus+label {
+        color: #000;
         background-color: transparent;
         opacity: 1;
     }
 
-    textarea{
+    textarea {
         grid-column: 2 / 2;
-        caret-color: white;
+        caret-color: black;
         overflow: hidden;
         margin: 1em;
         -webkit-transition: all 0.65s;
@@ -121,21 +132,21 @@ html {
         transition: all 0.65s;
         font-size: 15px;
         padding: 10px;
-        color: #fff;
-        background: rgba(0,0,0,0);
-        border: 1px solid #fff;
+        color: #000;
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid #000;
         border-radius: 5px;
     }
 
 
-    #hostname{
+    #hostname {
         -webkit-animation-delay: 200ms;
         -moz-animation-delay: 200ms;
         -o-animation-delay: 200ms;
         animation-delay: 200ms;
     }
 
-    #guestname{
+    #guestname {
         -webkit-animation-delay: 400ms;
         -moz-animation-delay: 400ms;
         -o-animation-delay: 400ms;
@@ -152,14 +163,15 @@ html {
         font-size: 15px;
 
     }
-    #programName{
+
+    #programName {
         -webkit-animation-delay: 800ms;
         -moz-animation-delay: 800ms;
         -o-animation-delay: 800ms;
         animation-delay: 800ms;
     }
 
-    #description{
+    #description {
         height: 50px;
         opacity: 0;
         animation: flipInX 1s, height 1.4s forwards;
@@ -168,31 +180,41 @@ html {
         -o-animation-delay: 600ms;
         animation-delay: 600ms;
     }
+
     @-webkit-keyframes height {
-        80%{height: 50px; opacity: 1}
-        100% {height: 75px; opacity: 1}
+        80% {
+            height: 50px;
+            opacity: 1
+        }
+
+        100% {
+            height: 75px;
+            opacity: 1
+        }
     }
 
 
-    .audioPath{
+    .audioPath {
         -webkit-animation-delay: 1000ms;
         -moz-animation-delay: 1000ms;
         -o-animation-delay: 1000ms;
         animation-delay: 1000ms;
-        #audioPath{
+
+        #audioPath {
             display: none;
 
-            &:invalid ~ .fa-check{
+            &:invalid~.fa-check {
                 opacity: 0;
             }
-            &:valid ~ .fa-check{
+
+            &:valid~.fa-check {
                 opacity: 1;
                 float: right;
             }
         }
     }
 
-    #submit{
+    #submit {
         grid-area: 8 / 2 / span 1 / span 1;
         cursor: pointer;
         -webkit-animation-delay: 1200ms;
@@ -210,15 +232,16 @@ html {
     height: 80vh;
 
 
-    input, label{
+    input,
+    label {
         caret-color: transparent;
         background-color: transparent;
         padding: 10px;
         box-shadow: 2px 2px 8px rgba(black, .3);
         margin: 1em;
-        border: 1px solid #fff;
+        border: 1px solid #000;
         border-radius: 5px;
-        color: #fff;
+        color: #000;
         font-size: 15px;
         -webkit-transition: all 0.65s;
         -moz-transition: all 0.65s;
@@ -227,7 +250,8 @@ html {
         transition: all 0.65s;
         overflow: hidden;
 
-        p, i{
+        p,
+        i {
             -webkit-transition: all 0.65s;
             -moz-transition: all 0.65s;
             -ms-transition: all 0.65s;
@@ -236,14 +260,15 @@ html {
             display: inline-block;
         }
 
-        i{
+        i {
             -webkit-transform: translateX(-200%);
             -moz-transform: translateX(-200%);
             -ms-transform: translateX(-200%);
             -o-transform: translateX(-200%);
             transform: translateX(-200%);
         }
-        p{
+
+        p {
             margin-left: 10px;
             display: inline-block;
             -webkit-transform: translateX(-35px);
@@ -256,15 +281,18 @@ html {
 
     }
 
-    label{
+    label {
         cursor: pointer;
     }
 
-    input:focus{
+    input:focus {
         background-color: rgba(0, 0, 0, 0.16);
     }
 
-    label:hover p, label:hover i, label:focus p, label:focus i{
+    label:hover p,
+    label:hover i,
+    label:focus p,
+    label:focus i {
         -webkit-transform: translateX(0%);
         -moz-transform: translateX(0%);
         -ms-transform: translateX(0%);
@@ -274,8 +302,8 @@ html {
     }
 
 
-    ::placeholder{
-        color: #fff;
+    ::placeholder {
+        color: #000;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -ms-transition: all 0.5s;
@@ -283,11 +311,14 @@ html {
         transition: all 0.5s;
     }
 
-    :focus, :hover{
+    :focus,
+    :hover {
         display: inline-block;
         color: white;
     }
-    :focus::placeholder, :hover::placeholder{
+
+    :focus::placeholder,
+    :hover::placeholder {
         opacity: 0;
         -webkit-transform: translateX(50px);
         -moz-transform: translateX(50px);
@@ -296,9 +327,9 @@ html {
         transform: translateX(50px);
     }
 
-    textarea{
+    textarea {
         grid-area: 1 / 2 / lastline / lastline;
-        caret-color: white;
+        caret-color: #000;
         margin: 1em;
         -webkit-transition: all 0.65s;
         -moz-transition: all 0.65s;
@@ -307,28 +338,28 @@ html {
         transition: all 0.65s;
         font-size: 15px;
         padding: 10px;
-        color: #fff;
-        background: rgba(0,0,0,0);
-        border: 1px solid #fff;
+        color: #000;
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid #000;
         border-radius: 5px;
     }
 
 
-    #hostname{
+    #hostname {
         -webkit-animation-delay: 200ms;
         -moz-animation-delay: 200ms;
         -o-animation-delay: 200ms;
         animation-delay: 200ms;
     }
 
-    #guestname{
+    #guestname {
         -webkit-animation-delay: 400ms;
         -moz-animation-delay: 400ms;
         -o-animation-delay: 400ms;
         animation-delay: 400ms;
     }
 
-    #description{
+    #description {
         opacity: 0;
         animation: slideInRight 1s, height 1.4s forwards;
         -webkit-animation-delay: 800ms;
@@ -336,29 +367,36 @@ html {
         -o-animation-delay: 800ms;
         animation-delay: 800ms;
     }
+
     @-webkit-keyframes height {
-        80%{opacity: 1}
-        100% {opacity: 1}
+        80% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 1
+        }
     }
 
     .picture {
         display: flex;
         align-items: center;
 
-        #picture{
+        #picture {
             display: none;
 
-            &:invalid ~ .fa-check{
+            &:invalid~.fa-check {
                 opacity: 0;
             }
-            &:valid ~ .fa-check{
+
+            &:valid~.fa-check {
                 opacity: 1;
                 float: right;
             }
         }
     }
 
-    #submit{
+    #submit {
         grid-area: 8 / 1 / span 1 / span 1;
         cursor: pointer;
         -webkit-animation-delay: 1200ms;
@@ -367,6 +405,3 @@ html {
         animation-delay: 1200ms;
     }
 }
-
-
-

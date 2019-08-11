@@ -15,7 +15,7 @@
 <body>
     <div class="nav"></div>
     <div class="head"></div>
-    <h1 class="animated bounceInDown">Upload Artikel</h1>
+    <h1 class="animated bounceInDown">Rediger Artikel</h1>
     <form autocomplete="off" class="upload_form-a" action="http://waih.dk/WaihAPI/uploadArticle.php" method="post"
         enctype="multipart/form-data">
         <input class="input hide animated flipInX" placeholder="Rubrik" type="text" name="title" id="title"
@@ -46,7 +46,7 @@
             <i class="fas fa-check"></i>
         </label>
 
-        <input id="submit" class="animated flipInX" type="submit">
+        <input id="submit" class="animated flipInX" value="Rediger" type="submit">
 
         <textarea id="description" class="animated input" name="body" rows='10' data-min-rows='10'
             placeholder='Brødtekst til artiklen'></textarea>
@@ -54,6 +54,6 @@
     </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/waih.bundle.js"></script><script type="text/javascript" src="js/babel.bundle.js"></script><script type="text/javascript" src="js/upload.bundle.js"></script></body>
+<script type="text/javascript" src="js/waih.bundle.js"></script><script type="text/javascript" src="js/babel.bundle.js"></script><script type="text/javascript" src="js/editArticle.bundle.js"></script></body>
 
 </html>

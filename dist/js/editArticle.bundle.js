@@ -56,7 +56,7 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"om": 0
+/******/ 		"editArticle": 0
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
@@ -147,33 +147,22 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/js/om.js","waih"]);
+/******/ 	deferredModules.push(["./src/js/editArticle.js","waih"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/css/om.scss":
-/*!*************************!*\
-  !*** ./src/css/om.scss ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/om.scss?");
-
-/***/ }),
-
-/***/ "./src/js/om.js":
-/*!**********************!*\
-  !*** ./src/js/om.js ***!
-  \**********************/
+/***/ "./src/js/editArticle.js":
+/*!*******************************!*\
+  !*** ./src/js/editArticle.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ../css/om.scss */ \"./src/css/om.scss\");\n\nvar _reusableCode = __webpack_require__(/*! ./reusable-code */ \"./src/js/reusable-code.js\");\n\nvar reusable = _interopRequireWildcard(_reusableCode);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\n// Implementing reusable HTML code\nreusable.nav('.nav', './reusable/nav.html');\nreusable.head('.head', './reusable/head.html');\nreusable.footer('.footer', './reusable/footer.html');\n\n//# sourceURL=webpack:///./src/js/om.js?");
+eval("\n\n__webpack_require__(/*! ../css/style.scss */ \"./src/css/style.scss\");\n\n__webpack_require__(/*! ../css/upload.scss */ \"./src/css/upload.scss\");\n\n__webpack_require__(/*! ../css/animate.css */ \"./src/css/animate.css\");\n\nvar _artikler = __webpack_require__(/*! ./model/artikler */ \"./src/js/model/artikler.js\");\n\nvar _artikler2 = _interopRequireDefault(_artikler);\n\nvar _reusableCode = __webpack_require__(/*! ./reusable-code */ \"./src/js/reusable-code.js\");\n\nvar reusable = _interopRequireWildcard(_reusableCode);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nreusable.head('.head', './reusable/head.html');\nreusable.dbnav('.nav', './reusable/dbnav.html');\n\nvar items = {\n    title: document.getElementById('title'),\n    subtitle: document.getElementById('subtitle'),\n    author: document.getElementById('author'),\n    type: document.getElementById('type'),\n    quote: document.getElementById('quote'),\n    body: document.getElementById('description')\n};\nvar keys = Object.keys(items);\n\nvar state = {};\n\nvar artikel = function () {\n    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n        var id, i;\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n            while (1) {\n                switch (_context.prev = _context.next) {\n                    case 0:\n                        state.artikel = new _artikler2.default();\n                        id = window.location.hash.replace(/\\D/g, '');\n                        _context.prev = 2;\n                        _context.next = 5;\n                        return state.artikel.getResults(id);\n\n                    case 5:\n                        for (i = 0; i < keys.length; i++) {\n                            replaceContent(keys[i]);\n                        }\n                        console.log(state.artikel.results);\n                        _context.next = 12;\n                        break;\n\n                    case 9:\n                        _context.prev = 9;\n                        _context.t0 = _context['catch'](2);\n\n                        console.log(_context.t0);\n\n                    case 12:\n                    case 'end':\n                        return _context.stop();\n                }\n            }\n        }, _callee, undefined, [[2, 9]]);\n    }));\n\n    return function artikel() {\n        return _ref.apply(this, arguments);\n    };\n}();\n\nvar replaceContent = function replaceContent(el) {\n    items[el].value = state.artikel.results[0][el];\n};\n\nartikel();\n\n//# sourceURL=webpack:///./src/js/editArticle.js?");
 
 /***/ })
 
