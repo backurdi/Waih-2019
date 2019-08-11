@@ -27,11 +27,11 @@ class Podcast
         $this->conn = $db;
     }
 
-    function changeParam($id, $param, $newValue) {
+    function updateAttribute($id, $attr, $newValue) {
 
         $this->id = $id;
 
-        $query = 'UPDATE ' . $this->table_name . ' SET ' . $param . ' = "' . $newValue . '" WHERE id = ' . $this->id;
+        $query = 'UPDATE ' . $this->table_name . ' SET ' . $attr . ' = "' . $newValue . '" WHERE id = ' . $this->id;
 
         $stmt = $this->conn->prepare($query);
 

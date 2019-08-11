@@ -21,7 +21,24 @@ class User
         $this->conn = $db;
     }
 
-    function AuthUser($username, $password){
+    function checkToken($token) {
+        $this->token = $token;
+
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE token=:token';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->token=htmlentities(strip_tags($this->token));
+
+        $stmt->bindParam(':token',$this->token);
+
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
+    function authUser($username, $password){
         $this->username = $username;
         $this->password = $password;
 
@@ -29,7 +46,7 @@ class User
 
         $stmt = $this->conn->prepare($query);
 
-        $this->username=htmlspecialchars(strip_tags($this->username));
+        $this->username=htmlentities(strip_tags($this->username));
 
         $stmt->bindParam(':username',$this->username);
 
@@ -45,12 +62,13 @@ class User
                 'id' => $id,
                 'username' => $username,
                 'password' => $password,
-                'admin' => $admin
+                'admin' => $admin,
+                'token' => $token
             );
         }
 
         if(password_verify($this->password, $user['password'])){
-            return true;
+            return $user['token'];
         } else {
             return false;
         }

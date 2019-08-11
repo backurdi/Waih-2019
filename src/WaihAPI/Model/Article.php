@@ -62,6 +62,22 @@ class Article
         return $stmt;
     }
 
+    function getPathToPicture($id) {
+        $this->id = $id;
+
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            return $picture;
+        }
+
+    }
+
     function upload($path){
         $this->picture = $path;
         
@@ -96,6 +112,35 @@ class Article
             return false;
         }
     }
+
+    function updateAttr($id, $attr, $newValue){
+
+        $this->id = $id;
+
+        $query = 'UPDATE ' . $this->table_name . ' SET ' . $attr . ' = "' . $newValue . '" WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
+    function updatePic($id, $picture){
+
+        $this->id = $id;
+
+        $query = 'UPDATE ' . $this->table_name . ' SET picture = "' . $picture . '" WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+
+    }
+
     
     
 }

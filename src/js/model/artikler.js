@@ -12,8 +12,35 @@ export default class Artikler {
                 let date = new Date(artikel.date.replace(' ', 'T'));
                 artikel.date = `${date.getDate() > 9 ? date.getDate():'0'+date.getDate()}. ${monthNames[date.getMonth()]} ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()===0?'0'+date.getMinutes():date.getMinutes()}`;
             }
-        } catch (error) {
-            alert(error)
+        } catch (err) {
+            alert(err)
+        }
+
+    }
+
+    async updateAttr(id, attr, newValue) {
+        try {
+            let query = id ? `?id=${id}&attr=${attr}&newValue=${newValue}` : '';
+            const artiklerResults = await axios(`http://waih.dk/WaihAPI/artikel/updateAttr/${query}`);
+            this.results = artiklerResults.data.update;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    async updatePic(id, data) {
+        try {
+            id = id ? '?id=' + id : '';
+            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/updatePic/${id}`, data,
+            {headers: {'Content-Type' : 'multipart/form-data'}
+                });
+            this.results = artiklerResults.data.update;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
         }
     }
 

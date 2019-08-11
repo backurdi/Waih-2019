@@ -4,9 +4,7 @@ import '../css/animate.css';
 import Podcast from "./model/podcast";
 import Program from "./model/programs";
 import Artikel from './model/artikler';
-import {
-    async
-} from 'q';
+import Token from './model/token';
 
 reusable.head('.head', './reusable/head.html');
 reusable.dbnav('.nav', './reusable/dbnav.html');
@@ -14,9 +12,26 @@ reusable.dbnav('.nav', './reusable/dbnav.html');
 let state = {};
 const tbody = document.querySelector('tbody');
 
-const checkForTokenInCookies = () => {
+const checkForTokenInCookies = async () => {
+    state.token = new Token();
+    try {
+        await state.token.getResults();
 
-}
+        if(document.location.href.includes('dashboard')) {
+            if (!state.token.results.token) {
+                alert('Du skal logge ind!');
+                window.location.href = 'login.html';
+                return false;
+            } else {
+                return true;
+            }
+        }
+    } catch (err) {
+        console.log(err)
+    }
+    return false;
+};
+
 
 const deletePodcast = async (id, index) => {
     state.podcast = new Podcast();
@@ -143,7 +158,6 @@ const artikel = async () => {
 };
 
 const loadArtikler = () => {
-    console.log(state.artikler)
     var artikelContainer = document.querySelector('.artikel');
     var artikel;
     for (let i = 0; i < state.artikler.results.length; i++) {
@@ -184,8 +198,11 @@ function filterFunction() {
 }
 
 
-artikel();
-programs();
+if (checkForTokenInCookies()) {
+    artikel();
+    programs();
+}
+
 
 window.onload = function () {
     if (window.location.hash) {
@@ -212,8 +229,3 @@ function checkHash() {
         }
     }
 }
-
-
-// document.getElementById('login').addEventListener('submit', (e) => {
-//     e.preventDefault()
-// })

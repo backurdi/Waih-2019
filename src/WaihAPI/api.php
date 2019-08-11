@@ -52,8 +52,12 @@ if ($requestMethod) {
                     $logic->postArtikel();
                 break;
 
-                case 'update':
-                    $logic->updateArtikel();
+                case 'updateAttr':
+                    $logic->updateArtikelAttr();
+                break;
+
+                case 'updatePic':
+                    $logic->updateArtikelPic();
                 break;
             }
         break;
@@ -82,8 +86,10 @@ if ($requestMethod) {
                 case 'post':
                     $logic->createUser();
                 break;
+                case 'token':
+                    $logic->checkToken();
+                    break;
             }
-
         break;
 
         default:
