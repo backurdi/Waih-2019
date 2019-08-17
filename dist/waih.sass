@@ -185,7 +185,7 @@ header {
       #hero .article-little-content .info h1 {
         text-align: left;
         font-weight: 400;
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 700; }
       #hero .article-little-content .info h2 {
         font-weight: 400;
@@ -217,28 +217,33 @@ header {
       overflow: hidden;
       background: #2d7ba9; }
       .podcast .latest-podcasts .podcast-episode .top-part {
-        background: #2d7ba9;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         padding: 25px 0 30px 10px; }
         .podcast .latest-podcasts .podcast-episode .top-part h1 {
+          min-height: 73px;
           font-weight: 500;
           text-align: left;
-          padding-left: 10px; }
+          padding-left: 10px;
+          font-size: 25px;
+          color: #fff; }
       .podcast .latest-podcasts .podcast-episode .bottom-part {
         height: 45%;
         display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(2, 1fr); }
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: 20px; }
       .podcast .latest-podcasts .podcast-episode .podcast-text {
         grid-row: 1/2;
-        grid-column: 1/3; }
+        grid-column: 1/3;
+        display: flex;
+        flex-direction: column; }
         .podcast .latest-podcasts .podcast-episode .podcast-text :first-child {
           margin-bottom: 10px; }
         .podcast .latest-podcasts .podcast-episode .podcast-text h3 {
-          font-size: 25px;
+          font-size: 17px;
           font-weight: 500;
           padding-left: 10px; }
       .podcast .latest-podcasts .podcast-episode .play-button {
@@ -246,7 +251,7 @@ header {
         z-index: 1;
         background-color: #293443;
         color: #fff;
-        grid-row: 2/3;
+        grid-row: 1/2;
         width: 50px;
         height: 50px;
         justify-self: right;
@@ -287,9 +292,7 @@ header {
         -ms-transition: color 300ms;
         -o-transition: color 300ms;
         transition: color 300ms;
-        position: relative;
-        margin: 0 10px;
-        align-self: center; }
+        margin: 0 10px; }
       .podcast .latest-podcasts .podcast-episode .player-placeholder {
         opacity: 0;
         align-self: center;
@@ -313,10 +316,8 @@ header {
         color: #fff; }
       .podcast .latest-podcasts .podcast-episode .hide {
         color: transparent; }
-  .podcast .latest-podcasts :nth-child(even) .top-part {
-    background-color: #255977; }
-  .podcast .latest-podcasts :nth-child(even) .bottom-part {
-    background-color: #255977; }
+    .podcast .latest-podcasts > :nth-child(even) {
+      background-color: #255977; }
 
 .plyr__menu {
   display: none; }
@@ -383,9 +384,11 @@ footer {
       grid-template-rows: 1fr;
       grid-column-gap: 20px; }
       #hero .article-little-content .article-top {
-        padding: 10px; }
+        padding: 10px;
+        height: 175px; }
       #hero .article-little-content .article-bottom {
-        padding: 10px; }
+        padding: 10px;
+        height: 175px; }
   .podcast .latest-podcasts {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px; } }
@@ -395,12 +398,7 @@ footer {
     grid-row: auto;
     padding: 10px; }
   #hero .article-little-content {
-    grid-template-rows: 1fr; }
-    #hero .article-little-content .article-top,
-    #hero .article-little-content .article-bottom {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-column-gap: 10px; } }
+    grid-template-columns: 1fr; } }
 
 @media only screen and (max-width: 600px) {
   header nav {
@@ -464,9 +462,9 @@ footer {
   margin-left: 50px; }
   .dbnav ul a {
     z-index: 2;
-    color: #fff;
+    color: #000;
     text-decoration: none;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #000;
     text-align: center;
     padding: 8px; }
   .dbnav ul li {
@@ -504,7 +502,8 @@ footer {
       padding: 0 15%;
       display: flex;
       flex-direction: column; }
-      .login .login-content form input[type="text"], .login .login-content form input[type="password"] {
+      .login .login-content form input[type="text"],
+      .login .login-content form input[type="password"] {
         justify-self: center;
         width: 100%;
         padding: 10px;
@@ -536,17 +535,18 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 0.5em 0; }
+  margin: 0 0 0.5em 0;
+  color: #000; }
 
 html {
-  min-height: 100vh;
-  background-color: #1e2530; }
+  min-height: 100vh; }
 
 .upload_form {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-auto-flow: column; }
-  .upload_form input, .upload_form label {
+  .upload_form input,
+  .upload_form label {
     grid-column: 2 / 2;
     caret-color: transparent;
     background-color: inherit;
@@ -554,9 +554,9 @@ html {
     padding: 15px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin: 1em;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 5px;
-    color: #fff;
+    color: #000;
     font-size: 15px;
     -webkit-transition: all 0.65s;
     -moz-transition: all 0.65s;
@@ -564,7 +564,10 @@ html {
     -o-transition: all 0.65s;
     transition: all 0.65s;
     overflow: hidden; }
-    .upload_form input p, .upload_form input i, .upload_form label p, .upload_form label i {
+    .upload_form input p,
+    .upload_form input i,
+    .upload_form label p,
+    .upload_form label i {
       cursor: pointer;
       -webkit-transition: all 0.65s;
       -moz-transition: all 0.65s;
@@ -572,13 +575,15 @@ html {
       -o-transition: all 0.65s;
       transition: all 0.65s;
       display: inline-block; }
-    .upload_form input i, .upload_form label i {
+    .upload_form input i,
+    .upload_form label i {
       -webkit-transform: translateX(-250%);
       -moz-transform: translateX(-250%);
       -ms-transform: translateX(-250%);
       -o-transform: translateX(-250%);
       transform: translateX(-250%); }
-    .upload_form input p, .upload_form label p {
+    .upload_form input p,
+    .upload_form label p {
       margin-left: 10px;
       display: inline-block;
       -webkit-transform: translateX(-35px);
@@ -590,36 +595,42 @@ html {
     cursor: pointer; }
   .upload_form input:focus {
     background-color: rgba(0, 0, 0, 0.16); }
-  .upload_form label:hover p, .upload_form label:hover i, .upload_form label:focus p, .upload_form label:focus i {
+  .upload_form label:hover p,
+  .upload_form label:hover i,
+  .upload_form label:focus p,
+  .upload_form label:focus i {
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0); }
   .upload_form ::placeholder {
-    color: #fff;
+    color: #000;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s; }
-  .upload_form :focus, .upload_form :hover {
+  .upload_form :focus,
+  .upload_form :hover {
     display: inline-block;
-    color: white; }
-  .upload_form :focus::placeholder, .upload_form :hover::placeholder {
+    color: #000; }
+  .upload_form :focus::placeholder,
+  .upload_form :hover::placeholder {
     opacity: 0;
     -webkit-transform: translateX(50px);
     -moz-transform: translateX(50px);
     -ms-transform: translateX(50px);
     -o-transform: translateX(50px);
     transform: translateX(50px); }
-  .upload_form input[type='file']:hover + label, .upload_form input[type='file']:focus + label {
-    color: #fff;
+  .upload_form input[type='file']:hover + label,
+  .upload_form input[type='file']:focus + label {
+    color: #000;
     background-color: transparent;
     opacity: 1; }
   .upload_form textarea {
     grid-column: 2 / 2;
-    caret-color: white;
+    caret-color: black;
     overflow: hidden;
     margin: 1em;
     -webkit-transition: all 0.65s;
@@ -629,9 +640,9 @@ html {
     transition: all 0.65s;
     font-size: 15px;
     padding: 10px;
-    color: #fff;
+    color: #000;
     background: rgba(0, 0, 0, 0);
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 5px; }
   .upload_form #hostname {
     -webkit-animation-delay: 200ms;
@@ -698,15 +709,16 @@ html {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(8, 1fr);
   height: 80vh; }
-  .upload_form-a input, .upload_form-a label {
+  .upload_form-a input,
+  .upload_form-a label {
     caret-color: transparent;
     background-color: transparent;
     padding: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin: 1em;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 5px;
-    color: #fff;
+    color: #000;
     font-size: 15px;
     -webkit-transition: all 0.65s;
     -moz-transition: all 0.65s;
@@ -714,20 +726,25 @@ html {
     -o-transition: all 0.65s;
     transition: all 0.65s;
     overflow: hidden; }
-    .upload_form-a input p, .upload_form-a input i, .upload_form-a label p, .upload_form-a label i {
+    .upload_form-a input p,
+    .upload_form-a input i,
+    .upload_form-a label p,
+    .upload_form-a label i {
       -webkit-transition: all 0.65s;
       -moz-transition: all 0.65s;
       -ms-transition: all 0.65s;
       -o-transition: all 0.65s;
       transition: all 0.65s;
       display: inline-block; }
-    .upload_form-a input i, .upload_form-a label i {
+    .upload_form-a input i,
+    .upload_form-a label i {
       -webkit-transform: translateX(-200%);
       -moz-transform: translateX(-200%);
       -ms-transform: translateX(-200%);
       -o-transform: translateX(-200%);
       transform: translateX(-200%); }
-    .upload_form-a input p, .upload_form-a label p {
+    .upload_form-a input p,
+    .upload_form-a label p {
       margin-left: 10px;
       display: inline-block;
       -webkit-transform: translateX(-35px);
@@ -739,23 +756,28 @@ html {
     cursor: pointer; }
   .upload_form-a input:focus {
     background-color: rgba(0, 0, 0, 0.16); }
-  .upload_form-a label:hover p, .upload_form-a label:hover i, .upload_form-a label:focus p, .upload_form-a label:focus i {
+  .upload_form-a label:hover p,
+  .upload_form-a label:hover i,
+  .upload_form-a label:focus p,
+  .upload_form-a label:focus i {
     -webkit-transform: translateX(0%);
     -moz-transform: translateX(0%);
     -ms-transform: translateX(0%);
     -o-transform: translateX(0%);
     transform: translateX(0%); }
   .upload_form-a ::placeholder {
-    color: #fff;
+    color: #000;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s; }
-  .upload_form-a :focus, .upload_form-a :hover {
+  .upload_form-a :focus,
+  .upload_form-a :hover {
     display: inline-block;
     color: white; }
-  .upload_form-a :focus::placeholder, .upload_form-a :hover::placeholder {
+  .upload_form-a :focus::placeholder,
+  .upload_form-a :hover::placeholder {
     opacity: 0;
     -webkit-transform: translateX(50px);
     -moz-transform: translateX(50px);
@@ -764,7 +786,7 @@ html {
     transform: translateX(50px); }
   .upload_form-a textarea {
     grid-area: 1 / 2 / lastline / lastline;
-    caret-color: white;
+    caret-color: #000;
     margin: 1em;
     -webkit-transition: all 0.65s;
     -moz-transition: all 0.65s;
@@ -773,9 +795,9 @@ html {
     transition: all 0.65s;
     font-size: 15px;
     padding: 10px;
-    color: #fff;
+    color: #000;
     background: rgba(0, 0, 0, 0);
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 5px; }
   .upload_form-a #hostname {
     -webkit-animation-delay: 200ms;

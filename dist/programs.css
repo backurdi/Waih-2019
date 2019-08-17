@@ -51,7 +51,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 20px;
-  padding: 0 10%; }
+  padding: 30px 10%; }
   .program-container .img-wrapper {
     margin-top: 20px;
     background-size: cover;
