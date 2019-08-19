@@ -1,10 +1,47 @@
 h1 {
+    text-align: center;
     font-size: 4em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    text-align: center;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 .5em 0;
     color: #000;
+}
+
+.title-container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    h1 {
+        text-align: center;
+        font-size: 4em;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        margin: 0 0 .5em .5em;
+        color: #000;
+        grid-area: 1 / 2 / span 1 / span 3;
+    }
+
+    input{
+        grid-area: 1 / 5 / -1/ -1;
+        height: 50%;
+        width: 50%;
+        border: 1px solid;
+        border-radius: 5px;
+        justify-self: end;
+        margin-right: 1.5em;
+        -webkit-transition: all 500ms;
+        -moz-transition: all 500ms;
+        -ms-transition: all 500ms;
+        -o-transition: all 500ms;
+        transition: all 500ms;
+
+        &:hover {
+            color: red;
+            border: 1px solid red;
+        }
+    }
 }
 
 html {
@@ -155,7 +192,6 @@ html {
     #programId {
         width: 100%;
         background-color: transparent;
-        color: white;
         height: 100%;
         -webkit-appearance: none;
         border: none;
@@ -313,7 +349,6 @@ html {
     :focus,
     :hover {
         display: inline-block;
-        color: white;
     }
 
     :focus::placeholder,

@@ -294,17 +294,13 @@ Class logic {
                 $podcast->programId = $_POST['programId'];
 
                 if ($podcast->upload($path)) {
-                    $uploadComplete = true;
-                    echo "<script>
-             alert('Podcasten er uploaded!'); 
-             window.history.go(-1);
-                 </script>";
-
+                    http_response_code(201);
+                    echo json_encode(array('Upload' => true));
+                    header('Location: ../../../uploadPodcast.html');
                 } else {
-                    echo "<script>
-             alert('Der skete en fejl under upload, prøv igen!'); 
-             window.history.go(-1);
-                 </script>";
+                    http_response_code(301);
+                    echo json_encode(array('Upload' => false, 'Der skete en fejl under upload, prøv igen' => ''));
+                    header('Location: ../../../uploadArtikel.html');
                 }
 
             } else {
@@ -408,7 +404,7 @@ Class logic {
 
                 if ($article->upload($path)) {
                     http_response_code(201);
-                    echo json_encode(array('Upload' => true));
+                    header('Location: http://waih.dk/uploadArtikel.html');
                 } else {
                     http_response_code(301);
                     echo json_encode(array('Upload' => false));
@@ -502,8 +498,50 @@ Class logic {
             }
         } else {
             http_response_code(301);
-            echo json_encode(array('Fil valgt' => false, 'id' => $_REQUEST['id'], 'picturename' => $_FILES['picture']));
+            echo json_encode(array('Fil valgt' => isset($_FILES['picture']), 'id' => $_REQUEST['id'], 'picturename' => $_FILES['picture']));
         }
+    }
+
+    function deleteArtikel() {
+
+        include_once './Model/Article.php';
+
+        $database = new WaihDB();
+        $db = $database->getConnection();
+        $article = new Article($db);
+        $id = $_GET['id'];
+
+        try {
+            $path = $article->getPathToPicture($id);
+
+            if (unlink('..' . $path)) {
+                unset($path);
+
+                $stmt = $article->deletePic($id);
+
+                $num = $stmt->rowCount();
+
+
+                if ($num>0) {
+                    http_response_code(200);
+                    echo json_encode(array('isDeleted' => true, 'rowsAffected' => $num));
+                } else{
+                    http_response_code(400);
+                    echo json_encode(array('num' => $num, 'id' => $_GET['id']));
+                }
+
+
+            } else {
+                http_response_code(300);
+                echo json_encode(array('Picture deleted' => false));
+            }
+        } catch (ErrorException $err) {
+            http_response_code(300);
+            echo $err;
+        }
+
+
+
     }
 
     //Program endpoints

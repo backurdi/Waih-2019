@@ -141,6 +141,18 @@ class Article
 
     }
 
+    function deletePic($id) {
+
+        $this->id = $id;
+
+        $query = 'DELETE FROM ' . $this->table_name . ' WHERE id = ' . $this->id;
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
     
     
 }

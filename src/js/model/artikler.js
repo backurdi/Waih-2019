@@ -34,9 +34,23 @@ export default class Artikler {
         try {
             id = id ? '?id=' + id : '';
             const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/updatePic/${id}`, data,
-            {headers: {'Content-Type' : 'multipart/form-data'}
+            {headers: {
+                    contentType: false,
+                    processData: false,}
                 });
             this.results = artiklerResults.data.update;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    async deleteArtikel(id) {
+        try {
+            id = id ? '?id=' + id : '';
+            const artiklerResults = await axios(`http://waih.dk/WaihAPI/artikel/delete/${id}`);
+            this.results = artiklerResults.data;
             console.log(this.results);
 
         } catch (err) {

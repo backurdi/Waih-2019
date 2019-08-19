@@ -59,6 +59,10 @@ if ($requestMethod) {
                 case 'updatePic':
                     $logic->updateArtikelPic();
                 break;
+
+                case 'delete':
+                    $logic->deleteArtikel();
+                    break;
             }
         break;
         case 'program':

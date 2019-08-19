@@ -39,7 +39,9 @@ const replaceContent = (el) => {
 artikel();
 
 
-const updateAttr = async (id, prop, data) => {
+const updateAttr = async (prop, data) => {
+    id = window.location.hash.replace(/\D/g, '');
+
     try {
         await state.artikel.updateAttr(id, prop, data);
 
@@ -50,11 +52,28 @@ const updateAttr = async (id, prop, data) => {
     }
 }
 
-const updatePic = async (id) => {
+const deleteArtikel = async () => {
     id = window.location.hash.replace(/\D/g, '');
 
     try {
-        await state.artikel.updatePic(id);
+        await state.artikel.deleteArtikel(id);
+
+        console.log('artikel deleted')
+        window.location.href = "http://waih.dk/dashboard.html#art";
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const updatePic = async (id) => {
+    id = window.location.hash.replace(/\D/g, '');
+    let formData = new FormData();
+    formData.append('picture', document.getElementById('picture').files[0]);
+
+    console.log(formData.has('picture'));
+    try {
+        await state.artikel.updatePic(id, formData);
 
         console.log('updatepic:true')
 
@@ -74,20 +93,25 @@ $('.input').on('focus', (e) => {
 $('.input').on('blur', (e) => {
     newValue = e.currentTarget.value;
     if (oldValue !== newValue) {
-        updateAttr(id, e.currentTarget.dataset.prop, newValue)
+        updateAttr(e.currentTarget.dataset.prop, newValue)
     } else {
         console.log('ingen ændring')
     }
 });
 
 $('select').on('change', (e) => {
-    updateAttr(id, 'type', e.currentTarget.value);
+    updateAttr('type', e.currentTarget.value);
 });
 
 $("input[type=file]").on('click' , () => {
     $(this).val("");
 });
 $('input[type=file]').on('change', (e) => {
+    updatePic();
 
-    updatePic()
+})
+
+$('#delete').on('click', (e) => {
+    let confirmation = confirm('Er du sikker på at du vil slette denne artikel?');3
+    if (confirmation) deleteArtikel();
 })

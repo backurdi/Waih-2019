@@ -205,11 +205,7 @@ if (checkForTokenInCookies()) {
 
 
 window.onload = function () {
-    if (window.location.hash) {
-        window.location.hash = ""
-    }
     checkHash();
-
 }
 
 window.addEventListener('hashchange', function () {
