@@ -25,12 +25,19 @@ const seneste = async () => {
             storArtikel.title = storArtikel.title.substring(0, 65) + " ...";
         }
         let lilleArtikel1 = state.seneste.results.articles[1];
-        if (lilleArtikel1.title.length > 65) {
-            lilleArtikel1.title = lilleArtikel1.title.substring(0, 65) + " ...";
+        if (lilleArtikel1.title.length > 30 && $(window).width() > 600) {
+            lilleArtikel1.title = lilleArtikel1.title.substring(0, 30) + " ...";
         }
+        if (lilleArtikel1.title.length > 40 && $(window).width() < 600) {
+            lilleArtikel1.title = lilleArtikel1.title.substring(0, 40) + " ...";
+        }
+
         let lilleArtikel2 = state.seneste.results.articles[2];
-        if (lilleArtikel2.title.length > 40) {
-            lilleArtikel2.title = lilleArtikel2.title.substring(0, 40) + " ...";
+        if (lilleArtikel2.title.length > 30 && $(window).width() > 600) {
+            lilleArtikel2.title = lilleArtikel2.title.substring(0, 30) + " ...";
+        }
+        if (lilleArtikel2.title.length > 50 && $(window).width() < 600) {
+            lilleArtikel2.title = lilleArtikel2.title.substring(0, 50) + " ...";
         }
 
         $('.article-content').attr('data-id', storArtikel.id);
