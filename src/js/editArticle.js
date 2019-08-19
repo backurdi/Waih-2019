@@ -45,15 +45,7 @@ const updateAttr = async (prop, data) => {
     try {
         await state.artikel.updateAttr(id, prop, data);
 
-        console.log('update:true');
-        const button = document.getElementById('submit');
-
-        button.style.backgroundColor = "limeGreen";
-        setTimeout(() => {
-            button.style.backgroundColor = "white";
-
-        }, 800);
-
+        return true;
     } catch (error) {
         console.log(error)
     }
@@ -82,19 +74,7 @@ const updatePic = async (id) => {
     try {
         await state.artikel.updatePic(id, formData);
 
-        console.log('updatepic:true');
-
-        const button = document.getElementById('submit');
-
-        button.style.backgroundColor = "limeGreen";
-        setTimeout(() => {
-            button.style.backgroundColor = "white";
-
-        }, 800);
-
-
-
-
+        return true;
     } catch (error) {
         console.log(error)
     }
@@ -111,7 +91,8 @@ $('.input').on('focus', (e) => {
 $('.input').on('blur', (e) => {
     newValue = e.currentTarget.value;
     if (oldValue !== newValue) {
-        updateAttr(e.currentTarget.dataset.prop, newValue)
+        if (updateAttr(e.currentTarget.dataset.prop, newValue)) updateEffect(e.currentTarget);
+
     } else {
         console.log('ingen ændring')
     }
@@ -125,20 +106,25 @@ $("input[type=file]").on('click', () => {
     $(this).val("");
 });
 $('input[type=file]').on('change', (e) => {
-    updatePic();
+    if (updatePic()) updateEffect(e.currentTarget);
 
-});
-
-$('input[type=button]').on('click', (e) => {
-    e.target.style.backgroundColor = "limeGreen";
-    setTimeout(() => {
-        e.target.style.backgroundColor = "white";
-
-    }, 800);
 });
 
 $('#delete').on('click', (e) => {
     let confirmation = confirm('Er du sikker på at du vil slette denne artikel?');
-    3
     if (confirmation) deleteArtikel();
 })
+
+const updateEffect = (elem) => {
+    let submit = document.getElementById('submit');
+    elem.style.borderColor = "limeGreen";
+    submit.style.backgroundColor = "limeGreen";
+    submit.value = 'Gemmer';
+        setTimeout(() => {
+            elem.style.borderColor = "black";
+            submit.style.backgroundColor = "white";
+            submit.value = 'Gem ændringer';
+        }, 800);
+
+
+}

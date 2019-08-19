@@ -24,6 +24,7 @@ h1 {
     }
 
     input{
+        caret-color: #000;
         grid-area: 1 / 5 / -1/ -1;
         height: 50%;
         width: 50%;
@@ -54,8 +55,8 @@ html {
 
     input,
     label {
+        caret-color: #000;
         grid-column: 2 / 2;
-        caret-color: transparent;
         background-color: inherit;
         cursor: text;
         padding: 15px;
@@ -158,7 +159,6 @@ html {
 
     textarea {
         grid-column: 2 / 2;
-        caret-color: black;
         overflow: hidden;
         margin: 1em;
         -webkit-transition: all 0.65s;
@@ -269,7 +269,7 @@ html {
 
     input,
     label {
-        caret-color: transparent;
+        caret-color: #000;
         background-color: transparent;
         padding: 10px;
         box-shadow: 2px 2px 8px rgba(black, .3);

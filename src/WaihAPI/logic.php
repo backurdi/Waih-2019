@@ -431,13 +431,16 @@ Class logic {
         $database = new WaihDB();
         $db = $database->getConnection();
         $article = new Article($db);
+        $id = $_GET['id'];
+        $attr = $_GET['attr'];
+        $newValue = $_GET['newValue'];
 
-        if( isset($_GET['id']) && isset($_GET['attr']) && isset($_GET['newValue']))
+        if( isset($id) && isset($attr) && isset($newValue))
         {
-            $stmt = $article->updateAttr($_GET['id'], $_GET['attr'], $_GET['newValue']);
+            $stmt = $article->updateAttr($id, $attr, $newValue);
         } else {
             http_response_code(400);
-            echo json_encode(array('id' => $_GET['id'],'attr' => $_GET['attr'], 'newValue' => $_GET['newValue'] ));
+            echo json_encode(array('id' => $id,'attr' => $attr, 'newValue' => $newValue ));
         }
 
         $num = $stmt->rowCount();
@@ -448,7 +451,7 @@ Class logic {
             echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
         } else{
             http_response_code(400);
-            echo json_encode(array('num' => $num, 'param' => $_GET['param'], 'newValue' => $_GET['newValue'] ));
+            echo json_encode(array('num' => $num, 'attr' => $attr, 'newValue' => $newValue ));
         }
 
 
@@ -517,7 +520,7 @@ Class logic {
             if (unlink('..' . $path)) {
                 unset($path);
 
-                $stmt = $article->deletePic($id);
+                $stmt = $article->deleteArtikel($id);
 
                 $num = $stmt->rowCount();
 

@@ -175,8 +175,8 @@ const loadArtikler = () => {
         filterFunction();
     });
 
-    $('.artikel img').click((e) => {
-        const targetArtikel = e.target.parentElement.id;
+    $('.artikel .artikel-content').click((e) => {
+        const targetArtikel = e.currentTarget.id;
         window.location.href = `editArticle.html#${targetArtikel}`;
     });
 };

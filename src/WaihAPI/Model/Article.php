@@ -141,7 +141,7 @@ class Article
 
     }
 
-    function deletePic($id) {
+    function deleteArtikel($id) {
 
         $this->id = $id;
 
