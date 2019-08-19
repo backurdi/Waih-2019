@@ -21,6 +21,9 @@ const artikel = async () => {
         await state.artikler.getResults(id);
         console.log(state)
 
+        const text = state.artikler.results[0].body
+        const res = text.replace(/%citat%/g, '<div class="quote"></div>')
+
         if (window.location.hash) {
             $('#top').attr('src', `${state.artikler.results[0].picture}`);
             $('#type').html(state.artikler.results[0].type);
@@ -28,7 +31,7 @@ const artikel = async () => {
             $('#subtitle').html(state.artikler.results[0].subtitle);
             $('#author').html(state.artikler.results[0].author);
             $('#date').html(state.artikler.results[0].date);
-            $('#body').html(state.artikler.results[0].body);
+            $('#body').html(res);
             $('#type').html(state.artikler.results[0].type);
             $('.quote').html('<i class="fas fa-quote-left"></i>' + state.artikler.results[0].quote);
             $('#facebookShare').attr('href', `urlhttps://www.facebook.com/sharer.php?u=waih.dk/artikel.html#11`);
@@ -80,11 +83,11 @@ const loadArtikler = () => {
 };
 
 $('#linkCopy').click(() => {
-    navigator.clipboard.writeText(document.location.href)
-        .then(() => {
-            console.log('copied');
-        }).catch(err => {
-            // This can happen if the user denies clipboard permissions:
-            console.error('Could not copy text: ', err);
-        });
+    const copyText = document.location.href;
+    const copyInput = document.createElement('input');
+    copyInput.value = copyText;
+    document.querySelector('body').appendChild(copyInput)
+    copyInput.select();
+    document.execCommand("copy");
+    document.querySelector('body').removeChild(copyInput)
 });
