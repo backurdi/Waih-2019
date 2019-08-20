@@ -26,6 +26,7 @@ const artikel = async () => {
 
         if (window.location.hash) {
             $('#top').attr('src', `${state.artikler.results[0].picture}`);
+            $('#picture-text').html(state.artikler.results[0].pictureText);
             $('#type').html(state.artikler.results[0].type);
             $('#title').html(state.artikler.results[0].title);
             $('#subtitle').html(state.artikler.results[0].subtitle);

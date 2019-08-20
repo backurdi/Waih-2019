@@ -14,6 +14,7 @@ const items = {
     type: document.getElementById('type'),
     quote: document.getElementById('quote'),
     body: document.getElementById('description'),
+    pictureText: document.getElementById('pictureText'),
 };
 let keys = Object.keys(items);
 let state = {};
@@ -120,11 +121,11 @@ const updateEffect = (elem) => {
     elem.style.borderColor = "limeGreen";
     submit.style.backgroundColor = "limeGreen";
     submit.value = 'Gemmer';
-        setTimeout(() => {
-            elem.style.borderColor = "black";
-            submit.style.backgroundColor = "white";
-            submit.value = 'Gem ændringer';
-        }, 800);
+    setTimeout(() => {
+        elem.style.borderColor = "black";
+        submit.style.backgroundColor = "white";
+        submit.value = 'Gem ændringer';
+    }, 800);
 
 
 }

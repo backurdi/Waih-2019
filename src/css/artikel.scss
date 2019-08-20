@@ -14,17 +14,31 @@
         }
     }
 
-    #top {
-        margin: 0 auto;
-        width: 80%;
-        font-size: 80%;
-        color: black;
-        font-size: 80%;
+    .picture-container {
+        width: 100%;
         display: flex;
-        justify-content: flex-end;
-        align-content: flex-end;
-        flex-direction: column;
-        margin-bottom: 15px;
+        justify-content: center;
+
+        div {
+            width: 80%;
+
+            #top {
+                width: 100%;
+                font-size: 80%;
+                color: black;
+                font-size: 80%;
+                display: flex;
+                justify-content: flex-end;
+                align-content: flex-end;
+                flex-direction: column;
+            }
+
+            #picture-text {
+                color: #bdbdbd;
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+        }
     }
 
     #content {
@@ -164,7 +178,6 @@
 
         #top {
             padding: 20px 0 0% 0%;
-            margin-bottom: 20px;
 
             h1 {
                 text-align: left;

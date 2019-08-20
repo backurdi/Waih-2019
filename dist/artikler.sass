@@ -109,17 +109,25 @@
     color: white;
     font-size: 200%; }
 
-.artiklen #top {
-  margin: 0 auto;
-  width: 80%;
-  font-size: 80%;
-  color: black;
-  font-size: 80%;
+.artiklen .picture-container {
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-content: flex-end;
-  flex-direction: column;
-  margin-bottom: 15px; }
+  justify-content: center; }
+  .artiklen .picture-container div {
+    width: 80%; }
+    .artiklen .picture-container div #top {
+      width: 100%;
+      font-size: 80%;
+      color: black;
+      font-size: 80%;
+      display: flex;
+      justify-content: flex-end;
+      align-content: flex-end;
+      flex-direction: column; }
+    .artiklen .picture-container div #picture-text {
+      color: #bdbdbd;
+      font-size: 15px;
+      margin-bottom: 20px; }
 
 .artiklen #content {
   font-size: 1.4em; }
@@ -205,8 +213,7 @@
   .artiklen div {
     width: 100%; }
   .artiklen #top {
-    padding: 20px 0 0% 0%;
-    margin-bottom: 20px; }
+    padding: 20px 0 0% 0%; }
     .artiklen #top h1 {
       text-align: left; }
   #share {
