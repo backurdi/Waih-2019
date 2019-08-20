@@ -666,6 +666,7 @@ html {
     background-color: transparent;
     opacity: 1; }
   .upload_form textarea {
+    white-space: pre-line;
     grid-column: 2 / 2;
     overflow: hidden;
     margin: 1em;
@@ -819,6 +820,7 @@ html {
     -o-transform: translateX(50px);
     transform: translateX(50px); }
   .upload_form-a textarea {
+    white-space: pre-line;
     grid-area: 1 / 2 / lastline / lastline;
     caret-color: #000;
     margin: 1em;

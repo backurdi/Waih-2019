@@ -22,6 +22,7 @@ class Article
     public $quote;
     public $date;
     public $picture;
+    public $pictureText;
 
 
     public function __construct($db)
@@ -82,7 +83,7 @@ class Article
         $this->picture = $path;
         
         //opret query
-        $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, type=:type, picture=:picture, date=:date';
+        $query = 'INSERT INTO ' . $this->table_name . ' SET  title=:title, subtitle=:subtitle, author=:author, body=:body, quote=:quote, type=:type, picture=:picture, pictureText=:pictureText, date=:date';
 
         //gør klar til at køre query
         $stmt =$this->conn->prepare($query);
@@ -94,6 +95,7 @@ class Article
         $this->body=htmlspecialchars(strip_tags($this->body));
         $this->type=htmlspecialchars(strip_tags($this->type));
         $this->quote=htmlspecialchars(strip_tags($this->quote));
+        $this->pictureText=htmlspecialchars(strip_tags($this->pictureText));
 
         //erstat placeholders i query
         $stmt->bindParam(':title',$this->title);
@@ -103,6 +105,7 @@ class Article
         $stmt->bindParam(':type',$this->type);
         $stmt->bindParam(':quote',$this->quote);
         $stmt->bindParam(':picture',$this->picture);
+        $stmt->bindParam(':pictureText',$this->pictureText);
         $stmt->bindParam(':date',$this->date);
 
         //kør query
