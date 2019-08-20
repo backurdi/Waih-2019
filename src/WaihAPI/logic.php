@@ -361,6 +361,7 @@ Class logic {
                     'body' => html_entity_decode($body),
                     'quote' => html_entity_decode($quote),
                     'picture' => $picture,
+                    'pictureText' => $pictureText,
                     'date' => $date
                 );
 
@@ -384,16 +385,18 @@ Class logic {
         $db = $database->getConnection();
         $article = new Article($db);
         $picture = $_FILES['picture'];
-        $name = $picture['name'];
-        $path = "/img-articles/" . basename($name);
+        $name = date('d-m-Y-H:i:s_') . $picture['name'];
+        $path = "../img-articles/" . $name;
 
 
-        if (move_uploaded_file($picture['tmp_name'], '..' . $path)) {
+        if (move_uploaded_file($picture['tmp_name'], $path)) {
             if (isset($_POST['author']) &&
                 isset($_POST['title']) &&
                 isset($_POST['subtitle']) &&
                 isset($_POST['body']) &&
-                isset($_POST['type'])
+                isset($_POST['type']) &&
+                isset($_POST['quote']) &&
+                isset($_POST['pictureText'])
             ){
                 $article->title= $_POST['title'];
                 $article->subtitle= $_POST['subtitle'];
@@ -401,13 +404,13 @@ Class logic {
                 $article->body= $_POST['body'];
                 $article->quote= $_POST['quote'];
                 $article->type= $_POST['type'];
+                $article->pictureText= $_POST['pictureText'];
 
                 if ($article->upload($path)) {
-                    http_response_code(201);
-                    header('Location: http://waih.dk/uploadArtikel.html');
+                    header('Location: http://waih.dk/dashboard.html#art');
                 } else {
                     http_response_code(301);
-                    echo json_encode(array('Upload' => false));
+                    echo json_encode(array('Upload' => false, 'var' => var_dump($_POST)));
                 }
 
             } else {
@@ -431,16 +434,18 @@ Class logic {
         $database = new WaihDB();
         $db = $database->getConnection();
         $article = new Article($db);
-        $id = $_GET['id'];
-        $attr = $_GET['attr'];
-        $newValue = $_GET['newValue'];
+        $id = $_POST['id'];
+        $attr = $_POST['attr'];
+        $newValue = $_POST['newValue'];
 
-        if( isset($id) && isset($attr) && isset($newValue))
+        try {
+        if( isset($_POST['id']) && $_POST['attr'] && $_POST['newValue'])
         {
+
             $stmt = $article->updateAttr($id, $attr, $newValue);
         } else {
             http_response_code(400);
-            echo json_encode(array('id' => $id,'attr' => $attr, 'newValue' => $newValue ));
+            echo json_encode(array('request' => var_dump($_POST), 'id' => var_dump($id),'attr' => var_dump($attr), 'newValue' => var_dump($newValue) ));
         }
 
         $num = $stmt->rowCount();
@@ -450,10 +455,12 @@ Class logic {
             http_response_code(200);
             echo json_encode(array('isUpdated' => true, 'rowsAffected' => $num));
         } else{
-            http_response_code(400);
+            http_response_code(401);
             echo json_encode(array('num' => $num, 'attr' => $attr, 'newValue' => $newValue ));
         }
-
+        } catch (mysqli_sql_exception $err) {
+            echo json_encode(array('error' => $err));
+        }
 
     }
 
@@ -466,11 +473,11 @@ Class logic {
         $article = new Article($db);
 
         if (isset($_FILES['picture'])) {
-            $picture = $article->getPathToPicture($_REQUEST['id']);
+            $path = $article->getPathToPicture($_REQUEST['id']);
 
             try {
-                if (unlink('..' . $picture)) {
-                    unset($picture);
+                if (unlink($path)) {
+                    unset($path);
                 } else {
                     http_response_code(300);
                     echo json_encode(array('Picture deleted' => false));
@@ -481,11 +488,11 @@ Class logic {
             }
 
             $picture = $_FILES['picture'];
-            $name = $picture['name'];
-            $path = "/img-articles/" . basename($name);
+            $name = date('d-m-Y-H:i:s_') . $picture['name'];
+            $path = "../img-articles/" . $name;
 
 
-            if (move_uploaded_file($picture['tmp_name'], '..' . $path)) {
+            if (move_uploaded_file($picture['tmp_name'], $path)) {
 
                     if ($article->updatePic($_REQUEST['id'], $path)) {
                         http_response_code(201);
@@ -517,16 +524,15 @@ Class logic {
         try {
             $path = $article->getPathToPicture($id);
 
-            if (unlink('..' . $path)) {
+            if (unlink($path)) {
                 unset($path);
 
                 $stmt = $article->deleteArtikel($id);
 
                 $num = $stmt->rowCount();
 
-
                 if ($num>0) {
-                    http_response_code(200);
+                    http_response_code(201);
                     echo json_encode(array('isDeleted' => true, 'rowsAffected' => $num));
                 } else{
                     http_response_code(400);

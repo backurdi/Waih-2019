@@ -71,11 +71,10 @@ const updatePic = async (id) => {
     let formData = new FormData();
     formData.append('picture', document.getElementById('picture').files[0]);
 
-    console.log(formData.has('picture'));
     try {
         await state.artikel.updatePic(id, formData);
-
         return true;
+
     } catch (error) {
         console.log(error)
     }
@@ -91,7 +90,9 @@ $('.input').on('focus', (e) => {
 
 $('.input').on('blur', (e) => {
     newValue = e.currentTarget.value;
+    console.log(newValue)
     if (oldValue !== newValue) {
+        console.log(e.currentTarget.dataset.prop);
         if (updateAttr(e.currentTarget.dataset.prop, newValue)) updateEffect(e.currentTarget);
 
     } else {

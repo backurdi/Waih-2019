@@ -22,7 +22,7 @@ const artikel = async () => {
         console.log(state)
 
         const text = state.artikler.results[0].body
-        const res = text.replace(/%citat%/g, '<div class="quote"></div>')
+        const res = text.replace(/%citat%/g, '<div class="quote"></div>');
 
         if (window.location.hash) {
             $('#top').attr('src', `${state.artikler.results[0].picture}`);

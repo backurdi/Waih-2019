@@ -19,9 +19,13 @@ export default class Artikler {
     }
 
     async updateAttr(id, attr, newValue) {
+        let formData = new FormData()
+        formData.append('id', id);
+        formData.append('attr', attr);
+        formData.append('newValue', newValue);
         try {
-            let query = id ? `?id=${id}&attr=${attr}&newValue=${newValue}` : '';
-            const artiklerResults = await axios(`http://waih.dk/WaihAPI/artikel/updateAttr/${query}`);
+            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/updateAttr/`,
+                formData);
             this.results = artiklerResults.data.update;
             console.log(this.results);
 
