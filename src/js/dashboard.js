@@ -48,9 +48,15 @@ const deletePodcast = async (id, index) => {
 const updatePodcast = async (id, param, newValue, target, oldVal) => {
     try {
         await state.podcast.update(id, param, newValue)
+
+        target.style.borderColor = 'limeGreen';
+        setTimeout(() => {target.style.borderColor = 'black';},800)
+
     } catch (err) {
         alert(`Fejl: ${param} kunne ikke opdateres pga følgende:\n${err}`)
         target.innerText = oldVal;
+        target.style.borderColor = 'red';
+        setTimeout(() => {target.currentTarget.style.borderColor = 'black';},800)
     }
 }
 

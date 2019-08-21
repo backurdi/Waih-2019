@@ -439,7 +439,7 @@ Class logic {
         $newValue = $_POST['newValue'];
 
         try {
-        if( isset($_POST['id']) && $_POST['attr'] && $_POST['newValue'])
+        if( isset($_POST['id']))
         {
 
             $stmt = $article->updateAttr($id, $attr, $newValue);
