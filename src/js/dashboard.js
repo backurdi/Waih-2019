@@ -67,49 +67,54 @@ const loadPodcasts = async (id) => {
         await state.podcast.get(id);
         console.log(state.podcast.results);
 
-        for (let podcast of state.podcast.results) {
 
-            let podRow =
-                `<tr class="animated fadeIn" data-id="${podcast.id}">
-                    <td data-param="title" contenteditable>${podcast.title}</td>   
-                    <td data-param="hostname" contenteditable>${podcast.hostname}</td>     
-                    <td data-param="guestname" contenteditable>${podcast.guestname}</td>
-                    <td data-param="description" contenteditable>${podcast.description}</td>    
-                    <td style="padding: 0"><input data-id="${podcast.id}" type="button" class="slet" value="Slet"></td>    
-                    <td class="gem" style="padding: 0"><input data-id="${podcast.id}" type="button" value="Gem"></td>    
-                 </tr>`;
-            tbody.insertAdjacentHTML('beforeEnd', podRow);
-        }
-        let title, podId, index, param, oldValue, newValue;
+        if( state.podcast.results.message === 'Tabel er tom' ) {
 
-        $('.slet').on('click', (e) => {
-            title = e.currentTarget.parentNode.parentNode.firstElementChild.innerHTML;
-            podId = e.currentTarget.dataset.id;
-            index = e.currentTarget.parentNode.parentNode.rowIndex;
-            if (confirm('Er du sikker på at du vil slette podcasten med titlen: \n"' + title + '" ?')) {
-                deletePodcast(podId, index);
+        }  else {
+            for (let podcast of state.podcast.results) {
+
+                let podRow =
+                    `<tr class="animated fadeIn" data-id="${podcast.id}">
+                        <td data-param="title" contenteditable>${podcast.title}</td>   
+                        <td data-param="hostname" contenteditable>${podcast.hostname}</td>     
+                        <td data-param="guestname" contenteditable>${podcast.guestname}</td>
+                        <td data-param="description" contenteditable>${podcast.description}</td>    
+                        <td style="padding: 0"><input data-id="${podcast.id}" type="button" class="slet" value="Slet"></td>    
+                        <td class="gem" style="padding: 0"><input data-id="${podcast.id}" type="button" value="Gem"></td>    
+                     </tr>`;
+                tbody.insertAdjacentHTML('beforeEnd', podRow);
             }
-        });
-        $('td').on('focus', (e) => {
-            podId = e.currentTarget.parentNode.dataset.id;
-            param = e.currentTarget.dataset.param;
-            oldValue = e.currentTarget.innerText;
-            $('td').on('keyup', (e) => {
-                if (e.target.innerText !== oldValue) {
-                    e.currentTarget.parentNode.lastElementChild.style.opacity = 1;
+            let title, podId, index, param, oldValue, newValue;
+
+            $('.slet').on('click', (e) => {
+                title = e.currentTarget.parentNode.parentNode.firstElementChild.innerHTML;
+                podId = e.currentTarget.dataset.id;
+                index = e.currentTarget.parentNode.parentNode.rowIndex;
+                if (confirm('Er du sikker på at du vil slette podcasten med titlen: \n"' + title + '" ?')) {
+                    deletePodcast(podId, index);
                 }
             });
+            $('td').on('focus', (e) => {
+                podId = e.currentTarget.parentNode.dataset.id;
+                param = e.currentTarget.dataset.param;
+                oldValue = e.currentTarget.innerText;
+                $('td').on('keyup', (e) => {
+                    if (e.target.innerText !== oldValue) {
+                        e.currentTarget.parentNode.lastElementChild.style.opacity = 1;
+                    }
+                });
 
-        });
-        $('td').on('blur', (e) => {
-            newValue = e.currentTarget.innerText;
-            if (oldValue !== newValue) {
-                updatePodcast(podId, param, newValue, e.currentTarget, oldValue)
-                e.currentTarget.parentNode.lastElementChild.style.opacity = 0;
-            } else {
-                console.log(false)
-            }
-        });
+            });
+            $('td').on('blur', (e) => {
+                newValue = e.currentTarget.innerText;
+                if (oldValue !== newValue) {
+                    updatePodcast(podId, param, newValue, e.currentTarget, oldValue)
+                    e.currentTarget.parentNode.lastElementChild.style.opacity = 0;
+                } else {
+                    console.log(false)
+                }
+            });
+        }
 
     } catch (err) {
         console.log('Something went wrong with the search, try again later', err)

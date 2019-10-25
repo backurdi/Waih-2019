@@ -295,12 +295,12 @@ Class logic {
 
                 if ($podcast->upload($path)) {
                     http_response_code(201);
-                    echo json_encode(array('Upload' => true));
-                    header('Location: ../../../uploadPodcast.html');
+                    $success = true;
+                    echo json_encode($success);
+
                 } else {
                     http_response_code(301);
                     echo json_encode(array('Upload' => false, 'Der skete en fejl under upload, prøv igen' => ''));
-                    header('Location: ../../../uploadArtikel.html');
                 }
 
             } else {

@@ -30,4 +30,13 @@ export default class Podcast {
             alert(error);
         }
     }
+    async upload(formdata) {
+        try {
+            const podcastResults = await axios.post(`http://waih.dk/WaihAPI/podcast/post`,
+                formdata);
+            this.results = podcastResults.data;
+        } catch (error) {
+            alert(error);
+        }
+    }
 }
