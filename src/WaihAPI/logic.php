@@ -407,7 +407,9 @@ Class logic {
                 $article->pictureText= $_POST['pictureText'];
 
                 if ($article->upload($path)) {
-                    header('Location: http://waih.dk/dashboard.html#art');
+                    http_response_code(200);
+                    $success = true;
+                    echo json_encode($success);
                 } else {
                     http_response_code(301);
                     echo json_encode(array('Upload' => false, 'var' => var_dump($_POST)));
