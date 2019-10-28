@@ -89,14 +89,14 @@ const articleForm = document.getElementById('uploadArticle');
 podcastForm.addEventListener('submit', async e  => {
     e.preventDefault();
 
-    const title = document.getElementById('title')
-    const subtitle = document.getElementById('subtitle')
-    const author = document.getElementById('author')
-    const type = document.getElementById('type')
-    const quote = document.getElementById('quote')
+    const title = document.getElementById('title').value;
+    const subtitle = document.getElementById('subtitle').value;
+    const author = document.getElementById('author').value;
+    const type = document.getElementById('type').value;
+    const quote = document.getElementById('quote').value;
+    const pictureText = document.getElementById('pictureText').value;
+    const body = document.getElementById('description').value;
     const picture = document.querySelector('[type=file]').files;
-    const pictureText = document.getElementById('pictureText')
-    const body = document.getElementById('description')
     const formData = new FormData();
 
     formData.append('title', title);
