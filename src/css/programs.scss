@@ -1,16 +1,16 @@
 /*------------------------ Programs ------------------------*/
 body {
   min-height: 100vh;
-  background: #255877;
 }
 
 .programs-container {
-  margin-top: 20px;
+  background: #255877;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   padding: 0 10%;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   min-height: 80vh;
 
   .img-wrapper {
@@ -26,20 +26,21 @@ body {
     border: 1px solid #fff;
     border-bottom: transparent;
 
-
-    &:hover+div,
+    &:hover + div,
     &:hover {
       -webkit-transform: scale(1.03);
       -moz-transform: scale(1.03);
       -ms-transform: scale(1.03);
       -o-transform: scale(1.03);
       transform: scale(1.03);
-
+      background-color: #fff;
+      color: #255877;
+      cursor: pointer;
     }
   }
 
   .programs-title-container {
-    background-color: #187dc0;
+    border: 1px solid #fff;
     padding: 15px 0 15px 20px;
     border-radius: 0 0 0 20px;
     -webkit-transition: all 500ms;
@@ -48,13 +49,22 @@ body {
     -o-transition: all 500ms;
     transition: all 500ms;
 
+    &:hover {
+      background-color: #fff;
+      color: #255877;
+      cursor: pointer;
+    }
+
     h3 {
       font-size: 1.4em;
     }
   }
 }
 
-
+.program-container {
+  background: #255877;
+  padding: 20px 0;
+}
 .title {
   text-align: center;
   font-size: 4em;
@@ -63,12 +73,11 @@ body {
   color: #fff;
 }
 
-.program-container {
+.program-info-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 20px;
   padding: 30px 10%;
-
 
   .img-wrapper {
     margin-top: 20px;
@@ -81,6 +90,11 @@ body {
     margin-top: 1em;
     font-size: 1.35em;
     text-align: justify;
+
+    h3,
+    h4 {
+      margin-bottom: 20px;
+    }
   }
 
   .podcasts {
@@ -110,7 +124,6 @@ body {
     .plyr--audio .plyr__volume--display {
       background: rgb(68, 73, 87);
     }
-
   }
 }
 
