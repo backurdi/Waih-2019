@@ -61,5 +61,15 @@ export default class Artikler {
             alert(err)
         }
     }
+    async postArtikel(formdata) {
+        try {
+            const artiklerResults = await axios.post(`http://waih.dk/WaihAPI/artikel/post/`, formdata);
+            this.results = artiklerResults.data;
+            console.log(this.results);
+
+        } catch (err) {
+            alert(err)
+        }
+    }
 
 }

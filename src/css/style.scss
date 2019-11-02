@@ -168,7 +168,7 @@ header {
     //   }
     // }
     .logo-container {
-      margin-top: 100px;
+      margin-top: 75px;
       text-align: center;
 
       .logo {
@@ -178,110 +178,12 @@ header {
   }
 }
 
-// .salah-mobil {
-//   div {
-//     z-index: 10;
-//     background-color: #293443;
-//     border-radius: 50%;
-//     text-align: center;
-//     width: 80px;
-//     height: 80px;
-//     padding: 15px;
-//     position: fixed;
-//     right: 5px;
-//     bottom: 5px;
-
-//     img {
-//       width: 80%;
-//     }
-//   }
-
-//   ul {
-//     li {
-//       z-index: 5;
-//       padding: 20px 0;
-//       height: 70px;
-//       width: 70px;
-//       position: fixed;
-//       right: 10px;
-//       bottom: 10px;
-//       background-color: #293443;
-//       text-align: center;
-//       border-radius: 50%;
-//       transition: all 1000ms;
-//       list-style: none;
-
-//       h3 {
-//         font-size: 1.2em;
-//       }
-//     }
-
-//   }
-
-//   .salah-active {
-//     li:nth-child(1) {
-//       -webkit-transform: translateY(-480px);
-//       -moz-transform: translateY(-480px);
-//       -ms-transform: translateY(-480px);
-//       -o-transform: translateY(-480px);
-//       transform: translateY(-480px);
-//     }
-
-//     li:nth-child(2) {
-//       -webkit-transform: translateY(-400px);
-//       -moz-transform: translateY(-400px);
-//       -ms-transform: translateY(-400px);
-//       -o-transform: translateY(-400px);
-//       transform: translateY(-400px);
-//     }
-
-//     :nth-child(3) {
-//       -webkit-transform: translateY(-320px);
-//       -moz-transform: translateY(-320px);
-//       -ms-transform: translateY(-320px);
-//       -o-transform: translateY(-320px);
-//       transform: translateY(-320px);
-//     }
-
-//     :nth-child(4) {
-//       -webkit-transform: translateY(-240px);
-//       -moz-transform: translateY(-240px);
-//       -ms-transform: translateY(-240px);
-//       -o-transform: translateY(-240px);
-//       transform: translateY(-240px);
-//     }
-
-//     :nth-child(5) {
-//       -webkit-transform: translateY(-160px);
-//       -moz-transform: translateY(-160px);
-//       -ms-transform: translateY(-160px);
-//       -o-transform: translateY(-160px);
-//       transform: translateY(-160px);
-//     }
-
-//     :nth-child(6) {
-//       -webkit-transform: translateY(-80px);
-//       -moz-transform: translateY(-80px);
-//       -ms-transform: translateY(-80px);
-//       -o-transform: translateY(-80px);
-//       transform: translateY(-80px);
-//     }
-//   }
-
-//   #salah-time {
-//     background-color: #fff;
-//     color: #293443;
-//     border: 3px solid #4AD8F5;
-//   }
-
-// }
-
 //Hero sektion
 #hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
-  margin: 100px 0 80px 0;
+  margin: 30px 0 80px 0;
 
   .titel {
     grid-column: 1 / -1;
@@ -728,6 +630,7 @@ footer {
       grid-template-columns: 1fr;
     }
   }
+
 }
 
 @media only screen and (max-width: 600px) {

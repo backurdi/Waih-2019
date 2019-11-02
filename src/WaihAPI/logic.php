@@ -295,12 +295,12 @@ Class logic {
 
                 if ($podcast->upload($path)) {
                     http_response_code(201);
-                    echo json_encode(array('Upload' => true));
-                    header('Location: ../../../uploadPodcast.html');
+                    $success = true;
+                    echo json_encode($success);
+
                 } else {
                     http_response_code(301);
                     echo json_encode(array('Upload' => false, 'Der skete en fejl under upload, prøv igen' => ''));
-                    header('Location: ../../../uploadArtikel.html');
                 }
 
             } else {
@@ -407,7 +407,9 @@ Class logic {
                 $article->pictureText= $_POST['pictureText'];
 
                 if ($article->upload($path)) {
-                    header('Location: http://waih.dk/dashboard.html#art');
+                    http_response_code(200);
+                    $success = true;
+                    echo json_encode($success);
                 } else {
                     http_response_code(301);
                     echo json_encode(array('Upload' => false, 'var' => var_dump($_POST)));
@@ -439,7 +441,7 @@ Class logic {
         $newValue = $_POST['newValue'];
 
         try {
-        if( isset($_POST['id']) && $_POST['attr'] && $_POST['newValue'])
+        if( isset($_POST['id']))
         {
 
             $stmt = $article->updateAttr($id, $attr, $newValue);
