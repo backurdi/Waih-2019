@@ -13,7 +13,6 @@ module.exports = {
         artikler: './src/js/artikler.js',
         dashboard: './src/js/dashboard.js',
         editArticle: './src/js/editArticle.js',
-        salah: './src/js/salah.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
